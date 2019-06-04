@@ -78,7 +78,10 @@ if ( ! function_exists( 'emma_setup' ) ) :
 			'width'       => 250,
 			'flex-width'  => true,
 			'flex-height' => true,
-		) );
+    ) );
+
+    // Add support for full and wide align images.
+		add_theme_support( 'align-wide' );
 	}
 endif;
 add_action( 'after_setup_theme', 'emma_setup' );
