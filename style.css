@@ -25,6 +25,8 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Normalize
 # Typography
 # Elements
+# Header
+# Footer
 # Forms
 # Navigation
 	## Links
@@ -35,7 +37,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Widgets
 # Content
 	## Posts and pages
-	## Comments
+  ## Comments
+# Gutenberg
+  ## Blocks
 # Infinite scroll
 # Media
 	## Captions
@@ -456,6 +460,21 @@ figure {
 table {
   margin: 0 0 1.5em;
   width: 100%; }
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+.site-header {
+  background-color: #fff; }
+
+/*--------------------------------------------------------------
+## Sticky Header
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.site-footer {
+  background-color: #f3f3f3; }
 
 /*--------------------------------------------------------------
 # Forms

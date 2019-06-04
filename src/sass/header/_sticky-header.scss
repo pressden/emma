@@ -1,0 +1,14 @@
+.site-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+
+  .shrink & {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .admin-bar & {
+    top: 32px;
+  }
+}
