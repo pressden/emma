@@ -4,6 +4,10 @@
 	float: left;
 	width: 100%;
 
+  .menu-primary-container {
+    @include center-wrap($size__wrap-main-navigation);
+  }
+
 	ul {
 		display: none;
 		list-style: none;

@@ -1,3 +1,7 @@
 .site-footer {
   background-color: $color__background-footer;
+
+  .wrap {
+    @include center-wrap($size__wrap-footer);
+  }
 }

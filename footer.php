@@ -14,19 +14,21 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'emma' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'emma' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'emma' ), 'emma', '<a href="https://dswebs.me/">D.S. Webster</a>' );
-				?>
-		</div><!-- .site-info -->
+    <div class="wrap">
+      <div class="site-info">
+        <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'emma' ) ); ?>">
+          <?php
+          /* translators: %s: CMS name, i.e. WordPress. */
+          printf( esc_html__( 'Proudly powered by %s', 'emma' ), 'WordPress' );
+          ?>
+        </a>
+        <span class="sep"> | </span>
+          <?php
+          /* translators: 1: Theme name, 2: Theme author. */
+          printf( esc_html__( 'Theme: %1$s by %2$s.', 'emma' ), 'emma', '<a href="https://dswebs.me/">D.S. Webster</a>' );
+          ?>
+      </div><!-- .site-info -->
+    </div><!-- .wrap -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

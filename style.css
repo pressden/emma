@@ -466,6 +466,10 @@ table {
 --------------------------------------------------------------*/
 .site-header {
   background-color: #fff; }
+  .site-header .wrap {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px; }
 
 /*--------------------------------------------------------------
 ## Sticky Header
@@ -475,6 +479,10 @@ table {
 --------------------------------------------------------------*/
 .site-footer {
   background-color: #f3f3f3; }
+  .site-footer .wrap {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px; }
 
 /*--------------------------------------------------------------
 # Forms
@@ -575,6 +583,10 @@ a {
   display: block;
   float: left;
   width: 100%; }
+  .main-navigation .menu-primary-container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px; }
   .main-navigation ul {
     display: none;
     list-style: none;
