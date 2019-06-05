@@ -582,7 +582,8 @@ a {
   clear: both;
   display: block;
   float: left;
-  width: 100%; }
+  width: 100%;
+  background-color: #efefef; }
   .main-navigation .menu-primary-container {
     margin-left: auto;
     margin-right: auto;
@@ -598,7 +599,8 @@ a {
       position: absolute;
       top: 100%;
       left: -999em;
-      z-index: 99999; }
+      z-index: 99999;
+      background-color: #fff; }
       .main-navigation ul ul ul {
         left: -999em;
         top: 0; }
@@ -606,7 +608,9 @@ a {
       .main-navigation ul ul li.focus > ul {
         left: 100%; }
       .main-navigation ul ul a {
-        width: 200px; }
+        width: 200px;
+        padding: 0.5em 0.5em;
+        font-size: 1em; }
     .main-navigation ul li:hover > ul,
     .main-navigation ul li.focus > ul {
       left: auto; }
@@ -615,7 +619,9 @@ a {
     position: relative; }
   .main-navigation a {
     display: block;
-    text-decoration: none; }
+    padding: 0.5em 0.5em;
+    text-decoration: none;
+    font-size: 1.1em; }
 
 /* Small menu. */
 .menu-toggle,

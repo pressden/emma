@@ -3,6 +3,7 @@
 	display: block;
 	float: left;
 	width: 100%;
+  background-color: $color__background-main-navigation;
 
   .menu-primary-container {
     @include center-wrap($size__wrap-main-navigation);
@@ -21,6 +22,7 @@
 			top: 100%;
 			left: -999em;
 			z-index: 99999;
+      background-color: $color__background-main-navigation-sub;
 
 			ul {
 				left: -999em;
@@ -35,7 +37,9 @@
 			}
 
 			a {
-				width: 200px;
+        width: $menu__main-sub-link-width;
+        padding: $menu__main-sub-link-padding-y $menu__main-sub-link-padding-x;
+        font-size: $menu__main-sub-font-size;
 			}
 
 			:hover > a,
@@ -64,7 +68,9 @@
 
 	a {
 		display: block;
-		text-decoration: none;
+    padding: $menu__main-link-padding-y $menu__main-link-padding-x;
+    text-decoration: none;
+    font-size: $menu__main-font-size;
 	}
 
 	.current_page_item > a,
