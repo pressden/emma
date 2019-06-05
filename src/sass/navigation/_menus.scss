@@ -85,7 +85,9 @@
 		display: none;
 	}
 	.main-navigation ul {
-		display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $menu__main-justify-content;
 	}
 }
 
