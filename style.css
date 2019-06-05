@@ -470,6 +470,9 @@ table {
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px; }
+  .site-header .site-branding {
+    padding: 1em 0;
+    text-align: center; }
 
 /*--------------------------------------------------------------
 ## Sticky Header
@@ -845,6 +848,10 @@ object {
 /* Make sure logo link wraps around logo image. */
 .custom-logo-link {
   display: inline-block; }
+
+.custom-logo {
+  max-height: 8em;
+  width: auto; }
 
 /*--------------------------------------------------------------
 ## Captions

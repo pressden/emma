@@ -4,6 +4,11 @@
   .wrap {
     @include center-wrap($size__wrap-header);
   }
+
+  .site-branding {
+    padding: $branding__padding-y $branding__padding-x;
+    text-align: $branding__text-align;
+  }
 }
 
 /*--------------------------------------------------------------
