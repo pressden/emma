@@ -42,10 +42,14 @@ if ( ! function_exists( 'emma_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'emma' ),
-		) );
+    // This theme uses wp_nav_menu() in five locations.
+    register_nav_menus( array(
+      'primary'   => esc_html__( 'Primary Menu', 'emma' ),
+      'utility'   => esc_html__( 'Utility Menu', 'emma' ),
+      'left'      => esc_html__( 'Left Menu', 'emma' ),
+      'right'     => esc_html__( 'Right Menu', 'emma' ),
+      'footer'    => esc_html__( 'Footer Menu', 'emma' ),
+    ) );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
