@@ -25,6 +25,16 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'emma' ); ?></a>
 
 	<header id="masthead" class="site-header">
+    <nav class="utility-navigation">
+      <?php
+      wp_nav_menu( array(
+        'theme_location'  => 'utility',
+        'menu_id'         => 'utility-menu',
+        'depth'           => 1,
+      ) );
+      ?>
+    </nav><!-- #utility-navigation -->
+
     <div class="wrap">
       <div class="site-branding">
         <?php
