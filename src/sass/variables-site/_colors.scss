@@ -4,6 +4,8 @@ $color__background-header: #fff;
 $color__background-footer: #f3f3f3;
 $color__background-main-navigation: #efefef;
 $color__background-main-navigation-sub: #fff;
+$color__background-utility-navigation: #333;
+$color__background-utility-navigation-sub: $color__background-main-navigation-sub;
 $color__background-hr: #ccc;
 $color__background-button: #e6e6e6;
 $color__background-pre: #eee;
@@ -12,10 +14,24 @@ $color__background-ins: #fff9c0;
 $color__text-screen: #21759b;
 $color__text-input: #666;
 $color__text-input-focus: #111;
-$color__link: royalblue;
-$color__link-visited: purple;
-$color__link-hover: midnightblue;
-$color__text-main: #404040;
+$color__text-main: #212529;
+$color__link: #00b9eb;
+$color__link-visited: $color__link;
+$color__link-hover: darken($color__link, 15%);
+
+$color__link-main-navigation: $color__link;
+$color__link-main-navigation-visited: $color__link-visited;
+$color__link-main-navigation-hover: $color__link-hover;
+$color__link-main-navigation-sub: $color__link;
+$color__link-main-navigation-sub-visited: $color__link-visited;
+$color__link-main-navigation-sub-hover: $color__link-hover;
+
+$color__link-utility-navigation: #cdcdcd;
+$color__link-utility-navigation-visited: $color__link-visited;
+$color__link-utility-navigation-hover: #fff;
+$color__link-utility-navigation-sub: $color__link;
+$color__link-utility-navigation-sub-visited: $color__link-visited;
+$color__link-utility-navigation-sub-hover: $color__link-hover;
 
 $color__border-button: #ccc #ccc #bbb;
 $color__border-button-hover: #ccc #bbb #aaa;
