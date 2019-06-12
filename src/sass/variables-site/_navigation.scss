@@ -21,3 +21,20 @@ $menu__utility-sub-link-padding-x: $menu__utility-link-padding;
 $menu__utility-sub-link-padding-y: $menu__utility-link-padding;
 $menu__utility-sub-link-width: $menu__main-sub-link-width;
 $menu__utility-sub-font-size: $menu__utility-font-size;
+
+$menu__split-justify-content: space-between;
+$menu__split-left-justify-content: $menu__split-justify-content;
+$menu__split-right-justify-content: $menu__split-justify-content;
+$menu__split-margin-x: 4em;
+$menu__split-left-margin-right: $menu__split-margin-x;
+$menu__split-right-margin-left: $menu__split-margin-x;
+$menu__split-link-padding: $menu__main-link-padding;
+$menu__split-link-padding-x: $menu__split-link-padding;
+$menu__split-link-padding-y: $menu__split-link-padding;
+$menu__split-font-size: 1em;
+
+$menu__split-sub-link-padding: $menu__split-link-padding;
+$menu__split-sub-link-padding-x: $menu__split-link-padding;
+$menu__split-sub-link-padding-y: $menu__split-link-padding;
+$menu__split-sub-link-width: $menu__main-sub-link-width;
+$menu__split-sub-font-size: $menu__split-font-size;

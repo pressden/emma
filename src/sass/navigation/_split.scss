@@ -1,0 +1,104 @@
+.split-navigation {
+  clear: both;
+  display: block;
+  width: 100%;
+  background-color: $color__background-split-navigation;
+
+  .menu-primary-container {
+    @include center-wrap($size__wrap-split-navigation);
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+
+    @media screen and (min-width: 37.5em) {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    ul {
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+      float: left;
+      position: absolute;
+      top: 100%;
+      left: -999em;
+      z-index: 99999;
+      background-color: $color__background-split-navigation-sub;
+
+      ul {
+        left: -999em;
+        top: 0;
+      }
+
+      li {
+        &:hover > ul,
+        &.focus > ul {
+          left: 100%;
+        }
+      }
+
+      a {
+        width: $menu__split-sub-link-width;
+        padding: $menu__split-sub-link-padding-y $menu__split-sub-link-padding-x;
+        font-size: $menu__split-sub-font-size;
+        color: $color__link-split-navigation-sub;
+      }
+
+      :hover > a,
+      .focus > a {
+        color: $color__link-split-navigation-sub-hover;
+      }
+
+      a:hover,
+      a.focus {
+      }
+    }
+
+    li:hover > ul,
+    li.focus > ul {
+      left: auto;
+    }
+  }
+
+  li {
+    float: left;
+    position: relative;
+
+    &:hover > a,
+    &.focus > a {
+      color: $color__link-split-navigation-hover;
+    }
+  }
+
+  a {
+    display: block;
+    padding: $menu__split-link-padding-y $menu__split-link-padding-x;
+    text-decoration: none;
+    font-size: $menu__split-font-size;
+    color: $color__link-split-navigation;
+  }
+
+  .current_page_item > a,
+  .current-menu-item > a,
+  .current_page_ancestor > a,
+  .current-menu-ancestor > a {
+  }
+}
+
+.split-left-navigation {
+  margin-right: $menu__split-left-margin-right;
+
+  ul {
+    justify-content: $menu__split-left-justify-content;
+  }
+}
+
+.split-right-navigation {
+  margin-left: $menu__split-right-margin-left;
+
+  ul {
+    justify-content: $menu__split-right-justify-content;
+  }
+}
