@@ -30,7 +30,6 @@
       wp_nav_menu( array(
         'theme_location'  => 'utility',
         'menu_id'         => 'utility-menu',
-        'depth'           => 1,
       ) );
       ?>
     </nav><!-- #utility-navigation -->
