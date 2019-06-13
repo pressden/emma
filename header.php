@@ -25,24 +25,30 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'emma' ); ?></a>
 
 	<header id="masthead" class="site-header">
-    <nav id="utility-navigation" class="utility-navigation">
-      <?php
-      wp_nav_menu( array(
-        'theme_location'  => 'utility',
-        'menu_id'         => 'utility-menu',
-      ) );
-      ?>
-    </nav><!-- #utility-navigation -->
 
-    <div class="wrap">
-      <nav id="left-navigation" class="split-navigation split-left-navigation">
+    <?php if ( has_nav_menu( 'utility' ) ) : ?>
+      <nav id="utility-navigation" class="utility-navigation">
         <?php
         wp_nav_menu( array(
-          'theme_location'  => 'left',
-          'menu_id'         => 'left-menu',
+          'theme_location'  => 'utility',
+          'menu_id'         => 'utility-menu',
         ) );
         ?>
-      </nav><!-- #left-navigation -->
+      </nav><!-- #utility-navigation -->
+    <?php endif; ?>
+
+    <div class="wrap">
+
+      <?php if ( has_nav_menu( 'left' ) ) : ?>
+        <nav id="left-navigation" class="split-navigation split-left-navigation">
+          <?php
+          wp_nav_menu( array(
+            'theme_location'  => 'left',
+            'menu_id'         => 'left-menu',
+          ) );
+          ?>
+        </nav><!-- #left-navigation -->
+      <?php endif; ?>
 
       <div class="site-branding">
         <?php
@@ -63,25 +69,31 @@
         <?php endif; ?>
       </div><!-- .site-branding -->
 
-      <nav id="right-navigation" class="split-navigation split-right-navigation">
-        <?php
-        wp_nav_menu( array(
-          'theme_location'  => 'right',
-          'menu_id'         => 'right-menu',
-        ) );
-        ?>
-      </nav><!-- #right-navigation -->
+      <?php if ( has_nav_menu( 'right' ) ) : ?>
+        <nav id="right-navigation" class="split-navigation split-right-navigation">
+          <?php
+          wp_nav_menu( array(
+            'theme_location'  => 'right',
+            'menu_id'         => 'right-menu',
+          ) );
+          ?>
+        </nav><!-- #right-navigation -->
+      <?php endif; ?>
+
     </div><!-- .wrap -->
 
-    <nav id="main-navigation" class="main-navigation">
-      <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'emma' ); ?></button>
-      <?php
-      wp_nav_menu( array(
-        'theme_location'  => 'primary',
-        'menu_id'         => 'primary-menu',
-      ) );
-      ?>
-    </nav><!-- #main-navigation -->
+    <?php if ( has_nav_menu( 'primary' ) ) : ?>
+      <nav id="main-navigation" class="main-navigation">
+        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'emma' ); ?></button>
+        <?php
+        wp_nav_menu( array(
+          'theme_location'  => 'primary',
+          'menu_id'         => 'primary-menu',
+        ) );
+        ?>
+      </nav><!-- #main-navigation -->
+    <?php endif; ?>
+
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
