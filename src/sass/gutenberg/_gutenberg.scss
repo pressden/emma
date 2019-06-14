@@ -1,6 +1,6 @@
 // @TODO: BEGIN Convert to SASS variables
 .entry-content > * {
-  margin: 36px auto;
+  margin: 2em auto;
   max-width: 636px;
   padding-left: 1.5em;
   padding-right: 1.5em;
@@ -11,7 +11,8 @@
 }
 
 .entry-content > .alignfull {
-  margin: 1.5em 0;
+  margin-left: 0;
+  margin-right: 0;
   max-width: 100%;
 }
 // @TODO: END Convert to SASS variables
