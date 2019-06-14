@@ -1,52 +1,52 @@
-$color__background-body: #fff;
-$color__background-screen: #f1f1f1;
-$color__background-header: #fff;
-$color__background-footer: #f3f3f3;
-$color__background-hr: #ccc;
-$color__background-button: #e6e6e6;
-$color__background-pre: #eee;
-$color__background-ins: #fff9c0;
+$color__background-body: #fff !default;
+$color__background-screen: #f1f1f1 !default;
+$color__background-header: #fff !default;
+$color__background-footer: #f3f3f3 !default;
+$color__background-hr: #ccc !default;
+$color__background-button: #e6e6e6 !default;
+$color__background-pre: #eee !default;
+$color__background-ins: #fff9c0 !default;
 
-$color__background-main-navigation: #efefef;
-$color__background-main-navigation-sub: #fff;
+$color__background-main-navigation: #efefef !default;
+$color__background-main-navigation-sub: #fff !default;
 
-$color__background-utility-navigation: #333;
-$color__background-utility-navigation-sub: $color__background-main-navigation-sub;
+$color__background-utility-navigation: #333 !default;
+$color__background-utility-navigation-sub: $color__background-main-navigation-sub !default;
 
-$color__background-split-navigation: transparent;
-$color__background-split-navigation-sub: $color__background-main-navigation-sub;
+$color__background-split-navigation: transparent !default;
+$color__background-split-navigation-sub: $color__background-main-navigation-sub !default;
 
-$color__text-screen: #21759b;
-$color__text-input: #666;
-$color__text-input-focus: #111;
-$color__text-main: #212529;
-$color__link: #00b9eb;
-$color__link-visited: $color__link;
-$color__link-hover: darken($color__link, 15%);
+$color__text-screen: #21759b !default;
+$color__text-input: #666 !default;
+$color__text-input-focus: #111 !default;
+$color__text-main: #212529 !default;
+$color__link: #00b9eb !default;
+$color__link-visited: $color__link !default;
+$color__link-hover: darken($color__link, 15%) !default;
 
-$color__link-main-navigation: $color__link;
-$color__link-main-navigation-visited: $color__link-visited;
-$color__link-main-navigation-hover: $color__link-hover;
-$color__link-main-navigation-sub: $color__link;
-$color__link-main-navigation-sub-visited: $color__link-visited;
-$color__link-main-navigation-sub-hover: $color__link-hover;
+$color__link-main-navigation: $color__link !default;
+$color__link-main-navigation-visited: $color__link-visited !default;
+$color__link-main-navigation-hover: $color__link-hover !default;
+$color__link-main-navigation-sub: $color__link !default;
+$color__link-main-navigation-sub-visited: $color__link-visited !default;
+$color__link-main-navigation-sub-hover: $color__link-hover !default;
 
-$color__link-utility-navigation: #cdcdcd;
-$color__link-utility-navigation-visited: $color__link-visited;
-$color__link-utility-navigation-hover: #fff;
-$color__link-utility-navigation-sub: $color__link;
-$color__link-utility-navigation-sub-visited: $color__link-visited;
-$color__link-utility-navigation-sub-hover: $color__link-hover;
+$color__link-utility-navigation: #cdcdcd !default;
+$color__link-utility-navigation-visited: $color__link-visited !default;
+$color__link-utility-navigation-hover: #fff !default;
+$color__link-utility-navigation-sub: $color__link !default;
+$color__link-utility-navigation-sub-visited: $color__link-visited !default;
+$color__link-utility-navigation-sub-hover: $color__link-hover !default;
 
-$color__link-split-navigation: $color__link;
-$color__link-split-navigation-visited: $color__link-visited;
-$color__link-split-navigation-hover: $color__link-hover;
-$color__link-split-navigation-sub: $color__link;
-$color__link-split-navigation-sub-visited: $color__link-visited;
-$color__link-split-navigation-sub-hover: $color__link-hover;
+$color__link-split-navigation: $color__link !default;
+$color__link-split-navigation-visited: $color__link-visited !default;
+$color__link-split-navigation-hover: $color__link-hover !default;
+$color__link-split-navigation-sub: $color__link !default;
+$color__link-split-navigation-sub-visited: $color__link-visited !default;
+$color__link-split-navigation-sub-hover: $color__link-hover !default;
 
-$color__border-button: #ccc #ccc #bbb;
-$color__border-button-hover: #ccc #bbb #aaa;
-$color__border-button-focus: #aaa #bbb #bbb;
-$color__border-input: #ccc;
-$color__border-abbr: #666;
+$color__border-button: #ccc #ccc #bbb !default;
+$color__border-button-hover: #ccc #bbb #aaa !default;
+$color__border-button-focus: #aaa #bbb #bbb !default;
+$color__border-input: #ccc !default;
+$color__border-abbr: #666 !default;

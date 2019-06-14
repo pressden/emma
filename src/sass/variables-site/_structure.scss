@@ -1,9 +1,9 @@
-$size__site-main: 100%;
-$size__site-sidebar: 25%;
+$size__site-main: 100% !default;
+$size__site-sidebar: 25% !default;
 
-$size__wrap: 1200px;
-$size__wrap-header: $size__wrap;
-$size__wrap-footer: $size__wrap;
-$size__wrap-main-navigation: $size__wrap;
-$size__wrap-utility-navigation: $size__wrap;
-$size__wrap-split-navigation: $size__wrap;
+$size__wrap: 1200px !default;
+$size__wrap-header: $size__wrap !default;
+$size__wrap-footer: $size__wrap !default;
+$size__wrap-main-navigation: $size__wrap !default;
+$size__wrap-utility-navigation: $size__wrap !default;
+$size__wrap-split-navigation: $size__wrap !default;
