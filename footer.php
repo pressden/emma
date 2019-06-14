@@ -25,7 +25,7 @@
         <span class="sep"> | </span>
           <?php
           /* translators: 1: Theme name, 2: Theme author. */
-          printf( esc_html__( 'Theme: %1$s by %2$s.', 'emma' ), 'emma', '<a href="https://dswebs.me/">D.S. Webster</a>' );
+          printf( esc_html__( 'Theme: %1$s by %2$s.', 'emma' ), 'Emma', '<a href="https://dswebs.me/">D.S. Webster</a>' );
           ?>
       </div><!-- .site-info -->
     </div><!-- .wrap -->
