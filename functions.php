@@ -140,6 +140,11 @@ function emma_scripts() {
 add_action( 'wp_enqueue_scripts', 'emma_scripts' );
 
 /**
+ * Optimize WordPress by removing unused features.
+ */
+require get_template_directory() . '/inc/optimize.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
