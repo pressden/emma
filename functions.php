@@ -129,10 +129,6 @@ add_action( 'widgets_init', 'emma_widgets_init' );
 function emma_scripts() {
 	wp_enqueue_style( 'emma-style', get_stylesheet_uri(), null, wp_get_theme()->get( 'Version' ) );
 
-	wp_enqueue_script( 'emma-navigation', get_template_directory_uri() . '/js/navigation.js', array(), wp_get_theme()->get( 'Version' ), true );
-
-	wp_enqueue_script( 'emma-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), wp_get_theme()->get( 'Version' ), true );
-
   wp_enqueue_script( 'emma-scripts', get_stylesheet_directory_uri() . '/dist/app.js', array(), wp_get_theme()->get( 'Version' ), true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
