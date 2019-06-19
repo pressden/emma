@@ -4,7 +4,7 @@
   .wrap {
     @include center-wrap($size__wrap-header);
     display: flex;
-    align-items: center;
+    align-items: $flex__header-align-items;
   }
 
   .site-branding {
