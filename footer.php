@@ -15,19 +15,16 @@
 
 	<footer id="colophon" class="site-footer">
     <div class="wrap">
-      <div class="site-info">
-        <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'emma' ) ); ?>">
-          <?php
-          /* translators: %s: CMS name, i.e. WordPress. */
-          printf( esc_html__( 'Proudly powered by %s', 'emma' ), 'WordPress' );
-          ?>
-        </a>
-        <span class="sep"> | </span>
-          <?php
-          /* translators: 1: Theme name, 2: Theme author. */
-          printf( esc_html__( 'Theme: %1$s by %2$s.', 'emma' ), 'Emma', '<a href="https://dswebs.me/">D.S. Webster</a>' );
-          ?>
-      </div><!-- .site-info -->
+
+      <?php
+      /*
+       * Include the site-info template in the footer.
+       * If you want to override this in a child theme, then include a file
+       * called site-info.php and that will be used instead.
+       */
+      get_template_part( 'template-parts/site', 'info' );
+      ?>
+
     </div><!-- .wrap -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->
