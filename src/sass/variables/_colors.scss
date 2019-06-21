@@ -1,39 +1,41 @@
-$color__brand-primary: #266fd0 !default;
-$color__brand-secondary: #202020 !default;
-$color__brand-support: #dfdfdf !default;
+$color__primary: #0073aa !default;
+$color__primary-support: #00a0d2 !default;
+$color__secondary: #23282d !default;
+$color__secondary-support: #a0a5aa !default;
 
-$color__ui-action: #ffbf36 !default;
-$color__ui-highlight: #fff5dc !default;
-$color__ui-info: #abe0f9 !default;
-$color__ui-notice: #f9f49c !default;
-$color__ui-warning: #fbd362 !default;
-$color__ui-pass: #95dc5c !default;
-$color__ui-fail: #ff6050 !default;
+$color__action: $color__primary !default;
+$color__info: $color__primary-support !default;
+$color__accent: #826eb4 !default;
+$color__notice: #ffb900 !default;
+$color__warning: #f56e28 !default;
+$color__success: #46b450 !default;
+$color__error: #dc3232 !default;
 
 $color__white: #fff !default;
+$color__gray-100: #f9f9f9 !default;
+$color__gray-200: #ebebeb !default;
+$color__gray-300: #e1e1e1 !default;
+$color__gray-400: #d3d3d3 !default;
+$color__gray-500: #b3b3b3 !default;
+$color__gray-600: #737373 !default;
+$color__gray-700: #4f4f4f !default;
+$color__gray-800: #393939 !default;
+$color__gray-900: #242424 !default;
 $color__black: #000 !default;
-
-$color__gray-lightest: #eaeaea !default;
-$color__gray-lighter: #dadada !default;
-$color__gray-light: #bababa !default;
-$color__gray: #888888 !default;
-$color__gray-dark: #5c5c5c !default;
-$color__gray-darker: #3d3d3d !default;
-$color__gray-darkest: #202020 !default;
 
 $color__background-body: $color__white !default;
 $color__background-screen: #f1f1f1 !default;
 $color__background-header: $color__white !default;
 $color__background-footer: #f3f3f3 !default;
-$color__background-hr: #ccc !default;
-$color__background-button: #e6e6e6 !default;
-$color__background-pre: #eee !default;
+$color__background-hr: $color__gray-500 !default;
+$color__background-button: $color__gray-300 !default;
+$color__background-pre: $color__gray-200 !default;
 $color__background-ins: #fff9c0 !default;
 
-$color__background-main-navigation: #efefef !default;
-$color__background-main-navigation-sub: #fff !default;
+$color__background-main-navigation: $color__gray-100 !default;
+$color__background-main-navigation-sub: $color__white !default;
 
-$color__background-utility-navigation: #333 !default;
+$color__background-utility-navigation: $color__gray-800 !default;
 $color__background-utility-navigation-sub: $color__background-main-navigation-sub !default;
 
 $color__background-split-navigation: transparent !default;
