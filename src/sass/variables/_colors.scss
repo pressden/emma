@@ -21,9 +21,9 @@ $color__gray-dark: #5c5c5c !default;
 $color__gray-darker: #3d3d3d !default;
 $color__gray-darkest: #202020 !default;
 
-$color__background-body: #fff !default;
+$color__background-body: $color__white !default;
 $color__background-screen: #f1f1f1 !default;
-$color__background-header: #fff !default;
+$color__background-header: $color__white !default;
 $color__background-footer: #f3f3f3 !default;
 $color__background-hr: #ccc !default;
 $color__background-button: #e6e6e6 !default;
