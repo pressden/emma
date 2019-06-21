@@ -25,3 +25,12 @@
 	clear: both;
 	margin: 0 0 1.5em;
 }
+
+// @TODO: BEGIN Convert to SASS variables
+.entry-content > * {
+  margin: 2em auto;
+  max-width: 636px;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+// @TODO: END Convert to SASS variables

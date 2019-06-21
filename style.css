@@ -931,6 +931,12 @@ a {
   clear: both;
   margin: 0 0 1.5em; }
 
+.entry-content > * {
+  margin: 2em auto;
+  max-width: 636px;
+  padding-left: 1.5em;
+  padding-right: 1.5em; }
+
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
@@ -943,12 +949,9 @@ a {
 /*--------------------------------------------------------------
 # Gutenberg
 --------------------------------------------------------------*/
-.entry-content > * {
-  margin: 2em auto;
-  max-width: 636px;
-  padding-left: 1.5em;
-  padding-right: 1.5em; }
-
+/*--------------------------------------------------------------
+## Editor
+--------------------------------------------------------------*/
 .entry-content > .alignwide {
   max-width: 1100px; }
 
@@ -956,6 +959,96 @@ a {
   margin-left: 0;
   margin-right: 0;
   max-width: 100%; }
+
+.has-primary-color {
+  color: #0073aa; }
+
+.has-primary-background-color {
+  background-color: #0073aa; }
+
+.has-primary-support-color {
+  color: #00a0d2; }
+
+.has-primary-support-background-color {
+  background-color: #00a0d2; }
+
+.has-secondary-color {
+  color: #23282d; }
+
+.has-secondary-background-color {
+  background-color: #23282d; }
+
+.has-secondary-support-color {
+  color: #a0a5aa; }
+
+.has-secondary-support-background-color {
+  background-color: #a0a5aa; }
+
+.has-accent-color {
+  color: #826eb4; }
+
+.has-accent-background-color {
+  background-color: #826eb4; }
+
+.has-notice-color {
+  color: #ffb900; }
+
+.has-notice-background-color {
+  background-color: #ffb900; }
+
+.has-warning-color {
+  color: #f56e28; }
+
+.has-warning-background-color {
+  background-color: #f56e28; }
+
+.has-error-color {
+  color: #dc3232; }
+
+.has-error-background-color {
+  background-color: #dc3232; }
+
+.has-success-color {
+  color: #46b450; }
+
+.has-success-background-color {
+  background-color: #46b450; }
+
+.has-white-color {
+  color: #fff; }
+
+.has-white-background-color {
+  background-color: #fff; }
+
+.has-gray-200-color {
+  color: #ebebeb; }
+
+.has-gray-200-background-color {
+  background-color: #ebebeb; }
+
+.has-gray-400-color {
+  color: #d3d3d3; }
+
+.has-gray-400-background-color {
+  background-color: #d3d3d3; }
+
+.has-gray-600-color {
+  color: #737373; }
+
+.has-gray-600-background-color {
+  background-color: #737373; }
+
+.has-gray-800-color {
+  color: #393939; }
+
+.has-gray-800-background-color {
+  background-color: #393939; }
+
+.has-black-color {
+  color: #000; }
+
+.has-black-background-color {
+  background-color: #000; }
 
 /*--------------------------------------------------------------
 ## Blocks

@@ -8,8 +8,8 @@ $color__info: $color__primary-support !default;
 $color__accent: #826eb4 !default;
 $color__notice: #ffb900 !default;
 $color__warning: #f56e28 !default;
-$color__success: #46b450 !default;
 $color__error: #dc3232 !default;
+$color__success: #46b450 !default;
 
 $color__white: #fff !default;
 $color__gray-100: #f9f9f9 !default;
@@ -22,6 +22,28 @@ $color__gray-700: #4f4f4f !default;
 $color__gray-800: #393939 !default;
 $color__gray-900: #242424 !default;
 $color__black: #000 !default;
+
+$color__editor-palette: () !default;
+$color__editor-palette: map-merge(
+  (
+    'primary': $color__primary,
+    'primary-support': $color__primary-support,
+    'secondary': $color__secondary,
+    'secondary-support': $color__secondary-support,
+    'accent': $color__accent,
+    'notice': $color__notice,
+    'warning': $color__warning,
+    'error': $color__error,
+    'success': $color__success,
+    'white': $color__white,
+    'gray-200': $color__gray-200,
+    'gray-400': $color__gray-400,
+    'gray-600': $color__gray-600,
+    'gray-800': $color__gray-800,
+    'black': $color__black,
+  ),
+  $color__editor-palette
+);
 
 $color__background-body: $color__white !default;
 $color__background-screen: #f1f1f1 !default;

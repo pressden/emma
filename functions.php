@@ -106,6 +106,101 @@ function emma_content_width() {
 add_action( 'after_setup_theme', 'emma_content_width', 0 );
 
 /**
+ * Set the editor color palette, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global array $editor_color_palette
+ */
+function emma_editor_color_palette() {
+  // This variable is intended to be overruled from themes.
+  $editor_color_palette = array(
+    'primary' => array(
+      'name'  => __( 'Primary', 'emma' ),
+      'slug'  => 'primary',
+      'color'	=> '#0073aa',
+    ),
+    'primary-support' => array(
+      'name'  => __( 'Primary support', 'emma' ),
+      'slug'  => 'primary-support',
+      'color'	=> '#00a0d2',
+    ),
+    'secondary' => array(
+      'name'  => __( 'Secondary', 'emma' ),
+      'slug'  => 'secondary',
+      'color' => '#23282d',
+    ),
+    'secondary-support' => array(
+      'name'  => __( 'Secondary support', 'emma' ),
+      'slug'  => 'secondary-support',
+      'color' => '#a0a5aa',
+    ),
+    'accent' => array(
+      'name'  => __( 'Accent', 'emma' ),
+      'slug'  => 'accent',
+      'color'	=> '#826eb4',
+    ),
+    'notice' => array(
+      'name'  => __( 'Notice', 'emma' ),
+      'slug'  => 'notice',
+      'color'	=> '#ffb900',
+    ),
+    'warning' => array(
+      'name'  => __( 'Warning', 'emma' ),
+      'slug'  => 'warning',
+      'color'	=> '#f56e28',
+    ),
+    'success' => array(
+      'name'  => __( 'Success', 'emma' ),
+      'slug'  => 'success',
+      'color'	=> '#46b450',
+    ),
+    'error' => array(
+      'name'  => __( 'Error', 'emma' ),
+      'slug'  => 'error',
+      'color'	=> '#dc3232',
+    ),
+    'white' => array(
+      'name'  => __( 'White', 'emma' ),
+      'slug'  => 'white',
+      'color'	=> '#fff',
+    ),
+    'gray-200' => array(
+      'name'  => __( 'Gray 200', 'emma' ),
+      'slug'  => 'gray-200',
+      'color'	=> '#ebebeb',
+    ),
+    'gray-400' => array(
+      'name'  => __( 'Gray 400', 'emma' ),
+      'slug'  => 'gray-400',
+      'color'	=> '#d3d3d3',
+    ),
+    'gray-600' => array(
+      'name'  => __( 'Gray 600', 'emma' ),
+      'slug'  => 'gray-600',
+      'color'	=> '#737373',
+    ),
+    'gray-800' => array(
+      'name'  => __( 'Gray 800', 'emma' ),
+      'slug'  => 'gray-800',
+      'color'	=> '#393939',
+    ),
+    'black' => array(
+      'name'  => __( 'Black', 'emma' ),
+      'slug'  => 'black',
+      'color'	=> '#000',
+    ),
+  );
+
+  // Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
+  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+  $GLOBALS['editor_color_palette'] = apply_filters( 'emma_editor_color_palette', $editor_color_palette );
+
+  add_theme_support( 'editor-color-palette', $GLOBALS['editor_color_palette'] );
+}
+add_action( 'after_setup_theme', 'emma_editor_color_palette', 0 );
+
+/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
