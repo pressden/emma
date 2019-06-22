@@ -201,20 +201,65 @@ function emma_editor_color_palette() {
 add_action( 'after_setup_theme', 'emma_editor_color_palette', 0 );
 
 /**
- * Register widget area.
+ * Register the widget areas.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function emma_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'emma' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'emma' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+  $widget_areas = array(
+    'header-widgets' => array(
+      'name'  => esc_html__( 'Header Widgets', 'emma' ),
+      'id'    => 'header-widgets',
+    ),
+    'primary-sidebar' => array(
+      'name'  => esc_html__( 'Primary Sidebar', 'emma' ),
+      'id'    => 'primary-sidebar',
+    ),
+    'secondary-sidebar' => array(
+      'name'  => esc_html__( 'Secondary Sidebar', 'emma' ),
+      'id'    => 'secondary-sidebar',
+    ),
+  );
+
+  // Filter $utility_widget_areas (default 2)
+  $utility_widget_areas = apply_filters( 'emma_utility_widget_areas', 2 );
+
+  // Add the utility widgets areas
+  for( $i = 1; $i <= $utility_widget_areas; $i++ ) {
+    $widget_areas['utility-widgets-' . $i] = array(
+      'name'  => esc_html__( "Utility Widgets $i", 'emma' ),
+      'id'    => 'utility-widgets-' . $i,
+    );
+  }
+
+  // Filter $footer_widget_areas (default 3)
+  $footer_widget_areas = apply_filters( 'emma_footer_widget_areas', 3 );
+
+  // Add the footer widgets areas
+  for( $i = 1; $i <= $footer_widget_areas; $i++ ) {
+    $widget_areas['footer-widgets-' . $i] = array(
+      'name'  => esc_html__( "Footer Widgets $i", 'emma' ),
+      'id'    => 'footer-widgets-' . $i,
+    );
+  }
+
+  // Filter $widget_areas
+  $widget_areas = apply_filters( 'emma_widget_areas', $widget_areas );
+
+  // Register the widget areas
+  foreach( $widget_areas as $widget_area_id => $widget_area ) {
+    $defaults = array(
+      'description'   => esc_html__( 'Add widgets here.', 'emma' ),
+      'before_widget' => '<section id="%1$s" class="widget %2$s">',
+      'after_widget'  => '</section>',
+      'before_title'  => '<h2 class="widget-title">',
+      'after_title'   => '</h2>',
+    );
+
+    $widget_area = wp_parse_args( $widget_area, $defaults );
+
+    register_sidebar( $widget_area );
+  }
 }
 add_action( 'widgets_init', 'emma_widgets_init' );
 
