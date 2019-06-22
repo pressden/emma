@@ -221,22 +221,22 @@ function emma_widgets_init() {
     ),
   );
 
-  // Filter $utility_widget_areas (default 2)
-  $utility_widget_areas = apply_filters( 'emma_utility_widget_areas', 2 );
+  // Filter 'emma_utility_widget_areas' in the global scope for use in templates
+  $GLOBALS['emma_utility_widget_areas'] = apply_filters( 'emma_utility_widget_areas', 2 );
 
   // Add the utility widgets areas
-  for( $i = 1; $i <= $utility_widget_areas; $i++ ) {
+  for( $i = 1; $i <= $GLOBALS['emma_utility_widget_areas']; $i++ ) {
     $widget_areas['utility-widgets-' . $i] = array(
       'name'  => esc_html__( "Utility Widgets $i", 'emma' ),
       'id'    => 'utility-widgets-' . $i,
     );
   }
 
-  // Filter $footer_widget_areas (default 3)
-  $footer_widget_areas = apply_filters( 'emma_footer_widget_areas', 3 );
+  // Filter 'emma_footer_widget_areas' in the global scope for use in templates
+  $GLOBALS['emma_footer_widget_areas'] = apply_filters( 'emma_footer_widget_areas', 2 );
 
   // Add the footer widgets areas
-  for( $i = 1; $i <= $footer_widget_areas; $i++ ) {
+  for( $i = 1; $i <= $GLOBALS['emma_footer_widget_areas']; $i++ ) {
     $widget_areas['footer-widgets-' . $i] = array(
       'name'  => esc_html__( "Footer Widgets $i", 'emma' ),
       'id'    => 'footer-widgets-' . $i,
