@@ -207,17 +207,25 @@ add_action( 'after_setup_theme', 'emma_editor_color_palette', 0 );
  */
 function emma_widgets_init() {
   $widget_areas = array(
+    'status-widgets' => array(
+      'name'          => esc_html__( 'Status Widgets', 'emma' ),
+      'id'            => 'status-widgets',
+      'description'   => esc_html__( 'Status widgets appear at the top of every page in case of emergency.', 'emma' ),
+    ),
     'header-widgets' => array(
-      'name'  => esc_html__( 'Header Widgets', 'emma' ),
-      'id'    => 'header-widgets',
+      'name'          => esc_html__( 'Header Widgets', 'emma' ),
+      'id'            => 'header-widgets',
+      'description'   => esc_html__( 'Add widgets to the site header.', 'emma' ),
     ),
     'primary-sidebar' => array(
-      'name'  => esc_html__( 'Primary Sidebar', 'emma' ),
-      'id'    => 'primary-sidebar',
+      'name'          => esc_html__( 'Primary Sidebar', 'emma' ),
+      'id'            => 'primary-sidebar',
+      'description'   => esc_html__( 'Add widgets to pages that contain a sidebar.', 'emma' ),
     ),
     'secondary-sidebar' => array(
-      'name'  => esc_html__( 'Secondary Sidebar', 'emma' ),
-      'id'    => 'secondary-sidebar',
+      'name'          => esc_html__( 'Secondary Sidebar', 'emma' ),
+      'id'            => 'secondary-sidebar',
+      'description'   => esc_html__( 'Add widgets to pages that support a secondary sidebar.', 'emma' ),
     ),
   );
 
@@ -227,8 +235,9 @@ function emma_widgets_init() {
   // Add the utility widgets areas
   for( $i = 1; $i <= $GLOBALS['emma_utility_widget_areas']; $i++ ) {
     $widget_areas['utility-widgets-' . $i] = array(
-      'name'  => esc_html__( "Utility Widgets $i", 'emma' ),
-      'id'    => 'utility-widgets-' . $i,
+      'name'          => esc_html__( "Utility Widgets $i", 'emma' ),
+      'id'            => 'utility-widgets-' . $i,
+      'description'   => esc_html__( 'Add widgets to the utility bar at the top of the page (column ' . $i .').', 'emma' ),
     );
   }
 
@@ -238,8 +247,9 @@ function emma_widgets_init() {
   // Add the footer widgets areas
   for( $i = 1; $i <= $GLOBALS['emma_footer_widget_areas']; $i++ ) {
     $widget_areas['footer-widgets-' . $i] = array(
-      'name'  => esc_html__( "Footer Widgets $i", 'emma' ),
-      'id'    => 'footer-widgets-' . $i,
+      'name'          => esc_html__( "Footer Widgets $i", 'emma' ),
+      'id'            => 'footer-widgets-' . $i,
+      'description'   => esc_html__( 'Add widgets above the site footer (column ' . $i .').', 'emma' ),
     );
   }
 
