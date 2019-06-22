@@ -233,7 +233,7 @@ function emma_widgets_init() {
   }
 
   // Filter 'emma_footer_widget_areas' in the global scope for use in templates
-  $GLOBALS['emma_footer_widget_areas'] = apply_filters( 'emma_footer_widget_areas', 2 );
+  $GLOBALS['emma_footer_widget_areas'] = apply_filters( 'emma_footer_widget_areas', 3 );
 
   // Add the footer widgets areas
   for( $i = 1; $i <= $GLOBALS['emma_footer_widget_areas']; $i++ ) {
