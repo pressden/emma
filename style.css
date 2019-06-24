@@ -487,7 +487,7 @@ table {
 --------------------------------------------------------------*/
 .site-footer {
   padding: 1em 0;
-  background-color: #f3f3f3; }
+  background-color: #ebebeb; }
   .site-footer .wrap {
     margin-left: auto;
     margin-right: auto;
@@ -498,6 +498,23 @@ table {
         align-items: center;
     -ms-flex-pack: center;
         justify-content: center; }
+
+/*--------------------------------------------------------------
+## Footer Widgets
+--------------------------------------------------------------*/
+.footer-widgets {
+  padding: 1em 0;
+  background-color: #f9f9f9; }
+  .footer-widgets .wrap {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center;
+    -ms-flex-pack: justify;
+        justify-content: space-between; }
 
 /*--------------------------------------------------------------
 # Forms
