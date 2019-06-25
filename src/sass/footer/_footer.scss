@@ -2,7 +2,7 @@
   padding: 1em 0;
   background-color: $color__background-footer;
 
-  .wrap {
+  > .wrap {
     @include center-wrap($size__wrap-footer);
     display: flex;
     align-items: $flex__footer-align-items;

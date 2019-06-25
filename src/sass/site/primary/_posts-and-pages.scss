@@ -13,7 +13,7 @@
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+  margin: 1.5em 0 0;
 }
 
 .page-links {
@@ -22,10 +22,39 @@
 }
 
 // @TODO: BEGIN Convert to SASS variables
-.entry-content > * {
-  margin: 2em auto;
-  max-width: 636px;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
+.entry-meta {
+  > .wrap {
+    @include center-wrap($size__wrap-entry-meta);
+    padding-left: $content__padding-x;
+    padding-right: $content__padding-x;
+  }
+}
+.entry-content {
+  > * {
+    margin: 2em auto;
+    max-width: $size__content;
+    padding-left: $content__padding-x;
+    padding-right: $content__padding-x;
+  }
+}
+
+.entry-footer {
+  margin: 1.5em 0 0;
+
+  > .wrap {
+    @include center-wrap($size__wrap-entry-footer);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: $flex__entry-footer-align-items;
+    justify-content: $flex__entry-footer-justify-content;
+    padding-left: $content__padding-x;
+    padding-right: $content__padding-x;
+  }
+
+  .edit-link {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
 }
 // @TODO: END Convert to SASS variables

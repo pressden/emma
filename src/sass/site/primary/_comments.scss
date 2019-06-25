@@ -1,3 +1,11 @@
+.comments-area {
+  > .wrap {
+    @include center-wrap($size__wrap-comments-area);
+    padding-left: $content__padding-x;
+    padding-right: $content__padding-x;
+  }
+}
+
 .comment-content a {
 	word-wrap: break-word;
 }

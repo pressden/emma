@@ -2,7 +2,12 @@ $size__site-main: 100% !default;
 $size__site-sidebar: 25% !default;
 
 $size__wrap: 1200px !default;
+$size__content: 650px !default;
+
 $size__wrap-header: $size__wrap !default;
+$size__wrap-entry-meta: $size__content !default;
+$size__wrap-entry-footer: $size__content !default;
+$size__wrap-comments-area: $size__content !default;
 $size__wrap-footer-widgets: $size__wrap !default;
 $size__wrap-footer: $size__wrap !default;
 $size__wrap-main-navigation: $size__wrap !default;

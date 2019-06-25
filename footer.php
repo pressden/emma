@@ -13,26 +13,12 @@
 
 	</div><!-- #content -->
 
-  <?php
-    /*
-    * Include the footer widgets template in the footer.
-    * If you want to override this in a child theme, then include a file
-    * called footer-widgets.php and that will be used instead.
-    */
-    get_template_part( 'template-parts/footer', 'widgets' );
-  ?>
+  <?php get_template_part( 'template-parts/footer', 'widgets' ); ?>
 
 	<footer id="colophon" class="site-footer">
     <div class="wrap">
 
-      <?php
-      /*
-       * Include the site-info template in the footer.
-       * If you want to override this in a child theme, then include a file
-       * called site-info.php and that will be used instead.
-       */
-      get_template_part( 'template-parts/site', 'info' );
-      ?>
+      <?php get_template_part( 'template-parts/site', 'info' ); ?>
 
     </div><!-- .wrap -->
 	</footer><!-- #colophon -->

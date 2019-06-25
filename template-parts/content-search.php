@@ -11,16 +11,13 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php
-			emma_posted_on();
-			emma_posted_by();
-			?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
+    <?php
+    the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+
+    get_template_part( 'template-parts/entry', 'meta' );
+    ?>
+
 	</header><!-- .entry-header -->
 
 	<?php emma_post_thumbnail(); ?>
@@ -30,6 +27,8 @@
 	</div><!-- .entry-summary -->
 
 	<footer class="entry-footer">
-		<?php emma_entry_footer(); ?>
+    <div class="wrap">
+      <?php emma_entry_footer(); ?>
+    </div><!-- .wrap -->
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->
