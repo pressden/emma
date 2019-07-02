@@ -10,17 +10,17 @@ $menu__main-sub-link-padding-y: $menu__main-sub-link-padding !default;
 $menu__main-sub-link-width: 200px !default;
 $menu__main-sub-font-size: 1em !default;
 
-$menu__utility-justify-content: flex-start !default;
-$menu__utility-link-padding: .75em !default;
-$menu__utility-link-padding-x: $menu__utility-link-padding !default;
-$menu__utility-link-padding-y: $menu__utility-link-padding !default;
-$menu__utility-font-size: .9em !default;
+$menu__utility-bar-navigation-justify-content: flex-start !default;
+$menu__utility-bar-navigation-link-padding: .75em !default;
+$menu__utility-bar-navigation-link-padding-x: $menu__utility-bar-navigation-link-padding !default;
+$menu__utility-bar-navigation-link-padding-y: $menu__utility-bar-navigation-link-padding !default;
+$menu__utility-bar-navigation-font-size: .9em !default;
 
-$menu__utility-sub-link-padding: $menu__utility-link-padding !default;
-$menu__utility-sub-link-padding-x: $menu__utility-link-padding !default;
-$menu__utility-sub-link-padding-y: $menu__utility-link-padding !default;
-$menu__utility-sub-link-width: $menu__main-sub-link-width !default;
-$menu__utility-sub-font-size: $menu__utility-font-size !default;
+$menu__utility-bar-navigation-sub-link-padding: $menu__utility-bar-navigation-link-padding !default;
+$menu__utility-bar-navigation-sub-link-padding-x: $menu__utility-bar-navigation-sub-link-padding !default;
+$menu__utility-bar-navigation-sub-link-padding-y: $menu__utility-bar-navigation-sub-link-padding !default;
+$menu__utility-bar-navigation-sub-link-width: $menu__main-sub-link-width !default;
+$menu__utility-bar-navigation-sub-font-size: $menu__utility-bar-navigation-font-size !default;
 
 $menu__split-justify-content: space-between !default;
 $menu__split-left-justify-content: $menu__split-justify-content !default;

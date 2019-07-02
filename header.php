@@ -26,16 +26,7 @@
 
 	<header id="masthead" class="site-header">
 
-    <?php if ( has_nav_menu( 'utility' ) ) : ?>
-      <nav id="utility-navigation" class="utility-navigation">
-        <?php
-        wp_nav_menu( array(
-          'theme_location'  => 'utility',
-          'menu_id'         => 'utility-menu',
-        ) );
-        ?>
-      </nav><!-- #utility-navigation -->
-    <?php endif; ?>
+    <?php get_template_part( 'template-parts/utility', 'bar' ); ?>
 
     <div class="wrap">
 

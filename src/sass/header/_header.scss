@@ -1,27 +1,14 @@
-.site-header {
-  background-color: $color__background-header;
-
-  > .wrap {
-    @include center-wrap($size__wrap-header);
-    display: flex;
-    align-items: $flex__header-align-items;
-    justify-content: $flex__header-justify-content;
-  }
-}
-
-.site-branding {
-  padding: $branding__padding-y $branding__padding-x;
-  min-width: $branding__min-width;
-  text-align: $branding__text-align;
-}
-
-.site-title {
-  margin: .5em 0;
-  font-size: 2em;
-  font-weight: normal;
-}
+/*--------------------------------------------------------------
+## Site Header
+--------------------------------------------------------------*/
+@import "site-header";
 
 /*--------------------------------------------------------------
 ## Sticky Header
 --------------------------------------------------------------*/
 //@import "sticky-header";
+
+/*--------------------------------------------------------------
+## Utility Bar
+--------------------------------------------------------------*/
+@import "utility-bar";
