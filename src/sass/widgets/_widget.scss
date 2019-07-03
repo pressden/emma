@@ -1,5 +1,6 @@
 .widget {
-	margin: 0 0 1.5em;
+  margin: $widget__margin-t $widget__margin-r $widget__margin-b $widget__margin-l;
+  padding: $widget__padding-y $widget__padding-x;
 
 	/* Make sure select elements fit in widgets. */
 	select {
