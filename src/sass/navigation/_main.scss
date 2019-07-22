@@ -83,20 +83,3 @@
   .current-menu-ancestor > a {
   }
 }
-
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block;
-}
-
-@media screen and (min-width: 37.5em) {
-  .menu-toggle {
-    display: none;
-  }
-  .main-navigation ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: $menu__main-justify-content;
-  }
-}

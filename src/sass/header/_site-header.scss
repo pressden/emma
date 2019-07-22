@@ -2,10 +2,15 @@
   background-color: $color__background-header;
 
   > .wrap {
+    position: relative;
+
     @include center-wrap($size__wrap-header);
-    display: flex;
-    align-items: $flex__header-align-items;
-    justify-content: $flex__header-justify-content;
+
+    @media screen and (min-width: $menu__toggle-breakpoint) {
+      display: flex;
+      align-items: $flex__header-align-items;
+      justify-content: $flex__header-justify-content;
+    }
   }
 }
 

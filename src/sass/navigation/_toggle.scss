@@ -1,0 +1,21 @@
+.menu-toggle,
+.main-navigation.toggled ul,
+.split-left-navigation.toggled ul,
+.split-right-navigation.toggled ul {
+  display: block;
+}
+
+.menu-toggle {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: $menu__toggle-breakpoint) {
+  .menu-toggle {
+    display: none;
+  }
+  .main-navigation ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $menu__main-justify-content;
+  }
+}

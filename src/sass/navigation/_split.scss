@@ -1,8 +1,13 @@
 .split-navigation {
+  padding-bottom: $menu__split-padding-y;
   clear: both;
   display: block;
   width: 100%;
   background-color: $color__background-split-navigation;
+
+  @media screen and (min-width: $menu__toggle-breakpoint) {
+    padding: $menu__split-padding-y 0;
+  }
 
   .menu-primary-container {
     @include center-wrap($size__wrap-split-navigation);
@@ -12,20 +17,26 @@
     list-style: none;
     margin: 0;
     padding-left: 0;
+    display: none;
 
-    @media screen and (min-width: 37.5em) {
+    @media screen and (min-width: $menu__toggle-breakpoint) {
       display: flex;
       flex-wrap: wrap;
     }
 
     ul {
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-      float: left;
-      position: absolute;
-      top: 100%;
-      left: -999em;
-      z-index: 99999;
+      margin-left: 2em;
       background-color: $color__background-split-navigation-sub;
+
+      @media screen and (min-width: $menu__toggle-breakpoint) {
+        margin-left: 0;
+        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+        float: left;
+        position: absolute;
+        top: 100%;
+        left: -999em;
+        z-index: 99999;
+      }
 
       ul {
         left: -999em;
@@ -40,10 +51,13 @@
       }
 
       a {
-        width: $menu__split-sub-link-width;
         padding: $menu__split-sub-link-padding-y $menu__split-sub-link-padding-x;
         font-size: $menu__split-sub-font-size;
         color: $color__link-split-navigation-sub;
+
+        @media screen and (min-width: $menu__toggle-breakpoint) {
+          width: $menu__split-sub-link-width;
+        }
       }
 
       :hover > a,
@@ -63,8 +77,11 @@
   }
 
   li {
-    float: left;
     position: relative;
+
+    @media screen and (min-width: $menu__toggle-breakpoint) {
+      float: left;
+    }
 
     &:hover > a,
     &.focus > a {
@@ -88,7 +105,11 @@
 }
 
 .split-left-navigation {
-  margin-right: $menu__split-left-margin-right;
+  margin-left: 0;
+
+  @media screen and (min-width: $menu__toggle-breakpoint) {
+    margin-right: $menu__split-left-margin-right;
+  }
 
   ul {
     justify-content: $menu__split-left-justify-content;
@@ -96,7 +117,11 @@
 }
 
 .split-right-navigation {
-  margin-left: $menu__split-right-margin-left;
+  margin-right: 0;
+
+  @media screen and (min-width: $menu__toggle-breakpoint) {
+    margin-left: $menu__split-right-margin-left;
+  }
 
   ul {
     justify-content: $menu__split-right-justify-content;

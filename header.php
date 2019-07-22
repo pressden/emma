@@ -62,6 +62,7 @@
 
       <?php if ( has_nav_menu( 'right' ) ) : ?>
         <nav id="right-navigation" class="split-navigation split-right-navigation">
+          <button class="menu-toggle" aria-controls="right-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'emma' ); ?></button>
           <?php
           wp_nav_menu( array(
             'theme_location'  => 'right',

@@ -1,3 +1,5 @@
+$menu__toggle-breakpoint: 37.5em !default;
+
 $menu__main-justify-content: space-between !default;
 $menu__main-link-padding: .5em !default;
 $menu__main-link-padding-x: $menu__main-link-padding !default;
@@ -25,7 +27,9 @@ $menu__utility-bar-navigation-sub-font-size: $menu__utility-bar-navigation-font-
 $menu__split-justify-content: space-between !default;
 $menu__split-left-justify-content: $menu__split-justify-content !default;
 $menu__split-right-justify-content: $menu__split-justify-content !default;
-$menu__split-margin-x: 4em !default;
+$menu__split-margin-x: 2em !default;
+$menu__split-padding-x: 1em !default;
+$menu__split-padding-y: 1.5em !default;
 $menu__split-left-margin-right: $menu__split-margin-x !default;
 $menu__split-right-margin-left: $menu__split-margin-x !default;
 $menu__split-link-padding: $menu__main-link-padding !default;
