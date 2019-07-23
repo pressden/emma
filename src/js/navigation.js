@@ -7,7 +7,7 @@
 ( function() {
 	var container, button, menu, links, i, len;
 
-	container = document.getElementById( 'right-navigation' );
+	container = document.getElementById( 'main-navigation' );
 	if ( ! container ) {
 		return;
 	}
