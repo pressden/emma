@@ -46,6 +46,11 @@
     padding-left: $content__padding-x;
     padding-right: $content__padding-x;
   }
+
+  > ul,
+  > ol {
+    padding-left: 4em;
+  }
 }
 
 .entry-footer {
