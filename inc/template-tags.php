@@ -151,11 +151,10 @@ if ( ! function_exists( 'emma_post_thumbnail' ) ) :
       </a>
 
       <?php
-		endif; // End ! is_singular().
+    endif; // End ! is_singular().
+    ?>
+
+    </div><!-- .post-thumbnail -->
   }
-  ?>
-
-  </div><!-- .post-thumbnail -->
-
   <?php
 endif;
