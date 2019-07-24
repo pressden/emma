@@ -471,15 +471,18 @@ table {
 .site-header {
   background-color: #fff; }
   .site-header > .wrap {
+    position: relative;
     margin-left: auto;
     margin-right: auto;
-    max-width: 1200px;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-        align-items: center;
-    -ms-flex-pack: justify;
-        justify-content: space-between; }
+    max-width: 1200px; }
+    @media screen and (min-width: 37.5em) {
+      .site-header > .wrap {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-align: start;
+            align-items: flex-start;
+        -ms-flex-pack: justify;
+            justify-content: space-between; } }
 
 .site-branding {
   padding: 1em 0;
@@ -761,27 +764,15 @@ a {
     font-size: 1.1em;
     color: #00b9eb; }
 
-/* Small menu. */
-.menu-toggle,
-.main-navigation.toggled ul {
-  display: block; }
-
-@media screen and (min-width: 37.5em) {
-  .menu-toggle {
-    display: none; }
-  .main-navigation ul {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -ms-flex-pack: justify;
-        justify-content: space-between; } }
-
 .split-navigation {
+  padding-bottom: 1.5em;
   clear: both;
   display: block;
   width: 100%;
   background-color: transparent; }
+  @media screen and (min-width: 37.5em) {
+    .split-navigation {
+      padding: 1.5em 0; } }
   .split-navigation .menu-primary-container {
     margin-left: auto;
     margin-right: auto;
@@ -789,7 +780,8 @@ a {
   .split-navigation ul {
     list-style: none;
     margin: 0;
-    padding-left: 0; }
+    padding-left: 0;
+    display: none; }
     @media screen and (min-width: 37.5em) {
       .split-navigation ul {
         display: -ms-flexbox;
@@ -797,13 +789,17 @@ a {
         -ms-flex-wrap: wrap;
             flex-wrap: wrap; } }
     .split-navigation ul ul {
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-      float: left;
-      position: absolute;
-      top: 100%;
-      left: -999em;
-      z-index: 99999;
+      margin-left: 2em;
       background-color: #fff; }
+      @media screen and (min-width: 37.5em) {
+        .split-navigation ul ul {
+          margin-left: 0;
+          box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+          float: left;
+          position: absolute;
+          top: 100%;
+          left: -999em;
+          z-index: 99999; } }
       .split-navigation ul ul ul {
         left: -999em;
         top: 0; }
@@ -811,10 +807,12 @@ a {
       .split-navigation ul ul li.focus > ul {
         left: 100%; }
       .split-navigation ul ul a {
-        width: 200px;
         padding: 0.5em 0.5em;
         font-size: 1em;
         color: #00b9eb; }
+        @media screen and (min-width: 37.5em) {
+          .split-navigation ul ul a {
+            width: 200px; } }
       .split-navigation ul ul :hover > a,
       .split-navigation ul ul .focus > a {
         color: #007d9f; }
@@ -822,8 +820,10 @@ a {
     .split-navigation ul li.focus > ul {
       left: auto; }
   .split-navigation li {
-    float: left;
     position: relative; }
+    @media screen and (min-width: 37.5em) {
+      .split-navigation li {
+        float: left; } }
     .split-navigation li:hover > a,
     .split-navigation li.focus > a {
       color: #007d9f; }
@@ -835,16 +835,45 @@ a {
     color: #00b9eb; }
 
 .split-left-navigation {
-  margin-right: 4em; }
+  margin-left: 0; }
+  @media screen and (min-width: 37.5em) {
+    .split-left-navigation {
+      margin-right: 2em; } }
   .split-left-navigation ul {
     -ms-flex-pack: justify;
         justify-content: space-between; }
 
 .split-right-navigation {
-  margin-left: 4em; }
+  margin-right: 0; }
+  @media screen and (min-width: 37.5em) {
+    .split-right-navigation {
+      margin-left: 2em; } }
   .split-right-navigation ul {
     -ms-flex-pack: justify;
         justify-content: space-between; }
+
+/*--------------------------------------------------------------
+## Toggle
+--------------------------------------------------------------*/
+.menu-toggle,
+.main-navigation.toggled ul,
+.split-left-navigation.toggled ul,
+.split-right-navigation.toggled ul {
+  display: block; }
+
+.menu-toggle {
+  margin: 0 auto; }
+
+@media screen and (min-width: 37.5em) {
+  .menu-toggle {
+    display: none; }
+  .main-navigation ul {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: justify;
+        justify-content: space-between; } }
 
 /*--------------------------------------------------------------
 ## Pagination
@@ -997,6 +1026,7 @@ a {
 .updated:not(.published) {
   display: none; }
 
+.page-title,
 .entry-title {
   text-align: center; }
 
@@ -1008,6 +1038,13 @@ a {
 .page-links {
   clear: both;
   margin: 0 0 1.5em; }
+
+.page-thumbnail,
+.post-thumbnail {
+  text-align: center; }
+  .page-thumbnail img,
+  .post-thumbnail img {
+    max-width: 100%; }
 
 .entry-meta > .wrap {
   margin-left: auto;

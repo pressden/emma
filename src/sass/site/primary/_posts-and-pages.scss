@@ -6,6 +6,7 @@
 	display: none;
 }
 
+.page-title,
 .entry-title {
   text-align: center;
 }
@@ -19,6 +20,15 @@
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.page-thumbnail,
+.post-thumbnail {
+  text-align: center;
+
+  img {
+    max-width: 100%;
+  }
 }
 
 // @TODO: BEGIN Convert to SASS variables
