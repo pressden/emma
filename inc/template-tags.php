@@ -115,34 +115,47 @@ if ( ! function_exists( 'emma_post_thumbnail' ) ) :
 	/**
 	 * Displays an optional post thumbnail.
 	 *
-	 * Wraps the post thumbnail in an anchor element on index views, or a div
-	 * element when on single views.
+	 * Wraps the post thumbnail in a div and adds an anchor element around the
+   * thumbnail on index views.
 	 */
 	function emma_post_thumbnail() {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
-		}
+    }
+    ?>
 
-		if ( is_singular() ) :
-			?>
+    <div class="post-thumbnail">
 
-			<div class="post-thumbnail">
-				<?php the_post_thumbnail(); ?>
-			</div><!-- .post-thumbnail -->
+    <?php
+		if ( ! is_singular() ) :
+      ?>
 
-		<?php else : ?>
+      <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 
-		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-			<?php
-			the_post_thumbnail( 'post-thumbnail', array(
+      <?php
+    endif; // End ! is_singular().
+
+    if ( is_singular() ) :
+      the_post_thumbnail();
+    else :
+      the_post_thumbnail( 'post-thumbnail', array(
 				'alt' => the_title_attribute( array(
 					'echo' => false,
 				) ),
 			) );
-			?>
-		</a>
+    endif; // End is_singular().
 
-		<?php
-		endif; // End is_singular().
-	}
+    if ( ! is_singular() ) :
+      ?>
+
+      </a>
+
+      <?php
+		endif; // End ! is_singular().
+  }
+  ?>
+
+  </div><!-- .post-thumbnail -->
+
+  <?php
 endif;
