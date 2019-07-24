@@ -155,6 +155,7 @@ if ( ! function_exists( 'emma_post_thumbnail' ) ) :
     ?>
 
     </div><!-- .post-thumbnail -->
+
+    <?php
   }
-  <?php
 endif;
