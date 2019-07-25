@@ -878,10 +878,19 @@ a {
 /*--------------------------------------------------------------
 ## Pagination
 --------------------------------------------------------------*/
+.comment-navigation > .nav-links,
+.posts-navigation > .nav-links,
+.post-navigation > .nav-links {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem; }
+
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
 .post-navigation {
-  margin: 0 0 1.5em;
+  margin: 1.5em 0;
   overflow: hidden; }
 
 .comment-navigation .nav-previous,
@@ -1084,6 +1093,7 @@ a {
     padding-left: 1.5rem;
     padding-right: 1.5rem; }
   .entry-footer .edit-link {
+    padding: 1.5em 0;
     width: 100%;
     display: block;
     text-align: center; }
