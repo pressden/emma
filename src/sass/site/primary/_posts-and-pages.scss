@@ -31,14 +31,25 @@
   }
 }
 
-// @TODO: BEGIN Convert to SASS variables
+.entry-header {
+  > .wrap {
+    @include center-wrap($size__wrap-entry-header);
+    padding-left: $content__padding-x;
+    padding-right: $content__padding-x;
+  }
+}
+
 .entry-meta {
+  margin: 1.5em 0;
+
   > .wrap {
     @include center-wrap($size__wrap-entry-meta);
     padding-left: $content__padding-x;
     padding-right: $content__padding-x;
   }
 }
+
+// @TODO: BEGIN Convert to SASS variables
 .entry-content {
   > * {
     margin: 2em auto;
@@ -49,7 +60,7 @@
 
   > ul,
   > ol {
-    padding-left: 4em;
+    padding-left: 4rem;
   }
 }
 

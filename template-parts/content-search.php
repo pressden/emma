@@ -11,13 +11,15 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
+    <div class="wrap">
 
-    <?php
-    the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+      <?php
+      the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
 
-    get_template_part( 'template-parts/entry', 'meta' );
-    ?>
+      get_template_part( 'template-parts/entry', 'meta' );
+      ?>
 
+    </div><!-- .wrap -->
 	</header><!-- .entry-header -->
 
 	<?php emma_post_thumbnail(); ?>
