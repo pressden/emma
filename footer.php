@@ -18,6 +18,17 @@
 	<footer id="colophon" class="site-footer">
     <div class="wrap">
 
+      <?php if ( has_nav_menu( 'footer' ) ) : ?>
+        <nav id="footer-navigation" class="footer-navigation">
+          <?php
+          wp_nav_menu( array(
+            'theme_location'  => 'footer',
+            'menu_id'         => 'footer-menu',
+          ) );
+          ?>
+        </nav><!-- #footer-navigation -->
+      <?php endif; ?>
+
       <?php get_template_part( 'template-parts/site', 'info' ); ?>
 
     </div><!-- .wrap -->

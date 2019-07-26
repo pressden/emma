@@ -63,6 +63,8 @@ $color__background-utility-bar: $color__gray-800 !default;
 $color__background-split-navigation: transparent !default;
 $color__background-split-navigation-sub: $color__background-main-navigation-sub !default;
 
+$color__background-footer-navigation: transparent !default;
+
 $color__text-screen: #21759b !default;
 $color__text-input: #666 !default;
 $color__text-input-focus: #111 !default;
@@ -89,6 +91,10 @@ $color__link-split-navigation-hover: $color__link-hover !default;
 $color__link-split-navigation-sub: $color__link !default;
 $color__link-split-navigation-sub-visited: $color__link-visited !default;
 $color__link-split-navigation-sub-hover: $color__link-hover !default;
+
+$color__link-footer-navigation: $color__link !default;
+$color__link-footer-navigation-visited: $color__link-visited !default;
+$color__link-footer-navigation-hover: $color__link-hover !default;
 
 $color__border-button: #ccc #ccc #bbb !default;
 $color__border-button-hover: #ccc #bbb #aaa !default;
