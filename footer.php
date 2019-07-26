@@ -24,7 +24,16 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
-<?php wp_footer(); ?>
+<?php
+/**
+ * Fires immediately before wp_footer(), after the site container closing markup.
+ *
+ * @since 1.0.0
+ */
+do_action( 'emma_after' );
+
+wp_footer();
+?>
 
 </body>
 </html>
