@@ -1,3 +1,21 @@
+/*
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: $color__text-main;
+	font-family: $font__main;
+	@include font-size(1);
+	line-height: $font__line-height-body;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  clear: both;
+  font-family: $font__heading;
+}
+
 p {
 	margin-bottom: 1.5em;
 }
@@ -43,3 +61,4 @@ mark, ins {
 big {
 	font-size: 125%;
 }
+*/

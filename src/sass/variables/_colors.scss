@@ -45,12 +45,10 @@ $color__editor-palette: map-merge(
   $color__editor-palette
 );
 
-$color__background-body: $color__white !default;
 $color__background-screen: #f1f1f1 !default;
 $color__background-header: $color__white !default;
 $color__background-footer-widgets: $color__gray-100 !default;
 $color__background-footer: $color__gray-200 !default;
-$color__background-hr: $color__gray-500 !default;
 $color__background-button: $color__gray-300 !default;
 $color__background-pre: $color__gray-200 !default;
 $color__background-ins: #fff9c0 !default;
