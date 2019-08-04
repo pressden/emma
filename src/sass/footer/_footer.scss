@@ -3,7 +3,15 @@
   background-color: $color__background-footer;
 
   > .wrap {
+    position: relative;
+
     @include center-wrap($size__wrap-footer);
+
+    @media screen and (min-width: $menu__toggle-breakpoint) {
+      display: flex;
+      align-items: $flex__footer-align-items;
+      justify-content: $flex__footer-justify-content;
+    }
   }
 }
 
