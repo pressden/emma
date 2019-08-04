@@ -1,7 +1,7 @@
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
-# Normalize
+# Bootstrap Reboot
 # Typography
 # Elements
 # Header
@@ -28,9 +28,9 @@
 @import "mixins/mixins-master";
 
 /*--------------------------------------------------------------
-# Normalize
+# Bootstrap Reboot
 --------------------------------------------------------------*/
-@import "normalize";
+@import "vendor/bootstrap/bootstrap-reboot.scss";
 
 /*--------------------------------------------------------------
 # Typography
