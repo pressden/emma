@@ -410,7 +410,7 @@ big {
   font-size: 125%; }
 
 /*--------------------------------------------------------------
-# Elements
+# Elements (Common HTML tags)
 --------------------------------------------------------------*/
 html {
   box-sizing: border-box; }
@@ -431,6 +431,7 @@ hr {
   height: 1px;
   margin-bottom: 1.5em; }
 
+/* Lists */
 ul, ol {
   margin: 0 0 1.5em 3em; }
 
@@ -461,6 +462,7 @@ figure {
   margin: 1em 0;
   /* Extra wide images within figure tags don't overflow the content area. */ }
 
+/* Tables */
 table {
   margin: 0 0 1.5em;
   width: 100%; }
