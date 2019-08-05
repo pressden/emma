@@ -12,12 +12,3 @@
 .site-footer:after {
 	@include clearfix;
 }
-
-.clear:after,
-.entry-content:after,
-.comment-content:after,
-.site-header:after,
-.site-content:after,
-.site-footer:after {
-	@include clearfix-after;
-}

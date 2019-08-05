@@ -991,14 +991,6 @@ a {
   clear: both;
   content: ""; }
 
-.clear:after,
-.entry-content:after,
-.comment-content:after,
-.site-header:after,
-.site-content:after,
-.site-footer:after {
-  clear: both; }
-
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
