@@ -1,9 +1,237 @@
-@import "colors";
-@import "typography";
-@import "structure";
-@import "columns";
-@import "flex";
-@import "branding";
-@import "navigation";
-@import "content";
-@import "widget";
+$color__primary: #0073aa !default;
+$color__primary-support: #00a0d2 !default;
+$color__secondary: #23282d !default;
+$color__secondary-support: #a0a5aa !default;
+
+$color__action: $color__primary !default;
+$color__info: $color__primary-support !default;
+$color__accent: #826eb4 !default;
+$color__notice: #ffb900 !default;
+$color__warning: #f56e28 !default;
+$color__error: #dc3232 !default;
+$color__success: #46b450 !default;
+
+$color__white: #fff !default;
+$color__gray-100: #f9f9f9 !default;
+$color__gray-200: #ebebeb !default;
+$color__gray-300: #e1e1e1 !default;
+$color__gray-400: #d3d3d3 !default;
+$color__gray-500: #b3b3b3 !default;
+$color__gray-600: #737373 !default;
+$color__gray-700: #4f4f4f !default;
+$color__gray-800: #393939 !default;
+$color__gray-900: #242424 !default;
+$color__black: #000 !default;
+
+$color__editor-palette: () !default;
+$color__editor-palette: map-merge(
+  (
+    'primary': $color__primary,
+    'primary-support': $color__primary-support,
+    'secondary': $color__secondary,
+    'secondary-support': $color__secondary-support,
+    'accent': $color__accent,
+    'notice': $color__notice,
+    'warning': $color__warning,
+    'error': $color__error,
+    'success': $color__success,
+    'white': $color__white,
+    'gray-200': $color__gray-200,
+    'gray-400': $color__gray-400,
+    'gray-600': $color__gray-600,
+    'gray-800': $color__gray-800,
+    'black': $color__black,
+  ),
+  $color__editor-palette
+);
+
+$color__background-screen: #f1f1f1 !default;
+$color__background-header: $color__white !default;
+$color__background-footer-widgets: $color__gray-100 !default;
+$color__background-footer: $color__gray-200 !default;
+$color__background-button: $color__gray-300 !default;
+$color__background-pre: $color__gray-200 !default;
+$color__background-ins: #fff9c0 !default;
+
+$color__background-main-navigation: $color__gray-100 !default;
+$color__background-main-navigation-sub: $color__white !default;
+
+$color__background-utility-bar: $color__gray-800 !default;
+
+$color__background-split-navigation: transparent !default;
+$color__background-split-navigation-sub: $color__background-main-navigation-sub !default;
+
+$color__background-footer-navigation: transparent !default;
+
+$color__text-screen: #21759b !default;
+$color__text-input: #666 !default;
+$color__text-input-focus: #111 !default;
+$color__text-main: #212529 !default;
+$color__text-utility: $color__gray-100 !default;
+$color__link: #00b9eb !default;
+$color__link-visited: $color__link !default;
+$color__link-hover: darken($color__link, 15%) !default;
+
+$color__link-main-navigation: $color__link !default;
+$color__link-main-navigation-visited: $color__link-visited !default;
+$color__link-main-navigation-hover: $color__link-hover !default;
+$color__link-main-navigation-sub: $color__link !default;
+$color__link-main-navigation-sub-visited: $color__link-visited !default;
+$color__link-main-navigation-sub-hover: $color__link-hover !default;
+
+$color__link-utility-bar: #cdcdcd !default;
+$color__link-utility-bar-visited: $color__link-visited !default;
+$color__link-utility-bar-hover: #fff !default;
+
+$color__link-split-navigation: $color__link !default;
+$color__link-split-navigation-visited: $color__link-visited !default;
+$color__link-split-navigation-hover: $color__link-hover !default;
+$color__link-split-navigation-sub: $color__link !default;
+$color__link-split-navigation-sub-visited: $color__link-visited !default;
+$color__link-split-navigation-sub-hover: $color__link-hover !default;
+
+$color__link-footer-navigation: $color__link !default;
+$color__link-footer-navigation-visited: $color__link-visited !default;
+$color__link-footer-navigation-hover: $color__link-hover !default;
+
+$color__border-button: #ccc #ccc #bbb !default;
+$color__border-button-hover: #ccc #bbb #aaa !default;
+$color__border-button-focus: #aaa #bbb #bbb !default;
+$color__border-input: #ccc !default;
+$color__border-abbr: #666 !default;
+
+$font__main: sans-serif !default;
+$font__heading: $font__main !default;
+$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace !default;
+$font__pre: "Courier 10 Pitch", Courier, monospace !default;
+$font__line-height-body: 1.5 !default;
+$font__line-height-pre: 1.6 !default;
+
+$size__site-main: 100% !default;
+$size__site-sidebar: 25% !default;
+
+$size__wrap: 1200px !default;
+$size__content: 650px !default;
+
+$size__wrap-header: $size__wrap !default;
+$size__wrap-entry-header: $size__wrap !default;
+$size__wrap-entry-meta: $size__wrap !default;
+$size__wrap-entry-footer: $size__content !default;
+$size__wrap-comments-area: $size__content !default;
+$size__wrap-footer-widgets: $size__wrap !default;
+$size__wrap-footer: $size__wrap !default;
+$size__wrap-main-navigation: $size__wrap !default;
+$size__wrap-utility-bar: $size__wrap !default;
+$size__wrap-split-navigation: $size__wrap !default;
+$size__wrap-post-navigation: $size__wrap !default;
+$size__wrap-footer-navigation: $size__wrap !default;
+
+$columns: (
+	1: 100%,
+	2: 50%,
+	3: 33.33%,
+	4: 25%,
+	5: 20%,
+	6: 16.66%,
+	7: 14.28%,
+	8: 12.5%,
+	9: 11.11%
+) !default;
+
+$columns__margin: 3.8% !default;
+
+$flex__header-align-items: flex-start !default;
+$flex__header-justify-content: center !default;
+
+$flex__utility-bar-align-items: center !default;
+$flex__utility-bar-justify-content: space-between !default;
+
+$flex__entry-meta-align-items: center !default;
+$flex__entry-meta-justify-content: space-between !default;
+
+$flex__entry-footer-align-items: center !default;
+$flex__entry-footer-justify-content: space-between !default;
+
+$flex__footer-widgets-align-items: flex-start !default;
+$flex__footer-widgets-justify-content: space-between !default;
+
+$flex__footer-align-items: flex-start !default;
+$flex__footer-justify-content: center !default;
+
+$branding__padding-x: 0 !default;
+$branding__padding-y: 1em !default;
+$branding__min-width: 250px !default;
+$branding__text-align: center !default;
+
+$logo__max-height: 8em !default;
+
+$menu__toggle-breakpoint: 37.5em !default;
+
+$menu__main-justify-content: space-between !default;
+$menu__main-link-padding: .5em !default;
+$menu__main-link-padding-x: $menu__main-link-padding !default;
+$menu__main-link-padding-y: $menu__main-link-padding !default;
+$menu__main-font-size: 1.1em !default;
+
+$menu__main-sub-link-padding: $menu__main-link-padding !default;
+$menu__main-sub-link-padding-x: $menu__main-sub-link-padding !default;
+$menu__main-sub-link-padding-y: $menu__main-sub-link-padding !default;
+$menu__main-sub-link-width: 200px !default;
+$menu__main-sub-font-size: 1em !default;
+
+$menu__utility-bar-navigation-justify-content: flex-start !default;
+$menu__utility-bar-navigation-link-padding: .75em !default;
+$menu__utility-bar-navigation-link-padding-x: $menu__utility-bar-navigation-link-padding !default;
+$menu__utility-bar-navigation-link-padding-y: $menu__utility-bar-navigation-link-padding !default;
+$menu__utility-bar-navigation-font-size: .9em !default;
+
+$menu__utility-bar-navigation-sub-link-padding: $menu__utility-bar-navigation-link-padding !default;
+$menu__utility-bar-navigation-sub-link-padding-x: $menu__utility-bar-navigation-sub-link-padding !default;
+$menu__utility-bar-navigation-sub-link-padding-y: $menu__utility-bar-navigation-sub-link-padding !default;
+$menu__utility-bar-navigation-sub-link-width: $menu__main-sub-link-width !default;
+$menu__utility-bar-navigation-sub-font-size: $menu__utility-bar-navigation-font-size !default;
+
+$menu__split-justify-content: space-between !default;
+$menu__split-left-justify-content: $menu__split-justify-content !default;
+$menu__split-right-justify-content: $menu__split-justify-content !default;
+$menu__split-margin-x: 2em !default;
+$menu__split-padding-x: 1em !default;
+$menu__split-padding-y: 1.5em !default;
+$menu__split-left-margin-right: $menu__split-margin-x !default;
+$menu__split-right-margin-left: $menu__split-margin-x !default;
+$menu__split-link-padding: $menu__main-link-padding !default;
+$menu__split-link-padding-x: $menu__split-link-padding !default;
+$menu__split-link-padding-y: $menu__split-link-padding !default;
+$menu__split-font-size: 1em !default;
+
+$menu__split-sub-link-padding: $menu__split-link-padding !default;
+$menu__split-sub-link-padding-x: $menu__split-link-padding !default;
+$menu__split-sub-link-padding-y: $menu__split-link-padding !default;
+$menu__split-sub-link-width: $menu__main-sub-link-width !default;
+$menu__split-sub-font-size: $menu__split-font-size !default;
+
+$menu__footer-justify-content: center !default;
+$menu__footer-link-padding: .5em !default;
+$menu__footer-link-padding-x: $menu__footer-link-padding !default;
+$menu__footer-link-padding-y: $menu__footer-link-padding !default;
+$menu__footer-font-size: 1em !default;
+
+$content__padding-x: 1.5rem !default;
+
+$widget__margin: 0 !default;
+$widget__margin-t: $widget__margin !default;
+$widget__margin-r: $widget__margin !default;
+$widget__margin-b: 1.5em !default;
+$widget__margin-l: $widget__margin !default;
+
+$widget__padding: 0 !default;
+$widget__padding-x: $widget__padding !default;
+$widget__padding-y: $widget__padding !default;
+
+$widget__utility-bar-margin: 0 !default;
+$widget__utility-bar-margin-x: .5em !default;
+$widget__utility-bar-margin-y: $widget__utility-bar-margin !default;
+
+$widget__utility-bar-padding: 0 !default;
+$widget__utility-bar-padding-x: $widget__utility-bar-padding !default;
+$widget__utility-bar-padding-y: $widget__utility-bar-padding !default;
