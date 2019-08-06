@@ -82,7 +82,7 @@ p.stars {
 			line-height: 1;
 			font-family: "star";
 			content: "\53";
-			color: $color__text-main;
+			color: $body-color;
 			text-indent: 0;
 			opacity: .25;
 		}
@@ -90,7 +90,7 @@ p.stars {
 		&:hover {
 			~ a:before {
 				content: "\53";
-				color: $color__text-main;
+				color: $body-color;
 				opacity: .25;
 			}
 		}
@@ -116,7 +116,7 @@ p.stars {
 
 			~ a:before {
 				content: "\53";
-				color: $color__text-main;
+				color: $body-color;
 				opacity: .25;
 			}
 		}
