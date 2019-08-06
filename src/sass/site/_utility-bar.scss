@@ -1,7 +1,5 @@
 .utility-bar {
-  clear: both;
-  display: block;
-  width: 100%;
+  padding: $utility-bar-padding-y $utility-bar-padding-x;
   color: $color__text-utility;
   background-color: $color__background-utility-bar;
 
@@ -15,13 +13,11 @@
 
     & > div {
       &:first-child {
-        margin-left: -$widget__utility-bar-margin-x;
         display: flex;
         justify-content: flex-start;
       }
 
       &:last-child {
-        margin-right: -$widget__utility-bar-margin-x;
         display: flex;
         justify-content: flex-end;
       }
@@ -29,8 +25,8 @@
   }
 
   .widget {
-    margin: $widget__utility-bar-margin-y $widget__utility-bar-margin-x;
-    padding: $widget__utility-bar-padding-y $widget__utility-bar-padding-x;
+    margin: $utility-bar-widget-margin-x $utility-bar-widget-margin-y;
+    padding: $utility-bar-widget-padding-x $utility-bar-widget-padding-y;
   }
 
   // @TODO: BEGIN move global navigation menu widget styles to `widgets/_navigation_menu.scss`

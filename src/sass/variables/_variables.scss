@@ -1,3 +1,4 @@
+// @TODO: Clean up variables based on reboot standards
 $color__primary: #0073aa !default;
 $color__primary-support: #00a0d2 !default;
 $color__secondary: #23282d !default;
@@ -50,8 +51,6 @@ $color__background-header: $color__white !default;
 $color__background-footer-widgets: $color__gray-100 !default;
 $color__background-footer: $color__gray-200 !default;
 $color__background-button: $color__gray-300 !default;
-$color__background-pre: $color__gray-200 !default;
-$color__background-ins: #fff9c0 !default;
 
 $color__background-main-navigation: $color__gray-100 !default;
 $color__background-main-navigation-sub: $color__white !default;
@@ -66,7 +65,6 @@ $color__background-footer-navigation: transparent !default;
 $color__text-screen: #21759b !default;
 $color__text-input: #666 !default;
 $color__text-input-focus: #111 !default;
-$color__text-main: #212529 !default;
 $color__text-utility: $color__gray-100 !default;
 $color__link: #00b9eb !default;
 $color__link-visited: $color__link !default;
@@ -98,14 +96,6 @@ $color__border-button: #ccc #ccc #bbb !default;
 $color__border-button-hover: #ccc #bbb #aaa !default;
 $color__border-button-focus: #aaa #bbb #bbb !default;
 $color__border-input: #ccc !default;
-$color__border-abbr: #666 !default;
-
-$font__main: sans-serif !default;
-$font__heading: $font__main !default;
-$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace !default;
-$font__pre: "Courier 10 Pitch", Courier, monospace !default;
-$font__line-height-body: 1.5 !default;
-$font__line-height-pre: 1.6 !default;
 
 $size__site-main: 100% !default;
 $size__site-sidebar: 25% !default;
@@ -158,8 +148,6 @@ $flex__footer-widgets-justify-content: space-between !default;
 $flex__footer-align-items: flex-start !default;
 $flex__footer-justify-content: center !default;
 
-$branding__padding-x: 0 !default;
-$branding__padding-y: 1em !default;
 $branding__min-width: 250px !default;
 $branding__text-align: center !default;
 
@@ -228,10 +216,34 @@ $widget__padding: 0 !default;
 $widget__padding-x: $widget__padding !default;
 $widget__padding-y: $widget__padding !default;
 
-$widget__utility-bar-margin: 0 !default;
-$widget__utility-bar-margin-x: .5em !default;
-$widget__utility-bar-margin-y: $widget__utility-bar-margin !default;
+// BEGIN Refactored Variables
+// @TODO: Organize reboot variables after cleanup (see @TODO on line 1)
+$black: #000 !default;
 
-$widget__utility-bar-padding: 0 !default;
-$widget__utility-bar-padding-x: $widget__utility-bar-padding !default;
-$widget__utility-bar-padding-y: $widget__utility-bar-padding !default;
+$body-color: $black !default;
+
+$spacer: 1rem !default;
+$spacer-xs: $spacer / 4 !default;
+$spacer-sm: $spacer / 2 !default;
+$spacer-lg: $spacer * 2 !default;
+$spacer-xl: $spacer * 4 !default;
+
+$utility-bar-padding-x: $spacer !default;
+$utility-bar-padding-y: $spacer-xs !default;
+
+$utility-bar-widget-margin-x: 0 !default;
+$utility-bar-widget-margin-y: 0 !default;
+$utility-bar-widget-padding-x: 0 !default;
+$utility-bar-widget-padding-y: 0 !default;
+
+$header-wrap-padding-x: $spacer !default;
+$header-wrap-padding-y: $spacer !default;
+
+$branding-padding-x: 0 !default;
+$branding-padding-y: 0 !default;
+
+$footer-widgets-padding-x: $spacer !default;
+$footer-widgets-padding-y: $spacer !default;
+
+$footer-padding-x: $spacer !default;
+$footer-padding-y: $spacer !default;

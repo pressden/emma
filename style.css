@@ -23,7 +23,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
 # Bootstrap Reboot
-# Typography
 # Elements
 # Site
 # Header
@@ -67,7 +66,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #000;
   background-color: #fff;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -356,73 +355,6 @@ main {
   display: none !important; }
 
 /*--------------------------------------------------------------
-# Typography
---------------------------------------------------------------*/
-/*
-body,
-button,
-input,
-select,
-optgroup,
-textarea {
-	color: $color__text-main;
-	font-family: $font__main;
-	@include font-size(1);
-	line-height: $font__line-height-body;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  clear: both;
-  font-family: $font__heading;
-}
-
-p {
-	margin-bottom: 1.5em;
-}
-
-dfn, cite, em, i {
-	font-style: italic;
-}
-
-blockquote {
-	margin: 0 1.5em;
-}
-
-address {
-	margin: 0 0 1.5em;
-}
-
-pre {
-	background: $color__background-pre;
-	font-family: $font__pre;
-	@include font-size(0.9375);
-	line-height: $font__line-height-pre;
-	margin-bottom: 1.6em;
-	max-width: 100%;
-	overflow: auto;
-	padding: 1.6em;
-}
-
-code, kbd, tt, var {
-	font-family: $font__code;
-	@include font-size(0.9375);
-}
-
-abbr, acronym {
-	border-bottom: 1px dotted $color__border-abbr;
-	cursor: help;
-}
-
-mark, ins {
-	background: $color__background-ins;
-	text-decoration: none;
-}
-
-big {
-	font-size: 125%;
-}
-*/
-/*--------------------------------------------------------------
 # Elements (Common HTML tags)
 --------------------------------------------------------------*/
 img {
@@ -438,9 +370,7 @@ img {
 ## Utility bar
 --------------------------------------------------------------*/
 .utility-bar {
-  clear: both;
-  display: block;
-  width: 100%;
+  padding: 0.25rem 1rem;
   color: #f9f9f9;
   background-color: #393939; }
   .utility-bar .wrap {
@@ -456,19 +386,17 @@ img {
     -ms-flex-pack: justify;
         justify-content: space-between; }
     .utility-bar .wrap > div:first-child {
-      margin-left: -0.5em;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-pack: start;
           justify-content: flex-start; }
     .utility-bar .wrap > div:last-child {
-      margin-right: -0.5em;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-pack: end;
           justify-content: flex-end; }
   .utility-bar .widget {
-    margin: 0 0.5em;
+    margin: 0 0;
     padding: 0 0; }
   .utility-bar .widget_nav_menu ul {
     list-style: none;
@@ -526,6 +454,7 @@ img {
 .site-header {
   background-color: #fff; }
   .site-header > .wrap {
+    padding: 1rem 1rem;
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -540,14 +469,9 @@ img {
             justify-content: center; } }
 
 .site-branding {
-  padding: 1em 0;
+  padding: 0 0;
   min-width: 250px;
   text-align: center; }
-
-.site-title {
-  margin: .5em 0;
-  font-size: 2em;
-  font-weight: normal; }
 
 /*--------------------------------------------------------------
 ## Posts and pages
@@ -641,7 +565,7 @@ img {
 ## Footer widgets
 --------------------------------------------------------------*/
 .footer-widgets {
-  padding: 1em 0;
+  padding: 1rem 1rem;
   background-color: #f9f9f9; }
   .footer-widgets > .wrap {
     margin-left: auto;
@@ -658,7 +582,7 @@ img {
 ## Footer
 --------------------------------------------------------------*/
 .site-footer {
-  padding: 1em 0;
+  padding: 1rem 1rem;
   background-color: #ebebeb; }
   .site-footer > .wrap {
     position: relative;

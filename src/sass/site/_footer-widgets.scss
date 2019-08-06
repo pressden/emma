@@ -1,5 +1,5 @@
 .footer-widgets {
-  padding: 1em 0;
+  padding: $footer-widgets-padding-y $footer-widgets-padding-x;
   background-color: $color__background-footer-widgets;
 
   > .wrap {

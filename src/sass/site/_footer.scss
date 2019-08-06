@@ -1,5 +1,5 @@
 .site-footer {
-  padding: 1em 0;
+  padding: $footer-padding-y $footer-padding-x;
   background-color: $color__background-footer;
 
   > .wrap {
