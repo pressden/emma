@@ -14,12 +14,12 @@
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0;
+  margin: 1.5rem 0 0;
 }
 
 .page-links {
 	clear: both;
-	margin: 0 0 1.5em;
+	margin: 0 0 1.5rem;
 }
 
 .page-thumbnail,
@@ -40,14 +40,14 @@
 }
 
 .entry-meta {
-  margin: 1.5em 0;
+  margin: 1.5rem 0;
   text-align: center;
 }
 
 // @TODO: BEGIN Convert to SASS variables
 .entry-content {
   > * {
-    margin: 2em auto;
+    margin: 2rem auto;
     max-width: $size__content;
     padding-left: $content__padding-x;
     padding-right: $content__padding-x;
@@ -60,7 +60,7 @@
 }
 
 .entry-footer {
-  margin: 1.5em 0 0;
+  margin: 1.5rem 0 0;
 
   > .wrap {
     @include center-wrap($size__wrap-entry-footer);
@@ -73,7 +73,7 @@
   }
 
   .edit-link {
-    padding: 1.5em 0;
+    padding: 1.5rem 0;
     width: 100%;
     display: block;
     text-align: center;

@@ -1,13 +1,8 @@
 .split-navigation {
-  padding-bottom: $menu__split-padding-y;
   clear: both;
   display: block;
   width: 100%;
   background-color: $color__background-split-navigation;
-
-  @media screen and (min-width: $menu__toggle-breakpoint) {
-    padding: $menu__split-padding-y 0;
-  }
 
   .menu-primary-container {
     @include center-wrap($size__wrap-split-navigation);

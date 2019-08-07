@@ -66,7 +66,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #000;
+  color: #212529;
   background-color: #fff;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -426,8 +426,8 @@ img {
         left: 100%; }
       .utility-bar .widget_nav_menu ul ul a {
         width: 200px;
-        padding: 0.75em 0.75em;
-        font-size: 0.9em;
+        padding: 0.75rem 0.75rem;
+        font-size: 0.9rem;
         color: #00b9eb; }
       .utility-bar .widget_nav_menu ul ul :hover > a,
       .utility-bar .widget_nav_menu ul ul .focus > a {
@@ -443,9 +443,9 @@ img {
       color: #fff; }
   .utility-bar .widget_nav_menu a {
     display: block;
-    padding: 0.75em 0.75em;
+    padding: 0.75rem 0.75rem;
     text-decoration: none;
-    font-size: 0.9em;
+    font-size: 0.9rem;
     color: #cdcdcd; }
 
 /*--------------------------------------------------------------
@@ -459,7 +459,7 @@ img {
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px; }
-    @media screen and (min-width: 37.5em) {
+    @media screen and (min-width: 37.5rem) {
       .site-header > .wrap {
         display: -ms-flexbox;
         display: flex;
@@ -489,11 +489,11 @@ img {
 .page-content,
 .entry-content,
 .entry-summary {
-  margin: 1.5em 0 0; }
+  margin: 1.5rem 0 0; }
 
 .page-links {
   clear: both;
-  margin: 0 0 1.5em; }
+  margin: 0 0 1.5rem; }
 
 .page-thumbnail,
 .post-thumbnail {
@@ -510,11 +510,11 @@ img {
   padding-right: 1.5rem; }
 
 .entry-meta {
-  margin: 1.5em 0;
+  margin: 1.5rem 0;
   text-align: center; }
 
 .entry-content > * {
-  margin: 2em auto;
+  margin: 2rem auto;
   max-width: 650px;
   padding-left: 1.5rem;
   padding-right: 1.5rem; }
@@ -524,7 +524,7 @@ img {
   padding-left: 4rem; }
 
 .entry-footer {
-  margin: 1.5em 0 0; }
+  margin: 1.5rem 0 0; }
   .entry-footer > .wrap {
     margin-left: auto;
     margin-right: auto;
@@ -540,7 +540,7 @@ img {
     padding-left: 1.5rem;
     padding-right: 1.5rem; }
   .entry-footer .edit-link {
-    padding: 1.5em 0;
+    padding: 1.5rem 0;
     width: 100%;
     display: block;
     text-align: center; }
@@ -589,14 +589,16 @@ img {
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px; }
-    @media screen and (min-width: 37.5em) {
+    @media screen and (min-width: 37.5rem) {
       .site-footer > .wrap {
         display: -ms-flexbox;
         display: flex;
         -ms-flex-align: start;
             align-items: flex-start;
         -ms-flex-pack: center;
-            justify-content: center; } }
+            justify-content: center;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; } }
 
 /*--------------------------------------------------------------
 # Forms
@@ -610,9 +612,9 @@ input[type="submit"] {
   border-radius: 3px;
   background: #e1e1e1;
   color: rgba(0, 0, 0, 0.8);
-  font-size: 0.04688rem;
+  font-size: 0.05625rem;
   line-height: 1;
-  padding: .6em 1em .4em; }
+  padding: 0.5rem 1rem; }
   button:hover,
   input[type="button"]:hover,
   input[type="reset"]:hover,
@@ -722,8 +724,8 @@ a {
         left: 100%; }
       .main-navigation ul ul a {
         width: 200px;
-        padding: 0.5em 0.5em;
-        font-size: 1em;
+        padding: 0.5rem 0.5rem;
+        font-size: 1rem;
         color: #00b9eb; }
       .main-navigation ul ul :hover > a,
       .main-navigation ul ul .focus > a {
@@ -739,20 +741,16 @@ a {
       color: #007d9f; }
   .main-navigation a {
     display: block;
-    padding: 0.5em 0.5em;
+    padding: 0.5rem 0.5rem;
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1.1rem;
     color: #00b9eb; }
 
 .split-navigation {
-  padding-bottom: 1.5em;
   clear: both;
   display: block;
   width: 100%;
   background-color: transparent; }
-  @media screen and (min-width: 37.5em) {
-    .split-navigation {
-      padding: 1.5em 0; } }
   .split-navigation .menu-primary-container {
     margin-left: auto;
     margin-right: auto;
@@ -762,7 +760,7 @@ a {
     margin: 0;
     padding-left: 0;
     display: none; }
-    @media screen and (min-width: 37.5em) {
+    @media screen and (min-width: 37.5rem) {
       .split-navigation ul {
         display: -ms-flexbox;
         display: flex;
@@ -771,7 +769,7 @@ a {
     .split-navigation ul ul {
       margin-left: 2em;
       background-color: #fff; }
-      @media screen and (min-width: 37.5em) {
+      @media screen and (min-width: 37.5rem) {
         .split-navigation ul ul {
           margin-left: 0;
           box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -787,10 +785,10 @@ a {
       .split-navigation ul ul li.focus > ul {
         left: 100%; }
       .split-navigation ul ul a {
-        padding: 0.5em 0.5em;
-        font-size: 1em;
+        padding: 0.5rem 0.5rem;
+        font-size: 1rem;
         color: #00b9eb; }
-        @media screen and (min-width: 37.5em) {
+        @media screen and (min-width: 37.5rem) {
           .split-navigation ul ul a {
             width: 200px; } }
       .split-navigation ul ul :hover > a,
@@ -801,7 +799,7 @@ a {
       left: auto; }
   .split-navigation li {
     position: relative; }
-    @media screen and (min-width: 37.5em) {
+    @media screen and (min-width: 37.5rem) {
       .split-navigation li {
         float: left; } }
     .split-navigation li:hover > a,
@@ -809,25 +807,25 @@ a {
       color: #007d9f; }
   .split-navigation a {
     display: block;
-    padding: 0.5em 0.5em;
+    padding: 0.5rem 0.5rem;
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1rem;
     color: #00b9eb; }
 
 .split-left-navigation {
   margin-left: 0; }
-  @media screen and (min-width: 37.5em) {
+  @media screen and (min-width: 37.5rem) {
     .split-left-navigation {
-      margin-right: 2em; } }
+      margin-right: 2rem; } }
   .split-left-navigation ul {
     -ms-flex-pack: justify;
         justify-content: space-between; }
 
 .split-right-navigation {
   margin-right: 0; }
-  @media screen and (min-width: 37.5em) {
+  @media screen and (min-width: 37.5rem) {
     .split-right-navigation {
-      margin-left: 2em; } }
+      margin-left: 2rem; } }
   .split-right-navigation ul {
     -ms-flex-pack: justify;
         justify-content: space-between; }
@@ -862,9 +860,9 @@ a {
       color: #007d9f; }
   .footer-navigation a {
     display: block;
-    padding: 0.5em 0.5em;
+    padding: 0.5rem 0.5rem;
     text-decoration: none;
-    font-size: 1em;
+    font-size: 1rem;
     color: #00b9eb; }
 
 /*--------------------------------------------------------------
@@ -879,7 +877,7 @@ a {
 .menu-toggle {
   margin: 0 auto; }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 37.5rem) {
   .menu-toggle {
     display: none; }
   .main-navigation ul {
@@ -1018,7 +1016,7 @@ a {
 # Widget (Global .widget container)
 --------------------------------------------------------------*/
 .widget {
-  margin: 0 0 1.5em 0;
+  margin: 0 0 1.5rem 0;
   padding: 0 0;
   /* Make sure select elements fit in widgets. */ }
   .widget select {
@@ -1164,7 +1162,7 @@ object {
   display: inline-block; }
 
 .custom-logo {
-  max-height: 8em;
+  max-height: 8rem;
   width: auto; }
 
 /*--------------------------------------------------------------
