@@ -2,7 +2,7 @@
 .posts-navigation,
 .post-navigation {
   > .nav-links {
-    @include center-wrap($size__wrap-post-navigation);
+    @include center-wrap($nav-links-max-width);
     padding-left: $content__padding-x;
     padding-right: $content__padding-x;
   }

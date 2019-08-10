@@ -5,9 +5,9 @@
   > .wrap {
     position: relative;
 
-    @include center-wrap($size__wrap-footer);
+    @include center-wrap($footer-wrap-max-width);
 
-    @media screen and (min-width: $menu__toggle-breakpoint) {
+    @media screen and (min-width: $menu-toggle-breakpoint) {
       display: flex;
       align-items: $flex__footer-align-items;
       justify-content: $flex__footer-justify-content;

@@ -4,7 +4,7 @@
   background-color: $color__background-utility-bar;
 
   .wrap {
-    @include center-wrap($size__wrap-utility-bar);
+    @include center-wrap($utility-bar-wrap-max-width);
 
     display: flex;
     flex-wrap: wrap;
@@ -28,87 +28,4 @@
     margin: $utility-bar-widget-margin-x $utility-bar-widget-margin-y;
     padding: $utility-bar-widget-padding-x $utility-bar-widget-padding-y;
   }
-
-  // @TODO: BEGIN move global navigation menu widget styles to `widgets/_navigation_menu.scss`
-  .widget_nav_menu {
-    ul {
-      list-style: none;
-      margin: 0;
-      padding-left: 0;
-
-      @media screen and (min-width: 37.5em) {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: $menu__utility-bar-navigation-justify-content;
-      }
-
-      ul {
-        box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-        float: left;
-        position: absolute;
-        top: 100%;
-        left: -999em;
-        z-index: 99999;
-        background-color: $color__background-main-navigation-sub;
-
-        ul {
-          left: -999em;
-          top: 0;
-        }
-
-        li {
-          &:hover > ul,
-          &.focus > ul {
-            left: 100%;
-          }
-        }
-
-        a {
-          width: $menu__utility-bar-navigation-sub-link-width;
-          padding: $menu__utility-bar-navigation-sub-link-padding-y $menu__utility-bar-navigation-sub-link-padding-x;
-          font-size: $menu__utility-bar-navigation-sub-font-size;
-          color: $color__link-main-navigation-sub;
-        }
-
-        :hover > a,
-        .focus > a {
-          color: $color__link-main-navigation-sub-hover;
-        }
-
-        a:hover,
-        a.focus {
-        }
-      }
-
-      li:hover > ul,
-      li.focus > ul {
-        left: auto;
-      }
-    }
-
-    li {
-      float: left;
-      position: relative;
-
-      &:hover > a,
-      &.focus > a {
-        color: $color__link-utility-bar-hover;
-      }
-    }
-
-    a {
-      display: block;
-      padding: $menu__utility-bar-navigation-link-padding-y $menu__utility-bar-navigation-link-padding-x;
-      text-decoration: none;
-      font-size: $menu__utility-bar-navigation-font-size;
-      color: $color__link-utility-bar;
-    }
-
-    .current_page_item > a,
-    .current-menu-item > a,
-    .current_page_ancestor > a,
-    .current-menu-ancestor > a {
-    }
-  }
-  // @TODO: END move global navigation menu widget styles to `widgets/_navigation_menu.scss`
 }

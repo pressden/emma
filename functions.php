@@ -273,6 +273,18 @@ function emma_widgets_init() {
 add_action( 'widgets_init', 'emma_widgets_init' );
 
 /**
+ * Filter the navigation menu widget.
+ *
+ * This filter adds a consistent `container_class` to the navigation menu widget
+ * allowing menus to be styled consistently throughout the theme with minimal effort.
+ */
+function emma_filter_nav_menu_args( $nav_menu_args ) {
+  $nav_menu_args['container_class'] = 'menu-container';
+  return $nav_menu_args;
+}
+add_filter( 'widget_nav_menu_args', 'emma_filter_nav_menu_args' );
+
+/**
  * Enqueue scripts and styles.
  */
 function emma_scripts() {

@@ -1,6 +1,6 @@
 .comments-area {
   > .wrap {
-    @include center-wrap($size__wrap-comments-area);
+    @include center-wrap($comments-area-wrap-max-width);
     padding-left: $content__padding-x;
     padding-right: $content__padding-x;
   }

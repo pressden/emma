@@ -1,21 +1,41 @@
-.menu-toggle,
-.main-navigation.toggled ul,
-.split-left-navigation.toggled ul,
-.split-right-navigation.toggled ul {
-  display: block;
-}
-
 .menu-toggle {
-  margin: 0 auto;
-}
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 
-@media screen and (min-width: $menu__toggle-breakpoint) {
-  .menu-toggle {
+  @media screen and (min-width: $menu-toggle-breakpoint) {
     display: none;
   }
-  .main-navigation ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: $menu__main-justify-content;
+}
+
+.toggle-target {
+  .menu-container {
+    ul {
+      display: none;
+
+      @media screen and (min-width: $menu-toggle-breakpoint) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: $menu-justify-content;
+      }
+
+      ul {
+        @media screen and (max-width: $menu-toggle-breakpoint) {
+          display: block;
+          position: initial;
+          box-shadow: none;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  &.toggled {
+    ul {
+      display: block;
+
+      @media screen and (min-width: $menu-toggle-breakpoint) {
+        display: flex;
+      }
+    }
   }
 }

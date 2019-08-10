@@ -100,22 +100,6 @@ $color__border-input: #ccc !default;
 $size__site-main: 100% !default;
 $size__site-sidebar: 25% !default;
 
-$size__wrap: 1200px !default;
-$size__content: 650px !default;
-
-$size__wrap-header: $size__wrap !default;
-$size__wrap-entry-header: $size__wrap !default;
-$size__wrap-entry-meta: $size__wrap !default;
-$size__wrap-entry-footer: $size__content !default;
-$size__wrap-comments-area: $size__content !default;
-$size__wrap-footer-widgets: $size__wrap !default;
-$size__wrap-footer: $size__wrap !default;
-$size__wrap-main-navigation: $size__wrap !default;
-$size__wrap-utility-bar: $size__wrap !default;
-$size__wrap-split-navigation: $size__wrap !default;
-$size__wrap-post-navigation: $size__wrap !default;
-$size__wrap-footer-navigation: $size__wrap !default;
-
 $columns: (
 	1: 100%,
 	2: 50%,
@@ -154,55 +138,6 @@ $branding__text-align: center !default;
 
 $logo__max-height: 8rem !default;
 
-$menu__toggle-breakpoint: 37.5rem !default;
-
-$menu__main-justify-content: space-between !default;
-$menu__main-link-padding: .5rem !default;
-$menu__main-link-padding-x: $menu__main-link-padding !default;
-$menu__main-link-padding-y: $menu__main-link-padding !default;
-$menu__main-font-size: 1.1rem !default;
-
-$menu__main-sub-link-padding: $menu__main-link-padding !default;
-$menu__main-sub-link-padding-x: $menu__main-sub-link-padding !default;
-$menu__main-sub-link-padding-y: $menu__main-sub-link-padding !default;
-$menu__main-sub-link-width: 200px !default;
-$menu__main-sub-font-size: 1rem !default;
-
-$menu__utility-bar-navigation-justify-content: flex-start !default;
-$menu__utility-bar-navigation-link-padding: .75rem !default;
-$menu__utility-bar-navigation-link-padding-x: $menu__utility-bar-navigation-link-padding !default;
-$menu__utility-bar-navigation-link-padding-y: $menu__utility-bar-navigation-link-padding !default;
-$menu__utility-bar-navigation-font-size: .9rem !default;
-
-$menu__utility-bar-navigation-sub-link-padding: $menu__utility-bar-navigation-link-padding !default;
-$menu__utility-bar-navigation-sub-link-padding-x: $menu__utility-bar-navigation-sub-link-padding !default;
-$menu__utility-bar-navigation-sub-link-padding-y: $menu__utility-bar-navigation-sub-link-padding !default;
-$menu__utility-bar-navigation-sub-link-width: $menu__main-sub-link-width !default;
-$menu__utility-bar-navigation-sub-font-size: $menu__utility-bar-navigation-font-size !default;
-
-$menu__split-justify-content: space-between !default;
-$menu__split-left-justify-content: $menu__split-justify-content !default;
-$menu__split-right-justify-content: $menu__split-justify-content !default;
-$menu__split-margin-x: 2rem !default;
-$menu__split-left-margin-right: $menu__split-margin-x !default;
-$menu__split-right-margin-left: $menu__split-margin-x !default;
-$menu__split-link-padding: $menu__main-link-padding !default;
-$menu__split-link-padding-x: $menu__split-link-padding !default;
-$menu__split-link-padding-y: $menu__split-link-padding !default;
-$menu__split-font-size: 1rem !default;
-
-$menu__split-sub-link-padding: $menu__split-link-padding !default;
-$menu__split-sub-link-padding-x: $menu__split-link-padding !default;
-$menu__split-sub-link-padding-y: $menu__split-link-padding !default;
-$menu__split-sub-link-width: $menu__main-sub-link-width !default;
-$menu__split-sub-font-size: $menu__split-font-size !default;
-
-$menu__footer-justify-content: center !default;
-$menu__footer-link-padding: .5rem !default;
-$menu__footer-link-padding-x: $menu__footer-link-padding !default;
-$menu__footer-link-padding-y: $menu__footer-link-padding !default;
-$menu__footer-font-size: 1rem !default;
-
 $content__padding-x: 1.5rem !default;
 
 $widget__margin: 0 !default;
@@ -223,6 +158,19 @@ $spacer-sm: $spacer / 2 !default;
 $spacer-lg: $spacer * 2 !default;
 $spacer-xl: $spacer * 4 !default;
 
+$wrap-max-width: 1200px !default;
+$content-max-width: 650px !default;
+
+$header-wrap-max-width: $wrap-max-width !default;
+$entry-header-wrap-max-width: $wrap-max-width !default;
+$entry-footer-wrap-max-width: $content-max-width !default;
+$comments-area-wrap-max-width: $content-max-width !default;
+$footer-widgets-wrap-max-width: $wrap-max-width !default;
+$footer-wrap-max-width: $wrap-max-width !default;
+$menu-container-max-width: $wrap-max-width !default;
+$utility-bar-wrap-max-width: $wrap-max-width !default;
+$nav-links-max-width: $wrap-max-width !default;
+
 $utility-bar-padding-x: $spacer !default;
 $utility-bar-padding-y: $spacer-xs !default;
 
@@ -237,8 +185,51 @@ $header-wrap-padding-y: $spacer !default;
 $branding-padding-x: 0 !default;
 $branding-padding-y: 0 !default;
 
+$menu-toggle-breakpoint: 600px !default;
+
 $footer-widgets-padding-x: $spacer !default;
 $footer-widgets-padding-y: $spacer !default;
 
 $footer-padding-x: $spacer !default;
 $footer-padding-y: $spacer !default;
+
+$menu-justify-content: space-between !default;
+
+$menu-link-padding: .5rem !default;
+$menu-link-padding-x: $menu-link-padding !default;
+$menu-link-padding-y: $menu-link-padding !default;
+
+$menu-sub-link-padding: $menu-link-padding !default;
+$menu-sub-link-padding-x: $menu-sub-link-padding !default;
+$menu-sub-link-padding-y: $menu-sub-link-padding !default;
+$menu-sub-link-width: 200px !default;
+
+$menu-split-justify-content: space-between !default;
+$menu-split-left-justify-content: $menu-split-justify-content !default;
+$menu-split-right-justify-content: $menu-split-justify-content !default;
+$menu-split-margin-x: 2rem !default;
+$menu-split-left-margin-right: $menu-split-margin-x !default;
+$menu-split-right-margin-left: $menu-split-margin-x !default;
+
+$menu-footer-justify-content: center !default;
+
+
+/*
+$menu__utility-bar-navigation-justify-content: flex-start !default;
+$menu__utility-bar-navigation-link-padding: .75rem !default;
+$menu__utility-bar-navigation-link-padding-x: $menu__utility-bar-navigation-link-padding !default;
+$menu__utility-bar-navigation-link-padding-y: $menu__utility-bar-navigation-link-padding !default;
+$menu__utility-bar-navigation-font-size: .9rem !default;
+
+$menu__utility-bar-navigation-sub-link-padding: $menu__utility-bar-navigation-link-padding !default;
+$menu__utility-bar-navigation-sub-link-padding-x: $menu__utility-bar-navigation-sub-link-padding !default;
+$menu__utility-bar-navigation-sub-link-padding-y: $menu__utility-bar-navigation-sub-link-padding !default;
+$menu__utility-bar-navigation-sub-link-width: $menu__main-sub-link-width !default;
+$menu__utility-bar-navigation-sub-font-size: $menu__utility-bar-navigation-font-size !default;
+
+$menu__split-sub-link-padding: $menu__split-link-padding !default;
+$menu__split-sub-link-padding-x: $menu__split-link-padding !default;
+$menu__split-sub-link-padding-y: $menu__split-link-padding !default;
+$menu__split-sub-link-width: $menu__main-sub-link-width !default;
+$menu__split-sub-font-size: $menu__split-font-size !default;
+*/

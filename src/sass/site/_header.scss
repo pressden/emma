@@ -5,9 +5,9 @@
     padding: $header-wrap-padding-y $header-wrap-padding-x;
     position: relative;
 
-    @include center-wrap($size__wrap-header);
+    @include center-wrap($header-wrap-max-width);
 
-    @media screen and (min-width: $menu__toggle-breakpoint) {
+    @media screen and (min-width: $menu-toggle-breakpoint) {
       display: flex;
       align-items: $flex__header-align-items;
       justify-content: $flex__header-justify-content;

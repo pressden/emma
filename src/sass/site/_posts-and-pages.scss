@@ -33,7 +33,7 @@
 
 .entry-header {
   > .wrap {
-    @include center-wrap($size__wrap-entry-header);
+    @include center-wrap($entry-header-wrap-max-width);
     padding-left: $content__padding-x;
     padding-right: $content__padding-x;
   }
@@ -48,7 +48,7 @@
 .entry-content {
   > * {
     margin: 2rem auto;
-    max-width: $size__content;
+    max-width: $content-max-width;
     padding-left: $content__padding-x;
     padding-right: $content__padding-x;
   }
@@ -63,7 +63,7 @@
   margin: 1.5rem 0 0;
 
   > .wrap {
-    @include center-wrap($size__wrap-entry-footer);
+    @include center-wrap($entry-footer-wrap-max-width);
     display: flex;
     flex-wrap: wrap;
     align-items: $flex__entry-footer-align-items;

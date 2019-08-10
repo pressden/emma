@@ -41,11 +41,12 @@ do_action( 'emma_before' );
     <div class="wrap">
 
       <?php if ( has_nav_menu( 'left' ) ) : ?>
-        <nav id="left-navigation" class="split-navigation split-left-navigation">
+        <nav id="left-navigation" class="site-navigation split-navigation split-left-navigation toggle-target">
           <?php
           wp_nav_menu( array(
             'theme_location'  => 'left',
             'menu_id'         => 'left-menu',
+            'container_class' => 'menu-container',
           ) );
           ?>
         </nav><!-- #left-navigation -->
@@ -71,12 +72,13 @@ do_action( 'emma_before' );
       </div><!-- .site-branding -->
 
       <?php if ( has_nav_menu( 'right' ) ) : ?>
-        <nav id="right-navigation" class="split-navigation split-right-navigation">
+        <nav id="right-navigation" class="site-navigation split-navigation split-right-navigation toggle-target">
           <button class="menu-toggle" aria-controls="right-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'emma' ); ?></button>
           <?php
           wp_nav_menu( array(
             'theme_location'  => 'right',
             'menu_id'         => 'right-menu',
+            'container_class' => 'menu-container',
           ) );
           ?>
         </nav><!-- #right-navigation -->
@@ -85,12 +87,13 @@ do_action( 'emma_before' );
     </div><!-- .wrap -->
 
     <?php if ( has_nav_menu( 'primary' ) ) : ?>
-      <nav id="main-navigation" class="main-navigation">
+      <nav id="main-navigation" class="site-navigation main-navigation toggle-target">
         <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'emma' ); ?></button>
         <?php
         wp_nav_menu( array(
           'theme_location'  => 'primary',
           'menu_id'         => 'primary-menu',
+          'container_class' => 'menu-container',
         ) );
         ?>
       </nav><!-- #main-navigation -->

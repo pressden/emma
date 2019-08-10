@@ -3,7 +3,7 @@
   background-color: $color__background-footer-widgets;
 
   > .wrap {
-    @include center-wrap($size__wrap-footer-widgets);
+    @include center-wrap($footer-widgets-wrap-max-width);
     display: flex;
     align-items: $flex__footer-widgets-align-items;
     justify-content: $flex__footer-widgets-justify-content;
