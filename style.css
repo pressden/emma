@@ -45,25 +45,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
-/*
-$menu__utility-bar-navigation-justify-content: flex-start !default;
-$menu__utility-bar-navigation-link-padding: .75rem !default;
-$menu__utility-bar-navigation-link-padding-x: $menu__utility-bar-navigation-link-padding !default;
-$menu__utility-bar-navigation-link-padding-y: $menu__utility-bar-navigation-link-padding !default;
-$menu__utility-bar-navigation-font-size: .9rem !default;
-
-$menu__utility-bar-navigation-sub-link-padding: $menu__utility-bar-navigation-link-padding !default;
-$menu__utility-bar-navigation-sub-link-padding-x: $menu__utility-bar-navigation-sub-link-padding !default;
-$menu__utility-bar-navigation-sub-link-padding-y: $menu__utility-bar-navigation-sub-link-padding !default;
-$menu__utility-bar-navigation-sub-link-width: $menu__main-sub-link-width !default;
-$menu__utility-bar-navigation-sub-font-size: $menu__utility-bar-navigation-font-size !default;
-
-$menu__split-sub-link-padding: $menu__split-link-padding !default;
-$menu__split-sub-link-padding-x: $menu__split-link-padding !default;
-$menu__split-sub-link-padding-y: $menu__split-link-padding !default;
-$menu__split-sub-link-width: $menu__main-sub-link-width !default;
-$menu__split-sub-font-size: $menu__split-font-size !default;
-*/
 /*--------------------------------------------------------------
 # Bootstrap Reboot
 --------------------------------------------------------------*/
