@@ -84,6 +84,18 @@ do_action( 'emma_before' );
         </nav><!-- #right-navigation -->
       <?php endif; ?>
 
+      <?php
+      if ( is_active_sidebar( 'header-widgets' ) ) {
+        ?>
+
+        <div id="header-widgets" class="header-widgets">
+          <?php dynamic_sidebar( 'header-widgets' ); ?>
+        </div>
+
+        <?php
+      }
+      ?>
+
     </div><!-- .wrap -->
 
     <?php if ( has_nav_menu( 'primary' ) ) : ?>
