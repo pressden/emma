@@ -137,16 +137,6 @@ $logo__max-height: 8rem !default;
 
 $content__padding-x: 1.5rem !default;
 
-$widget__margin: 0 !default;
-$widget__margin-t: $widget__margin !default;
-$widget__margin-r: $widget__margin !default;
-$widget__margin-b: 1.5rem !default;
-$widget__margin-l: $widget__margin !default;
-
-$widget__padding: 0 !default;
-$widget__padding-x: $widget__padding !default;
-$widget__padding-y: $widget__padding !default;
-
 // BEGIN Refactored Variables
 // @TODO: Organize reboot variables after cleanup (see @TODO on line 1)
 $spacer: 1rem !default;
@@ -177,19 +167,6 @@ $nav-links-max-width: $wrap-max-width !default;
 
 $utility-bar-padding-x: $spacer !default;
 $utility-bar-padding-y: $spacer-xs !default;
-
-$utility-bar-widget-margin-x: 0 !default;
-$utility-bar-widget-margin-y: 0 !default;
-$utility-bar-widget-padding-x: 0 !default;
-$utility-bar-widget-padding-y: 0 !default;
-
-$header-widgets-padding-x: 0 !default;
-$header-widgets-padding-y: 0 !default;
-
-$header-widget-margin-x: 0 !default;
-$header-widget-margin-y: 0 !default;
-$header-widget-padding-x: 0 !default;
-$header-widget-padding-y: 0 !default;
 
 $header-wrap-padding-x: $spacer !default;
 $header-wrap-padding-y: $spacer !default;

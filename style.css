@@ -395,9 +395,6 @@ img {
       display: flex;
       -ms-flex-pack: end;
           justify-content: flex-end; }
-  .utility-bar .widget {
-    margin: 0 0;
-    padding: 0 0; }
 
 /*--------------------------------------------------------------
 ## Header
@@ -425,16 +422,12 @@ img {
   text-align: center; }
 
 .header-widgets {
-  padding: 0 0;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: end;
       justify-content: flex-end;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
-  .header-widgets .widget {
-    margin: 0 0;
-    padding: 0 0; }
 
 /*--------------------------------------------------------------
 ## Posts and pages
@@ -894,8 +887,6 @@ a {
 # Widget (Global .widget container)
 --------------------------------------------------------------*/
 .widget {
-  margin: 0 0 1.5rem 0;
-  padding: 0 0;
   /* Make sure select elements fit in widgets. */ }
   .widget select {
     max-width: 100%; }
