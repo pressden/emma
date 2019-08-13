@@ -114,9 +114,6 @@ $columns: (
 
 $columns__margin: 3.8% !default;
 
-$flex__header-align-items: flex-start !default;
-$flex__header-justify-content: center !default;
-
 $flex__utility-bar-align-items: center !default;
 $flex__utility-bar-justify-content: space-between !default;
 
@@ -161,6 +158,13 @@ $spacer-xl: $spacer * 4 !default;
 $wrap-max-width: 1200px !default;
 $content-max-width: 650px !default;
 
+$header-align-items: flex-start !default;
+$header-justify-content: center !default;
+
+$header-widgets-display: flex !default;
+$header-widgets-justify-content: flex-end !default;
+$header-widgets-flex-wrap: wrap !default;
+
 $header-wrap-max-width: $wrap-max-width !default;
 $entry-header-wrap-max-width: $wrap-max-width !default;
 $entry-footer-wrap-max-width: $content-max-width !default;
@@ -178,6 +182,14 @@ $utility-bar-widget-margin-x: 0 !default;
 $utility-bar-widget-margin-y: 0 !default;
 $utility-bar-widget-padding-x: 0 !default;
 $utility-bar-widget-padding-y: 0 !default;
+
+$header-widgets-padding-x: 0 !default;
+$header-widgets-padding-y: 0 !default;
+
+$header-widget-margin-x: 0 !default;
+$header-widget-margin-y: 0 !default;
+$header-widget-padding-x: 0 !default;
+$header-widget-padding-y: 0 !default;
 
 $header-wrap-padding-x: $spacer !default;
 $header-wrap-padding-y: $spacer !default;

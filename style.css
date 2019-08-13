@@ -424,6 +424,18 @@ img {
   min-width: 250px;
   text-align: center; }
 
+.header-widgets {
+  padding: 0 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: end;
+      justify-content: flex-end;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+  .header-widgets .widget {
+    margin: 0 0;
+    padding: 0 0; }
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
@@ -889,8 +901,17 @@ a {
     max-width: 100%; }
 
 /*--------------------------------------------------------------
-# Navigation Menu
+# Native WordPress Widgets
 --------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Third Party Widgets
+--------------------------------------------------------------*/
+.utility-bar .simple-social-icons ul li,
+.site-header .simple-social-icons ul li,
+.site-footer .simple-social-icons ul li {
+  margin: 0 !important;
+  padding: .25rem !important; }
+
 /*--------------------------------------------------------------
 # Gutenberg
 --------------------------------------------------------------*/
