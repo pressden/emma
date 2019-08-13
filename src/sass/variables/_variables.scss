@@ -67,29 +67,22 @@ $color__text-input: #666 !default;
 $color__text-input-focus: #111 !default;
 $color__text-utility: $color__gray-100 !default;
 $color__link: #00b9eb !default;
-$color__link-visited: $color__link !default;
 $color__link-hover: darken($color__link, 15%) !default;
 
 $color__link-main-navigation: $color__link !default;
-$color__link-main-navigation-visited: $color__link-visited !default;
 $color__link-main-navigation-hover: $color__link-hover !default;
 $color__link-main-navigation-sub: $color__link !default;
-$color__link-main-navigation-sub-visited: $color__link-visited !default;
 $color__link-main-navigation-sub-hover: $color__link-hover !default;
 
 $color__link-utility-bar: #cdcdcd !default;
-$color__link-utility-bar-visited: $color__link-visited !default;
 $color__link-utility-bar-hover: #fff !default;
 
 $color__link-split-navigation: $color__link !default;
-$color__link-split-navigation-visited: $color__link-visited !default;
 $color__link-split-navigation-hover: $color__link-hover !default;
 $color__link-split-navigation-sub: $color__link !default;
-$color__link-split-navigation-sub-visited: $color__link-visited !default;
 $color__link-split-navigation-sub-hover: $color__link-hover !default;
 
 $color__link-footer-navigation: $color__link !default;
-$color__link-footer-navigation-visited: $color__link-visited !default;
 $color__link-footer-navigation-hover: $color__link-hover !default;
 
 $color__border-button: #ccc #ccc #bbb !default;

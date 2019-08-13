@@ -637,8 +637,6 @@ textarea {
 --------------------------------------------------------------*/
 a {
   color: #00b9eb; }
-  a:visited {
-    color: #00b9eb; }
   a:hover, a:focus, a:active {
     color: #007d9f; }
   a:focus {
