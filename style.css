@@ -462,8 +462,8 @@ img {
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem; }
+  padding-left: 1rem;
+  padding-right: 1rem; }
 
 .entry-meta {
   margin: 1.5rem 0;
@@ -472,12 +472,16 @@ img {
 .entry-content > * {
   margin: 2rem auto;
   max-width: 650px;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem; }
+  padding-left: 1rem;
+  padding-right: 1rem; }
 
 .entry-content > ul,
 .entry-content > ol {
   padding-left: 4rem; }
+
+.entry-content .wp-block-columns {
+  padding-left: 0;
+  padding-right: 0; }
 
 .entry-footer {
   margin: 1.5rem 0 0; }
@@ -493,8 +497,8 @@ img {
         align-items: center;
     -ms-flex-pack: justify;
         justify-content: space-between;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem; }
+    padding-left: 1rem;
+    padding-right: 1rem; }
   .entry-footer .edit-link {
     padding: 1.5rem 0;
     width: 100%;
@@ -508,8 +512,8 @@ img {
   margin-left: auto;
   margin-right: auto;
   max-width: 650px;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem; }
+  padding-left: 1rem;
+  padding-right: 1rem; }
 
 .comment-content a {
   word-wrap: break-word; }
@@ -766,8 +770,8 @@ a {
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem; }
+  padding-left: 1rem;
+  padding-right: 1rem; }
 
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main
