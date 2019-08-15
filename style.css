@@ -479,9 +479,26 @@ img {
 .entry-content > ol {
   padding-left: 4rem; }
 
-.entry-content .wp-block-columns {
+.entry-content .wp-block-columns,
+.entry-content .wp-block-media-text {
   padding-left: 0;
   padding-right: 0; }
+
+.entry-content .wp-block-media-text {
+  display: block; }
+  .entry-content .wp-block-media-text .wp-block-media-text__media,
+  .entry-content .wp-block-media-text .wp-block-media-text__content {
+    padding-bottom: 1rem; }
+    @media screen and (min-width: 600px) {
+      .entry-content .wp-block-media-text .wp-block-media-text__media,
+      .entry-content .wp-block-media-text .wp-block-media-text__content {
+        padding-bottom: 0; } }
+  @media screen and (min-width: 600px) {
+    .entry-content .wp-block-media-text {
+      display: grid; } }
+
+.entry-content .wp-block-button {
+  margin-bottom: 1rem; }
 
 .entry-footer {
   margin: 1.5rem 0 0; }
