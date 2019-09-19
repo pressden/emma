@@ -8,7 +8,7 @@
         if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
           ?>
 
-          <div class="footer-widgets-<?php echo $i; ?>">
+          <div class="footer-widgets-<?php echo $i; ?> widget-area">
             <?php dynamic_sidebar( 'footer-widgets-' . $i ); ?>
           </div>
 

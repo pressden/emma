@@ -3,9 +3,14 @@
 
   > .wrap {
     padding: $footer-widgets-wrap-padding-y $footer-widgets-wrap-padding-x;
+    position: relative;
+
     @include center-wrap($footer-widgets-wrap-max-width);
-    display: flex;
-    align-items: $footer-widgets-wrap-align-items;
-    justify-content: $footer-widgets-wrap-justify-content;
+
+    @media screen and (min-width: $menu-breakpoint) {
+      display: flex;
+      align-items: $footer-widgets-wrap-align-items;
+      justify-content: $footer-widgets-wrap-justify-content;
+    }
   }
 }
