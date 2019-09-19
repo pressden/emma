@@ -1,0 +1,64 @@
+// Utility bar
+$utility-bar-wrap-max-width: $wrap-max-width !default;
+$utility-bar-wrap-padding-x: $spacer-md !default;
+$utility-bar-wrap-padding-y: $spacer-xs !default;
+$utility-bar-wrap-align-items: center !default;
+$utility-bar-wrap-justify-content: space-between !default;
+
+// Header
+$header-wrap-max-width: $wrap-max-width !default;
+$header-wrap-padding: $spacer-md !default;
+$header-wrap-padding-x: $header-wrap-padding !default;
+$header-wrap-padding-y: $header-wrap-padding !default;
+$header-wrap-align-items: stretch !default;
+$header-wrap-justify-content: space-between !default;
+
+// Header widgets
+$header-widgets-padding-x: $spacer-md !default;
+$header-widgets-padding-y: 0 !default;
+$header-widgets-display: flex !default;
+$header-widgets-justify-content: flex-end !default;
+$header-widgets-flex-wrap: wrap !default;
+$header-widgets-flex-grow: 1 !default;
+
+// Content
+$content-padding-x: $spacer-md !default;
+$content-padding-y: 0 !default;
+
+// Content - site content
+$site-content-padding-x: 0 !default;
+$site-content-padding-y: $spacer-lg !default;
+
+// Content - entry header
+$entry-header-wrap-max-width: $wrap-max-width !default;
+
+// Content - nav links (pagination)
+$nav-links-max-width: $wrap-max-width !default;
+
+// Content - comments
+$comments-area-wrap-max-width: $content-max-width !default;
+
+// Content - entry footer
+$entry-footer-wrap-max-width: $content-max-width !default;
+$entry-footer-wrap-align-items: center !default;
+$entry-footer-wrap-justify-content: space-between !default;
+
+// Sidebar
+$sidebar-width: 25% !default;
+
+// Footer widgets
+$footer-widgets-wrap-max-width: $wrap-max-width !default;
+$footer-widgets-wrap-padding: $spacer-md !default;
+$footer-widgets-wrap-padding-x: $footer-widgets-wrap-padding !default;
+$footer-widgets-wrap-padding-y: $footer-widgets-wrap-padding !default;
+$footer-widgets-wrap-align-items: flex-start !default;
+$footer-widgets-wrap-justify-content: space-between !default;
+
+// Footer
+$footer-wrap-max-width: $wrap-max-width !default;
+$footer-wrap-padding: $spacer-md !default;
+$footer-wrap-padding-x: $footer-wrap-padding !default;
+$footer-wrap-padding-y: $footer-wrap-padding !default;
+$footer-wrap-align-items: flex-start !default;
+$footer-wrap-justify-content: center !default;
+$footer-wrap-flex-wrap: wrap !default;

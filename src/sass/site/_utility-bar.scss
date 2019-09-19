@@ -1,15 +1,15 @@
 .utility-bar {
-  padding: $utility-bar-padding-y $utility-bar-padding-x;
   color: $color__text-utility;
   background-color: $color__background-utility-bar;
 
   .wrap {
+    padding: $utility-bar-wrap-padding-y $utility-bar-wrap-padding-x;
     @include center-wrap($utility-bar-wrap-max-width);
 
     display: flex;
     flex-wrap: wrap;
-    align-items: $flex__utility-bar-align-items;
-    justify-content: $flex__utility-bar-justify-content;
+    align-items: $utility-bar-wrap-align-items;
+    justify-content: $utility-bar-wrap-justify-content;
 
     & > div {
       &:first-child {

@@ -1,0 +1,13 @@
+/*--------------------------------------------------------------
+## Sticky Header
+## true: the site-header will remain visible at the top of the page on scroll
+## false: the site-header will scroll with the rest of the page
+--------------------------------------------------------------*/
+$enable-sticky-header: false !default;
+
+/*--------------------------------------------------------------
+## Responsive Toggle
+## true: the menu toggle will display based on a $menu-breakpoint media query
+## false: the menu toggle will display based on $menu-toggle-display
+--------------------------------------------------------------*/
+$enable-responsive-toggle: false !default;

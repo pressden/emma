@@ -1,41 +1,18 @@
 .menu-toggle {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+  margin: 0;
+  padding: $menu-toggle-padding-y $menu-toggle-padding-x;
+  display: $menu-toggle-display;
+  text-decoration: none !important;
 
-  @media screen and (min-width: $menu-toggle-breakpoint) {
-    display: none;
+  .dashicons, .dashicons-before:before {
+    width: $menu-toggle-icon-size;
+    height: $menu-toggle-icon-size;
+    font-size: $menu-toggle-icon-size;
   }
-}
 
-.toggle-target {
-  .menu-container {
-    ul {
+  @if $enable-responsive-toggle {
+    @media screen and (min-width: $menu-breakpoint) {
       display: none;
-
-      @media screen and (min-width: $menu-toggle-breakpoint) {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: $menu-justify-content;
-      }
-
-      ul {
-        @media screen and (max-width: $menu-toggle-breakpoint) {
-          display: block;
-          position: initial;
-          box-shadow: none;
-          background-color: transparent;
-        }
-      }
-    }
-  }
-  &.toggled {
-    ul {
-      display: block;
-
-      @media screen and (min-width: $menu-toggle-breakpoint) {
-        display: flex;
-      }
     }
   }
 }

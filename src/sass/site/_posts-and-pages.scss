@@ -1,3 +1,7 @@
+.site-content {
+  padding: $site-content-padding-y $site-content-padding-x;
+}
+
 .sticky {
 	display: block;
 }
@@ -34,8 +38,7 @@
 .entry-header {
   > .wrap {
     @include center-wrap($entry-header-wrap-max-width);
-    padding-left: $content__padding-x;
-    padding-right: $content__padding-x;
+    padding: $content-padding-y $content-padding-x;
   }
 }
 
@@ -49,8 +52,7 @@
   > * {
     margin: 2rem auto;
     max-width: $content-max-width;
-    padding-left: $content__padding-x;
-    padding-right: $content__padding-x;
+    padding: $content-padding-y $content-padding-x;
   }
 
   > ul,
@@ -71,20 +73,20 @@
 
     .wp-block-media-text__media,
     .wp-block-media-text__content {
-      padding-bottom: $spacer;
+      padding-bottom: $spacer-md;
 
-      @media screen and (min-width: $menu-toggle-breakpoint) {
+      @media screen and (min-width: $menu-breakpoint) {
         padding-bottom: 0;
       }
     }
 
-    @media screen and (min-width: $menu-toggle-breakpoint) {
+    @media screen and (min-width: $menu-breakpoint) {
       display: grid;
     }
   }
 
   .wp-block-button {
-    margin-bottom: $spacer;
+    margin-bottom: $spacer-md;
   }
 }
 
@@ -95,10 +97,9 @@
     @include center-wrap($entry-footer-wrap-max-width);
     display: flex;
     flex-wrap: wrap;
-    align-items: $flex__entry-footer-align-items;
-    justify-content: $flex__entry-footer-justify-content;
-    padding-left: $content__padding-x;
-    padding-right: $content__padding-x;
+    align-items: $entry-footer-wrap-align-items;
+    justify-content: $entry-footer-wrap-justify-content;
+    padding: $content-padding-y $content-padding-x;
   }
 
   .edit-link {

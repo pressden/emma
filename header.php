@@ -41,7 +41,7 @@ do_action( 'emma_before' );
     <div class="wrap">
 
       <?php if ( has_nav_menu( 'left' ) ) : ?>
-        <nav id="left-navigation" class="site-navigation split-navigation split-left-navigation toggle-target">
+        <nav id="left-navigation" class="site-navigation split-navigation split-left-navigation">
           <?php
           wp_nav_menu( array(
             'theme_location'  => 'left',
@@ -72,8 +72,7 @@ do_action( 'emma_before' );
       </div><!-- .site-branding -->
 
       <?php if ( has_nav_menu( 'right' ) ) : ?>
-        <nav id="right-navigation" class="site-navigation split-navigation split-right-navigation toggle-target">
-          <button class="menu-toggle" aria-controls="right-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'emma' ); ?></button>
+        <nav id="right-navigation" class="site-navigation split-navigation split-right-navigation">
           <?php
           wp_nav_menu( array(
             'theme_location'  => 'right',
@@ -96,11 +95,16 @@ do_action( 'emma_before' );
       }
       ?>
 
+      <div class="navigation-controls">
+        <a href="javascript:void(0);" id="menu-toggle" class="menu-toggle" aria-controls="menu-drawer" aria-expanded="false" title="<?php esc_html_e( 'Primary Menu', 'emma' ); ?>">
+          <span class="dashicons dashicons-menu-alt"></span>
+        </a>
+      </div><!-- .navigation-controls -->
+
     </div><!-- .wrap -->
 
     <?php if ( has_nav_menu( 'primary' ) ) : ?>
-      <nav id="main-navigation" class="site-navigation main-navigation toggle-target">
-        <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'emma' ); ?></button>
+      <nav id="main-navigation" class="site-navigation main-navigation">
         <?php
         wp_nav_menu( array(
           'theme_location'  => 'primary',

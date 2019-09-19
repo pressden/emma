@@ -46,6 +46,28 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Galleries
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
+## Core
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Sticky Header
+## true: the site-header will remain visible at the top of the page on scroll
+## false: the site-header will scroll with the rest of the page
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Responsive Toggle
+## true: the menu toggle will display based on a $menu-breakpoint media query
+## false: the menu toggle will display based on $menu-toggle-display
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Branding
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Site
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
 # Bootstrap Reboot
 --------------------------------------------------------------*/
 /*!
@@ -91,22 +113,22 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.2; }
 
 h1 {
-  font-size: 2.5rem; }
+  font-size: 2.25rem; }
 
 h2 {
-  font-size: 2rem; }
+  font-size: 1.875rem; }
 
 h3 {
-  font-size: 1.75rem; }
+  font-size: 1.625rem; }
 
 h4 {
-  font-size: 1.5rem; }
+  font-size: 1.375rem; }
 
 h5 {
   font-size: 1.25rem; }
 
 h6 {
-  font-size: 1rem; }
+  font-size: 1.125rem; }
 
 p {
   margin-top: 0;
@@ -370,10 +392,10 @@ img {
 ## Utility bar
 --------------------------------------------------------------*/
 .utility-bar {
-  padding: 0.25rem 1rem;
   color: #f9f9f9;
   background-color: #393939; }
   .utility-bar .wrap {
+    padding: 0.25rem 1rem;
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
@@ -407,31 +429,42 @@ img {
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px; }
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 768px) {
       .site-header > .wrap {
         display: -ms-flexbox;
         display: flex;
-        -ms-flex-align: start;
-            align-items: flex-start;
-        -ms-flex-pack: center;
-            justify-content: center; } }
+        -ms-flex-align: stretch;
+            align-items: stretch;
+        -ms-flex-pack: justify;
+            justify-content: space-between; } }
 
 .site-branding {
   padding: 0 0;
-  min-width: 250px;
+  min-width: none;
   text-align: center; }
+  .site-branding .site-title {
+    margin-bottom: 0; }
+  .site-branding .site-description {
+    margin-top: .25rem;
+    margin-bottom: 0; }
 
 .header-widgets {
+  padding: 0 1rem;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: end;
       justify-content: flex-end;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+  -ms-flex-positive: 1;
+      flex-grow: 1; }
 
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+.site-content {
+  padding: 2rem 0; }
+
 .sticky {
   display: block; }
 
@@ -462,8 +495,7 @@ img {
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
-  padding-left: 1rem;
-  padding-right: 1rem; }
+  padding: 0 1rem; }
 
 .entry-meta {
   margin: 1.5rem 0;
@@ -471,9 +503,8 @@ img {
 
 .entry-content > * {
   margin: 2rem auto;
-  max-width: 650px;
-  padding-left: 1rem;
-  padding-right: 1rem; }
+  max-width: 768px;
+  padding: 0 1rem; }
 
 .entry-content > ul,
 .entry-content > ol {
@@ -489,11 +520,11 @@ img {
   .entry-content .wp-block-media-text .wp-block-media-text__media,
   .entry-content .wp-block-media-text .wp-block-media-text__content {
     padding-bottom: 1rem; }
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 768px) {
       .entry-content .wp-block-media-text .wp-block-media-text__media,
       .entry-content .wp-block-media-text .wp-block-media-text__content {
         padding-bottom: 0; } }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 768px) {
     .entry-content .wp-block-media-text {
       display: grid; } }
 
@@ -505,7 +536,7 @@ img {
   .entry-footer > .wrap {
     margin-left: auto;
     margin-right: auto;
-    max-width: 650px;
+    max-width: 768px;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
@@ -514,8 +545,7 @@ img {
         align-items: center;
     -ms-flex-pack: justify;
         justify-content: space-between;
-    padding-left: 1rem;
-    padding-right: 1rem; }
+    padding: 0 1rem; }
   .entry-footer .edit-link {
     padding: 1.5rem 0;
     width: 100%;
@@ -528,9 +558,8 @@ img {
 .comments-area > .wrap {
   margin-left: auto;
   margin-right: auto;
-  max-width: 650px;
-  padding-left: 1rem;
-  padding-right: 1rem; }
+  max-width: 768px;
+  padding: 0 1rem; }
 
 .comment-content a {
   word-wrap: break-word; }
@@ -542,9 +571,9 @@ img {
 ## Footer widgets
 --------------------------------------------------------------*/
 .footer-widgets {
-  padding: 1rem 1rem;
   background-color: #f9f9f9; }
   .footer-widgets > .wrap {
+    padding: 1rem 1rem;
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px;
@@ -559,14 +588,14 @@ img {
 ## Footer
 --------------------------------------------------------------*/
 .site-footer {
-  padding: 1rem 1rem;
   background-color: #ebebeb; }
   .site-footer > .wrap {
+    padding: 1rem 1rem;
     position: relative;
     margin-left: auto;
     margin-right: auto;
     max-width: 1200px; }
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 768px) {
       .site-footer > .wrap {
         display: -ms-flexbox;
         display: flex;
@@ -672,6 +701,8 @@ a {
   clear: both;
   display: block;
   width: 100%; }
+  .site-navigation .menu-container {
+    padding: 1rem 1rem; }
 
 .menu-container {
   margin-left: auto;
@@ -723,7 +754,7 @@ a {
     text-decoration: none;
     color: #00b9eb; }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   .split-left-navigation {
     margin-right: 2rem; } }
 
@@ -731,7 +762,7 @@ a {
   -ms-flex-pack: justify;
       justify-content: space-between; }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 768px) {
   .split-right-navigation {
     margin-left: 2rem; } }
 
@@ -744,39 +775,48 @@ a {
       justify-content: center; }
 
 /*--------------------------------------------------------------
-## Toggle
+## Menu Drawer
 --------------------------------------------------------------*/
+.menu-drawer {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  overflow-x: hidden;
+  transition: all 0.25s ease-in-out; }
+  .menu-drawer > .wrap {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    padding: 1rem 1rem;
+    text-align: right; }
+  .menu-drawer.toggled {
+    width: 100%; }
+  .menu-drawer .menu-container {
+    max-width: none;
+    width: 100%; }
+    .menu-drawer .menu-container ul {
+      display: block; }
+    .menu-drawer .menu-container a {
+      text-align: center; }
+  .admin-bar .menu-drawer {
+    top: 46px; }
+    @media screen and (min-width: 782px) {
+      .admin-bar .menu-drawer {
+        top: 32px; } }
+
 .menu-toggle {
-  margin-left: auto;
-  margin-right: auto;
-  display: block; }
-  @media screen and (min-width: 600px) {
-    .menu-toggle {
-      display: none; } }
-
-.toggle-target .menu-container ul {
-  display: none; }
-  @media screen and (min-width: 600px) {
-    .toggle-target .menu-container ul {
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-      -ms-flex-pack: justify;
-          justify-content: space-between; } }
-  @media screen and (max-width: 600px) {
-    .toggle-target .menu-container ul ul {
-      display: block;
-      position: initial;
-      box-shadow: none;
-      background-color: transparent; } }
-
-.toggle-target.toggled ul {
-  display: block; }
-  @media screen and (min-width: 600px) {
-    .toggle-target.toggled ul {
-      display: -ms-flexbox;
-      display: flex; } }
+  margin: 0;
+  padding: 0.5rem 0.5rem;
+  display: block;
+  text-decoration: none !important; }
+  .menu-toggle .dashicons, .menu-toggle .dashicons-before:before {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem; }
 
 /*--------------------------------------------------------------
 ## Pagination
@@ -787,8 +827,7 @@ a {
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
-  padding-left: 1rem;
-  padding-right: 1rem; }
+  padding: 0 1rem; }
 
 .site-main .comment-navigation, .site-main
 .posts-navigation, .site-main

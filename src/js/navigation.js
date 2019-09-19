@@ -5,51 +5,67 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	var collection, container, button, menu, links, i, len;
+  var collection, container, drawer, clones, toggle, closer, menu, links, i, len;
 
-  // @TODO: Evaluat performance with querySelectorAll vs. getElementById or getElementsByClassName
+  toggle = document.getElementById( 'menu-toggle' );
+  closer = document.getElementById( 'menu-closer' );
+  drawer = document.getElementById( 'menu-drawer' );
+  clones = document.getElementById( 'menu-clones' );
+
+  // @TODO: Evaluate performance with querySelectorAll vs. getElementById or getElementsByClassName
   collection = document.querySelectorAll( '.site-navigation,.widget_nav_menu' );
 
-  // Exit early if collection is empty
-	if ( collection.legth === 0 ) {
+  // Exit early if collection is empty of the toggle button is undefined
+	if ( collection.legth === 0 || 'undefined' === typeof toggle ) {
 		return;
   }
 
   for( let container of collection ) {
-    button = container.getElementsByTagName( 'button' )[0];
+    menu = container.getElementsByTagName( 'ul' )[0];
 
-    // Continue if this menu does not contain a toggle button
-    if ( 'undefined' === typeof button ) {
+    // @TODO: Move this outside the for loop since one toggle button controls multiple menus
+    /*
+    // Hide menu toggle button if menu is empty and return early.
+    if ( 'undefined' === typeof menu ) {
+      toggle.style.display = 'none';
+      return;
+    }
+    */
+
+    // continue if the menu is empty
+    if ( 'undefined' === typeof menu ) {
       continue;
     }
 
-    menu = container.getElementsByTagName( 'ul' )[0];
-
-    // Hide menu toggle button if menu is empty and return early.
-    if ( 'undefined' === typeof menu ) {
-      button.style.display = 'none';
-      return;
-    }
+    // put a clone of the menu in the menu clones container
+    let clone = menu.cloneNode( true );
+    clones.appendChild( clone );
 
     menu.setAttribute( 'aria-expanded', 'false' );
     if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
       menu.className += ' nav-menu';
     }
 
-    button.onclick = function() {
-      if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-        container.className = container.className.replace( ' toggled', '' );
-        button.setAttribute( 'aria-expanded', 'false' );
+    toggle.onclick = function() {
+      if ( -1 !== drawer.className.indexOf( 'toggled' ) ) {
+        drawer.className = drawer.className.replace( ' toggled', '' );
+        toggle.setAttribute( 'aria-expanded', 'false' );
         menu.setAttribute( 'aria-expanded', 'false' );
       } else {
-        container.className += ' toggled';
-        button.setAttribute( 'aria-expanded', 'true' );
+        drawer.className += ' toggled';
+        toggle.setAttribute( 'aria-expanded', 'true' );
         menu.setAttribute( 'aria-expanded', 'true' );
       }
     };
 
+    closer.onclick = function() {
+      drawer.className = drawer.className.replace( ' toggled', '' );
+      toggle.setAttribute( 'aria-expanded', 'false' );
+      menu.setAttribute( 'aria-expanded', 'false' );
+    };
+
     // Get all the link elements within the menu.
-    links    = menu.getElementsByTagName( 'a' );
+    links = menu.getElementsByTagName( 'a' );
 
     // Each time a menu link is focused or blurred, toggle focus.
     for ( i = 0, len = links.length; i < len; i++ ) {

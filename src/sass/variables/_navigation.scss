@@ -1,0 +1,31 @@
+$menu-container-max-width: $wrap-max-width !default;
+$menu-link-padding: $spacer-sm !default;
+$menu-link-padding-x: $menu-link-padding !default;
+$menu-link-padding-y: $menu-link-padding !default;
+$menu-justify-content: space-between !default;
+
+$menu-sub-link-padding-x: $menu-link-padding-x !default;
+$menu-sub-link-padding-y: $menu-link-padding-y !default;
+$menu-sub-link-width: 200px !default;
+
+$menu-split-justify-content: space-between !default;
+$menu-split-left-justify-content: $menu-split-justify-content !default;
+$menu-split-right-justify-content: $menu-split-justify-content !default;
+$menu-split-margin-x: $spacer-lg !default;
+$menu-split-left-margin-right: $menu-split-margin-x !default;
+$menu-split-right-margin-left: $menu-split-margin-x !default;
+
+$menu-footer-justify-content: center !default;
+
+$menu-toggle-padding-x: $menu-link-padding-x !default;
+$menu-toggle-padding-y: $menu-link-padding-y !default;
+$menu-toggle-display: block !default;
+$menu-toggle-icon-size: 1.5rem !default;
+
+$menu-drawer-padding: $spacer-md !default;
+$menu-drawer-padding-x: $menu-drawer-padding !default;
+$menu-drawer-padding-y: $menu-drawer-padding !default;
+
+$menu-container-padding: $spacer-md !default;
+$menu-container-padding-x: $menu-container-padding !default;
+$menu-container-padding-y: $menu-container-padding !default;

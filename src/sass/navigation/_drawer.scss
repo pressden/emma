@@ -1,0 +1,42 @@
+.menu-drawer {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  background-color: rgba(255,255,255,.95);
+  overflow-x: hidden;
+  transition: all 0.25s ease-in-out;
+
+  > .wrap {
+    @include center-wrap($footer-widgets-wrap-max-width);
+    padding: $menu-drawer-padding-y $menu-drawer-padding-x;
+    text-align: right;
+  }
+
+  &.toggled {
+    width: 100%;
+  }
+
+  .menu-container {
+    max-width: none;
+    width: 100%;
+
+    ul {
+      display: block;
+    }
+
+    a {
+      text-align: center;
+    }
+  }
+
+  .admin-bar & {
+    top: 46px;
+
+    @media screen and (min-width: 782px) {
+      top: 32px;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 .split-left-navigation {
-  @media screen and (min-width: $menu-toggle-breakpoint) {
+  @media screen and (min-width: $menu-breakpoint) {
     margin-right: $menu-split-left-margin-right;
   }
 
@@ -9,7 +9,7 @@
 }
 
 .split-right-navigation {
-  @media screen and (min-width: $menu-toggle-breakpoint) {
+  @media screen and (min-width: $menu-breakpoint) {
     margin-left: $menu-split-right-margin-left;
   }
 

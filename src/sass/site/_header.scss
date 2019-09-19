@@ -7,22 +7,33 @@
 
     @include center-wrap($header-wrap-max-width);
 
-    @media screen and (min-width: $menu-toggle-breakpoint) {
+    @media screen and (min-width: $menu-breakpoint) {
       display: flex;
-      align-items: $header-align-items;
-      justify-content: $header-justify-content;
+      align-items: $header-wrap-align-items;
+      justify-content: $header-wrap-justify-content;
     }
   }
 }
 
 .site-branding {
   padding: $branding-padding-y $branding-padding-x;
-  min-width: $branding__min-width;
-  text-align: $branding__text-align;
+  min-width: $branding-min-width;
+  text-align: $branding-text-align;
+
+  .site-title {
+    margin-bottom: 0;
+  }
+
+  .site-description {
+    margin-top: .25rem;
+    margin-bottom: 0;
+  }
 }
 
 .header-widgets {
+  padding: $header-widgets-padding-y $header-widgets-padding-x;
   display: $header-widgets-display;
   justify-content: $header-widgets-justify-content;
   flex-wrap: $header-widgets-flex-wrap;
+  flex-grow: $header-widgets-flex-grow;
 }

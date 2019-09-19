@@ -36,6 +36,8 @@
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
+<?php get_template_part( 'template-parts/menu', 'drawer' ); ?>
+
 <?php
 /**
  * Fires immediately before wp_footer(), after the site container closing markup.

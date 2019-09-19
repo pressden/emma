@@ -1,11 +1,11 @@
 .footer-widgets {
-  padding: $footer-widgets-padding-y $footer-widgets-padding-x;
   background-color: $color__background-footer-widgets;
 
   > .wrap {
+    padding: $footer-widgets-wrap-padding-y $footer-widgets-wrap-padding-x;
     @include center-wrap($footer-widgets-wrap-max-width);
     display: flex;
-    align-items: $flex__footer-widgets-align-items;
-    justify-content: $flex__footer-widgets-justify-content;
+    align-items: $footer-widgets-wrap-align-items;
+    justify-content: $footer-widgets-wrap-justify-content;
   }
 }

@@ -12,7 +12,7 @@ ul.products {
 		margin-bottom: 2em;
 
 		.woocommerce-loop-product__title {
-			font-size: 1rem;
+			font-size: $font-size-base;
 		}
 
 		img {
@@ -30,7 +30,7 @@ ul.products {
 		li.product {
 			@include column-width(3);
 			float: left;
-			margin-right: $columns__margin;
+			margin-right: $columns-margin;
 
 			&.first {
 				clear: both;

@@ -9,6 +9,9 @@
   }
 
   .admin-bar & {
-    top: 32px;
-  }
+    top: 46px;
+
+    @media screen and (min-width: 782px) {
+      top: 32px;
+    }
 }
