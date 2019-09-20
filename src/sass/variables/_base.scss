@@ -1,12 +1,12 @@
 // Base units
 $base-unit: 1rem !default;
 
-// Breakpoints
-$breakpoint-xs: 0 !default;
+// Breakpoints (commonly used breakpoints in WordPress core: https://github.com/WordPress/gutenberg/issues/13775)
+$breakpoint-xs: 480px !default;
 $breakpoint-sm: 600px !default;
-$breakpoint-md: 768px !default;
-$breakpoint-lg: 992px !default;
-$breakpoint-xl: 1200px !default;
+$breakpoint-md: 782px !default;
+$breakpoint-lg: 960px !default;
+$breakpoint-xl: 1280px !default;
 
 $menu-breakpoint: $breakpoint-md !default;
 

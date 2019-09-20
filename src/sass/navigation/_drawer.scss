@@ -35,7 +35,7 @@
   .admin-bar & {
     top: 46px;
 
-    @media screen and (min-width: 782px) {
+    @media screen and (min-width: $breakpoint-md) {
       top: 32px;
     }
   }
