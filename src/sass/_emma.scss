@@ -1,28 +1,5 @@
 /*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
 # Bootstrap Reboot
-# Elements
-# Site
-# Header
-# Footer
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Content
-	## Posts and pages
-  ## Comments
-# Gutenberg
-  ## Blocks
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
 --------------------------------------------------------------*/
 @import "variables/variables";
 @import "mixins/mixins";
@@ -53,26 +30,6 @@
 @import "navigation/navigation";
 
 /*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
-@import "modules/accessibility";
-
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-@import "modules/alignments";
-
-/*--------------------------------------------------------------
-# Clearings
---------------------------------------------------------------*/
-@import "modules/clearings";
-
-/*--------------------------------------------------------------
-# Clearings
---------------------------------------------------------------*/
-@import "modules/separators";
-
-/*--------------------------------------------------------------
 # Layout
 --------------------------------------------------------------*/
 //@import "layout/layout";
@@ -88,11 +45,16 @@
 @import "gutenberg/gutenberg";
 
 /*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-@import "modules/infinite-scroll";
-
-/*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
 @import "media/media";
+
+/*--------------------------------------------------------------
+# Modules
+--------------------------------------------------------------*/
+@import "modules/accessibility";
+@import "modules/alignments";
+@import "modules/clearings";
+@import "modules/separators";
+@import "modules/infinite-scroll";
+@import "modules/sticky-header";
