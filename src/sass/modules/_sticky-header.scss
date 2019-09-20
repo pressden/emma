@@ -1,17 +1,30 @@
-.site-header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 1;
+@if $enable-sticky-header {
+  .site-header {
+    @media screen and (min-width: $breakpoint-sm) {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 5;
+    }
 
-  .shrink & {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    .admin-bar & {
+      top: 46px;
+
+      @media screen and (min-width: $breakpoint-md) {
+        top: 32px;
+      }
+    }
+
+    .shrink & {
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+    }
   }
 
-  .admin-bar & {
-    top: 46px;
-
-    @media screen and (min-width: 782px) {
-      top: 32px;
+  .site-content {
+    .admin-bar & {
+      @media screen and (min-width: $breakpoint-sm) {
+        margin-top: $sticky-header-offset;
+      }
     }
+  }
 }

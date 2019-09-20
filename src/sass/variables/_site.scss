@@ -13,6 +13,9 @@ $header-wrap-padding-y: $header-wrap-padding !default;
 $header-wrap-align-items: stretch !default;
 $header-wrap-justify-content: space-between !default;
 
+// Sticky Header
+$sticky-header-offset: 100px !default;
+
 // Header widgets
 $header-widgets-padding-x: $spacer-md !default;
 $header-widgets-padding-y: 0 !default;
