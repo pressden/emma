@@ -103,7 +103,9 @@ do_action( 'emma_before' );
 
     </div><!-- .wrap -->
 
-    <?php if ( has_nav_menu( 'primary' ) ) : ?>
+  </header><!-- #masthead -->
+
+  <?php if ( has_nav_menu( 'primary' ) ) : ?>
       <nav id="main-navigation" class="site-navigation main-navigation">
         <?php
         wp_nav_menu( array(
@@ -114,7 +116,5 @@ do_action( 'emma_before' );
         ?>
       </nav><!-- #main-navigation -->
     <?php endif; ?>
-
-	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
