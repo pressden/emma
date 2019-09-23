@@ -20,7 +20,7 @@
     }
   }
 
-  .site-content {
+  .sticky-saver {
     .admin-bar & {
       @media screen and (min-width: $breakpoint-sm) {
         margin-top: $sticky-header-offset;

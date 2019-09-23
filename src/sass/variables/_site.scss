@@ -10,13 +10,23 @@ $header-wrap-max-width: $wrap-max-width !default;
 $header-wrap-padding: $spacer-md !default;
 $header-wrap-padding-x: $header-wrap-padding !default;
 $header-wrap-padding-y: $header-wrap-padding !default;
-$header-wrap-align-items: stretch !default;
+$header-wrap-align-items: center !default;
 $header-wrap-justify-content: space-between !default;
 
-// Sticky Header
-$sticky-header-offset: 100px !default;
+// Header - sticky
+$sticky-header-offset: 72px !default;
 
-// Header widgets
+// Header - branding
+$branding-min-width: none !default;
+$branding-padding: 0 !default;
+$branding-padding-x: $branding-padding !default;
+$branding-padding-y: $branding-padding !default;
+$branding-text-align: center !default;
+
+// Header - logo
+$logo-max-height: 8rem !default;
+
+// Header - widgets
 $header-widgets-padding-x: $spacer-md !default;
 $header-widgets-padding-y: 0 !default;
 $header-widgets-display: flex !default;
