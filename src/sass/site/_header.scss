@@ -4,14 +4,11 @@
   > .wrap {
     padding: $header-wrap-padding-y $header-wrap-padding-x;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
     align-items: $header-wrap-align-items;
     justify-content: $header-wrap-justify-content;
-
     @include center-wrap($header-wrap-max-width);
-
-    @media screen and (min-width: $menu-breakpoint) {
-      display: flex;
-    }
   }
 }
 
@@ -31,9 +28,16 @@
 }
 
 .header-widgets {
-  padding: $header-widgets-padding-y $header-widgets-padding-x;
   display: $header-widgets-display;
   justify-content: $header-widgets-justify-content;
   flex-wrap: $header-widgets-flex-wrap;
   flex-grow: $header-widgets-flex-grow;
+  order: 5;
+  width: 100%;
+
+  @media screen and (min-width: $menu-breakpoint) {
+    padding: $header-widgets-padding-y $header-widgets-padding-x;
+    order: initial;
+    width: auto;
+  }
 }
