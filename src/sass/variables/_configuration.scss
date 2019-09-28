@@ -11,3 +11,10 @@ $enable-sticky-header: true !default;
 ## false: the menu toggle will display based on $menu-toggle-display
 --------------------------------------------------------------*/
 $enable-responsive-toggle: false !default;
+
+/*--------------------------------------------------------------
+## WooCommerce Styles
+## true: woocommerce styles will be added to the compiled CSS
+## false: woocommerce styles will not be added to the compiled CSS
+--------------------------------------------------------------*/
+$enable-woocommerce-styles: false !default;
