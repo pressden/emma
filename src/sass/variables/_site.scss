@@ -39,8 +39,9 @@ $content-padding-x: $spacer-md !default;
 $content-padding-y: 0 !default;
 
 // Content - site content
-$site-content-padding-x: 0 !default;
-$site-content-padding-y: $spacer-lg !default;
+$site-content-padding: 0 !default;
+$site-content-padding-x: $site-content-padding !default;
+$site-content-padding-y: $site-content-padding !default;
 
 // Content - entry header
 $entry-header-wrap-max-width: $wrap-max-width !default;
