@@ -1,0 +1,32 @@
+@if $enable-woocommerce-styles {
+  .woocommerce-message,
+  .woocommerce-info,
+  .woocommerce-error,
+  .woocommerce-noreviews,
+  p.no-comments {
+    @include clearfix;
+    background-color: $woocommerce__color-success;
+    clear: both;
+  }
+
+  .woocommerce-info,
+  .woocommerce-noreviews,
+  p.no-comments {
+    background-color: $woocommerce__color-info;
+  }
+
+  .woocommerce-error {
+    background-color: $woocommerce__color-error;
+  }
+
+  .demo_store {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    padding: 1em;
+    background-color: $woocommerce__color-info;
+    z-index: 9999;
+  }
+}

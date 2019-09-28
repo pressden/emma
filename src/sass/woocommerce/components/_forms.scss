@@ -1,0 +1,19 @@
+@if $enable-woocommerce-styles {
+  .form-row {
+    &.woocommerce-validated {
+      input.input-text {
+        box-shadow: inset 2px 0 0 $woocommerce__color-success;
+      }
+    }
+
+    &.woocommerce-invalid {
+      input.input-text {
+        box-shadow: inset 2px 0 0 $woocommerce__color-error;
+      }
+    }
+  }
+
+  .required {
+    color: red;
+  }
+}
