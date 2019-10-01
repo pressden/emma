@@ -453,7 +453,9 @@ img {
 ## Posts and pages
 --------------------------------------------------------------*/
 .site-content {
-  padding: 0 0; }
+  padding: 1rem 1rem; }
+  .home .site-content {
+    padding: 0 0; }
 
 .sticky {
   display: block; }

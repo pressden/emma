@@ -1,5 +1,9 @@
 .site-content {
   padding: $site-content-padding-y $site-content-padding-x;
+
+  .home & {
+    padding: $home-content-padding-y $home-content-padding-x;
+  }
 }
 
 .sticky {
