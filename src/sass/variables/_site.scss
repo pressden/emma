@@ -38,13 +38,8 @@ $header-widgets-flex-grow: 1 !default;
 $content-padding-x: $spacer-md !default;
 $content-padding-y: 0 !default;
 
-// Content - home content
-$home-content-padding: 0 !default;
-$home-content-padding-x: $home-content-padding !default;
-$home-content-padding-y: $home-content-padding !default;
-
 // Content - site content
-$site-content-padding: 1rem !default;
+$site-content-padding: 0 !default;
 $site-content-padding-x: $site-content-padding !default;
 $site-content-padding-y: $site-content-padding !default;
 
