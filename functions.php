@@ -337,5 +337,5 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  * Load WooCommerce compatibility file.
  */
 if ( class_exists( 'WooCommerce' ) ) {
-	require get_template_directory() . '/inc/woocommerce.php';
+	//require get_template_directory() . '/inc/woocommerce.php';
 }
