@@ -29,8 +29,6 @@ add_action( 'after_setup_theme', 'emma_woocommerce_setup' );
  * @return void
  */
 function emma_woocommerce_scripts() {
-	wp_enqueue_style( 'emma-woocommerce-style', get_template_directory_uri() . '/woocommerce.css' );
-
 	$font_path   = WC()->plugin_url() . '/assets/fonts/';
 	$inline_font = '@font-face {
 			font-family: "star";
