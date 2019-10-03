@@ -1,0 +1,9 @@
+@if $enable-woocommerce-styles {
+  .woocommerce #respond input#submit.alt,
+  .woocommerce a.button.alt,
+  .woocommerce button.button.alt,
+  .woocommerce input.button.alt {
+    background-color: $wc-primary-button-background-color;
+    color: $wc-primary-button-color;
+  }
+}
