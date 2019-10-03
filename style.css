@@ -969,6 +969,9 @@ a {
 /*--------------------------------------------------------------
 ## Blocks
 --------------------------------------------------------------*/
+.wp-block-cover h2 {
+  max-width: none; }
+
 .wp-block-gallery:not(.components-placeholder) {
   margin: 1.5em auto; }
 
