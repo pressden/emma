@@ -1,6 +1,6 @@
 // Woocommerce Colors
-$wc-primary: $primary;
+$wc-primary: $color__primary !default;
 
 // Primary Buttons
-$wc-primary-button-background-color: $wc-primary;
-$wc-primary-buttom-color: $white;
+$wc-primary-button-background-color: $wc-primary !default;
+$wc-primary-buttom-color: $color__white !default;
