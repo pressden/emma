@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "dev": "webpack --mode=development --watch --progress --colors --config webpack/dev.config.js",
+    "watch": "webpack --mode=production --watch --progress --colors --hide-modules --config webpack/dev.config.js",
     "build": "webpack --mode=production --progress --hide-modules --config webpack/prod.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
