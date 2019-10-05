@@ -46,7 +46,8 @@
   > * {
     margin: 2rem auto;
     max-width: $content-max-width;
-    padding: $content-padding-y $content-padding-x;
+    padding-left: $content-padding-x;
+    padding-right: $content-padding-x;
   }
 
   > ul,
