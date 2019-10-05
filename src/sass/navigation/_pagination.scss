@@ -3,7 +3,8 @@
 .post-navigation {
   > .nav-links {
     @include center-wrap($nav-links-max-width);
-    padding: $content-padding-y $content-padding-x;
+    padding-left: $content-padding-x;
+    padding-right: $content-padding-x;
   }
 
   .site-main & {

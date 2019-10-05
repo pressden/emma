@@ -32,7 +32,8 @@
 .entry-header {
   > .wrap {
     @include center-wrap($entry-header-wrap-max-width);
-    padding: $content-padding-y $content-padding-x;
+    padding-left: $content-padding-x;
+    padding-right: $content-padding-x;
   }
 }
 
@@ -94,7 +95,8 @@
     flex-wrap: wrap;
     align-items: $entry-footer-wrap-align-items;
     justify-content: $entry-footer-wrap-justify-content;
-    padding: $content-padding-y $content-padding-x;
+    padding-left: $content-padding-x;
+    padding-right: $content-padding-x;
   }
 
   .edit-link {
