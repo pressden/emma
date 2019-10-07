@@ -6,9 +6,37 @@
   }
 
   .woocommerce {
+    div.product {
+      display: flex;
+
+      & > * {
+        margin-left: 1rem;
+        margin-right: 1rem;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
     div.product p.price,
     div.product span.price {
       color: $wp-price-color;
+    }
+  }
+
+  .woocommerce,
+  .woocommerce-page {
+    #content div.product div.images,
+    div.product div.images,
+    #content div.product div.summary,
+    div.product div.summary {
+      float: none;
+      width: auto;
     }
   }
 }
