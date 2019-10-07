@@ -1,6 +1,12 @@
-// Woocommerce Colors
+// Colors
 $wc-primary: $color__primary !default;
+
+// Max widths
+$wc-max-width: $breakpoint-lg !default;
+
+// Prices
+$wp-price-color: $wc-primary;
 
 // Primary Buttons
 $wc-primary-button-background-color: $wc-primary !default;
-$wc-primary-buttom-color: $color__white !default;
+$wc-primary-button-color: $color__white !default;

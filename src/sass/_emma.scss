@@ -50,11 +50,6 @@
 @import "media/media";
 
 /*--------------------------------------------------------------
-# Woocommerce
---------------------------------------------------------------*/
-@import "woocommerce/woocommerce";
-
-/*--------------------------------------------------------------
 # Modules
 --------------------------------------------------------------*/
 @import "modules/accessibility";
@@ -63,3 +58,8 @@
 @import "modules/separators";
 @import "modules/infinite-scroll";
 @import "modules/sticky-header";
+
+/*--------------------------------------------------------------
+# Woocommerce
+--------------------------------------------------------------*/
+@import "woocommerce/woocommerce";

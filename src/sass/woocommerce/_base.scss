@@ -1,0 +1,14 @@
+@if $enable-woocommerce-styles {
+  .entry-content {
+    > .woocommerce {
+      max-width: $wc-max-width;
+    }
+  }
+
+  .woocommerce {
+    div.product p.price,
+    div.product span.price {
+      color: $wp-price-color;
+    }
+  }
+}
