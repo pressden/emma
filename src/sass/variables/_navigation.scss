@@ -1,13 +1,21 @@
+// Menu Breakpoint
+$menu-breakpoint: $breakpoint-md !default;
+
+// Menu - Global
 $menu-container-max-width: $wrap-max-width !default;
+$menu-container-padding-x: $spacer-md !default;
+$menu-container-padding-y: $spacer-sm !default;
 $menu-link-padding: $spacer-sm !default;
 $menu-link-padding-x: $menu-link-padding !default;
 $menu-link-padding-y: $menu-link-padding !default;
 $menu-justify-content: space-between !default;
 
+// Submenu - Global
 $menu-sub-link-padding-x: $menu-link-padding-x !default;
 $menu-sub-link-padding-y: $menu-link-padding-y !default;
 $menu-sub-link-width: 200px !default;
 
+// Menu - Split
 $menu-split-justify-content: space-between !default;
 $menu-split-left-justify-content: $menu-split-justify-content !default;
 $menu-split-right-justify-content: $menu-split-justify-content !default;
@@ -15,16 +23,16 @@ $menu-split-margin-x: $spacer-lg !default;
 $menu-split-left-margin-right: $menu-split-margin-x !default;
 $menu-split-right-margin-left: $menu-split-margin-x !default;
 
+// Menu - Footer
 $menu-footer-justify-content: center !default;
 
+// Menu - Toggle
 $menu-toggle-padding-x: $menu-link-padding-x !default;
 $menu-toggle-padding-y: $menu-link-padding-y !default;
 $menu-toggle-display: block !default;
 $menu-toggle-icon-size: 1.5rem !default;
 
+// Menu - Drawer
 $menu-drawer-padding: $spacer-md !default;
 $menu-drawer-padding-x: $menu-drawer-padding !default;
 $menu-drawer-padding-y: $menu-drawer-padding !default;
-
-$menu-container-padding-x: $spacer-md !default;
-$menu-container-padding-y: $spacer-sm !default;

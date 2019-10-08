@@ -1,0 +1,10 @@
+// Max widths
+$wrap-max-width: $breakpoint-xl !default;
+$content-max-width: $breakpoint-md !default;
+
+// Spacers
+$spacer-xs: $base-unit / 4 !default;
+$spacer-sm: $base-unit / 2 !default;
+$spacer-md: $base-unit !default;
+$spacer-lg: $base-unit * 2 !default;
+$spacer-xl: $base-unit * 4 !default;
