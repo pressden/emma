@@ -11,9 +11,16 @@
 
 ?>
 
-	</div><!-- #content -->
+  </div><!-- #content -->
 
-  <?php get_template_part( 'template-parts/footer', 'widgets' ); ?>
+  <?php
+  /**
+   * Fires immediately before the footer element opening markup.
+   *
+   * @since 1.0.0
+   */
+  do_action( 'emma_before_footer' );
+  ?>
 
 	<footer id="colophon" class="site-footer">
     <div class="wrap">
@@ -33,14 +40,22 @@
       <?php get_template_part( 'template-parts/site', 'info' ); ?>
 
     </div><!-- .wrap -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+  </footer><!-- #colophon -->
 
-<?php get_template_part( 'template-parts/menu', 'drawer' ); ?>
+  <?php
+  /**
+   * Fires immediately after the footer element closing markup.
+   *
+   * @since 1.0.0
+   */
+  do_action( 'emma_after_footer' );
+  ?>
+
+</div><!-- #page -->
 
 <?php
 /**
- * Fires immediately before wp_footer(), after the site container closing markup.
+ * Fires immediately before wp_footer(), before the body element closing markup.
  *
  * @since 1.0.0
  */

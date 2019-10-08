@@ -322,6 +322,11 @@ require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
 
 /**
+ * Functions which load template parts by hooking into Emma actions.
+ */
+require get_template_directory() . '/inc/template-parts.php';
+
+/**
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
