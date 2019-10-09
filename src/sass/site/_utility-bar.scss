@@ -1,6 +1,6 @@
 .utility-bar {
-  color: $color__text-utility;
-  background-color: $color__background-utility-bar;
+  color: $utility-bar-color;
+  background-color: $utility-bar-background-color;
 
   .wrap {
     padding: $utility-bar-wrap-padding-y $utility-bar-wrap-padding-x;

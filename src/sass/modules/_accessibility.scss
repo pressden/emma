@@ -23,8 +23,8 @@
     font-weight: bold;
     line-height: normal;
     text-decoration: none;
-    color: $color__text-screen;
-    background-color: $color__background-screen;
+    color: $screen-color;
+    background-color: $screen-background-color;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     outline-offset: -1px;
     clip: auto !important;

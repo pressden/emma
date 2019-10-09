@@ -25,7 +25,7 @@
       top: 100%;
       left: -999em;
       z-index: 99999;
-      background-color: $color__background-main-navigation-sub;
+      background-color: $menu-sub-background-color;
 
       ul {
         left: -999em;
@@ -43,12 +43,12 @@
       a {
         width: $menu-sub-link-width;
         padding: $menu-sub-link-padding-y $menu-sub-link-padding-x;
-        color: $color__link-main-navigation-sub;
+        color: $menu-sub-link-color;
       }
 
       :hover > a,
       .focus > a {
-        color: $color__link-main-navigation-sub-hover;
+        color: $menu-sub-link-color-hover;
       }
 
       a:hover,
@@ -70,7 +70,7 @@
 
     &:hover > a,
     &.focus > a {
-      color: $color__link-main-navigation-hover;
+      color: $menu-link-color-hover;
     }
   }
 
@@ -78,7 +78,7 @@
     display: block;
     padding: $menu-link-padding-y $menu-link-padding-x;
     text-decoration: none;
-    color: $color__link-main-navigation;
+    color: $menu-link-color;
   }
 
   .current_page_item > a,

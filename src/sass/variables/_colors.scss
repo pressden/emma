@@ -1,96 +1,65 @@
-// @TODO: Clean up colors based on reboot standards
-$color__primary: #0073aa !default;
-$color__primary-support: #00a0d2 !default;
-$color__secondary: #23282d !default;
-$color__secondary-support: #a0a5aa !default;
+$white: #fff !default;
+$gray-100: #f9f9f9 !default;
+$gray-200: #ebebeb !default;
+$gray-300: #e1e1e1 !default;
+$gray-400: #d3d3d3 !default;
+$gray-500: #b3b3b3 !default;
+$gray-600: #737373 !default;
+$gray-700: #4f4f4f !default;
+$gray-800: #393939 !default;
+$gray-900: #242424 !default;
+$black: #000 !default;
 
-$color__action: $color__primary !default;
-$color__info: $color__primary-support !default;
-$color__accent: #826eb4 !default;
-$color__notice: #ffb900 !default;
-$color__warning: #f56e28 !default;
-$color__error: #dc3232 !default;
-$color__success: #46b450 !default;
-
-$color__white: #fff !default;
-$color__gray-100: #f9f9f9 !default;
-$color__gray-200: #ebebeb !default;
-$color__gray-300: #e1e1e1 !default;
-$color__gray-400: #d3d3d3 !default;
-$color__gray-500: #b3b3b3 !default;
-$color__gray-600: #737373 !default;
-$color__gray-700: #4f4f4f !default;
-$color__gray-800: #393939 !default;
-$color__gray-900: #242424 !default;
-$color__black: #000 !default;
-
-$color__editor-palette: () !default;
-$color__editor-palette: map-merge(
+$editor-palette: () !default;
+$editor-palette: map-merge(
   (
-    'primary': $color__primary,
-    'primary-support': $color__primary-support,
-    'secondary': $color__secondary,
-    'secondary-support': $color__secondary-support,
-    'accent': $color__accent,
-    'notice': $color__notice,
-    'warning': $color__warning,
-    'error': $color__error,
-    'success': $color__success,
-    'white': $color__white,
-    'gray-200': $color__gray-200,
-    'gray-400': $color__gray-400,
-    'gray-600': $color__gray-600,
-    'gray-800': $color__gray-800,
-    'black': $color__black,
+    'primary': $primary,
+    'primary-support': $primary-support,
+    'secondary': $secondary,
+    'secondary-support': $secondary-support,
+    'action': $action,
+    'accent': $accent,
+    'info': $info,
+    'success': $success,
+    'notice': $notice,
+    'warning': $warning,
+    'danger': $danger,
+    'white': $white,
+    'gray-200': $gray-200,
+    'gray-400': $gray-400,
+    'gray-600': $gray-600,
+    'gray-800': $gray-800,
+    'black': $black,
   ),
-  $color__editor-palette
+  $editor-palette
 );
 
-$color__background-screen: #f1f1f1 !default;
-$color__background-header: rgba(255, 255,255, .95) !default;
-$color__background-footer-widgets: $color__gray-100 !default;
-$color__background-footer: $color__gray-200 !default;
-$color__background-button: $color__gray-300 !default;
+$screen-color: #21759b !default;
+$screen-background-color: #f1f1f1 !default;
 
-$color__background-main-navigation: $color__gray-100 !default;
-$color__background-main-navigation-sub: $color__white !default;
+$link-color: $action !default;
+$link-color-hover: darken($link-color, 15%) !default;
 
-$color__background-utility-bar: $color__gray-800 !default;
+$menu-link-color: $link-color !default;
+$menu-link-color-hover: $link-color-hover !default;
+$menu-sub-link-color: $menu-link-color !default;
+$menu-sub-link-color-hover: $menu-link-color-hover !default;
+$menu-sub-background-color: $white !default;
 
-$color__background-split-navigation: transparent !default;
-$color__background-split-navigation-sub: $color__background-main-navigation-sub !default;
+$utility-bar-color: $gray-100 !default;
+$utility-bar-background-color: $gray-800 !default;
 
-$color__background-footer-navigation: transparent !default;
+$header-background-color: rgba(255, 255,255, .95) !default;
 
-$color__text-screen: #21759b !default;
-$color__text-input: #666 !default;
-$color__text-input-focus: #111 !default;
-$color__text-utility: $color__gray-100 !default;
-$color__link: #00b9eb !default;
-$color__link-hover: darken($color__link, 15%) !default;
+$footer-widgets-background-color: $gray-100 !default;
 
-$color__link-main-navigation: $color__link !default;
-$color__link-main-navigation-hover: $color__link-hover !default;
-$color__link-main-navigation-sub: $color__link !default;
-$color__link-main-navigation-sub-hover: $color__link-hover !default;
+$footer-background-color: $gray-200 !default;
 
-$color__link-utility-bar: #cdcdcd !default;
-$color__link-utility-bar-hover: #fff !default;
+$input-color: #666 !default;
+$input-color-focus: #111 !default;
+$input-border-color: #ccc !default;
 
-$color__link-split-navigation: $color__link !default;
-$color__link-split-navigation-hover: $color__link-hover !default;
-$color__link-split-navigation-sub: $color__link !default;
-$color__link-split-navigation-sub-hover: $color__link-hover !default;
-
-$color__link-footer-navigation: $color__link !default;
-$color__link-footer-navigation-hover: $color__link-hover !default;
-
-$color__border-button: #ccc #ccc #bbb !default;
-$color__border-button-hover: #ccc #bbb #aaa !default;
-$color__border-button-focus: #aaa #bbb #bbb !default;
-$color__border-input: #ccc !default;
-
-// @TODO: Convert these to standard (non-woocommerce specific) variables
-$woocommerce__color-error: #e2401c;
-$woocommerce__color-success: #0f834d;
-$woocommerce__color-info: #3D9CD2;
+$button-border-color: #ccc #ccc #bbb !default;
+$button-border-color-hover: #ccc #bbb #aaa !default;
+$button-border-color-focus: #aaa #bbb #bbb !default;
+$button-background-color: $gray-300 !default;

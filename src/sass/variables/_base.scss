@@ -9,6 +9,20 @@ $breakpoint-md: 782px !default;
 $breakpoint-lg: 960px !default;
 $breakpoint-xl: 1280px !default;
 
+// Colors
+$primary: #0073aa !default;
+$primary-support: #00a0d2 !default;
+$secondary: #23282d !default;
+$secondary-support: #a0a5aa !default;
+
+$action: #0073aa !default;
+$accent: #826eb4 !default;
+$info: #00a0d2 !default;
+$success: #46b450 !default;
+$notice: #ffb900 !default;
+$warning: #f56e28 !default;
+$danger: #dc3232 !default;
+
 // Columns
 $columns: (
 	1: 100%,
