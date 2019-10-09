@@ -13,7 +13,7 @@
   clones = document.getElementById( 'menu-clones' );
 
   // @TODO: Evaluate performance with querySelectorAll vs. getElementById or getElementsByClassName
-  collection = document.querySelectorAll( '.site-navigation,.widget_nav_menu' );
+  collection = document.querySelectorAll( '#masthead .site-navigation, #masthead .widget_nav_menu, #main-navigation' );
 
   // Exit early if collection is empty of the toggle button is undefined
 	if ( collection.legth === 0 || 'undefined' === typeof toggle ) {

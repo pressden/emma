@@ -1,3 +1,15 @@
+.split-navigation {
+  .menu-container {
+    ul {
+      display: none;
+
+      @media screen and (min-width: $menu-breakpoint) {
+        display: flex;
+      }
+    }
+  }
+}
+
 .split-left-navigation {
   @media screen and (min-width: $menu-breakpoint) {
     margin-right: $menu-split-left-margin-right;
