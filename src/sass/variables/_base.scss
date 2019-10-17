@@ -23,7 +23,7 @@ $notice: #ffb900 !default;
 $warning: #f56e28 !default;
 $danger: #dc3232 !default;
 
-// Columns
+// Columns - use function columns($key)
 $columns: (
 	1: 100%,
 	2: 50%,

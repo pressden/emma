@@ -1,0 +1,84 @@
+.woocommerce {
+
+  .woocommerce-result-count {
+    float: left;
+  }
+
+  .woocommerce-ordering {
+    float: right;
+  }
+
+  ul.products {
+    display: flex;
+    clear: left;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding-left: 0;
+
+    li {
+      display: block;
+      position: relative;
+      min-width: 200px;
+      margin-bottom: 2rem;
+      text-align: center;
+
+      .woocommerce-loop-product__link {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        &:hover {
+          text-decoration: none;
+        }
+
+        .onsale {
+          display: flex;
+          position: absolute;
+          top: -0.5rem;
+          right: -0.5rem;
+          justify-content: center;
+          align-items: center;
+          width: 3rem;
+          height: 3rem;
+          border-radius: 100%;
+          background-color: $primary;
+          color: $white;
+        }
+
+        img {
+          margin-bottom: 1rem;
+          width: 100%;
+        }
+
+        h2 {
+          font-size: 1rem;
+        }
+
+        .price {
+          color: $primary-support;
+
+          ins {
+            font-weight: 700;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through 6 {
+    &.columns-#{$i} li.product {
+      flex-basis: wc-columns($i);
+    }
+  }
+
+  .woocommerce-pagination {
+    text-align: center;
+
+    .page-numbers {
+      li {
+        display: inline-block;
+      }
+    }
+  }
+}

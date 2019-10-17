@@ -1,14 +1,19 @@
 @if $enable-woocommerce-styles {
   .woocommerce {
     #respond input#submit.alt,
+    a.button,
     a.button.alt,
     button.button.alt,
     input.button.alt {
       background-color: $wc-primary-button-background-color;
       color: $wc-primary-button-color;
+      display: inline-block;
+      border: 2px solid;
+      padding: .25rem .5rem;
 
       &:hover {
         background-color: darken( $wc-primary-button-background-color, 10% );
+        text-decoration: none;
       }
     }
   }

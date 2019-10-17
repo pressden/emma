@@ -1,0 +1,9 @@
+// Returns column width value
+@function wc-columns($key) {
+  @if map-has-key($wc-columns, $key) {
+    @return map-get($wc-columns, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $wc-columns.";
+  @return null;
+}

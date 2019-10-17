@@ -40,3 +40,13 @@
     }
   }
 }
+
+// Columns - use function columns($key)
+$wc-columns: (
+	1: 100%,
+	2: 48%,
+	3: 30.75%,
+	4: 22.05%,
+	5: 16.95%,
+	6: 13.5%
+) !default;

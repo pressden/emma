@@ -5,7 +5,7 @@ $wc-primary: $primary !default;
 $wc-max-width: $breakpoint-lg !default;
 
 // Prices
-$wp-price-color: $wc-primary;
+$wp-price-color: $wc-primary !default;
 
 // Primary Buttons
 $wc-primary-button-background-color: $wc-primary !default;
