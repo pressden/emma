@@ -1,0 +1,98 @@
+.woocommerce {
+
+  div.product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+    row-gap: 2rem;
+    position: relative;
+
+    .woocommerce-product-gallery {
+      grid-column: 1;
+      position: relative;
+
+      .woocommerce-product-gallery__trigger {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        z-index: 100;
+        text-indent: 9999px;
+        width: 2.5rem;
+        height: 2.5rem;
+        overflow: hidden;
+        background: white;
+        border-radius: 100%;
+
+        &:before {
+          display: flex;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          align-items: center;
+          justify-content: center;
+          font-family: dashicons;
+          font-size: 2rem;
+          content: "\f179";
+          text-indent: 0;
+        }
+      }
+
+      .flex-control-nav {
+        display: grid;
+        grid-template-columns: repeat( auto-fill, minmax( $wc-product-gallery-min-width, 1fr ) );
+        column-gap: $wc-product-gallery-column-gap;
+        row-gap: $wc-product-gallery-row-gap;
+        margin-top: $wc-product-gallery-row-gap;
+        padding-left: 0;
+
+        li {
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+
+    .summary {
+      grid-column: 2;
+    }
+
+    .woocommerce-tabs {
+      grid-column: 1 / 3;
+
+      .tabs {
+        display: flex;
+        margin-bottom: 0;
+        padding-left: 1rem;
+
+        li {
+          display: block;
+          margin-bottom: -1px;
+          padding: .75rem 1.5rem;
+          border: 1px solid transparent;
+          border-top-left-radius: .25rem;
+          border-top-right-radius: .25rem;
+
+          &.active {
+            background-color: white;
+            border-color: $input-border-color $input-border-color $white;
+            font-weight: 700;
+          }
+        }
+      }
+
+      .woocommerce-Tabs-panel {
+        border-top: 1px solid $input-border-color;
+      }
+    }
+
+    .related {
+      grid-column: 1 / 3;
+
+      > h2 {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}

@@ -2,51 +2,21 @@
   .entry-content {
     > .woocommerce {
       max-width: $wc-max-width;
-    }
-  }
 
-  .woocommerce {
-    div.product {
-      display: flex;
-
-      & > * {
-        margin-left: 1rem;
-        margin-right: 1rem;
-
-        &:first-child {
-          margin-left: 0;
-        }
-
-        &:last-child {
-          margin-right: 0;
-        }
+      .entry-content > * {
+        max-width: $wc-max-width;
+        padding-left: 0;
       }
     }
-
-    div.product p.price,
-    div.product span.price {
-      color: $wp-price-color;
-    }
   }
 
-  .woocommerce,
-  .woocommerce-page {
-    #content div.product div.images,
-    div.product div.images,
-    #content div.product div.summary,
-    div.product div.summary {
-      float: none;
-      width: auto;
-    }
-  }
+  // .woocommerce {
+  //   #content div.product div.images,
+  //   div.product div.images,
+  //   #content div.product div.summary,
+  //   div.product div.summary {
+  //     float: none;
+  //     width: auto;
+  //   }
+  // }
 }
-
-// Columns - use function columns($key)
-$wc-columns: (
-	1: 100%,
-	2: 48%,
-	3: 30.75%,
-	4: 22.05%,
-	5: 16.95%,
-	6: 13.5%
-) !default;

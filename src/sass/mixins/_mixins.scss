@@ -16,3 +16,10 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get( $columns, $numberColumns ) - ( ( $columns-margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+// Remove a:hover underline {
+@mixin remove-hover-underline {
+	&:hover {
+		text-decoration: none;
+	}
+}
