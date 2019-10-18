@@ -27,6 +27,11 @@
         margin-bottom: $spacer;
 
         @include remove-hover-underline;
+        &:hover {
+          .woocommerce-loop-product__title {
+            text-decoration: underline;
+          }
+        }
 
         img {
           margin-bottom: $spacer;
