@@ -1,16 +1,18 @@
 @if $enable-woocommerce-styles {
-  .entry-content {
-    > .woocommerce {
+  .woocommerce {
+
+    .site-main {
+      margin: 2rem auto;
       max-width: $wc-max-width;
+      padding-left: $content-padding-x;
+      padding-right: $content-padding-x;
 
       .entry-content > * {
         max-width: $wc-max-width;
         padding-left: 0;
       }
     }
-  }
 
-  .woocommerce {
     .screen-reader-text {
       @include screen-reader-only;
     }
