@@ -14,7 +14,7 @@
     }
 
     .screen-reader-text {
-      @include screen-reader-only;
+      @include sr-only;
     }
   }
 }

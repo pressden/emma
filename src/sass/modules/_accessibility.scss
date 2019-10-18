@@ -1,6 +1,6 @@
 /* Text meant only for screen readers. */
 .screen-reader-shortcut {
-  @include screen-reader-only;
+  @include sr-only;
 
   &:focus {
     display: block;
@@ -20,6 +20,7 @@
     outline-offset: -1px;
     clip: auto !important;
     clip-path: none;
+    word-wrap: normal !important;
   }
 }
 
