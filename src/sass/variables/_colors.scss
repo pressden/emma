@@ -59,7 +59,8 @@ $input-color: #666 !default;
 $input-color-focus: #111 !default;
 $input-border-color: #ccc !default;
 
-$button-border-color: #ccc #ccc #bbb !default;
-$button-border-color-hover: #ccc #bbb #aaa !default;
-$button-border-color-focus: #aaa #bbb #bbb !default;
-$button-background-color: $gray-300 !default;
+$button-color: $white;
+$button-background-color: $primary !default;
+$button-border-color: transparent !default;
+$button-border-color-hover: lighten( $button-background-color, 20% ) !default;
+$button-outline-color-focus: $button-border-color-hover !default;

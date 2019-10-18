@@ -2,19 +2,5 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: $button-border-color;
-	border-radius: 3px;
-	background: $button-background-color;
-	color: rgba(0, 0, 0, .8);
-	padding: $spacer-sm $spacer-md;
-
-	&:hover {
-		border-color: $button-border-color-hover;
-	}
-
-	&:active,
-	&:focus {
-		border-color: $button-border-color-focus;
-	}
+	@include button;
 }

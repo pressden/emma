@@ -60,6 +60,22 @@
 
     .summary {
       grid-column: 2;
+      display: grid;
+      align-content: start;
+
+      .woocommerce-variation-add-to-cart {
+        display: flex;
+        justify-content: flex-start;
+
+        .quantity {
+          align-self: center;
+          margin-right: $spacer-sm;
+
+          input.qty {
+            width: $spacer-xl;
+          }
+        }
+      }
     }
 
     .woocommerce-tabs {
