@@ -63,7 +63,7 @@
       display: grid;
       align-content: start;
 
-      .woocommerce-variation-add-to-cart {
+      .woocommerce-variation-add-to-cart, form.cart {
         display: flex;
         justify-content: flex-start;
 
