@@ -51,7 +51,7 @@
     padding-right: $content-padding-x;
   }
 
-  > ul,
+  > ul:not(.wp-block-gallery),
   > ol {
     padding-left: 4rem;
   }

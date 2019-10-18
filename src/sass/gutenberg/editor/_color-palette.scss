@@ -1,9 +1,9 @@
 @each $name, $color in $editor-palette {
 	.has-#{$name}-color {
-		color: $color;
+		color: $color !important;
 	}
 
 	.has-#{$name}-background-color {
-		background-color: $color;
+		background-color: $color !important;
 	}
 }
