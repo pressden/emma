@@ -1,5 +1,9 @@
 .woocommerce {
 
+  .woocommerce-breadcrumb {
+    margin-bottom: 2rem;
+  }
+
   div.product {
     display: grid;
     grid-template-columns: 1fr 1fr;

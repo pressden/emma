@@ -339,17 +339,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 }
 
 /**
- * Load WooCommerce compatibility file.
- */
-if ( class_exists( 'WooCommerce' ) ) {
-  //require get_template_directory() . '/inc/woocommerce.php';
-
-  // dequeue default woocommerce styles
-  add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
-}
-
-/**
- * Declare WooCommerce theme support
+ * Declare WooCommerce theme support.
  */
 function declare_woocommerce_support() {
   add_theme_support( 'woocommerce' );
@@ -357,4 +347,11 @@ function declare_woocommerce_support() {
   add_theme_support( 'wc-product-gallery-lightbox' );
   add_theme_support( 'wc-product-gallery-slider' );
 }
-add_action( 'after_setup_theme', 'declare_woocommerce_support' );
+
+/**
+ * Hooks to run if WooCommerce is installed and active
+ */
+if ( class_exists( 'WooCommerce' ) ) {
+  add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' ); // dequeue default woocommerce styles
+  add_action( 'after_setup_theme', 'declare_woocommerce_support' );
+}
