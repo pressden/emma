@@ -33,7 +33,7 @@
           align-items: center;
           justify-content: center;
           font-family: dashicons;
-          font-size: 2rem;
+          @include font-size(2rem);
           content: "\f179";
           text-indent: 0;
         }

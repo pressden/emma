@@ -11,7 +11,7 @@
       border: 2px solid;
       padding: .25rem .5rem;
 
-      &:hover {
+      &:hover, &:focus {
         background-color: darken( $wc-primary-button-background-color, 10% );
         text-decoration: none;
       }

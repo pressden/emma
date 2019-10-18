@@ -7,8 +7,6 @@ input[type="submit"] {
 	border-radius: 3px;
 	background: $button-background-color;
 	color: rgba(0, 0, 0, .8);
-	@include font-size(.9rem);
-	line-height: 1;
 	padding: $spacer-sm $spacer-md;
 
 	&:hover {
