@@ -13,5 +13,12 @@
 --------------------------------------------------------------*/
 @import "components/alerts";
 @import "components/buttons";
-@import "components/product-archive";
-@import "components/single-product";
+@import "components/forms";
+@import "components/tables";
+
+/*--------------------------------------------------------------
+## Layouts
+--------------------------------------------------------------*/
+@import "layouts/cart";
+@import "layouts/product-archive";
+@import "layouts/single-product";

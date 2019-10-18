@@ -29,25 +29,26 @@
   background-color: $button-background-color;
   color: $button-color;
   display: inline-block;
-  border: 2px solid;
   padding: $spacer-xs $spacer-sm;
+  border: 0px;
+  border-radius: 3px;
 
   &:hover {
-    border-color: $button-border-color-hover;
+    background-color: $button-background-color-hover;
     text-decoration: none;
   }
 
   &:active,
   &:focus {
-    outline-color: $button-outline-color-focus;
+    outline: 0;
+    box-shadow: 0 0 0 0.15rem $button-outline-color-focus;
   }
 
   &:disabled, &.disabled {
-    background-color: rgba( $wc-primary-button-background-color, .5 );
+    background-color: rgba( $button-background-color, .5 );
     cursor: not-allowed;
 
     &:active, &:focus, &:hover {
-      border-color: white;
       outline-color: transparent;
     }
   }

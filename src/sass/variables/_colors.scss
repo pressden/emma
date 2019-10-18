@@ -61,6 +61,5 @@ $input-border-color: #ccc !default;
 
 $button-color: $white;
 $button-background-color: $primary !default;
-$button-border-color: transparent !default;
-$button-border-color-hover: lighten( $button-background-color, 20% ) !default;
-$button-outline-color-focus: $button-border-color-hover !default;
+$button-background-color-hover: darken( $button-background-color, 5% ) !default;
+$button-outline-color-focus: rgba( $button-background-color, .7 ) !default;

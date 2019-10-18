@@ -1,7 +1,7 @@
 @if $enable-woocommerce-styles {
   .woocommerce {
 
-    .site-main {
+    .site-main, .entry-content & {
       margin: $spacer-lg auto;
       max-width: $wc-max-width;
       padding-left: $content-padding-x;

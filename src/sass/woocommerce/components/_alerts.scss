@@ -1,19 +1,34 @@
-.onsale {
-  display: flex;
-  position: absolute;
-  top: -$spacer-sm;
-  right: -$spacer-sm;
-  justify-content: center;
-  align-items: center;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 100%;
-  background-color: $primary;
-  color: $white;
+.woocommerce {
 
-  div.product & {
+  .onsale {
+    display: flex;
+    position: absolute;
+    top: -$spacer-sm;
+    right: -$spacer-sm;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    background-color: $primary;
+    color: $white;
+  }
+
+  div.product .onsale {
     right: auto;
     left: -$spacer-sm;
     z-index: 100;
+  }
+
+  .woocommerce-message {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    margin: $spacer-lg 0;
+    padding: $spacer $spacer-lg;
+    border-radius: 3px;
+    background-color: $primary;
+    color: $white;
   }
 }
