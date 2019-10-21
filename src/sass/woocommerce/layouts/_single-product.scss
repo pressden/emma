@@ -63,13 +63,24 @@
       display: grid;
       align-content: start;
 
-      .woocommerce-variation-add-to-cart, form.cart {
-        display: flex;
-        justify-content: flex-start;
+      form.cart {
 
-        .quantity {
-          align-self: center;
-          margin-right: $spacer-sm;
+        .variations {
+          margin-bottom: $spacer;
+
+          td, th {
+            padding: $spacer-xs;
+          }
+        }
+
+        .woocommerce-variation-add-to-cart {
+          display: flex;
+          justify-content: flex-start;
+
+          .quantity {
+            align-self: center;
+            margin-right: $spacer-sm;
+          }
         }
       }
     }
