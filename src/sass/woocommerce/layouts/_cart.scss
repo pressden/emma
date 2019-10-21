@@ -29,11 +29,9 @@
 
         td, th {
           display: block;
-          padding: $spacer-sm;
 
           @media screen and ( min-width: $wc-cart-breakpoint ) {
             display: table-cell;
-            padding: $spacer;
           }
         }
       }
@@ -180,8 +178,16 @@
       .shop_table {
         width: 100%;
 
-        td[data-title], th[data-title] {
-          text-align: right;
+        tr {
+          border-top: 1px solid $input-border-color;
+        }
+      }
+
+      .shipping-calculator-form {
+        text-align: left;
+
+        .input-text {
+          width: 100%;
         }
       }
 

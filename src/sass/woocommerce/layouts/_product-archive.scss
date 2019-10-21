@@ -41,15 +41,6 @@
         h2 {
           @include font-size($font-size-base);
         }
-
-        .price {
-          color: $primary-support;
-
-          ins {
-            font-weight: 700;
-            text-decoration: none;
-          }
-        }
       }
     }
   }

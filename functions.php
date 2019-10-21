@@ -341,7 +341,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 /**
  * Declare WooCommerce theme support.
  */
-function declare_woocommerce_support() {
+function emma_declare_woocommerce_support() {
   add_theme_support( 'woocommerce' );
   add_theme_support( 'wc-product-gallery-zoom' );
   add_theme_support( 'wc-product-gallery-lightbox' );
@@ -353,5 +353,5 @@ function declare_woocommerce_support() {
  */
 if ( class_exists( 'WooCommerce' ) ) {
   add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' ); // dequeue default woocommerce styles
-  add_action( 'after_setup_theme', 'declare_woocommerce_support' );
+  add_action( 'after_setup_theme', 'emma_declare_woocommerce_support' ); // declare theme and product-gallery support
 }

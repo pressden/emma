@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+
+  td, th {
+    padding: $spacer-sm;
+
+    @media screen and ( min-width: $wc-cart-breakpoint ) {
+      padding: $spacer;
+    }
+
+    > * {
+      margin-bottom: 0;
+    }
+  }
+}

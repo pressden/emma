@@ -1,0 +1,71 @@
+.woocommerce {
+  .checkout_coupon {
+
+  }
+
+  .checkout {
+
+    input:not( [type='checkbox'] ):not( [type='radio'] ) {
+      width: 100%;
+    }
+
+    .col2-set {
+      display: grid;
+
+      @media screen and ( min-width: $breakpoint-md ) {
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: $spacer-lg;
+      }
+    }
+
+    #ship-to-different-address label {
+      margin-bottom: 0;
+    }
+
+    .woocommerce-billing-fields__field-wrapper, .woocommerce-shipping-fields__field-wrapper {
+      display: grid;
+
+      label {
+        display: block;
+      }
+
+      @media screen and ( min-width: $breakpoint-sm ) {
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: $spacer;
+
+        .form-row {
+          grid-column: 1 / 3;
+
+          &#billing_first_name_field, &#billing_phone_field, &#billing_state_field, &#shipping_first_name_field, &#shipping_state_field {
+            grid-column: 1;
+          }
+
+          &#billing_last_name_field, &#billing_email_field, &#billing_postcode_field, &#shipping_last_name_field, &#shipping_postcode_field {
+            grid-column: 2;
+          }
+        }
+      }
+    }
+
+    .woocommerce-checkout-review-order {
+      table {
+        width: 100%;
+
+        tr {
+          border-top: 1px solid $input-border-color;
+          border-bottom: 1px solid $input-border-color;
+
+          td, th {
+            padding: $spacer-sm;
+          }
+
+          td.product-name {
+            @media screen and ( min-width: $breakpoint-xs ) {
+              padding-left: $spacer-lg;
+            }
+          }
+        }
+      }
+    }
+  }
+}

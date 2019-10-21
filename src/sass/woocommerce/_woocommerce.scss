@@ -14,11 +14,14 @@
 @import "components/alerts";
 @import "components/buttons";
 @import "components/forms";
+@import "components/price";
+@import "components/shipping-methods";
 @import "components/tables";
 
 /*--------------------------------------------------------------
 ## Layouts
 --------------------------------------------------------------*/
 @import "layouts/cart";
+@import "layouts/checkout";
 @import "layouts/product-archive";
 @import "layouts/single-product";
