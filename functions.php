@@ -297,7 +297,11 @@ function emma_scripts() {
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
-	}
+  }
+  
+  // deregister really old jQuery that ships with WordPress, and re-register newer version
+  wp_deregister_script( 'jquery' );
+  wp_register_script( 'jquery', get_template_directory_uri() . '/src/js/vendor/jquery.min.js', false, '3.4.1' );
 }
 add_action( 'wp_enqueue_scripts', 'emma_scripts' );
 
