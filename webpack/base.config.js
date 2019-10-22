@@ -7,9 +7,7 @@ module.exports = {
     app: './js/index.js'
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: "../style.css",
-    })
+    new MiniCssExtractPlugin({})
   ],
   module: {
     rules: [
