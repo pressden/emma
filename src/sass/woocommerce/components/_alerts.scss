@@ -10,7 +10,7 @@
     width: 3rem;
     height: 3rem;
     border-radius: 100%;
-    background-color: $primary;
+    background-color: $notice;
     color: $white;
   }
 
@@ -27,8 +27,41 @@
     flex-direction: row-reverse;
     margin: $spacer-lg 0;
     padding: $spacer $spacer-lg;
-    border-radius: 3px;
-    background-color: $primary;
-    color: $white;
+    border-radius: $alert-border-radius;
+    background-color: $info;
+    color: color-yiq( $info );
+  }
+
+  .woocommerce-error {
+    padding: $spacer;
+    border-radius: $alert-border-radius;
+    background-color: $warning;
+    color: color-yiq( $warning );
+
+    li {
+      display: block;
+    }
+  }
+
+  .woocommerce-info {
+    display: block;
+    margin: $spacer-lg 0;
+    padding: $spacer;
+    border-radius: $alert-border-radius;
+    background-color: $info;
+    color: color-yiq( $info );
+
+    a {
+      color: color-yiq( $info );
+      text-decoration: underline;
+
+      &:hover {
+        color: color-yiq( $info );
+      }
+    }
+  }
+
+  .woocommerce-invalid input {
+    border-color: $warning;
   }
 }

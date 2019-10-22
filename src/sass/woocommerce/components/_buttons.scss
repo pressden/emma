@@ -1,11 +1,8 @@
-@if $enable-woocommerce-styles {
-  .woocommerce {
-    #respond input#submit.alt,
-    a.button,
-    a.button.alt,
-    button.button.alt,
-    input.button.alt {
-      @include button;
-    }
-  }
+a.button.add_to_cart_button,
+button.single_add_to_cart_button,
+a.button.checkout-button,
+button#place_order,
+a.button.product_type_grouped,
+.woocommerce-message a.button {
+  @include button( $accent );
 }

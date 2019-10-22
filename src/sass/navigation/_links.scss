@@ -1,9 +1,9 @@
 a {
 	color: $link-color;
 
-	&:hover,
-	&:focus,
-	&:active {
+	&:hover:not( .button ),
+	&:focus:not( .button ),
+	&:active:not( .button ) {
 		color: $link-color-hover;
   }
 

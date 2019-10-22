@@ -58,8 +58,3 @@ $footer-background-color: $gray-200 !default;
 $input-color: #666 !default;
 $input-color-focus: #111 !default;
 $input-border-color: #ccc !default;
-
-$button-color: $white;
-$button-background-color: $primary !default;
-$button-background-color-hover: darken( $button-background-color, 5% ) !default;
-$button-outline-color-focus: rgba( $button-background-color, .7 ) !default;

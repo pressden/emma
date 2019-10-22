@@ -63,6 +63,15 @@
       }
     }
 
+    .woocommerce-product-rating {
+      display: flex;
+      align-content: center;
+
+      .star-rating {
+        margin-right: $spacer-sm;
+      }
+    }
+
     .summary {
       grid-column: 2;
       display: grid;
@@ -121,6 +130,105 @@
 
       > h2 {
         margin-bottom: 2rem;
+      }
+    }
+
+    #reviews {
+      padding-right: 0;
+
+      .woocommerce-Reviews-title {
+        margin-bottom: $spacer-lg;
+      }
+
+      .commentlist {
+        padding-left: 0;
+
+        .comment_container {
+          display: grid;
+          grid-template-columns: 50px 1fr;
+          grid-column-gap: $spacer-sm;
+          margin: $spacer-sm 0;
+
+          @media screen and ( min-width: $breakpoint-sm ) {
+            grid-template-columns: 70px 1fr;
+            grid-column-gap: $spacer;
+          }
+
+          .star-rating {
+            float: right;
+            margin-top: $spacer-xs;
+
+            @media screen and ( max-width: $breakpoint-sm ) { //max-width used because this is the only place star ratings need to be reduced in size
+              width: 5rem;
+              min-width: 5rem;
+
+              &:before, span:before {
+                height: 1rem;
+                font-size: 1rem;
+              }
+            }
+          }
+
+          .meta {
+
+            .woocommerce-review__dash {
+              display: none;
+            }
+
+            .woocommerce-review__published-date {
+              display: block;
+              color: $gray-600;
+            }
+          }
+        }
+      }
+
+      .comment-reply-title {
+        display: none;
+      }
+
+      .comment-form-rating {
+
+        .stars {
+
+          a {
+            position: relative;
+            height: 2rem;
+            width: 2rem;
+            text-indent: -999em;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: 400;
+
+            &:before {
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 2rem;
+              height: 2rem;
+              line-height: 1;
+              font-family: 'dashicons';
+              font-size: 2rem;
+              content: '\f155';
+              color: $gray-600;
+              text-indent: 0;
+              opacity: .25;
+            }
+          }
+
+          &.selected {
+            a:before {
+              color: $accent;
+              opacity: 1;
+            }
+
+            a.active ~ a:before {
+              color: $gray-600;
+              opacity: .25;
+            }
+          }
+        }
       }
     }
   }

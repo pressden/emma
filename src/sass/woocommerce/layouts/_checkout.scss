@@ -1,6 +1,34 @@
 .woocommerce {
   .checkout_coupon {
+    display: flex;
+    flex-wrap: wrap;
+    margin: $spacer-lg 0;
+    padding: $spacer;
+    border-radius: $alert-border-radius;
+    border: 1px solid $input-border-color;
 
+    p {
+      width: 100%;
+
+      > * {
+        width: 100%;
+      }
+
+      &.form-row-last {
+        margin-bottom: 0;
+      }
+
+      @media screen and ( min-width: $breakpoint-sm ) {
+        &:not( :first-of-type ) {
+          width: auto;
+          margin-bottom: 0;
+        }
+
+        &.form-row-first {
+          margin-right: $spacer-sm;
+        }
+      }
+    }
   }
 
   .checkout {
@@ -66,6 +94,19 @@
           }
         }
       }
+
+      .wc_payment_methods {
+        padding-left: 0;
+      }
+    }
+
+    #place_order {
+      width: 100%;
+      padding-top: $spacer;
+      padding-bottom: $spacer;
+      @include font-size( 1.5rem );
+      font-weight: 700;
+      text-align: center;
     }
   }
 }

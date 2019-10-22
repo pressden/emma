@@ -1,6 +1,31 @@
 button,
 input[type="button"],
 input[type="reset"],
-input[type="submit"] {
+input[type="submit"],
+a.button {
 	@include button;
+
+	display: inline-block;
+  padding: $spacer-xs $spacer-sm;
+  border: 0px;
+  border-radius: $button-border-radius;
+
+	&:hover {
+		filter: $button-hover-filter-effect;
+		text-decoration: none;
+	}
+
+	&:active, &:focus {
+		box-shadow: $button-focus-box-shadow;
+		outline: 0;
+	}
+
+	&:disabled, &.disabled:not( :disabled ) {
+    filter: $button-disabled-filter-effect;
+		cursor: not-allowed;
+
+		&:active, &:focus {
+      box-shadow: none;
+    }
+  }
 }

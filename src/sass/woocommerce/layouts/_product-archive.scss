@@ -41,6 +41,12 @@
         h2 {
           @include font-size($font-size-base);
         }
+
+        .star-rating {
+          margin-left: auto;
+          margin-right: auto;
+          margin-bottom: $spacer-sm;
+        }
       }
     }
   }
