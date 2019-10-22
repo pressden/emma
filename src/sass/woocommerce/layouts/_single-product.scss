@@ -158,13 +158,21 @@
             float: right;
             margin-top: $spacer-xs;
 
-            @media screen and ( max-width: $breakpoint-sm ) { //max-width used because this is the only place star ratings need to be reduced in size
-              width: 5rem;
-              min-width: 5rem;
+            width: $wc-review-star-size-sm * 5;
+            min-width: $wc-review-star-size-sm * 5;
+
+            &:before, span:before {
+              height: $wc-review-star-size-sm;
+              font-size: $wc-review-star-size-sm;
+            }
+
+            @media screen and ( min-width: $breakpoint-sm ) {
+              width: $wc-review-star-size * 5;
+              min-width: $wc-review-star-size * 5;
 
               &:before, span:before {
-                height: 1rem;
-                font-size: 1rem;
+                height: $wc-review-star-size;
+                font-size: $wc-review-star-size;
               }
             }
           }
@@ -193,8 +201,8 @@
 
           a {
             position: relative;
-            height: 2rem;
-            width: 2rem;
+            height: 1.5rem;
+            width: 1.5rem;
             text-indent: -999em;
             display: inline-block;
             text-decoration: none;
@@ -205,11 +213,9 @@
               position: absolute;
               top: 0;
               left: 0;
-              width: 2rem;
-              height: 2rem;
               line-height: 1;
               font-family: 'dashicons';
-              font-size: 2rem;
+              font-size: 1.5rem;
               content: '\f155';
               color: $gray-600;
               text-indent: 0;
