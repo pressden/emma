@@ -303,7 +303,7 @@ function emma_scripts() {
   // enqueue dashicons for use on the frontend
   wp_enqueue_style( 'dashicons' );
 
-	wp_enqueue_style( 'emma-style', get_stylesheet_uri(), null, wp_get_theme()->get( 'Version' ) );
+	wp_enqueue_style( 'emma-style', get_stylesheet_directory_uri() . '/dist/app.css', null, wp_get_theme()->get( 'Version' ) );
 
   wp_enqueue_script( 'emma-scripts', get_stylesheet_directory_uri() . '/dist/app.js', array(), wp_get_theme()->get( 'Version' ), true );
 
