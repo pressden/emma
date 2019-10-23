@@ -126,6 +126,12 @@
         padding-left: 0;
         padding-right: 0;
 
+        .coupon {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+
         .coupon, .coupon > * {
           width: 100%;
           margin-bottom: $spacer-sm;

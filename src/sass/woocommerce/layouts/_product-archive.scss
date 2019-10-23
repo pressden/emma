@@ -25,6 +25,7 @@
         display: flex;
         flex-direction: column;
         margin-bottom: $spacer;
+        align-items: center;
 
         @include remove-hover-underline;
         &:hover {
@@ -35,7 +36,7 @@
 
         img {
           margin-bottom: $spacer;
-          width: 100%;
+          max-width: 100%;
         }
 
         h2 {

@@ -6,7 +6,7 @@ a.button {
 	@include button;
 
 	display: inline-block;
-  padding: $spacer-xs $spacer-sm;
+  padding: $button-padding;
   border: 0px;
   border-radius: $button-border-radius;
 

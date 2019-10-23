@@ -29,3 +29,10 @@
   background-color: $background-color;
   color: color-yiq( $background-color );
 }
+
+// Full width breakout from max-width parent
+@mixin full-width-breakout() {
+	margin-left: calc(-50vw + 50%);
+	margin-right: calc(-50vw + 50%);
+	max-width: 100vw;
+}
