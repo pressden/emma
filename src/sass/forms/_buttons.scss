@@ -20,12 +20,37 @@ a.button {
 		outline: 0;
 	}
 
-	&:disabled, &.disabled:not( :disabled ) {
+	&:disabled, &.disabled:not( :disabled ), &.loading {
     filter: $button-disabled-filter-effect;
 		cursor: not-allowed;
 
 		&:active, &:focus {
       box-shadow: none;
     }
-  }
+	}
+
+	&.loading {
+		color: transparent !important;
+
+		&:before {
+			content: "\f463";
+			animation: loading-spin 1s infinite;
+   		animation-timing-function: linear;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate( -50%, -50% );
+			font-family: 'dashicons';
+			font-size: $base-unit * 1.5;
+		}
+
+		@keyframes loading-spin {
+			0% {
+				 transform: translate( -50%, -50% ) rotate( 0deg );
+			}
+			100% {
+				 transform: translate( -50%, -50% ) rotate( 360deg );
+			}
+	 }
+	}
 }
