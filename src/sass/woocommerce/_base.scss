@@ -1,15 +1,19 @@
 @if $enable-woocommerce-styles {
-  .woocommerce {
+  .woocommerce, .woocommerce-page {
 
-    .site-main, .entry-content & {
-      margin: $spacer-lg auto;
-      max-width: $wc-max-width;
-      padding-left: $content-padding-x;
-      padding-right: $content-padding-x;
+    .site-main {
+
+      > * {
+        margin: $spacer-lg auto;
+        max-width: $wc-max-width;
+        padding-left: $content-padding-x;
+        padding-right: $content-padding-x;
+      }
 
       .entry-content > * {
         max-width: $wc-max-width;
         padding-left: 0;
+        padding-right: 0;
       }
     }
 

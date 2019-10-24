@@ -1,9 +1,9 @@
 a {
 	color: $link-color;
 
-	&:hover:not( .button ),
-	&:focus:not( .button ),
-	&:active:not( .button ) {
+	&:hover:not( .button, .wp-block-button__link ),
+	&:focus:not( .button, .wp-block-button__link ),
+	&:active:not( .button, .wp-block-button__link ) {
 		color: $link-color-hover;
   }
 

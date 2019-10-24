@@ -361,9 +361,19 @@ function emma_declare_woocommerce_support() {
 }
 
 /**
+ * Add the chosen featured image to the top of the product page
+ */
+function add_product_page_featured_image( $array ) {
+  if( is_shop() ) {
+    echo "<div class='shop-featured-image'>" . get_the_post_thumbnail( get_option( 'woocommerce_shop_page_id' ) ) . "</div>";
+  }
+};
+
+/**
  * Hooks to run if WooCommerce is installed and active
  */
 if ( class_exists( 'WooCommerce' ) ) {
   add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' ); // dequeue default woocommerce styles
   add_action( 'after_setup_theme', 'emma_declare_woocommerce_support' ); // declare theme and product-gallery support
+  add_action( 'woocommerce_before_main_content', 'add_product_page_featured_image', 10, 2 );
 }
