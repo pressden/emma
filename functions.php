@@ -363,11 +363,25 @@ function emma_declare_woocommerce_support() {
 /**
  * Add the chosen featured image to the top of the product page
  */
-function add_product_page_featured_image( $array ) {
+function emma_add_product_page_featured_image( $array ) {
   if( is_shop() ) {
     echo "<div class='shop-featured-image'>" . get_the_post_thumbnail( get_option( 'woocommerce_shop_page_id' ) ) . "</div>";
   }
-};
+}
+
+/**
+ * Add an opening div before the product sorting on the shop page
+ */
+function emma_add_product_sorting_open_div() {
+  echo "<div class='woocommerce-product-sorting'>";
+}
+
+/**
+ * Add a closing div (initially for use after the product sorting on the shop page, but could be used elsewhere)
+ */
+function emma_add_close_div() {
+  echo '</div>';
+}
 
 /**
  * Hooks to run if WooCommerce is installed and active
@@ -375,5 +389,7 @@ function add_product_page_featured_image( $array ) {
 if ( class_exists( 'WooCommerce' ) ) {
   add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' ); // dequeue default woocommerce styles
   add_action( 'after_setup_theme', 'emma_declare_woocommerce_support' ); // declare theme and product-gallery support
-  add_action( 'woocommerce_before_main_content', 'add_product_page_featured_image', 10, 2 );
+  add_action( 'woocommerce_before_main_content', 'emma_add_product_page_featured_image', 10, 2 );
+  add_action( 'woocommerce_before_shop_loop', 'emma_add_product_sorting_open_div', 19 ); // this happens right before the note of how many products are shown on the shop page
+  add_action( 'woocommerce_before_shop_loop', 'emma_add_close_div', 31 ); // this happens right after the sorting form on the shop page
 }

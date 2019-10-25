@@ -71,7 +71,7 @@
             width: 100%;
             text-align: right;
 
-            &[data-title]:before {
+            &[data-title]::before {
               content: attr(data-title) ": ";
               font-weight: 600;
               text-align: left;
@@ -100,7 +100,7 @@
         overflow: hidden;
         @include remove-hover-underline;
 
-        &:before {
+        &::before {
           display: flex;
           position: absolute;
           top: 0;
