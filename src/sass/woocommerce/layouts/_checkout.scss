@@ -1,9 +1,16 @@
 .woocommerce {
+  .woocommerce-form-coupon-toggle {
+    .woocommerce-info {
+      display: block;
+    }
+  }
+
   .checkout_coupon {
     display: flex;
     flex-wrap: wrap;
     margin: $spacer-lg 0;
     padding: $spacer;
+    align-items: center;
     border-radius: $alert-border-radius;
     border: 1px solid $input-border-color;
 

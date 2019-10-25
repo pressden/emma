@@ -1,4 +1,4 @@
-.woocommerce {
+.woocommerce-page {
 
   .onsale {
     display: flex;
@@ -20,16 +20,44 @@
     z-index: 100;
   }
 
-  .woocommerce-message {
-    display: flex;
+  .woocommerce-message, .woocommerce-info {
+    display: grid;
+    grid-row-gap: $spacer-sm;
     align-items: center;
-    justify-content: space-between;
-    flex-direction: row-reverse;
+    justify-content: center;
     margin: $spacer-lg 0;
     padding: $spacer $spacer-lg;
     border-radius: $alert-border-radius;
     background-color: $info;
     color: color-yiq( $info );
+
+    .button {
+      grid-row: 2;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media screen and ( min-width: $breakpoint-sm ) {
+      grid-template-columns: 1fr auto;
+      grid-column-gap: $spacer-sm;
+
+      *, .button {
+        grid-row: 1;
+      }
+
+      .button {
+        grid-column: 2;
+      }
+    }
+
+    a:not( .button ) {
+      color: color-yiq( $info );
+      text-decoration: underline;
+
+      &:hover {
+        color: color-yiq( $info );
+      }
+    }
   }
 
   .woocommerce-error {
@@ -40,24 +68,6 @@
 
     li {
       display: block;
-    }
-  }
-
-  .woocommerce-info {
-    display: block;
-    margin: $spacer-lg 0;
-    padding: $spacer;
-    border-radius: $alert-border-radius;
-    background-color: $info;
-    color: color-yiq( $info );
-
-    a {
-      color: color-yiq( $info );
-      text-decoration: underline;
-
-      &:hover {
-        color: color-yiq( $info );
-      }
     }
   }
 

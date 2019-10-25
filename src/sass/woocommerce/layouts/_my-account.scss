@@ -1,0 +1,48 @@
+.woocommerce-page {
+  &.woocommerce-account {
+    h1 {
+      text-align: left;
+    }
+
+    .woocommerce-message, .woocommerce-info {
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+    }
+
+    input:not( [type='checkbox'] ) {
+      width: 100%;
+    }
+
+    .col2-set {
+      display: grid;
+      grid-row-gap: $spacer;
+
+      @media screen and ( min-width: $breakpoint-md ) {
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: $spacer-xl;
+      }
+    }
+
+    .entry-content {
+      .woocommerce {
+        display: grid;
+        grid-row-gap: $spacer-xl;
+
+        @media screen and ( min-width: $breakpoint-sm ) {
+          grid-template-columns: auto 1fr;
+          grid-column-gap: $spacer-xl;
+        }
+      }
+    }
+
+    fieldset {
+      padding: $spacer-lg;
+      border: 1px solid $input-border-color;
+      border-radius: $input-border-radius;
+      margin-bottom: $spacer;
+    }
+  }
+}
