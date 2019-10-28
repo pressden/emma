@@ -1,24 +1,22 @@
-@if $enable-woocommerce-styles {
-  .woocommerce, .woocommerce-page {
+.woocommerce, .woocommerce-page {
 
-    .site-main {
+  .site-main {
 
-      > * {
-        margin: $spacer-lg auto;
-        max-width: $wc-max-width;
-        padding-left: $content-padding-x;
-        padding-right: $content-padding-x;
-      }
-
-      .entry-content > * {
-        max-width: $wc-max-width;
-        padding-left: 0;
-        padding-right: 0;
-      }
+    > * {
+      margin: $spacer-lg auto;
+      max-width: $wc-max-width;
+      padding-left: $content-padding-x;
+      padding-right: $content-padding-x;
     }
 
-    .screen-reader-text {
-      @include sr-only;
+    .entry-content > * {
+      max-width: $wc-max-width;
+      padding-left: 0;
+      padding-right: 0;
     }
+  }
+
+  .screen-reader-text {
+    @include sr-only;
   }
 }
