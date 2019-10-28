@@ -75,3 +75,40 @@
     border-color: $warning;
   }
 }
+
+.woocommerce-store-notice {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: $spacer $spacer-lg $spacer $spacer-xl;
+  background-color: $primary;
+  color: color-yiq( $primary );
+
+  &::before {
+    content: "\f348";
+    position: absolute;
+    left: $spacer-lg;
+    top: 50%;
+    transform: translateY( -50% );
+    font-family: 'dashicons';
+    font-size: 1.4rem;
+  }
+
+  a:not( .button ) {
+    display: inline-block;
+    background-color: $accent;
+    padding: $spacer $spacer-lg;
+    margin-right: -$spacer-lg;
+    margin-top: -$spacer;
+    margin-bottom: -$spacer;
+    color: color-yiq( $info );
+    text-decoration: underline;
+
+    &:hover {
+      color: color-yiq( $info );
+    }
+  }
+}
