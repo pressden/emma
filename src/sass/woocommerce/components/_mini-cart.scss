@@ -1,0 +1,26 @@
+#mini-cart {
+  max-width: 300px;
+  width: 100%;
+
+  .remove {
+    position: relative;
+    display: inline-block;
+    width: 1rem;
+    text-indent: 9999px;
+    overflow: hidden;
+
+    &::before {
+      content: "\f158";
+      position: absolute;
+      top: 50%;
+      transform: translateY( -50% );
+      left: 0;
+      font-family: "dashicons";
+      text-indent: 0;
+    }
+  }
+
+  img {
+    max-width: $spacer-lg;
+  }
+}
