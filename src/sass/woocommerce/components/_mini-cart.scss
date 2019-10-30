@@ -1,10 +1,12 @@
 #mini-cart {
-  //display: none;
+  display: none;
   position: absolute;
   max-width: 300px;
   width: 100%;
-  padding: $spacer;
-  background-color: $gray-100;
+  background-color: $wc-mini-cart-background-color;
+  color: color-yiq( $wc-mini-cart-background-color );
+  border: 1px solid $wc-mini-cart-border-color;
+  border-radius: $wc-mini-cart-border-radius;
 
   .woocommerce-mini-cart {
     padding-left: 0;
@@ -12,15 +14,16 @@
     .mini_cart_item {
       display: block;
       position: relative;
-      padding-left: 1.5rem;
+      padding-left: 2.5rem;
       padding-top: $spacer;
       padding-bottom: $spacer;
+      padding-right: $spacer;
 
       .remove {
         position: absolute;
         top: 50%;
         transform: translateY( -50% );
-        left: -0.2rem;
+        left: 0.8rem;
         display: block;
         width: $spacer;
         text-indent: 9999px;
@@ -55,14 +58,11 @@
 
   .woocommerce-mini-cart__buttons {
     a {
-      width: 100%;
+      display: block;
       text-align: center;
       padding: $spacer;
+      margin: $spacer;
       font-size: 1.2rem;
-
-      &:first-of-type() {
-        margin-bottom: $spacer;
-      }
 
       &.checkout {
         @include button-color( $accent );
@@ -71,15 +71,20 @@
   }
 }
 
-.mini-cart-anchor {
+.mini-cart-toggle {
 
   a {
     display: block;
     margin-left: $spacer-sm;
     position: relative;
     text-indent: 9999px;
+    white-space: nowrap;
     overflow: hidden;
     width: $spacer-lg;
+
+    &:focus {
+      outline: 0;
+    }
 
     &::before {
       content: "\f174";
@@ -118,7 +123,7 @@
       }
     }
 
-    &:hover {
+    &:hover, &:focus {
       .cart-count {
         background-color: $link-hover-color;
       }

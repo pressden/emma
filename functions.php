@@ -392,9 +392,14 @@ function emma_cart_anchor_fragment( $fragments ) {
 	ob_start();
 
 	?>
-	<a href="<?php echo esc_url( $woocommerce->cart->get_cart_url() ); ?>">Cart<span class='cart-count'><?php echo WC()->cart->get_cart_contents_count() == 0 ? "" : WC()->cart->get_cart_contents_count(); ?></span></a>
+  <a href="<?php echo esc_url( $woocommerce->cart->get_cart_url() ); ?>">
+    <span class='cart-count'>
+      <?php echo WC()->cart->get_cart_contents_count() == 0 ? '' : WC()->cart->get_cart_contents_count(); ?>
+    </span>
+    <?php echo WC()->cart->get_cart_contents_count() == 0 ? 'Cart Empty' : 'Item(s) in Cart'; ?>
+  </a>
 	<?php
-	$fragments['li.mini-cart-anchor a'] = ob_get_clean();
+	$fragments['li.mini-cart-toggle a'] = ob_get_clean();
 	return $fragments;
 }
 
@@ -408,4 +413,5 @@ if ( class_exists( 'WooCommerce' ) ) {
   add_action( 'woocommerce_before_shop_loop', 'emma_add_product_sorting_open_div', 19 ); // this happens right before the note of how many products are shown on the shop page
   add_action( 'woocommerce_before_shop_loop', 'emma_add_close_div', 31 ); // this happens right after the sorting form on the shop page
   add_filter( 'woocommerce_add_to_cart_fragments', 'emma_cart_anchor_fragment' );
+  wp_enqueue_script( 'emma-woocommerce-scripts', get_template_directory_uri() . '/src/js/woocommerce.js', array(), wp_get_theme()->get( 'Version' ), true ); // enqueue woocommerce js
 }
