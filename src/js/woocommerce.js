@@ -4,7 +4,7 @@
 
 function hideMiniCart() {
   if( $( '#mini-cart' ).is( ':visible' ) ) {
-    $( '#mini-cart' ).hide();
+    $( '#mini-cart' ).addClass( 'hidden' );
   }
 }
 
@@ -41,7 +41,7 @@ $( function() {
     }
 
     $miniCart.insertAfter( $toggle );
-    $miniCart.show();
+    $miniCart.removeClass( 'hidden' );
 
     e.stopPropagation();
   } );
