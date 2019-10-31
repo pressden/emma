@@ -1,7 +1,10 @@
 #mini-cart {
-  display: none;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
   position: absolute;
-  width: 300px;
+  height: $wc-mini-cart-height;
+  max-height: $wc-mini-cart-max-height;
+  width: $wc-mini-cart-width;
   z-index: 99999;
   background-color: $wc-mini-cart-background-color;
   color: color-yiq( $wc-mini-cart-background-color );
@@ -33,49 +36,54 @@
     }
   }
 
-  .woocommerce-mini-cart {
-    overflow-y: auto;
-    padding-left: 0;
-    margin-bottom: $spacer;
+  .widget_shopping_cart_content {
+    display: grid;
+    grid-template-rows: 1fr auto auto;
 
-    .mini_cart_item {
-      display: block;
-      position: relative;
-      padding-left: 2.5rem;
-      padding-top: $spacer;
-      padding-bottom: $spacer;
-      padding-right: $spacer;
+    .woocommerce-mini-cart {
+      overflow-y: auto;
+      padding-left: 0;
+      margin-bottom: $spacer;
 
-      .remove {
-        position: absolute;
-        top: 50%;
-        transform: translateY( -50% );
-        left: 0.8rem;
+      .mini_cart_item {
         display: block;
-        width: $spacer;
-        text-indent: 9999px;
-        overflow: hidden;
+        position: relative;
+        padding-left: 2.5rem;
+        padding-top: $spacer;
+        padding-bottom: $spacer;
+        padding-right: $spacer;
 
-        &::before {
-          content: "\f158";
+        .remove {
           position: absolute;
-          top: 0;
-          left: 0;
-          font-family: "dashicons";
-          font-size: 1.2rem;
-          text-indent: 0;
+          top: 50%;
+          transform: translateY( -50% );
+          left: 0.8rem;
+          display: block;
+          width: $spacer;
+          text-indent: 9999px;
+          overflow: hidden;
+
+          &::before {
+            content: "\f158";
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-family: "dashicons";
+            font-size: 1.2rem;
+            text-indent: 0;
+          }
         }
-      }
 
-      .quantity {
-        display: block;
-      }
+        .quantity {
+          display: block;
+        }
 
-      img {
-        max-width: 3rem;
-        float: right;
-      }
+        img {
+          max-width: 3rem;
+          float: right;
+        }
 
+      }
     }
   }
 
