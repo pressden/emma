@@ -25,7 +25,7 @@
         top: 1rem;
         right: 1rem;
         z-index: 100;
-        text-indent: 9999px;
+        text-indent: -999rem;
         width: 2.5rem;
         height: 2.5rem;
         overflow: hidden;
@@ -214,7 +214,7 @@
             position: relative;
             height: 1.5rem;
             width: 1.5rem;
-            text-indent: -999em;
+            text-indent: -999rem;
             display: inline-block;
             text-decoration: none;
             font-weight: 400;

@@ -96,7 +96,7 @@
 
       .product-remove a {
         position: relative;
-        text-indent: 9999px;
+        text-indent: -999rem;
         overflow: hidden;
         @include remove-hover-underline;
 
