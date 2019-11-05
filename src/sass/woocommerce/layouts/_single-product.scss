@@ -100,6 +100,7 @@
     .woocommerce-variation-add-to-cart, &.product-type-simple form.cart {
       display: flex;
       justify-content: flex-start;
+      margin-bottom: $wc-cart-form-margin-bottom;
 
       .quantity {
         align-self: center;
