@@ -11,6 +11,7 @@
   }
 
   .woocommerce-cart-form {
+    margin-bottom: $wc-cart-form-margin-bottom;
 
     table {
       width: 100%;
@@ -90,8 +91,8 @@
       }
 
       thead {
-        background-color: $utility-bar-background-color;
-        color: color-yiq( $utility-bar-background-color );
+        background-color: $wc-table-head-background-color;
+        color: color-yiq( $wc-table-head-background-color );
       }
 
       .product-remove a {
@@ -123,9 +124,6 @@
       }
 
       td.actions {
-        padding-left: 0;
-        padding-right: 0;
-
         .coupon {
           display: flex;
           align-items: center;
@@ -134,7 +132,6 @@
 
         .coupon, .coupon > * {
           width: 100%;
-          margin-bottom: $spacer-sm;
 
           @media screen and ( min-width: $wc-cart-breakpoint ) {
             float: left;
@@ -195,6 +192,11 @@
         .input-text {
           width: 100%;
         }
+      }
+
+      .wc-proceed-to-checkout {
+        padding-top: $spacer;
+        padding-bottom: $spacer;
       }
 
       .checkout-button {
