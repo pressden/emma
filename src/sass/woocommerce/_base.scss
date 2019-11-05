@@ -1,4 +1,4 @@
-.woocommerce, .woocommerce-page {
+.woocommerce {
 
   .site-main {
 
@@ -8,7 +8,12 @@
       padding-left: $content-padding-x;
       padding-right: $content-padding-x;
     }
+  }
+}
 
+
+.woocommerce-page {
+  .site-main {
     .entry-content > * {
       max-width: $wc-max-width;
       padding-left: 0;
