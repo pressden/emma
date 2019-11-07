@@ -25,6 +25,19 @@ function emma_customize_register( $wp_customize ) {
 			'render_callback' => 'emma_customize_partial_blogdescription',
 		) );
 	}
+
+	// Add "Alternate Logo" to Site Identity options in customizer
+	$wp_customize->add_setting( 'alternate_logo', array(
+		'default'		=> '',
+		'transport'	=> 'postMessage',
+	) );
+	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'alternate_logo', array (
+		'label' 			=> __( 'Alternate Logo', 'emma' ),
+		'section'			=> 'title_tagline',
+		'settings'		=> 'alternate_logo',
+		'priority'		=> 9,
+		'description'	=> __( 'Typically used for mobile or scrolling versions of the logo.' ),
+	) ) );
 }
 add_action( 'customize_register', 'emma_customize_register' );
 

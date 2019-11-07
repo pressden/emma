@@ -54,6 +54,7 @@ do_action( 'emma_before' );
 
       <div class="site-branding">
         <?php the_custom_logo(); ?>
+        <?php do_action( 'after_site_branding_logo' ); ?>
         <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
         <?php
         $emma_description = get_bloginfo( 'description', 'display' );
