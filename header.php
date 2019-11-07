@@ -53,6 +53,7 @@ do_action( 'emma_before' );
       <?php endif; ?>
 
       <div class="site-branding">
+        <?php do_action( 'before_site_branding_logo' ); ?>
         <?php the_custom_logo(); ?>
         <?php do_action( 'after_site_branding_logo' ); ?>
         <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
