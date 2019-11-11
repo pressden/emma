@@ -376,11 +376,40 @@ function emma_add_product_sorting_open_div() {
   echo "<div class='woocommerce-product-sorting'>";
 }
 
+function emma_add_product_sorting_column_sizer() { ?>
+  <ul class='woocommerce-column-sizers'>
+    <li class='woocommerce-columns-sizer columns-1'>
+      <a href='#' data-size="columns-1">SM</a>
+    </li>
+    <li class='woocommerce-columns-sizer columns-2'>
+      <a href='#' data-size="columns-2">MD</a>
+    </li>
+    <li class='woocommerce-columns-sizer columns-3'>
+      <a href='#' data-size="columns-3">LG</a>
+    </li>
+  </ul>
+<?php }
+
 /**
  * Add a closing div (initially for use after the product sorting on the shop page, but could be used elsewhere)
  */
 function emma_add_close_div() {
   echo '</div>';
+}
+
+/**
+ * Hijack the old column count hook in WooCommerce to insert our custom column definition class (sm, md, lg)
+ */
+function emma_product_columns() {
+  return '3'; //change to '1' or '3' if you want the default to change
+}
+
+/**
+ * Hard set the number of items shown on the shop page so that the product_columns number doesn't mess with it
+ */
+function emma_products_per_page( $products ) {
+  $products = 12;
+  return $products;
 }
 
 /**
@@ -391,5 +420,10 @@ if ( class_exists( 'WooCommerce' ) ) {
   add_action( 'after_setup_theme', 'emma_declare_woocommerce_support' ); // declare theme and product-gallery support
   add_action( 'woocommerce_before_main_content', 'emma_add_product_page_featured_image', 10, 2 );
   add_action( 'woocommerce_before_shop_loop', 'emma_add_product_sorting_open_div', 19 ); // this happens right before the note of how many products are shown on the shop page
+  add_action( 'woocommerce_before_shop_loop', 'emma_add_product_sorting_column_sizer', 25 ); // this happens between the results count and the sorting method
   add_action( 'woocommerce_before_shop_loop', 'emma_add_close_div', 31 ); // this happens right after the sorting form on the shop page
+  add_filter('loop_shop_columns', 'emma_product_columns');
+  add_filter( 'loop_shop_per_page', 'emma_products_per_page', 20 );
+  wp_enqueue_script( 'emma-woocommerce-scripts', get_template_directory_uri() . '/src/js/woocommerce.js', array(), wp_get_theme()->get( 'Version' ), true ); // enqueue woocommerce js
 }
+

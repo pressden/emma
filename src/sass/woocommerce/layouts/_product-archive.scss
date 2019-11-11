@@ -27,9 +27,21 @@
     display: grid;
     column-gap: $wc-archive-column-gap;
     row-gap: $wc-archive-row-gap;
-    grid-template-columns: repeat( auto-fill, minmax( $wc-archive-product-min-width, 1fr ) );
+    grid-template-columns: repeat( auto-fill, minmax( $wc-shop-product-min-width-md, 1fr ) ); // this will be used for other product archive areas like "related products"
     padding-left: 0;
     clear: both;
+
+    &.columns-1 { // Small
+      grid-template-columns: repeat( auto-fill, minmax( $wc-shop-product-min-width-sm, 1fr ) );
+    }
+
+    &.columns-2 { // Medium
+      grid-template-columns: repeat( auto-fill, minmax( $wc-shop-product-min-width-md, 1fr ) );
+    }
+
+    &.columns-3 { // Large
+      grid-template-columns: repeat( auto-fill, minmax( $wc-shop-product-min-width-lg, 1fr ) );
+    }
 
     li {
       display: block;

@@ -12,12 +12,18 @@ $wc-product-gallery-column-gap: 1rem !default;
 $wc-product-gallery-row-gap: $wc-product-gallery-column-gap !default;
 $wc-cart-form-margin-bottom: $spacer-lg !default;
 
-// Min widths
-$wc-archive-product-min-width: 200px !default;
+// Shop page min widths
+// controls the number of columns displayed on the shop page - grid will create as many columns as possible as long as they are at least these widths (selectable on shop page)
+$wc-shop-product-min-width-sm: 150px !default;
+$wc-shop-product-min-width-md: 200px !default;
+$wc-shop-product-min-width-lg: 300px !default;
+
+// Product gallery min width
+// controls the number of columns displayed in the image gallery on the product page - uses same technique as above
 $wc-product-gallery-min-width: 80px !default;
 
 // Max widths
-$wc-max-width: $breakpoint-lg !default;
+$wc-max-width: $breakpoint-lg !default; // sets the max width of ontent on woocommerce pages
 
 // Prices
 $wp-price-color: $wc-primary !default;
