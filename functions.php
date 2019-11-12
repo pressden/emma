@@ -387,19 +387,19 @@ function emma_add_product_sorting_column_sizer() {
     <li class='woocommerce-columns-sizer columns-1 <?php echo $default_columns == '1' ? 'active' : ''; ?>'>
       <a href='#' data-size="columns-1">
         <span class="screen-reader-text">Make Columns Small Size</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35"><rect width="11" height="11" rx="3"/><rect x="24" width="11" height="11" rx="3"/><rect x="12" width="11" height="11" rx="3"/><rect x="24" y="12" width="11" height="11" rx="3"/><rect x="24" y="24" width="11" height="11" rx="3"/><rect x="12" y="24" width="11" height="11" rx="3"/><rect x="12" y="12" width="11" height="11" rx="3"/><rect y="12" width="11" height="11" rx="3"/><rect y="24" width="11" height="11" rx="3"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" viewBox="0 0 35 35"><rect width="11" height="11" rx="3"/><rect x="24" width="11" height="11" rx="3"/><rect x="12" width="11" height="11" rx="3"/><rect x="24" y="12" width="11" height="11" rx="3"/><rect x="24" y="24" width="11" height="11" rx="3"/><rect x="12" y="24" width="11" height="11" rx="3"/><rect x="12" y="12" width="11" height="11" rx="3"/><rect y="12" width="11" height="11" rx="3"/><rect y="24" width="11" height="11" rx="3"/></svg>
       </a>
     </li>
     <li class='woocommerce-columns-sizer columns-2 <?php echo $default_columns == '2' ? 'active' : ''; ?>'>
       <a href='#' data-size="columns-2">
         <span class="screen-reader-text">Make Columns Medium Size</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35"><rect width="17" height="17" rx="3"/><rect x="18" width="17" height="17" rx="3"/><rect x="18" y="18" width="17" height="17" rx="3"/><rect y="18" width="17" height="17" rx="3"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" viewBox="0 0 35 35"><rect width="17" height="17" rx="3"/><rect x="18" width="17" height="17" rx="3"/><rect x="18" y="18" width="17" height="17" rx="3"/><rect y="18" width="17" height="17" rx="3"/></svg>
       </a>
     </li>
     <li class='woocommerce-columns-sizer columns-3 <?php echo $default_columns == '3' ? 'active' : ''; ?>'>
       <a href='#' data-size="columns-3">
         <span class="screen-reader-text">Make Columns Large Size</span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35"><rect width="35" height="35" rx="4"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" viewBox="0 0 35 35"><rect width="35" height="35" rx="4"/></svg>
       </a>
     </li>
   </ul>

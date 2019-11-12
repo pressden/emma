@@ -14,7 +14,7 @@
 
   .woocommerce-product-sorting {
     display: grid;
-    grid-row-gap: $spacer-sm;
+    grid-row-gap: $spacer;
     align-items: center;
     justify-content: center;
 
@@ -50,6 +50,8 @@
         margin-right: $spacer-xs;
 
         svg {
+          width: 30px;
+          height: 30px;
           fill: $action;
         }
 
