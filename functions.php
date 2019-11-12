@@ -376,16 +376,31 @@ function emma_add_product_sorting_open_div() {
   echo "<div class='woocommerce-product-sorting'>";
 }
 
-function emma_add_product_sorting_column_sizer() { ?>
-  <ul class='woocommerce-column-sizers'>
-    <li class='woocommerce-columns-sizer columns-1'>
-      <a href='#' data-size="columns-1">SM</a>
+function emma_add_product_sorting_column_sizer() {
+  if( isset( $_COOKIE['column_size'] ) ) {
+    $default_columns = $_COOKIE['column_size'];
+  } else {
+    $default_columns = apply_filters('loop_shop_columns', 2);
+  }
+?>
+  <ul class='woocommerce-columns-sizers'>
+    <li class='woocommerce-columns-sizer columns-1 <?php echo $default_columns == '1' ? 'active' : ''; ?>'>
+      <a href='#' data-size="columns-1">
+        <span class="screen-reader-text">Make Columns Small Size</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35"><rect width="11" height="11" rx="3"/><rect x="24" width="11" height="11" rx="3"/><rect x="12" width="11" height="11" rx="3"/><rect x="24" y="12" width="11" height="11" rx="3"/><rect x="24" y="24" width="11" height="11" rx="3"/><rect x="12" y="24" width="11" height="11" rx="3"/><rect x="12" y="12" width="11" height="11" rx="3"/><rect y="12" width="11" height="11" rx="3"/><rect y="24" width="11" height="11" rx="3"/></svg>
+      </a>
     </li>
-    <li class='woocommerce-columns-sizer columns-2'>
-      <a href='#' data-size="columns-2">MD</a>
+    <li class='woocommerce-columns-sizer columns-2 <?php echo $default_columns == '2' ? 'active' : ''; ?>'>
+      <a href='#' data-size="columns-2">
+        <span class="screen-reader-text">Make Columns Medium Size</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35"><rect width="17" height="17" rx="3"/><rect x="18" width="17" height="17" rx="3"/><rect x="18" y="18" width="17" height="17" rx="3"/><rect y="18" width="17" height="17" rx="3"/></svg>
+      </a>
     </li>
-    <li class='woocommerce-columns-sizer columns-3'>
-      <a href='#' data-size="columns-3">LG</a>
+    <li class='woocommerce-columns-sizer columns-3 <?php echo $default_columns == '3' ? 'active' : ''; ?>'>
+      <a href='#' data-size="columns-3">
+        <span class="screen-reader-text">Make Columns Large Size</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" viewBox="0 0 35 35"><rect width="35" height="35" rx="4"/></svg>
+      </a>
     </li>
   </ul>
 <?php }
@@ -401,7 +416,13 @@ function emma_add_close_div() {
  * Hijack the old column count hook in WooCommerce to insert our custom column definition class (sm, md, lg)
  */
 function emma_product_columns() {
-  return '3'; //change to '1' or '3' if you want the default to change
+  $default_columns = '2'; //change to adjust default | 1 = SM, 2 = MD, 3 = LG
+
+  if( isset( $_COOKIE['column_size'] ) ) {
+    $default_columns = $_COOKIE['column_size'];
+  }
+
+  return $default_columns;
 }
 
 /**

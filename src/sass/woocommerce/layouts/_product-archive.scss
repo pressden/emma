@@ -13,13 +13,52 @@
   }
 
   .woocommerce-product-sorting {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: center;
+    display: grid;
+    grid-row-gap: $spacer-sm;
+    align-items: center;
+    justify-content: center;
+
+    .woocommerce-result-count {
+      text-align: center;
+    }
+
+    @media screen and ( min-width: $breakpoint-md ) {
+      grid-template-columns: 1fr auto 1fr;
+      justify-content: unset;
+
+      .woocommerce-result-count {
+        text-align: left;
+      }
+
+      .woocommerce-ordering {
+        justify-self: end;
+      }
+    }
 
     > * {
       margin: 0;
+    }
+
+    .woocommerce-columns-sizers {
+      display: flex;
+      justify-content: center;
+      padding-left: 0;
+
+      .woocommerce-columns-sizer {
+        display: block;
+        margin-left: $spacer-xs;
+        margin-right: $spacer-xs;
+
+        svg {
+          fill: $action;
+        }
+
+        &.active {
+          svg {
+            fill: $accent;
+          }
+        }
+      }
     }
   }
 
@@ -28,7 +67,6 @@
     column-gap: $wc-archive-column-gap;
     row-gap: $wc-archive-row-gap;
     grid-template-columns: repeat( auto-fill, minmax( $wc-shop-product-min-width-md, 1fr ) ); // this will be used for other product archive areas like "related products"
-    padding-left: 0;
     clear: both;
 
     &.columns-1 { // Small
