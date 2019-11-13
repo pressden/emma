@@ -46,12 +46,12 @@
 
       .woocommerce-columns-sizer {
         display: block;
-        margin-left: $spacer-xs;
-        margin-right: $spacer-xs;
+        margin-left: $spacer-sm;
+        margin-right: $spacer-sm;
 
         svg {
-          width: 30px;
-          height: 30px;
+          width: 24px;
+          height: 24px;
           fill: $action;
         }
 
