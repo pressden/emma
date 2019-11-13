@@ -70,3 +70,53 @@ function emma_add_gtm_body_scripts() {
 	}
 }
 add_filter( 'emma_before', 'emma_add_gtm_body_scripts' );
+
+/**
+ * Custom classes metabox content
+ */
+function emma_custom_classes_metabox_html( $post ) {
+	$body_classes = get_post_meta( $post->ID, 'custom_body_classes', true );
+	?>
+		<div class="components-base-control">
+			<label for="custom_body_classes" class="components-base-control__label">Body Classes</label>
+			<input class="components-text-control__input" type="text" name="custom_body_classes" value="<?php echo $body_classes; ?>"/>
+		</div>
+	<?php
+}
+
+/**
+ * Add metabox for custom classes in all post types
+ */
+function emma_add_custom_classes_metabox() {
+	add_meta_box( 'custom_classes', 'Custom Classes', 'emma_custom_classes_metabox_html', null, 'side' );
+}
+add_action('add_meta_boxes', 'emma_add_custom_classes_metabox');
+
+/**
+ * Save custom classes postdata
+ */
+function emma_save_custom_classes_postdata( $post_id ) {
+	if( array_key_exists( 'custom_body_classes', $_POST ) ) {
+		update_post_meta(
+				$post_id,
+				'custom_body_classes',
+				$_POST['custom_body_classes']
+		);
+	}
+}
+add_action('save_post', 'emma_save_custom_classes_postdata');
+
+/**
+ * Add custom body classes to body tag
+ */
+function emma_output_custom_body_classes( $classes ) {
+	global $post;
+	$custom_classes = get_post_meta( $post->ID, 'custom_body_classes', true );
+
+	if( ! empty( $custom_classes ) && $custom_classes != '' ) {
+		$custom_classes_array = explode( " ", $custom_classes );
+		return array_merge( $classes, $custom_classes_array );
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'emma_output_custom_body_classes' );
