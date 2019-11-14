@@ -120,3 +120,12 @@ function emma_output_custom_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'emma_output_custom_body_classes' );
+
+
+/**
+ * Site Branding action
+ */
+function emma_site_branding() {
+	the_custom_logo();
+}
+add_action( 'site_branding', 'emma_site_branding' );
