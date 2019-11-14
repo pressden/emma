@@ -39,7 +39,6 @@ function emma_customize_register( $wp_customize ) {
 	// Add theme settings section
 	$wp_customize->add_panel( 'theme_settings', array(
 		'priority'		=> 10,
-		'capability'	=> 'edit_theme_options',
 		'theme_supports'	=> '',
 		'title'						=> 'Theme Settings',
 		'description'			=> 'Settings specific to Emma.',
@@ -47,7 +46,6 @@ function emma_customize_register( $wp_customize ) {
 
 	$wp_customize->add_section( 'analytics', array(
 		'priority' => 10,
-		'capability' => 'edit_theme_options',
 		'theme_supports' => '',
 		'title' => 'Analytics',
 		'description' => '',
