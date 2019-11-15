@@ -60,7 +60,7 @@
           left: 0.8rem;
           display: block;
           width: $spacer;
-          text-indent: 9999px;
+          text-indent: -999rem;
           overflow: hidden;
 
           &::before {
@@ -122,7 +122,7 @@
     display: block;
     position: relative;
     min-height: 40px;
-    text-indent: 9999px;
+    text-indent: -999rem;
     white-space: nowrap;
     overflow: hidden;
     width: 3rem;
