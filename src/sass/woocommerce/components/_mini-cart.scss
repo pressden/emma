@@ -46,7 +46,7 @@
       margin-bottom: $spacer;
 
       .mini_cart_item {
-        display: block;
+        display: block !important;
         position: relative;
         padding-left: 2.5rem;
         padding-top: $spacer;
