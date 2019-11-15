@@ -1,10 +1,12 @@
 a {
 	color: $link-color;
 
-	&:hover:not( .button, .wp-block-button__link ),
-	&:focus:not( .button, .wp-block-button__link ),
-	&:active:not( .button, .wp-block-button__link ) {
-		color: $link-color-hover;
+	&:hover,
+	&:focus,
+	&:active {
+		&:not( .button ):not( .wp-block-button__link ) {
+			color: $link-color-hover;
+		}
   }
 
 	&:focus {

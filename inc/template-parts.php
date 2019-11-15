@@ -20,3 +20,13 @@ function emma_menu_drawer_template() {
   get_template_part( 'template-parts/menu', 'drawer' );
 }
 add_action( 'emma_after', 'emma_menu_drawer_template' );
+
+/**
+ * Gets the mini cart template part.
+ */
+function emma_mini_cart_template() {
+  get_template_part( 'template-parts/mini', 'cart' );
+}
+if ( class_exists( 'WooCommerce' ) ) {
+  add_action( 'emma_after', 'emma_mini_cart_template' );
+}
