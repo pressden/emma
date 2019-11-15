@@ -128,4 +128,4 @@ add_filter( 'body_class', 'emma_output_custom_body_classes' );
 function emma_site_branding() {
 	the_custom_logo();
 }
-add_action( 'site_branding', 'emma_site_branding' );
+add_action( 'site_branding', 'emma_site_branding', 10 );
