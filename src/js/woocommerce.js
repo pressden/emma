@@ -8,8 +8,6 @@ $( function() {
 
   if( $productsListClasses ) {
     var currentColumnSize = $productsListClasses.split( /\s+/ )[1];
-    $( '.woocommerce-columns-sizer.active' ).removeClass( 'active' );
-    $( '.woocommerce-columns-sizer.' + newColumnSize ).addClass( 'active' );
   } else {
     currentColumnSize = '';
   }
