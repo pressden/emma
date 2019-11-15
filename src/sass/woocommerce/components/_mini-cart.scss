@@ -52,6 +52,7 @@
         padding-top: $spacer;
         padding-bottom: $spacer;
         padding-right: $spacer;
+        overflow: hidden; //expand to fit floated elements
 
         .remove {
           position: absolute;
