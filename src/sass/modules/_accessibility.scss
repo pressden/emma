@@ -1,27 +1,6 @@
 /* Text meant only for screen readers. */
 .screen-reader-shortcut {
-  @include sr-only;
-
-  &:focus {
-    display: block;
-    padding: 15px 23px 14px;
-    top: 7px;
-    left: 6px;
-    height: auto;
-    width: auto;
-    z-index: 100000;
-    @include font-size(.9rem);
-    font-weight: bold;
-    line-height: normal;
-    text-decoration: none;
-    color: $screen-color;
-    background-color: $screen-background-color;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-    outline-offset: -1px;
-    clip: auto !important;
-    clip-path: none;
-    word-wrap: normal !important;
-  }
+  @include sr-only-focusable-absolute;
 }
 
 /* Do not show the outline on the skip link target. */
