@@ -380,11 +380,7 @@ function emma_add_product_sorting_open_div() {
  * Adds column sizer buttons on shop page
  */
 function emma_add_product_sorting_column_sizer() {
-  if( isset( $_COOKIE['column_size'] ) ) {
-    $default_columns = $_COOKIE['column_size'];
-  } else {
-    $default_columns = apply_filters('loop_shop_columns', 2);
-  }
+  $default_columns = apply_filters('loop_shop_columns', 2);
 ?>
   <ul class='woocommerce-columns-sizers'>
     <li class='woocommerce-columns-sizer columns-1 <?php echo $default_columns == '1' ? 'active' : ''; ?>'>

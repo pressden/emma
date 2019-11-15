@@ -7,9 +7,16 @@ $( function() {
   $productsListClasses = $productsList.attr( 'class' );
 
   if( $productsListClasses ) {
-    var currentColumnSize = $productsListClasses.split( /\s+/ )[1];
+    var defaultColumnSize = $productsListClasses.split( /\s+/ )[1];
   } else {
-    currentColumnSize = '';
+    defaultColumnSize = '';
+  }
+
+  var currentColumnSize = defaultColumnSize;
+  var selectedColumnSize = localStorage.getItem( 'column_size' );
+  if( selectedColumnSize != null && selectedColumnSize != currentColumnSize ) {
+    changeColumnSize( defaultColumnSize, selectedColumnSize );
+    currentColumnSize = localStorage.getItem( 'column_size' );
   }
 
   $( '.woocommerce-columns-sizer a' ).click( function( e ) {
@@ -18,16 +25,20 @@ $( function() {
     var newColumnSize = $( this ).data( 'size' );
 
     if( currentColumnSize != newColumnSize ) {
-      $productsList.removeClass( currentColumnSize );
-      $productsList.addClass( newColumnSize );
-      currentColumnSize = newColumnSize;
-
-      $( '.woocommerce-columns-sizer.active' ).removeClass( 'active' );
-      $( '.woocommerce-columns-sizer.' + newColumnSize ).addClass( 'active' );
-      document.cookie = "column_size=" + newColumnSize.slice( -1 ) + ';path=/';
+      changeColumnSize( currentColumnSize, newColumnSize );
+      localStorage.setItem( 'column_size', 'columns-' + newColumnSize.slice( -1 ) );
     }
   } );
 } );
+
+function changeColumnSize( currentColumnSize, newColumnSize ) {
+  $productsList.removeClass( currentColumnSize );
+  $productsList.addClass( newColumnSize );
+  currentColumnSize = newColumnSize;
+
+  $( '.woocommerce-columns-sizer.active' ).removeClass( 'active' );
+  $( '.woocommerce-columns-sizer.' + newColumnSize ).addClass( 'active' );
+}
 
 /**
  * MINI-CART FUNCTIONS
