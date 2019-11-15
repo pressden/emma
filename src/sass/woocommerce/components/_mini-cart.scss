@@ -41,12 +41,13 @@
     grid-template-rows: 1fr auto auto;
 
     .woocommerce-mini-cart {
+      display: block;
       overflow-y: auto;
       padding-left: 0;
       margin-bottom: $spacer;
 
       .mini_cart_item {
-        display: block !important;
+        display: block;
         position: relative;
         padding-left: 2.5rem;
         padding-top: $spacer;
