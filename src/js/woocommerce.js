@@ -4,7 +4,13 @@
 
 $( function() {
   $productsList = $( 'ul.products' );
-  var currentColumnSize = $productsList.attr( 'class' ).split( /\s+/ )[1];
+  $productsListClasses = $productsList.attr( 'class' );
+
+  if( $productsListClasses ) {
+    var currentColumnSize = $productsListClasses.split( /\s+/ )[1];
+  } else {
+    currentColumnSize = '';
+  }
 
   $( '.woocommerce-columns-sizer a' ).click( function( e ) {
     e.preventDefault();
