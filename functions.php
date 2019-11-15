@@ -377,10 +377,63 @@ function emma_add_product_sorting_open_div() {
 }
 
 /**
+ * Adds column sizer buttons on shop page
+ */
+function emma_add_product_sorting_column_sizer() {
+  if( isset( $_COOKIE['column_size'] ) ) {
+    $default_columns = $_COOKIE['column_size'];
+  } else {
+    $default_columns = apply_filters('loop_shop_columns', 2);
+  }
+?>
+  <ul class='woocommerce-columns-sizers'>
+    <li class='woocommerce-columns-sizer columns-1 <?php echo $default_columns == '1' ? 'active' : ''; ?>'>
+      <a href='#' data-size="columns-1">
+        <span class="screen-reader-text">Make Columns Small Size</span>
+        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" viewBox="0 0 24 24"><rect x="18" y="9" width="6" height="6"/><rect x="18" y="18" width="6" height="6"/><rect x="9" y="18" width="6" height="6"/><rect y="18" width="6" height="6"/><rect x="9" y="9" width="6" height="6"/><rect y="9" width="6" height="6"/><rect x="9" width="6" height="6"/><rect width="6" height="6"/><rect x="18" width="6" height="6"/></svg>
+      </a>
+    </li>
+    <li class='woocommerce-columns-sizer columns-2 <?php echo $default_columns == '2' ? 'active' : ''; ?>'>
+      <a href='#' data-size="columns-2">
+        <span class="screen-reader-text">Make Columns Medium Size</span>
+        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" viewBox="0 0 24 24"><rect width="10" height="10"/><rect x="14" width="10" height="10"/><rect x="14" y="14" width="10" height="10"/><rect y="14" width="10" height="10"/></svg>
+      </a>
+    </li>
+    <li class='woocommerce-columns-sizer columns-3 <?php echo $default_columns == '3' ? 'active' : ''; ?>'>
+      <a href='#' data-size="columns-3">
+        <span class="screen-reader-text">Make Columns Large Size</span>
+        <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" viewBox="0 0 24 24"><rect width="24" height="24"/></svg>
+      </a>
+    </li>
+  </ul>
+<?php }
+
+/**
  * Add a closing div (initially for use after the product sorting on the shop page, but could be used elsewhere)
  */
 function emma_add_close_div() {
   echo '</div>';
+}
+
+/**
+ * Hijack the old column count hook in WooCommerce to insert our custom column definition class (sm, md, lg)
+ */
+function emma_product_columns() {
+  $default_columns = '2'; //change to adjust default | 1 = SM, 2 = MD, 3 = LG
+
+  if( isset( $_COOKIE['column_size'] ) ) {
+    $default_columns = $_COOKIE['column_size'];
+  }
+
+  return $default_columns;
+}
+
+/**
+ * Hard set the number of items shown on the shop page so that the product_columns number doesn't mess with it
+ */
+function emma_products_per_page( $products ) {
+  $products = 12;
+  return $products;
 }
 
 /**
@@ -409,7 +462,10 @@ if ( class_exists( 'WooCommerce' ) ) {
   add_action( 'after_setup_theme', 'emma_declare_woocommerce_support' ); // declare theme and product-gallery support
   add_action( 'woocommerce_before_main_content', 'emma_add_product_page_featured_image', 10, 2 );
   add_action( 'woocommerce_before_shop_loop', 'emma_add_product_sorting_open_div', 19 ); // this happens right before the note of how many products are shown on the shop page
+  add_action( 'woocommerce_before_shop_loop', 'emma_add_product_sorting_column_sizer', 25 ); // this happens between the results count and the sorting method
   add_action( 'woocommerce_before_shop_loop', 'emma_add_close_div', 31 ); // this happens right after the sorting form on the shop page
+  add_filter('loop_shop_columns', 'emma_product_columns');
+  add_filter( 'loop_shop_per_page', 'emma_products_per_page', 20 );
   add_filter( 'woocommerce_add_to_cart_fragments', 'emma_cart_anchor_fragment' );
   wp_enqueue_script( 'emma-woocommerce-scripts', get_template_directory_uri() . '/src/js/woocommerce.js', array(), wp_get_theme()->get( 'Version' ), true ); // enqueue woocommerce js
 }
