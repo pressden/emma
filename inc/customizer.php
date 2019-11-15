@@ -27,10 +27,7 @@ function emma_customize_register( $wp_customize ) {
 	}
 
 	// Add "Alternate Logo" to Site Identity options in customizer
-	$wp_customize->add_setting( 'alternate_logo', array(
-		'default'		=> '',
-		'transport'	=> 'postMessage',
-	) );
+	$wp_customize->add_setting( 'alternate_logo' );
 	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'alternate_logo', array (
 		'label' 			=> __( 'Alternate Logo', 'emma' ),
 		'section'			=> 'title_tagline',
@@ -38,6 +35,32 @@ function emma_customize_register( $wp_customize ) {
 		'priority'		=> 9,
 		'description'	=> __( 'Typically used for mobile or scrolling versions of the logo.' ),
 	) ) );
+
+	// Add theme settings section
+	$wp_customize->add_panel( 'theme_settings', array(
+		'priority'		=> 10,
+		'theme_supports'	=> '',
+		'title'						=> 'Theme Settings',
+		'description'			=> 'Settings specific to Emma.',
+	) );
+
+	$wp_customize->add_section( 'analytics', array(
+		'priority' => 10,
+		'theme_supports' => '',
+		'title' => 'Analytics',
+		'description' => '',
+		'panel' => 'theme_settings',
+	) );
+
+	$wp_customize->add_setting( 'gtm_id' );
+	$wp_customize->add_control( 'gtm_id', array(
+		'type'			=> 'text',
+		'priority'	=> 10,
+		'section'		=> 'analytics',
+		'label'			=> 'Google Tag Manager ID',
+		'description'	=> 'Enter the full ID, starting with "GTM-"',
+	) );
+
 }
 add_action( 'customize_register', 'emma_customize_register' );
 
