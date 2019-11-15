@@ -24,7 +24,7 @@ $( function() {
 
       $( '.woocommerce-columns-sizer.active' ).removeClass( 'active' );
       $( '.woocommerce-columns-sizer.' + newColumnSize ).addClass( 'active' );
-      document.cookie = "column_size=" + newColumnSize.slice( -1 );
+      document.cookie = "column_size=" + newColumnSize.slice( -1 ) + ';path=/';
     }
   } );
 } );
