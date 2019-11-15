@@ -53,6 +53,16 @@
           width: 24px;
           height: 24px;
           fill: $action;
+
+          &:focus {
+            outline: 0;
+          }
+
+          * {
+            &:focus {
+              outline: 0;
+            }
+          }
         }
 
         &.active {

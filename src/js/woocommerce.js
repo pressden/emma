@@ -15,7 +15,7 @@ $( function() {
   var currentColumnSize = defaultColumnSize;
   var selectedColumnSize = localStorage.getItem( 'column_size' );
   if( selectedColumnSize != null && selectedColumnSize != currentColumnSize ) {
-    changeColumnSize( defaultColumnSize, selectedColumnSize );
+    changeColumnSize( $productsList, defaultColumnSize, selectedColumnSize );
     currentColumnSize = localStorage.getItem( 'column_size' );
   }
 
@@ -25,16 +25,16 @@ $( function() {
     var newColumnSize = $( this ).data( 'size' );
 
     if( currentColumnSize != newColumnSize ) {
-      changeColumnSize( currentColumnSize, newColumnSize );
+      changeColumnSize( $productsList, currentColumnSize, newColumnSize );
+      currentColumnSize = newColumnSize;
       localStorage.setItem( 'column_size', 'columns-' + newColumnSize.slice( -1 ) );
     }
   } );
 } );
 
-function changeColumnSize( currentColumnSize, newColumnSize ) {
+function changeColumnSize( $productsList, currentColumnSize, newColumnSize ) {
   $productsList.removeClass( currentColumnSize );
   $productsList.addClass( newColumnSize );
-  currentColumnSize = newColumnSize;
 
   $( '.woocommerce-columns-sizer.active' ).removeClass( 'active' );
   $( '.woocommerce-columns-sizer.' + newColumnSize ).addClass( 'active' );
