@@ -437,6 +437,24 @@ function emma_products_per_page( $products ) {
 }
 
 /**
+ * Adds the cart anchor markup to WC's cart fragments
+ */
+function emma_cart_anchor_fragment( $fragments ) {
+	global $woocommerce;
+
+	ob_start();
+
+	?>
+  <a href="<?php echo esc_url( $woocommerce->cart->get_cart_url() ); ?>">
+    <span class='cart-count'><?php echo WC()->cart->get_cart_contents_count() == 0 ? '' : WC()->cart->get_cart_contents_count(); ?></span>
+    <?php echo WC()->cart->get_cart_contents_count() == 0 ? 'Cart Empty' : 'Item(s) in Cart'; ?>
+  </a>
+	<?php
+	$fragments['.mini-cart-toggle > a'] = ob_get_clean();
+	return $fragments;
+}
+
+/**
  * Hooks to run if WooCommerce is installed and active
  */
 if ( class_exists( 'WooCommerce' ) ) {
@@ -448,6 +466,6 @@ if ( class_exists( 'WooCommerce' ) ) {
   add_action( 'woocommerce_before_shop_loop', 'emma_add_close_div', 31 ); // this happens right after the sorting form on the shop page
   add_filter('loop_shop_columns', 'emma_product_columns');
   add_filter( 'loop_shop_per_page', 'emma_products_per_page', 20 );
+  add_filter( 'woocommerce_add_to_cart_fragments', 'emma_cart_anchor_fragment' );
   wp_enqueue_script( 'emma-woocommerce-scripts', get_template_directory_uri() . '/src/js/woocommerce.js', array(), wp_get_theme()->get( 'Version' ), true ); // enqueue woocommerce js
 }
-

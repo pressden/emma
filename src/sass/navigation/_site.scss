@@ -19,7 +19,7 @@
     margin: 0;
     padding-left: 0;
 
-    ul {
+    ul:not( .woocommerce-mini-cart ) {
       box-shadow: $menu-sub-box-shadow;
       position: absolute;
       top: 100%;
@@ -47,12 +47,12 @@
       }
 
       :hover > a,
-      .focus > a {
+      :focus > a {
         color: $menu-sub-link-color-hover;
       }
 
       a:hover,
-      a.focus {
+      a:focus {
       }
     }
 
@@ -65,16 +65,16 @@
     }
   }
 
-  li {
+  li:not( .woocommerce-mini-cart-item ) {
     position: relative;
 
-    &:hover > a,
-    &.focus > a {
+    &:hover > a:not( .button ),
+    &:focus > a:not( .button ) {
       color: $menu-link-color-hover;
     }
   }
 
-  a {
+  a:not( .button ) {
     display: block;
     padding: $menu-link-padding-y $menu-link-padding-x;
     text-decoration: none;
