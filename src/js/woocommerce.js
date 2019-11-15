@@ -29,7 +29,7 @@ $( function() {
 
 function hideMiniCart() {
   if( $( '#mini-cart' ).is( ':visible' ) ) {
-    $( '#mini-cart' ).addClass( 'hidden' );
+    $( '#mini-cart' ).addClass( 'd-none' );
   }
 }
 
@@ -43,8 +43,16 @@ $( function() {
     var docHeight = $( document ).outerHeight( true );
     var docWidth = $( document ).outerWidth( true );
 
+    // keep minicart invisible but allow it to display as block so dimensions can be properly computed
+    $miniCart.css( 'visibility', 'hidden' );
+    $miniCart.removeClass( 'd-none' );
+
     var miniCartWidth = $miniCart.outerWidth( true );
     var miniCartHeight = $miniCart.outerHeight( true );
+
+    // set back to display:none after computing dimensions to make sure page flow isn't messed with
+    $miniCart.addClass( 'd-none' );
+    $miniCart.css( 'visibility', 'visible' );
 
     var toggleHeight = $toggle.outerHeight( true );
     var toggleWidth = $toggle.outerWidth();
@@ -52,21 +60,30 @@ $( function() {
     var toggleBottom = toggleTop + toggleHeight;
     var toggleLeft = $toggle.offset().left;
     var toggleRight = toggleLeft + toggleWidth;
+    var toggleCenter = toggleLeft + ( toggleWidth / 2 );
 
-    if( toggleLeft + miniCartWidth > docWidth ) {
-      $miniCart.css( 'left', -miniCartWidth + toggleWidth );
-    } else {
+    if( toggleLeft + miniCartWidth < docWidth ) {
       $miniCart.css( 'left', 0 );
+    } else if ( toggleRight - miniCartWidth > 0 ) {
+      $miniCart.css( 'left', -miniCartWidth + toggleWidth );
+    } else if ( toggleCenter - ( miniCartWidth / 2 ) > 0 && toggleCenter + ( miniCartWidth / 2 ) < docWidth ) {
+      $miniCart.css( 'left', miniCartWidth / 2 * -1 + ( toggleWidth / 2 ) );
+    } else {
+      window.location.href = "/cart";
+      return false;
     }
 
-    if( toggleBottom + miniCartHeight > docHeight ) {
+    if( toggleBottom + miniCartHeight < docHeight ) {
+      $miniCart.css( 'top', toggleHeight + 4 );
+    } else if( toggleTop - miniCartHeight > 0 ) {
       $miniCart.css( 'top', -miniCartHeight - 4 );
     } else {
-      $miniCart.css( 'top', toggleHeight + 4 );
+      window.location.href = "/cart";
+      return false;
     }
 
     $miniCart.insertAfter( $toggle );
-    $miniCart.removeClass( 'hidden' );
+    $miniCart.removeClass( 'd-none' );
 
     e.stopPropagation();
   } );

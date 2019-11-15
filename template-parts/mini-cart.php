@@ -1,4 +1,4 @@
-<div id="mini-cart" class="mini-cart hidden">
+<div id="mini-cart" class="mini-cart d-none">
   <div class="mini-cart-header">
     <h3>My Cart</h3>
     <a href="#" title="Close Cart" id="mini-cart-close"><span class="dashicons dashicons-dismiss"></span></a>
