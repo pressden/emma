@@ -56,6 +56,12 @@ $( function() {
 
     var $toggle = $( this );
     var $miniCart = $( '#mini-cart' );
+    var $menuDrawer = $( '#menu-drawer' );
+
+    if( $miniCart.is( ':visible' ) ) {
+      window.location.href = "/cart";
+      return false;
+    }
 
     var docHeight = $( document ).outerHeight( true );
     var docWidth = $( document ).outerWidth( true );
@@ -113,7 +119,7 @@ $( function() {
   $( 'html' ).click( function( e ) {
     var $target = $( e.target );
 
-    if( ! $target.closest( '#mini-cart' ).length ) {
+    if( ! $target.closest( '#mini-cart' ).length && ! $target.closest( '.mini-cart-toggle' ) ) {
       hideMiniCart();
     }
   } );
