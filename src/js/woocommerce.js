@@ -50,65 +50,31 @@ function hideMiniCart() {
   }
 }
 
+var $activeToggle = '';
+
 $( function() {
-  $( document ).on( 'click focus', '.mini-cart-toggle > a', function( e ) {
+  $( document ).on( 'click', '.mini-cart-toggle > a', function( e ) {
     e.preventDefault();
 
-    var $toggle = $( this );
+    $activeToggle = $( this );
     var $miniCart = $( '#mini-cart' );
     var $menuDrawer = $( '#menu-drawer' );
 
-    if( $miniCart.is( ':visible' ) ) {
+    if( $miniCart.is( ':visible' ) || $menuDrawer.hasClass( 'toggled' ) ) {
       window.location.href = "/cart";
       return false;
     }
 
-    var docHeight = $( document ).outerHeight( true );
-    var docWidth = $( document ).outerWidth( true );
-
-    // keep minicart invisible but allow it to display as block so dimensions can be properly computed
-    $miniCart.css( 'visibility', 'hidden' );
-    $miniCart.removeClass( 'd-none' );
-
-    var miniCartWidth = $miniCart.outerWidth( true );
-    var miniCartHeight = $miniCart.outerHeight( true );
-
-    // set back to display:none after computing dimensions to make sure page flow isn't messed with
-    $miniCart.addClass( 'd-none' );
-    $miniCart.css( 'visibility', 'visible' );
-
-    var toggleHeight = $toggle.outerHeight( true );
-    var toggleWidth = $toggle.outerWidth();
-    var toggleTop = $toggle.offset().top;
-    var toggleBottom = toggleTop + toggleHeight;
-    var toggleLeft = $toggle.offset().left;
-    var toggleRight = toggleLeft + toggleWidth;
-    var toggleCenter = toggleLeft + ( toggleWidth / 2 );
-
-    if( toggleLeft + miniCartWidth < docWidth ) {
-      $miniCart.css( 'left', 0 );
-    } else if ( toggleRight - miniCartWidth > 0 ) {
-      $miniCart.css( 'left', -miniCartWidth + toggleWidth );
-    } else if ( toggleCenter - ( miniCartWidth / 2 ) > 0 && toggleCenter + ( miniCartWidth / 2 ) < docWidth ) {
-      $miniCart.css( 'left', miniCartWidth / 2 * -1 + ( toggleWidth / 2 ) );
-    } else {
-      window.location.href = "/cart";
-      return false;
-    }
-
-    if( toggleBottom + miniCartHeight < docHeight ) {
-      $miniCart.css( 'top', toggleHeight + 4 );
-    } else if( toggleTop - miniCartHeight > 0 ) {
-      $miniCart.css( 'top', -miniCartHeight - 4 );
-    } else {
-      window.location.href = "/cart";
-      return false;
-    }
-
-    $miniCart.insertAfter( $toggle );
-    $miniCart.removeClass( 'd-none' );
-
+    relocateMiniCart( $miniCart );
     e.stopPropagation();
+  } );
+
+  $( window ).resize( function() {
+    var $miniCart = $( '#mini-cart' );
+
+    if( $miniCart.is( ':visible' ) ) {
+      relocateMiniCart( $miniCart );
+    }
   } );
 
   $( '#mini-cart-close' ).click( function( e ) {
@@ -119,7 +85,7 @@ $( function() {
   $( 'html' ).click( function( e ) {
     var $target = $( e.target );
 
-    if( ! $target.closest( '#mini-cart' ).length && ! $target.closest( '.mini-cart-toggle' ) ) {
+    if( ! $target.closest( '.mini-cart-toggle' ).length && ! $target.closest( '#mini-cart' ).length ) {
       hideMiniCart();
     }
   } );
@@ -130,3 +96,56 @@ $( function() {
     }
   } );
 } );
+
+function relocateMiniCart( $miniCart ) {
+  var docHeight = $( document ).outerHeight( true );
+  var docWidth = $( document ).outerWidth( true );
+  var viewportHeight = $( window ).height();
+
+  // keep minicart invisible but allow it to display as block so dimensions can be properly computed
+  $miniCart.css( 'visibility', 'hidden' );
+  $miniCart.removeClass( 'd-none' );
+
+  var miniCartWidth = $miniCart.outerWidth( true );
+  var miniCartHeight = $miniCart.outerHeight( true );
+
+  // set back to display:none after computing dimensions to make sure page flow isn't messed with
+  $miniCart.addClass( 'd-none' );
+  $miniCart.css( 'visibility', 'visible' );
+
+  var toggleHeight = $activeToggle.outerHeight( true );
+  var toggleWidth = $activeToggle.outerWidth();
+  var toggleTop = $activeToggle.offset().top;
+  var toggleBottom = toggleTop + toggleHeight;
+  var toggleLeft = $activeToggle.offset().left;
+  var toggleRight = toggleLeft + toggleWidth;
+  var toggleCenter = toggleLeft + ( toggleWidth / 2 );
+
+  if( miniCartWidth < docWidth - 50 ) {
+    if( toggleLeft + miniCartWidth < docWidth ) {
+      $miniCart.css( 'left', toggleLeft );
+    } else if ( toggleRight - miniCartWidth > 0 ) {
+      $miniCart.css( 'left', toggleLeft - miniCartWidth + toggleWidth );
+    } else if ( toggleCenter - ( miniCartWidth / 2 ) > 0 && toggleCenter + ( miniCartWidth / 2 ) < docWidth ) {
+      $miniCart.css( 'left', toggleLeft + ( miniCartWidth / -2 ) + ( toggleWidth / 2 ) );
+    } else {
+      window.location.href = "/cart";
+      return false;
+    }
+  } else {
+    window.location.href = "/cart";
+    return false;
+  }
+
+  if( toggleBottom + miniCartHeight < docHeight && miniCartHeight < viewportHeight - 50 ) {
+    $miniCart.css( 'top', toggleBottom + 4 );
+  } else if( toggleTop - miniCartHeight > 0 && miniCartHeight < viewportHeight - 50 ) {
+    $miniCart.css( 'top', -miniCartHeight + toggleTop -4 );
+  } else {
+    window.location.href = "/cart";
+    return false;
+  }
+
+  $( '#mini-cart a' ).attr( 'tabindex', '-1' );
+  $miniCart.removeClass( 'd-none' );
+}

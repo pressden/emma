@@ -4,6 +4,7 @@
   position: absolute;
   height: $wc-mini-cart-height;
   max-height: $wc-mini-cart-max-height;
+  min-height: $wc-mini-cart-min-height;
   width: $wc-mini-cart-width;
   z-index: 99999;
   background-color: $wc-mini-cart-background-color;
@@ -131,16 +132,12 @@
     overflow: hidden;
     width: 3rem;
 
-    &:focus {
-      outline: 0;
-    }
-
     &::before {
       content: "\f174";
       position: absolute;
       top: 50%;
-      left: $spacer-sm;
-      transform: translateY( -50% );
+      left: 50%;
+      transform: translate( -50%, -50% );
       text-indent: 0;
       font-family: "dashicons";
       font-size: $spacer-lg;
@@ -148,8 +145,9 @@
 
     .cart-count {
       position: absolute;
-      top: 0;
-      right: 0.3rem;
+      top: 50%;
+      right: 50%;
+      transform: translate( calc( 50% + 9px ), calc( -50% - 10px ) );
       display: flex;
       align-items: center;
       justify-content: center;
