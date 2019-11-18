@@ -14,10 +14,23 @@
 
 .woocommerce-page {
   .site-main {
-    .entry-content > * {
+    .entry-header {
       max-width: $wc-max-width;
-      padding-left: 0;
-      padding-right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .entry-content {
+      > * {
+        max-width: $wc-max-width;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .woocommerce {
+        padding-left: $spacer;
+        padding-right: $spacer;
+      }
     }
   }
 

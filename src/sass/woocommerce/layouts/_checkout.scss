@@ -1,10 +1,4 @@
-.woocommerce {
-  .woocommerce-form-coupon-toggle {
-    .woocommerce-info {
-      display: block;
-    }
-  }
-
+.woocommerce-page.woocommerce-checkout {
   .checkout_coupon {
     display: flex;
     flex-wrap: wrap;
@@ -35,6 +29,22 @@
           margin-right: $spacer-sm;
         }
       }
+    }
+  }
+  .woocommerce-form-login {
+    margin: $spacer-lg 0;
+    padding: $spacer;
+    align-items: center;
+    border-radius: $alert-border-radius;
+    border: 1px solid $input-border-color;
+
+    label {
+      display: block;
+    }
+
+    input:not( [type='checkbox'] ) {
+      width: 100%;
+      max-width: 30rem;
     }
   }
 

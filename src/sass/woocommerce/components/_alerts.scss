@@ -74,6 +74,12 @@
   .woocommerce-invalid input {
     border-color: $warning;
   }
+
+  .woocommerce-form-coupon-toggle, .woocommerce-form-login-toggle {
+    .woocommerce-info {
+      display: block;
+    }
+  }
 }
 
 .woocommerce-store-notice {
