@@ -53,6 +53,14 @@ function hideMiniCart() {
 var $activeToggle = '';
 
 $( function() {
+  $( '.mini-cart-toggle' ).keydown( function( e ) {
+    var key = ( e.keyCode ? event.keyCode : event.which );
+    if( key == '13' ) {
+      window.location.href = "/cart";
+      return false;
+    }
+  } );
+
   $( document ).on( 'click', '.mini-cart-toggle > a', function( e ) {
     e.preventDefault();
 
