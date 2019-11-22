@@ -1,6 +1,6 @@
 {
   "name": "emma",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "repository": "https://github.com/pressden/emma.git",
   "description": "Emma theme description.",
   "main": "index.js",
