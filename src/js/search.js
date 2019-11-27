@@ -12,9 +12,9 @@
       event.preventDefault();
       relocateSearch( toggle );
     } );
-    // toggle_link.addEventListener( 'focus', event => {
-    //   relocateSearch( toggle );
-    // } );
+    toggle_link.addEventListener( 'focus', event => {
+      relocateSearch( toggle );
+    } );
     toggle_link.addEventListener( 'blur', event => {
       if( event.relatedTarget != null && ! search_form.contains( event.relatedTarget ) ) {
         hideSearchForm();
