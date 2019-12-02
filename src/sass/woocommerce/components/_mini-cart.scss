@@ -117,7 +117,6 @@
 }
 
 .mini-cart-toggle {
-  display: inline-block;
   justify-content: center;
   position: relative;
   padding: 0;
@@ -126,6 +125,8 @@
   > a {
     display: block;
     position: relative;
+    margin-left: auto;
+    margin-right: auto;
     min-height: 40px;
     text-indent: -999rem;
     white-space: nowrap;
