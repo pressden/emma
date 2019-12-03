@@ -34,32 +34,23 @@ var toggle, closer, drawer, clones;
     closeMenuDrawer();
   };
 
-  for( let container of collection ) {
+  collection.forEach( container => {
     menu = container.querySelector( 'ul' );
-
-    // @TODO: Move this outside the for loop since one toggle button controls multiple menus
-    /*
-    // Hide menu toggle button if menu is empty and return early.
-    if ( 'undefined' === typeof menu ) {
-      toggle.style.display = 'none';
-      return;
-    }
-    */
-
-    // continue if the menu is empty
-    if ( 'undefined' === typeof menu ) {
-      continue;
-    }
 
     // put a clone of the menu in the menu clones container
     let clone = menu.cloneNode( true );
     clones.appendChild( clone );
 
-    menu.setAttribute( 'aria-expanded', 'false' );
     if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
       menu.className += ' nav-menu';
     }
-  }
+  } );
+
+  clones.querySelectorAll( '*' ).forEach( item => {
+    if( item.id ) {
+      item.id = item.id + "-drawer";
+    }
+  } );
 
   // Get all the link elements within the menu.
   drawer.querySelectorAll( '.menu-item-has-children > a' ).forEach( item => {
@@ -92,12 +83,10 @@ var toggle, closer, drawer, clones;
 
 function openMenuDrawer() {
   drawer.classList.add( 'toggled' );
-  toggle.setAttribute( 'aria-expanded', 'true' );
 }
 
 function closeMenuDrawer() {
   drawer.classList.remove( 'toggled' );
-  toggle.setAttribute( 'aria-expanded', 'false' );
 }
 
 /**
