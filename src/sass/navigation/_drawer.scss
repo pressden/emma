@@ -9,6 +9,14 @@
   overflow-x: hidden;
   transition: all 0.25s ease-in-out;
 
+  .admin-bar & {
+    top: 46px;
+
+    @media screen and (min-width: $breakpoint-md) {
+      top: 32px;
+    }
+  }
+
   > .wrap {
     @include center-wrap($footer-widgets-wrap-max-width);
     padding: $menu-drawer-padding-y $menu-drawer-padding-x;
@@ -25,18 +33,26 @@
 
     ul {
       display: block;
+
+      .sub-menu {
+        display: none;
+        position: static;
+        width: 100%;
+
+        a {
+          width: 100%;
+        }
+      }
+
+      li.focus {
+        .sub-menu {
+          display: block;
+        }
+      }
     }
 
     a {
       text-align: center;
-    }
-  }
-
-  .admin-bar & {
-    top: 46px;
-
-    @media screen and (min-width: $breakpoint-md) {
-      top: 32px;
     }
   }
 }

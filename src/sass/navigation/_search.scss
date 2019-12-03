@@ -1,5 +1,4 @@
 .search-form-toggle {
-  display: inline-block;
   justify-content: center;
   position: relative;
   padding: 0;
@@ -8,11 +7,12 @@
   > a {
     display: block;
     position: relative;
+    width: 100%;
     min-height: 40px;
     text-indent: -999rem;
     white-space: nowrap;
     overflow: hidden;
-    width: 2.5rem;
+    min-width: 2.5rem;
 
     &::before {
       content: "\f179";
@@ -55,5 +55,20 @@
 
   .search-submit {
     border: 1px solid $action;
+  }
+
+  #menu-clones & {
+    position: static;
+    display: flex;
+    box-shadow: 0 0 0 0;
+    border-bottom: 1px solid $input-border-color;
+
+    label {
+      flex-grow: 1;
+
+      .search-field {
+        width: 100%;
+      }
+    }
   }
 }

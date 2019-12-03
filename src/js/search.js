@@ -3,17 +3,21 @@
  *
  * Relocates and displays the search form when a toggle is clicked or focused
  */
+
+var search_form;
+
 ( function() {
-  var search_form = document.querySelector( '.toggle-search-form' );
+  search_form = document.querySelector( '.toggle-search-form' );
 
   document.querySelectorAll( '.search-form-toggle' ).forEach( toggle => {
     var toggle_link = toggle.querySelector( 'a' );
     toggle_link.addEventListener( 'click', event => {
       event.preventDefault();
-      relocateSearch( toggle );
-    } );
-    toggle_link.addEventListener( 'focus', event => {
-      relocateSearch( toggle );
+      if( search_form.classList.contains( 'd-none' ) ) {
+        relocateSearch( toggle );
+      } else {
+        hideSearchForm();
+      }
     } );
     toggle_link.addEventListener( 'blur', event => {
       if( event.relatedTarget != null && ! search_form.contains( event.relatedTarget ) ) {
@@ -24,7 +28,7 @@
 
   document.querySelectorAll( '.toggle-search-form input' ).forEach( input => {
     input.addEventListener( 'blur', event => {
-      if( event.relatedTarget != null && ! search_form.contains( event.relatedTarget ) && ! event.relatedTarget.classList.contains( '.search-form-toggle' ) ) {
+      if( event.relatedTarget != null && ! search_form.contains( event.relatedTarget ) && ! search_form.closest( '.search-form-toggle' ).contains( event.relatedTarget ) ) {
         hideSearchForm();
       }
     } );
@@ -41,8 +45,6 @@
 } )();
 
 function relocateSearch( toggle ) {
-  var search_form = document.querySelector( '.toggle-search-form' );
-
   search_form.classList.remove( 'd-none' );
   var search_form_rect = search_form.getBoundingClientRect();
   search_form.classList.add( 'd-none' );
@@ -66,9 +68,9 @@ function relocateSearch( toggle ) {
   }
 
   search_form.classList.remove( 'd-none' );
+  search_form.querySelector( '.search-field' ).focus();
 }
 
 function hideSearchForm() {
-  var search_form = document.querySelector( '.toggle-search-form' );
   search_form.classList.add( 'd-none' );
 }
