@@ -34,6 +34,12 @@ var toggle, closer, drawer, clones;
     closeMenuDrawer();
   };
 
+  closer.addEventListener( 'blur', function( event ) {
+    if( ! drawer.contains( event.relatedTarget ) ) {
+      closeMenuDrawer();
+    }
+  } );
+
   collection.forEach( container => {
     menu = container.querySelector( 'ul' );
 
@@ -77,16 +83,28 @@ var toggle, closer, drawer, clones;
           menuParent.classList.remove( 'focus' );
         }
       }
+
+      if( ! drawer.contains( event.relatedTarget ) ) {
+        closer.focus();
+      }
     } );
   } );
 } )();
 
 function openMenuDrawer() {
+  drawer.querySelectorAll( 'a' ).forEach( item => {
+    item.tabIndex = 0;
+  } );
   drawer.classList.add( 'toggled' );
+  closer.focus();
 }
 
 function closeMenuDrawer() {
+  drawer.querySelectorAll( 'a' ).forEach( item => {
+    item.tabIndex = -1;
+  } );
   drawer.classList.remove( 'toggled' );
+  toggle.focus();
 }
 
 /**

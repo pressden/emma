@@ -5,9 +5,9 @@
         <span class="dashicons dashicons-no-alt"></span>
       </a>
     </div><!-- .navigation-controls -->
-  </div><!-- .wrap -->
 
-  <div id="menu-clones" class="menu-container">
-    <?php // menus placed here via Javascript (see: src/js/navigation.js) ?>
-  </div>
+    <div id="menu-clones" class="menu-container">
+      <?php // menus placed here via Javascript (see: src/js/navigation.js) ?>
+    </div>
+  </div><!-- .wrap -->
 </div>
