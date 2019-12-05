@@ -5,7 +5,7 @@ $font-size-base: 1rem !default;
 // Breakpoints (commonly used breakpoints in WordPress core: https://github.com/WordPress/gutenberg/issues/13775)
 $breakpoint-xs: 480px !default;
 $breakpoint-sm: 600px !default;
-$breakpoint-md: $breakpoint-admin-bar !default; // defined in _wordpress.scss
+$breakpoint-md: 782px !default;
 $breakpoint-lg: 960px !default;
 $breakpoint-xl: 1280px !default;
 
