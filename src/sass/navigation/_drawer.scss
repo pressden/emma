@@ -56,4 +56,12 @@
       text-align: center;
     }
   }
+
+  .admin-bar & {
+    top: $admin-bar-mobile-height;
+
+    @media screen and (min-width: $breakpoint-admin-bar) {
+      top: $admin-bar-desktop-height;
+    }
+  }
 }

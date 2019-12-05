@@ -8,10 +8,10 @@
     }
 
     .admin-bar & {
-      top: 46px;
+      top: $admin-bar-mobile-height;
 
-      @media screen and (min-width: $breakpoint-md) {
-        top: 32px;
+      @media screen and (min-width: $breakpoint-admin-bar) {
+        top: $admin-bar-desktop-height;
       }
     }
 

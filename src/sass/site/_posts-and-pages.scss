@@ -1,3 +1,21 @@
+#page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .admin-bar & {
+    min-height: calc( 100vh - #{$admin-bar-mobile-height} );
+
+    @media screen and (min-width: $breakpoint-admin-bar) {
+      min-height: calc( 100vh - #{$admin-bar-desktop-height} );
+    }
+  }
+
+  .site-content {
+    flex-grow: 1;
+  }
+}
+
 .site-content {
   padding: $site-content-padding-y $site-content-padding-x;
 }
