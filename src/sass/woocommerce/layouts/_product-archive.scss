@@ -76,23 +76,23 @@
 
   ul.products {
     display: grid;
+    @include grid-template-columns-responsive( $wc-shop-product-min-width-md );
     column-gap: $wc-archive-column-gap;
     row-gap: $wc-archive-row-gap;
-    grid-template-columns: repeat( auto-fill, minmax( $wc-shop-product-min-width-md, 1fr ) );
     padding-left: initial;
     padding-right: initial;
     clear: both;
 
     &.columns-1 { // Small
-      grid-template-columns: repeat( auto-fill, minmax( $wc-shop-product-min-width-sm, 1fr ) );
+      @include grid-template-columns-responsive( $wc-shop-product-min-width-sm );
     }
 
     &.columns-2 { // Medium
-      grid-template-columns: repeat( auto-fill, minmax( $wc-shop-product-min-width-md, 1fr ) );
+      @include grid-template-columns-responsive( $wc-shop-product-min-width-md );
     }
 
     &.columns-3 { // Large
-      grid-template-columns: repeat( auto-fill, minmax( $wc-shop-product-min-width-lg, 1fr ) );
+      @include grid-template-columns-responsive( $wc-shop-product-min-width-lg );
     }
 
     li {
