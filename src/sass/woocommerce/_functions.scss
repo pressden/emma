@@ -1,0 +1,10 @@
+@function rem-to-px( $value ) {
+  $pixel-base  : 16px;
+  $unit       : unit( $value );
+
+  @if( $unit == 'rem' ) {
+    @return $value / 1rem * $pixel-base;
+  } @else {
+    @return $value;
+  }
+}

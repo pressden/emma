@@ -76,12 +76,15 @@
 
   ul.products {
     display: grid;
-    @include grid-template-columns-responsive( $wc-shop-product-min-width-md );
     column-gap: $wc-archive-column-gap;
     row-gap: $wc-archive-row-gap;
-    padding-left: initial;
-    padding-right: initial;
+    padding-left: $spacer;
+    padding-right: $spacer;
     clear: both;
+
+    // display: flex;
+    // flex-wrap: wrap;
+    // justify-content: stretch;
 
     &.columns-1 { // Small
       @include grid-template-columns-responsive( $wc-shop-product-min-width-sm );
@@ -95,10 +98,24 @@
       @include grid-template-columns-responsive( $wc-shop-product-min-width-lg );
     }
 
+    // &.columns-1 li { // Small
+    //   min-width: $wc-shop-product-min-width-sm;
+    // }
+
+    // &.columns-2 li { // Small
+    //   min-width: $wc-shop-product-min-width-md;
+    // }
+
+    // &.columns-3 li { // Small
+    //   min-width: $wc-shop-product-min-width-lg;
+    // }
+
     li {
       display: block;
       position: relative;
       text-align: center;
+      // flex-grow: 1;
+      // margin-left: $wc-archive-column-gap / 2;
 
       .woocommerce-loop-product__link {
         display: flex;
