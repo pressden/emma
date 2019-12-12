@@ -92,6 +92,10 @@
       }
     }
 
+    #order_review_heading {
+      margin-top: $spacer-lg;
+    }
+
     .woocommerce-checkout-review-order {
       table {
         width: 100%;
@@ -112,8 +116,21 @@
         }
       }
 
-      .wc_payment_methods {
-        padding-left: 0;
+      .woocommerce-checkout-payment {
+        margin-top: $spacer-lg;
+        margin-bottom: $spacer-lg;
+
+        .wc_payment_methods {
+          padding-left: 0;
+
+          .wc_payment_method {
+            list-style: none;
+
+            label {
+              width: calc( 100% - 20px );
+            }
+          }
+        }
       }
     }
 
