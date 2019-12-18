@@ -1,6 +1,6 @@
 <?php if ( is_active_sidebar( 'footer-widgets-1' ) || is_active_sidebar( 'footer-widgets-2' ) || is_active_sidebar( 'footer-widgets-3' ) ): ?>
 
-  <div id="back-matter" class="footer-widgets">
+  <aside id="back-matter" class="footer-widgets">
     <div class="wrap">
 
       <?php
@@ -8,9 +8,9 @@
         if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
           ?>
 
-          <div class="footer-widgets-<?php echo $i; ?> widget-area">
+          <section class="footer-widgets-<?php echo $i; ?> widget-area">
             <?php dynamic_sidebar( 'footer-widgets-' . $i ); ?>
-          </div>
+          </section>
 
           <?php
         }
@@ -18,6 +18,6 @@
       ?>
 
     </div><!-- .wrap -->
-  </div><!-- #back-matter -->
+  </aside><!-- #back-matter -->
 
 <?php endif; ?>

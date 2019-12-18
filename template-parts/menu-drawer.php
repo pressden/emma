@@ -1,4 +1,4 @@
-<div id="menu-drawer" class="menu-drawer">
+<nav id="menu-drawer" class="menu-drawer">
   <div class="wrap">
     <div class="navigation-controls">
       <a href="javascript:void(0);" id="menu-closer" class="menu-toggle" <?php /*aria-controls="menu-drawer" aria-expanded="false"*/?> title="<?php esc_html_e( 'Close Primary Menu', 'emma' ); ?>">
@@ -10,4 +10,4 @@
       <?php // menus placed here via Javascript (see: src/js/navigation.js) ?>
     </div>
   </div><!-- .wrap -->
-</div>
+</nav>
