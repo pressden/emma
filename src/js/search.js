@@ -45,6 +45,8 @@ var search_form;
 } )();
 
 function relocateSearch( toggle ) {
+  toggle.appendChild( search_form );
+
   search_form.classList.remove( 'd-none' );
   var search_form_rect = search_form.getBoundingClientRect();
   search_form.classList.add( 'd-none' );
@@ -52,8 +54,6 @@ function relocateSearch( toggle ) {
   var document_width = document.body.clientWidth;
   var document_height = document.body.clientHeight;
   var toggle_rect = toggle.getBoundingClientRect();
-
-  toggle.appendChild( search_form );
 
   if( document_width < toggle_rect.right + search_form_rect.width ) {
     search_form.style.left = -search_form_rect.width + toggle_rect.width + 'px';
