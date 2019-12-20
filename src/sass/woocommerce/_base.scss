@@ -37,8 +37,4 @@ body {
       }
     }
   }
-
-  .screen-reader-text {
-    @include sr-only;
-  }
 }
