@@ -53,6 +53,10 @@
     padding-left: $content-padding-x;
     padding-right: $content-padding-x;
   }
+
+  .hide-title & {
+    display: none;
+  }
 }
 
 .entry-meta {

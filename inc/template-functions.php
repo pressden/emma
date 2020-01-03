@@ -121,6 +121,56 @@ function emma_output_custom_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'emma_output_custom_body_classes' );
 
+/**
+ * Layout options metabox content
+ */
+function emma_layout_options_metabox_html( $post ) {
+	$hide_title = get_post_meta( $post->ID, 'hide_title', true );
+	$featured_image_before_title = get_post_meta( $post->ID, 'featured_image_before_title', true );
+	?>
+		<div class="components-base-control">
+			<div class="components-base-control__field">
+				<span class="components-checkbox-control__input-container"><input id="hide-title-checkbox-control" name="hide_title" type="checkbox" <?php echo $hide_title == 1 ? "checked" : ""; ?>></span>
+				<label class="components-checkbox-control__label" for="hide-title-checkbox-control">Hide Title</label>
+			</div>
+		</div>
+	<?php
+}
+
+/**
+ * Add metabox for layout options in all post types
+ */
+function emma_add_layout_options_metabox() {
+	add_meta_box( 'layout_options', 'Layout Options', 'emma_layout_options_metabox_html', null, 'side' );
+}
+add_action('add_meta_boxes', 'emma_add_layout_options_metabox');
+
+/**
+ * Save layout options postdata
+ */
+function emma_save_layout_options_postdata( $post_id ) {
+	if( array_key_exists( 'hide_title', $_POST ) ) {
+		update_post_meta(	$post_id,	'hide_title',	1	);
+	} else {
+		delete_post_meta( $post_id, 'hide_title' );
+	}
+}
+add_action('save_post', 'emma_save_layout_options_postdata');
+
+/**
+ * Add custom body classes to body tag
+ */
+function emma_output_layout_options_classes( $classes ) {
+	global $post;
+	$hide_title = get_post_meta( $post->ID, 'hide_title', true );
+
+	if( ! empty( $hide_title ) && $hide_title == 1 ) {
+		$classes[] = 'hide-title';
+	}
+	return $classes;
+}
+add_filter( 'body_class', 'emma_output_layout_options_classes' );
+
 
 /**
  * Site Branding action
