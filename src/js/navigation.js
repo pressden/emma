@@ -75,19 +75,18 @@ var toggle, closer, drawer, clones;
     } );
   } );
 
-  drawer.querySelectorAll( '.menu-item > a' ).forEach( item => {
-    item.addEventListener( 'blur', function( event ) {
-      var menuParent = this.closest( '.menu-item-has-children' );
-      if( menuParent ) {
-        if ( ! menuParent.contains( event.relatedTarget ) ) {
-          menuParent.classList.remove( 'focus' );
-        }
+  drawer.addEventListener( 'focusout', function( event ) {
+    var target = event.target;
+    var menuParent = target.closest( '.menu-item-has-children' );
+    if( menuParent ) {
+      if ( ! menuParent.contains( event.relatedTarget ) ) {
+        menuParent.classList.remove( 'focus' );
       }
+    }
 
-      if( ! drawer.contains( event.relatedTarget ) ) {
-        closer.focus();
-      }
-    } );
+    if( ! drawer.contains( event.relatedTarget ) ) {
+      closer.focus();
+    }
   } );
 } )();
 
