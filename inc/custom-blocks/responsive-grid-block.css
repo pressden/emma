@@ -1,0 +1,26 @@
+.wp-block-custom-responsive-grid .editor-block-list__layout {
+  display: grid;
+  grid-gap: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.wp-block-custom-responsive-grid.xs .editor-block-list__layout {
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+
+.wp-block-custom-responsive-grid.sm .editor-block-list__layout {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+
+.wp-block-custom-responsive-grid.md .editor-block-list__layout {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.wp-block-custom-responsive-grid.lg .editor-block-list__layout {
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
+.wp-block-custom-responsive-grid.xl .editor-block-list__layout {
+  grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+}

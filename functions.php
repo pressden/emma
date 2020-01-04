@@ -359,6 +359,11 @@ require get_template_directory() . '/inc/pagination.php';
 require get_template_directory() . '/inc/structured-data.php';
 
 /**
+ * Custom blocks.
+ */
+require get_template_directory() . '/inc/custom-blocks/register.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
