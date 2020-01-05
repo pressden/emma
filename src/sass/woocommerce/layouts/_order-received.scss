@@ -1,0 +1,37 @@
+table.woocommerce-table--order-details {
+  margin-bottom: $spacer;
+
+  td,
+  th {
+    padding: $spacer-sm;
+  }
+
+  .woocommerce-table__line-item {
+    td,
+    th {
+      padding-top: 0;
+      padding-bottom: 0;
+
+      &.woocommerce-table__product-name {
+        padding-left: $spacer;
+      }
+    }
+  }
+}
+
+.woocommerce-order-received {
+  .col2-set {
+    display: grid;
+    grid-row-gap: $spacer;
+
+    @media screen and ( min-width: $breakpoint-sm ) {
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: $spacer-xl;
+    }
+  }
+
+  .woocommerce-customer-details--phone,
+  .woocommerce-customer-details--email {
+    margin-bottom: 0;
+  }
+}
