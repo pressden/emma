@@ -8,7 +8,6 @@
   var InnerBlocks = wp.blockEditor.InnerBlocks;
 	var InspectorControls = wp.blockEditor.InspectorControls;
 	var PanelBody = wp.components.PanelBody;
-	var PanelRow = wp.components.PanelRow;
   var SelectControl = wp.components.SelectControl;
 
   registerBlockType( 'custom/responsive-grid', {
