@@ -39,7 +39,9 @@ $column-sizes: (
   @each $name, $size in $column-sizes {
     &.col-#{$name} {
       .responsive-grid__inner-container {
-        grid-template-columns: repeat( auto-fill, minmax( $size, 1fr ) );
+        @media screen and ( min-width: calc( #{$size} * 2 ) ) {
+          grid-template-columns: repeat( auto-fill, minmax( $size, 1fr ) );
+        }
       }
     }
   }
