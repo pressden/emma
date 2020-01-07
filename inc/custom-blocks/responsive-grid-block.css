@@ -20,13 +20,14 @@
 .wp-block-custom-responsive-grid  .block-editor-block-list__block > .block-editor-block-list__insertion-point {
   height: 100%;
   right: auto;
-  top: 0;
-  left: -16px;
+  left: -14px;
+  top: 14px;
 }
 
 .wp-block-custom-responsive-grid .block-editor-block-list__insertion-point-inserter {
   top: 0;
   left: 0;
+  bottom: 0;
   right: auto;
   height: 100%;
   align-items: center;
