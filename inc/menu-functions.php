@@ -10,7 +10,7 @@ function emma_add_feature_link_meta_box( $object ) {
 	add_meta_box( 'feature-link-metabox', __( 'Feature Links' ), 'emma_feature_link_meta_box_content', 'nav-menus', 'side', 'default' );
 	return $object;
 }
-add_filter( 'nav_menu_meta_box_object', 'emma_add_feature_link_meta_box', 10, 1);
+add_filter( 'nav_menu_meta_box_object', 'emma_add_feature_link_meta_box', 10, 1 );
 
 /**
  * Displays a metabox for feature links menu item.
@@ -55,7 +55,7 @@ function emma_feature_link_meta_box_content(){
 		<div id="tabs-panel-feature-links-all" class="tabs-panel tabs-panel-view-all tabs-panel-active">
 			<ul id="feature-links-checklist-all" class="categorychecklist form-no-clear">
 			<?php
-				echo walk_nav_menu_tree( array_map('wp_setup_nav_menu_item', $features), 0, (object) array( 'walker' => $walker) );
+				echo walk_nav_menu_tree( array_map( 'wp_setup_nav_menu_item', $features ), 0, (object) array( 'walker' => $walker ) );
 			?>
 			</ul>
 		</div><!-- /.tabs-panel -->
@@ -66,7 +66,7 @@ function emma_feature_link_meta_box_content(){
 				<label for="feature-links-tab">Select All</label>
 			</span>
 			<span class="add-to-menu">
-				<input type="submit"<?php wp_nav_menu_disabled_check( $nav_menu_selected_id ); ?> class="button-secondary submit-add-to-menu right" value="<?php esc_attr_e('Add to Menu'); ?>" name="add-feature-links-menu-item" id="submit-feature-links" />
+				<input type="submit"<?php wp_nav_menu_disabled_check( $nav_menu_selected_id ); ?> class="button-secondary submit-add-to-menu right" value="<?php esc_attr_e( 'Add to Menu' ); ?>" name="add-feature-links-menu-item" id="submit-feature-links" />
 				<span class="spinner"></span>
 			</span>
 		</p>
