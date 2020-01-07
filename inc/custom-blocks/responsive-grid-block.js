@@ -17,26 +17,44 @@
     category: 'layout',
 		keywords: ['custom grid responsive'],
 
+    supports: {
+			align: [ 'wide', 'full' ],
+      anchor: true,
+      html: false,
+		},
+
 		attributes: {
 			minColumnWidth: {
 				type: 'string',
 			},
+			columnGap: {
+				type: 'string',
+			},
+			rowGap: {
+				type: 'string',
+			},
+			xPadding: {
+				type: 'string',
+			},
 		},
 
-    supports: {
-      align: [ 'wide', 'full' ],
-      anchor: true,
-      html: false,
-    },
-
     edit: function( props ) {
-			var minColumnWidth = "md";
-			if( props.attributes.minColumnWidth ) {
-				minColumnWidth = props.attributes.minColumnWidth;
-			}
+			var minColumnWidth = props.attributes.minColumnWidth || "col-md"; //set to saved value if it exists, otherwise use default
+			var columnGap = props.attributes.columnGap || "col-gap-md";
+			var rowGap = props.attributes.rowGap || "row-gap-md";
+			var xPadding = props.attributes.xPadding || "x-padding-md";
 
       function onChangeMinColumnWidth( newValue ) {
 				props.setAttributes( { minColumnWidth: newValue } );
+			}
+			function onChangeColumnGap( newValue ) {
+				props.setAttributes( { columnGap: newValue } );
+			}
+			function onChangeRowGap( newValue ) {
+				props.setAttributes( { rowGap: newValue } );
+			}
+			function onChangeXPadding( newValue ) {
+				props.setAttributes( { xPadding: newValue } );
 			}
 
       return (
@@ -56,32 +74,135 @@
 										value: minColumnWidth,
 										options: [
 											{
-												value: 'xs',
+												value: 'col-xs',
 												label: 'Extra Small'
 											},
 											{
-												value: 'sm',
+												value: 'col-sm',
 												label: 'Small'
 											},
 											{
-												value: 'md',
+												value: 'col-md',
 												label: 'Medium'
 											},
 											{
-												value: 'lg',
+												value: 'col-lg',
 												label: 'Large'
 											},
 											{
-												value: 'xl',
+												value: 'col-xl',
 												label: 'Extra Large'
 											}
 										],
 										onChange: onChangeMinColumnWidth
 									}
 								),
+								el(
+									SelectControl,
+									{
+										label: 'Gap Between Columns',
+										value: columnGap,
+										options: [
+											{
+												value: 'col-gap-none',
+												label: 'None'
+											},
+											{
+												value: 'col-gap-xs',
+												label: 'Extra Small'
+											},
+											{
+												value: 'col-gap-sm',
+												label: 'Small'
+											},
+											{
+												value: 'col-gap-md',
+												label: 'Medium'
+											},
+											{
+												value: 'col-gap-lg',
+												label: 'Large'
+											},
+											{
+												value: 'col-gap-xl',
+												label: 'Extra Large'
+											}
+										],
+										onChange: onChangeColumnGap
+									}
+								),
+								el(
+									SelectControl,
+									{
+										label: 'Gap Between Rows',
+										value: rowGap,
+										options: [
+											{
+												value: 'row-gap-none',
+												label: 'None'
+											},
+											{
+												value: 'row-gap-xs',
+												label: 'Extra Small'
+											},
+											{
+												value: 'row-gap-sm',
+												label: 'Small'
+											},
+											{
+												value: 'row-gap-md',
+												label: 'Medium'
+											},
+											{
+												value: 'row-gap-lg',
+												label: 'Large'
+											},
+											{
+												value: 'row-gap-xl',
+												label: 'Extra Large'
+											}
+										],
+										onChange: onChangeRowGap
+									}
+								),
+								el(
+									SelectControl,
+									{
+										label: 'Left and Right Padding',
+										help: 'This value affects how much horizontal padding exists on the outside of the grid, and will only be apparent on the frontend. Set this to "None" and alignment to "Full Width" for a true edge-to-edge grid',
+										value: xPadding,
+										options: [
+											{
+												value: 'x-padding-none',
+												label: 'None'
+											},
+											{
+												value: 'x-padding-xs',
+												label: 'Extra Small'
+											},
+											{
+												value: 'x-padding-sm',
+												label: 'Small'
+											},
+											{
+												value: 'x-padding-md',
+												label: 'Medium'
+											},
+											{
+												value: 'x-padding-lg',
+												label: 'Large'
+											},
+											{
+												value: 'x-padding-xl',
+												label: 'Extra Large'
+											}
+										],
+										onChange: onChangeXPadding
+									}
+								),
 							),
 						),
-						el('div', { className: props.className + " " + props.attributes.minColumnWidth },
+						el('div', { className: props.className + " " + props.attributes.minColumnWidth + " " + props.attributes.columnGap + " " + props.attributes.rowGap },
 						el( InnerBlocks ),
 					),
         )
@@ -90,7 +211,7 @@
 
     save: function( props ) {
         return (
-            el('div', { className: props.className + props.attributes.minColumnWidth },
+            el('div', { className: props.className + " " + props.attributes.minColumnWidth + " " + props.attributes.columnGap + " " + props.attributes.rowGap + " " + props.attributes.xPadding },
                 el('div', { className: 'responsive-grid__inner-container' },
                     el( InnerBlocks.Content, null )
                 )

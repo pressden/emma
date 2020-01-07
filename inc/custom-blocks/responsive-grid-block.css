@@ -1,6 +1,5 @@
-.wp-block-custom-responsive-grid .editor-block-list__layout {
+.wp-block-custom-responsive-grid > .editor-inner-blocks > .editor-block-list__layout {
   display: grid;
-  grid-gap: 1rem;
   padding-left: 28px;
   padding-right: 28px;
   padding-top: 14px;
@@ -11,20 +10,20 @@
   width: 100%;
 }
 
-.wp-block-custom-responsive-grid .editor-block-list__layout .wp-block .editor-block-list__block-edit {
+.wp-block-custom-responsive-grid > .editor-inner-blocks > .editor-block-list__layout > .wp-block > .editor-block-list__block-edit {
   min-height: calc( 100% - 4px - 1.5rem );
   margin-top: -14px;
   margin-bottom: -14px;
 }
 
-.wp-block-custom-responsive-grid  .block-editor-block-list__block > .block-editor-block-list__insertion-point {
+.wp-block-custom-responsive-grid > .editor-inner-blocks > .editor-block-list__layout > .wp-block > .block-editor-block-list__insertion-point {
   height: 100%;
   right: auto;
   left: -14px;
   top: 14px;
 }
 
-.wp-block-custom-responsive-grid .block-editor-block-list__insertion-point-inserter {
+.wp-block-custom-responsive-grid > .editor-inner-blocks > .editor-block-list__layout > .wp-block > .block-editor-block-list__insertion-point > .block-editor-block-list__insertion-point-inserter {
   top: 0;
   left: 0;
   bottom: 0;
@@ -34,31 +33,79 @@
 }
 
 @media screen and ( min-width: calc( 200px ) ) {
-  .wp-block-custom-responsive-grid.xs .editor-block-list__layout {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  .wp-block-custom-responsive-grid.col-xs .editor-block-list__layout {
+    grid-template-columns: repeat( auto-fill, minmax( 100px, 1fr ) );
   }
 }
 
 @media screen and ( min-width: calc( 300px ) ) {
-  .wp-block-custom-responsive-grid.sm .editor-block-list__layout {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  .wp-block-custom-responsive-grid.col-sm .editor-block-list__layout {
+    grid-template-columns: repeat( auto-fill, minmax( 150px, 1fr ) );
   }
 }
 
 @media screen and ( min-width: calc( 600px ) ) {
-  .wp-block-custom-responsive-grid.md .editor-block-list__layout {
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  .wp-block-custom-responsive-grid.col-md .editor-block-list__layout {
+    grid-template-columns: repeat( auto-fill, minmax( 300px, 1fr ) );
   }
 }
 
 @media screen and ( min-width: calc( 800px ) ) {
-  .wp-block-custom-responsive-grid.lg .editor-block-list__layout {
-    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  .wp-block-custom-responsive-grid.col-lg .editor-block-list__layout {
+    grid-template-columns: repeat( auto-fill, minmax( 400px, 1fr ) );
   }
 }
 
 @media screen and ( min-width: calc( 1000px ) ) {
-  .wp-block-custom-responsive-grid.xl .editor-block-list__layout {
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+  .wp-block-custom-responsive-grid.col-xl .editor-block-list__layout {
+    grid-template-columns: repeat( auto-fill, minmax( 500px, 1fr ) );
   }
+}
+
+.wp-block-custom-responsive-grid.col-gap-none .editor-block-list__layout {
+  column-gap: 0;
+}
+
+.wp-block-custom-responsive-grid.col-gap-xs .editor-block-list__layout {
+  column-gap: 0.25rem;
+}
+
+.wp-block-custom-responsive-grid.col-gap-sm .editor-block-list__layout {
+  column-gap: 0.5rem;
+}
+
+.wp-block-custom-responsive-grid.col-gap-md .editor-block-list__layout {
+  column-gap: 1rem;
+}
+
+.wp-block-custom-responsive-grid.col-gap-lg .editor-block-list__layout {
+  column-gap: 2rem;
+}
+
+.wp-block-custom-responsive-grid.col-gap-xl .editor-block-list__layout {
+  column-gap: 4rem;
+}
+
+.wp-block-custom-responsive-grid.row-gap-none .editor-block-list__layout {
+  row-gap: 0;
+}
+
+.wp-block-custom-responsive-grid.row-gap-xs .editor-block-list__layout {
+  row-gap: 0.25rem;
+}
+
+.wp-block-custom-responsive-grid.row-gap-sm .editor-block-list__layout {
+  row-gap: 0.5rem;
+}
+
+.wp-block-custom-responsive-grid.row-gap-md .editor-block-list__layout {
+  row-gap: 1rem;
+}
+
+.wp-block-custom-responsive-grid.row-gap-lg .editor-block-list__layout {
+  row-gap: 2rem;
+}
+
+.wp-block-custom-responsive-grid.row-gap-xl .editor-block-list__layout {
+  row-gap: 4rem;
 }
