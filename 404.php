@@ -13,48 +13,26 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'emma' ); ?></h1>
-				</header><!-- .page-header -->
+		<article id="404">
+			<header class="entry-header">
+				<div class="wrap">
+					<h1 class="entry-title"><?php echo apply_filters( 'emma_404_page_title', "Oops! That page can't be found." ); ?></h1>
+				</div><!-- .wrap -->
+			</header><!-- .entry-header -->
 
-				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'emma' ); ?></p>
+			<div class="entry-content">
+				<p>
+					<?php echo apply_filters( 'emma_404_page_content', "You can go back to our <a href='" . get_home_url() . "'>homepage</a> or search by topic below." ); ?>
+				</p>
 
-					<?php
-					get_search_form();
+				<?php echo get_search_form(); ?>
+			</div><!-- .entry-content -->
 
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'emma' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories( array(
-								'orderby'    => 'count',
-								'order'      => 'DESC',
-								'show_count' => 1,
-								'title_li'   => '',
-								'number'     => 10,
-							) );
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$emma_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'emma' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$emma_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
+		</article><!-- #post-<?php the_ID(); ?> -->
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
+get_sidebar();
 get_footer();
