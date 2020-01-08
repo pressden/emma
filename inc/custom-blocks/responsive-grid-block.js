@@ -36,6 +36,12 @@
 			xPadding: {
 				type: 'string',
 			},
+			xAlignment: {
+				type: 'string',
+			},
+			yAlignment: {
+				type: 'string',
+			},
 		},
 
     edit: function( props ) {
@@ -43,6 +49,16 @@
 			var columnGap = props.attributes.columnGap || "col-gap-md";
 			var rowGap = props.attributes.rowGap || "row-gap-md";
 			var xPadding = props.attributes.xPadding || "x-padding-md";
+			var xAlignment = props.attributes.xAlignment || "x-center";
+			var yAlignment = props.attributes.yAlignment || "y-start";
+			
+			var classes = props.className + " "
+									+	minColumnWidth + " "
+									+	columnGap + " "
+									+	rowGap + " "
+									+	xPadding + " "
+									+	xAlignment + " "
+									+	yAlignment;
 
       function onChangeMinColumnWidth( newValue ) {
 				props.setAttributes( { minColumnWidth: newValue } );
@@ -55,6 +71,12 @@
 			}
 			function onChangeXPadding( newValue ) {
 				props.setAttributes( { xPadding: newValue } );
+			}
+			function onChangeXAlignment( newValue ) {
+				props.setAttributes( { xAlignment: newValue } );
+			}
+			function onChangeYAlignment( newValue ) {
+				props.setAttributes( { yAlignment: newValue } );
 			}
 
       return (
@@ -168,6 +190,60 @@
 								el(
 									SelectControl,
 									{
+										label: 'Horizontal Alignment',
+										help: 'Sets how content within each grid container should be justified horizontally.',
+										value: xAlignment,
+										options: [
+											{
+												value: 'x-start',
+												label: 'Left'
+											},
+											{
+												value: 'x-center',
+												label: 'Center'
+											},
+											{
+												value: 'x-end',
+												label: 'Right'
+											},
+											{
+												value: 'x-stretch',
+												label: 'Stretch'
+											}
+										],
+										onChange: onChangeXAlignment
+									}
+								),
+								el(
+									SelectControl,
+									{
+										label: 'Vertical Alignment',
+										help: 'Sets how content within each grid container should be justified vertically.',
+										value: yAlignment,
+										options: [
+											{
+												value: 'y-start',
+												label: 'Top'
+											},
+											{
+												value: 'y-center',
+												label: 'Center'
+											},
+											{
+												value: 'y-end',
+												label: 'Bottom'
+											},
+											{
+												value: 'y-stretch',
+												label: 'Stretch'
+											}
+										],
+										onChange: onChangeYAlignment
+									}
+								),
+								el(
+									SelectControl,
+									{
 										label: 'Left and Right Padding',
 										help: 'This value affects how much horizontal padding exists on the outside of the grid, and will only be apparent on the frontend. Set this to "None" and alignment to "Full Width" for a true edge-to-edge grid',
 										value: xPadding,
@@ -202,7 +278,7 @@
 								),
 							),
 						),
-						el('div', { className: props.className + " " + props.attributes.minColumnWidth + " " + props.attributes.columnGap + " " + props.attributes.rowGap },
+						el('div', { className: classes },
 						el( InnerBlocks ),
 					),
         )
@@ -210,8 +286,15 @@
     },
 
     save: function( props ) {
+				var classes = props.className + " "
+									+	props.attributes.minColumnWidth + " "
+									+	props.attributes.columnGap + " "
+									+	props.attributes.rowGap + " "
+									+	props.attributes.xPadding + " "
+									+	props.attributes.xAlignment + " "
+									+	props.attributes.yAlignment;
         return (
-            el('div', { className: props.className + " " + props.attributes.minColumnWidth + " " + props.attributes.columnGap + " " + props.attributes.rowGap + " " + props.attributes.xPadding },
+            el('div', { className: classes },
                 el('div', { className: 'responsive-grid__inner-container' },
                     el( InnerBlocks.Content, null )
                 )

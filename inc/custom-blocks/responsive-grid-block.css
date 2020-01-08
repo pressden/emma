@@ -6,8 +6,15 @@
   padding-bottom: 14px;
 }
 
-.wp-block-custom-responsive-grid .editor-block-list__layout .wp-block {
+.wp-block-custom-responsive-grid > .editor-inner-blocks > .editor-block-list__layout > .wp-block {
+  max-width: unset;
+  margin-left: unset;
+  margin-right: unset;
+}
+
+.wp-block-custom-responsive-grid > .editor-inner-blocks > .editor-block-list__layout > .wp-block .wp-block {
   width: 100%;
+  max-width: unset;
 }
 
 .wp-block-custom-responsive-grid > .editor-inner-blocks > .editor-block-list__layout > .wp-block > .editor-block-list__block-edit {
@@ -31,6 +38,8 @@
   height: 100%;
   align-items: center;
 }
+
+/* Column Widths */
 
 @media screen and ( min-width: calc( 200px ) ) {
   .wp-block-custom-responsive-grid.col-xs .editor-block-list__layout {
@@ -62,6 +71,8 @@
   }
 }
 
+/* Column Gap */
+
 .wp-block-custom-responsive-grid.col-gap-none .editor-block-list__layout {
   column-gap: 0;
 }
@@ -86,6 +97,8 @@
   column-gap: 4rem;
 }
 
+/* Row Gap */
+
 .wp-block-custom-responsive-grid.row-gap-none .editor-block-list__layout {
   row-gap: 0;
 }
@@ -108,4 +121,40 @@
 
 .wp-block-custom-responsive-grid.row-gap-xl .editor-block-list__layout {
   row-gap: 4rem;
+}
+
+/* Horizontal Alignment */
+
+.wp-block-custom-responsive-grid.x-start .editor-block-list__layout {
+  justify-items: start;
+}
+
+.wp-block-custom-responsive-grid.x-center .editor-block-list__layout {
+  justify-items: center;
+}
+
+.wp-block-custom-responsive-grid.x-end .editor-block-list__layout {
+  justify-items: end;
+}
+
+.wp-block-custom-responsive-grid.x-stretch .editor-block-list__layout {
+  justify-items: stretch;
+}
+
+/* Vertical Alignment */
+
+.wp-block-custom-responsive-grid.y-start .editor-block-list__layout {
+  align-items: start;
+}
+
+.wp-block-custom-responsive-grid.y-center .editor-block-list__layout {
+  align-items: center;
+}
+
+.wp-block-custom-responsive-grid.y-end .editor-block-list__layout {
+  align-items: end;
+}
+
+.wp-block-custom-responsive-grid.y-stretch .editor-block-list__layout {
+  align-items: stretch;
 }

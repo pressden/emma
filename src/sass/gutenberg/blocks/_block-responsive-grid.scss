@@ -15,6 +15,13 @@ $column-sizes: (
   'xl': 500px
 );
 
+$alignments: (
+  start,
+  center,
+  end,
+  stretch
+);
+
 .wp-block-custom-responsive-grid {
 
   @each $name, $size in $spacer-sizes {
@@ -42,6 +49,20 @@ $column-sizes: (
         @media screen and ( min-width: calc( #{$size} * 2 ) ) {
           grid-template-columns: repeat( auto-fill, minmax( $size, 1fr ) );
         }
+      }
+    }
+  }
+
+  @each $alignment in $alignments {
+    &.x-#{$alignment} {
+      .responsive-grid__inner-container {
+        justify-items: $alignment;
+      }
+    }
+
+    &.y-#{$alignment} {
+      .responsive-grid__inner-container {
+        align-items: $alignment;
       }
     }
   }
