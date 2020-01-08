@@ -13,22 +13,22 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-		<article id="404">
-			<header class="entry-header">
-				<div class="wrap">
-					<h1 class="entry-title"><?php echo apply_filters( 'emma_404_page_title', "Oops! That page can't be found." ); ?></h1>
-				</div><!-- .wrap -->
-			</header><!-- .entry-header -->
+			<article id="404">
+				<header class="entry-header">
+					<div class="wrap">
+						<h1 class="entry-title"><?php echo apply_filters( 'emma_404_page_title', "Oops! That page can't be found." ); ?></h1>
+					</div><!-- .wrap -->
+				</header><!-- .entry-header -->
 
-			<div class="entry-content">
-				<p>
-					<?php echo apply_filters( 'emma_404_page_content', "You can go back to our <a href='" . get_home_url() . "'>homepage</a> or search by topic below." ); ?>
-				</p>
+				<div class="entry-content">
+					<p>
+						<?php echo apply_filters( 'emma_404_page_content', "You can go back to our <a href='" . get_home_url() . "'>homepage</a> or search by topic below." ); ?>
+					</p>
 
-				<?php echo get_search_form(); ?>
-			</div><!-- .entry-content -->
+					<?php echo get_search_form(); ?>
+				</div><!-- .entry-content -->
 
-		</article><!-- #post-<?php the_ID(); ?> -->
+			</article><!-- #post-<?php the_ID(); ?> -->
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
