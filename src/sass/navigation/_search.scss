@@ -89,3 +89,22 @@
     }
   }
 }
+
+.search-results {
+  .entry-content {
+    > * {
+      margin-top: $spacer;
+      margin-bottom: $spacer;
+    }
+
+    h2.entry-title {
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    article {
+      margin-top: $spacer;
+      margin-bottom: $spacer;
+    }
+  }
+}

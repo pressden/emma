@@ -10,40 +10,37 @@
 get_header();
 ?>
 
-	<section id="primary" class="content-area">
+	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
+			<?php if ( have_posts() ) : ?>
+				<header class="entry-header">
+					<div class="wrap">
+						<h1 class="entry-title">Search Results</h1>
+					</div><!-- .wrap -->
+				</header><!-- .entry-header -->
 
-		<?php if ( have_posts() ) : ?>
+				<div class="entry-content">
+					<?php echo get_search_form(); ?>
 
-			<header class="page-header">
-				<h1 class="page-title">
 					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'emma' ), '<span>' . get_search_query() . '</span>' );
+						/* Start the Loop */
+						while ( have_posts() ) :
+							the_post();
+							get_template_part( 'template-parts/content', 'search' );
+						endwhile;
+
+						emma_pagination();
 					?>
-				</h1>
-			</header><!-- .page-header -->
+				</div>
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			<?php else : ?>
 
-				get_template_part( 'template-parts/content', 'search' );
+				<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-			endwhile;
-
-			the_posts_navigation();
-
-		else :
-
-			get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-		?>
+			<?php endif; ?>
 
 		</main><!-- #main -->
-	</section><!-- #primary -->
+			</div><!-- #primary -->
 
 <?php
 get_sidebar();

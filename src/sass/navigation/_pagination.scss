@@ -23,3 +23,25 @@
     width: 50%;
   }
 }
+
+.pagination {
+  .page-numbers {
+    display: flex;
+    justify-content: center;
+    padding-left: 0;
+
+    li {
+      display: block;
+      margin-left: $spacer-sm;
+      margin-right: $spacer-sm;
+
+      &:first-of-type {
+        margin-left: 0;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
