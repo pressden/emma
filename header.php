@@ -61,6 +61,15 @@ do_action( 'emma_before' );
           ?>
           <p class="site-description"><?php echo $emma_description; /* WPCS: xss ok. */ ?></p>
         <?php endif; ?>
+        <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "<?php bloginfo( 'name' ); ?>",
+            "url": "<?php echo esc_url( home_url( '/' ) ); ?>",
+            "logo": "<?php echo wp_get_attachment_url( get_theme_mod( 'custom_logo' ) ); ?>"
+          }
+        </script>
       </div><!-- .site-branding -->
 
       <?php if ( has_nav_menu( 'right' ) ) : ?>
