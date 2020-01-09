@@ -1,3 +1,4 @@
 import './navigation';
-import './skip-link-focus-fix';
 import './search';
+import './skip-link-focus-fix';
+import './utility.js';
