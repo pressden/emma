@@ -4,7 +4,16 @@
     if( link_extend ) {
       var anchor = link_extend.querySelector( 'a' );
       if( anchor ) {
-        window.location = anchor.getAttribute( 'href' );
+        var href = anchor.getAttribute( 'href' );
+        var target = anchor.getAttribute( 'target' );
+
+        if( href ) {
+          if( target ) {
+            window.open( href, target );
+          } else {
+            window.location = anchor.getAttribute( 'href' );
+          }
+        }
       }
     }
   } );
