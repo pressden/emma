@@ -354,6 +354,11 @@ require get_template_directory() . '/inc/menu-functions.php';
 require get_template_directory() . '/inc/pagination.php';
 
 /**
+ * Structured Data.
+ */
+require get_template_directory() . '/inc/structured-data.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
