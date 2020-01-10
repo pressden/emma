@@ -110,8 +110,8 @@
   }
 }
 
-@mixin grid-template-columns-responsive( $min-width, $padding: rem-to-px( $spacer ) * 2 ) {
-  @media screen and ( min-width: calc( #{$min-width} + #{$padding} ) ) {
+@mixin grid-template-columns-responsive( $min-width ) {
+  @media screen and ( min-width: calc( #{$min-width} * 2 ) ) {
     grid-template-columns: repeat( auto-fill, minmax( $min-width, 1fr ) );
   }
 }

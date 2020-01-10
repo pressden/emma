@@ -1,0 +1,73 @@
+$spacer-sizes: (
+  'none': 0,
+  'xs': $spacer-xs,
+  'sm': $spacer-sm,
+  'md': $spacer,
+  'lg': $spacer-lg,
+  'xl': $spacer-xl
+);
+
+$column-sizes: (
+  'xs': 100px,
+  'sm': 150px,
+  'md': 300px,
+  'lg': 400px,
+  'xl': 500px
+);
+
+$alignments: (
+  start,
+  center,
+  end,
+  stretch
+);
+
+.wp-block-custom-responsive-grid {
+
+  @each $name, $size in $spacer-sizes {
+    &.col-gap-#{$name} {
+      .responsive-grid__inner-container {
+        column-gap: $size;
+      }
+    }
+
+    &.row-gap-#{$name} {
+      .responsive-grid__inner-container {
+        row-gap: $size;
+      }
+    }
+
+    &.x-padding-#{$name} {
+      padding-left: $size;
+      padding-right: $size;
+    }
+  }
+
+  @each $name, $size in $column-sizes {
+    &.col-#{$name} {
+      .responsive-grid__inner-container {
+        @media screen and ( min-width: calc( #{$size} * 2 ) ) {
+          grid-template-columns: repeat( auto-fill, minmax( $size, 1fr ) );
+        }
+      }
+    }
+  }
+
+  @each $alignment in $alignments {
+    &.x-#{$alignment} {
+      .responsive-grid__inner-container {
+        justify-items: $alignment;
+      }
+    }
+
+    &.y-#{$alignment} {
+      .responsive-grid__inner-container {
+        align-items: $alignment;
+      }
+    }
+  }
+
+  .responsive-grid__inner-container {
+    display: grid;
+  }
+}
