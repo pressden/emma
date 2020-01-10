@@ -18,7 +18,7 @@
 		keywords: ['custom grid responsive'],
 
     supports: {
-			align: [ 'wide', 'full' ],
+			align: ['wide', 'full'],
       anchor: true,
       html: false,
 		},
@@ -51,7 +51,6 @@
 			var xPadding = props.attributes.xPadding || "x-padding-md";
 			var xAlignment = props.attributes.xAlignment || "x-center";
 			var yAlignment = props.attributes.yAlignment || "y-start";
-			
 			var classes = props.className + " "
 									+	minColumnWidth + " "
 									+	columnGap + " "
@@ -80,230 +79,230 @@
 			}
 
       return (
+        el(
+          Fragment,
+          null,
           el(
-						Fragment,
-						null,
-						el(
-							InspectorControls,
-							null,
-							el(
-                PanelBody,
-                {},
-								el(
-									SelectControl,
-									{
-										label: 'Minimum Column Width',
-										value: minColumnWidth,
-										options: [
-											{
-												value: 'col-xs',
-												label: 'Extra Small'
-											},
-											{
-												value: 'col-sm',
-												label: 'Small'
-											},
-											{
-												value: 'col-md',
-												label: 'Medium'
-											},
-											{
-												value: 'col-lg',
-												label: 'Large'
-											},
-											{
-												value: 'col-xl',
-												label: 'Extra Large'
-											}
-										],
-										onChange: onChangeMinColumnWidth
-									}
-								),
-								el(
-									SelectControl,
-									{
-										label: 'Gap Between Columns',
-										value: columnGap,
-										options: [
-											{
-												value: 'col-gap-none',
-												label: 'None'
-											},
-											{
-												value: 'col-gap-xs',
-												label: 'Extra Small'
-											},
-											{
-												value: 'col-gap-sm',
-												label: 'Small'
-											},
-											{
-												value: 'col-gap-md',
-												label: 'Medium'
-											},
-											{
-												value: 'col-gap-lg',
-												label: 'Large'
-											},
-											{
-												value: 'col-gap-xl',
-												label: 'Extra Large'
-											}
-										],
-										onChange: onChangeColumnGap
-									}
-								),
-								el(
-									SelectControl,
-									{
-										label: 'Gap Between Rows',
-										value: rowGap,
-										options: [
-											{
-												value: 'row-gap-none',
-												label: 'None'
-											},
-											{
-												value: 'row-gap-xs',
-												label: 'Extra Small'
-											},
-											{
-												value: 'row-gap-sm',
-												label: 'Small'
-											},
-											{
-												value: 'row-gap-md',
-												label: 'Medium'
-											},
-											{
-												value: 'row-gap-lg',
-												label: 'Large'
-											},
-											{
-												value: 'row-gap-xl',
-												label: 'Extra Large'
-											}
-										],
-										onChange: onChangeRowGap
-									}
-								),
-								el(
-									SelectControl,
-									{
-										label: 'Horizontal Alignment',
-										help: 'Sets how content within each grid container should be justified horizontally.',
-										value: xAlignment,
-										options: [
-											{
-												value: 'x-start',
-												label: 'Left'
-											},
-											{
-												value: 'x-center',
-												label: 'Center'
-											},
-											{
-												value: 'x-end',
-												label: 'Right'
-											},
-											{
-												value: 'x-stretch',
-												label: 'Stretch'
-											}
-										],
-										onChange: onChangeXAlignment
-									}
-								),
-								el(
-									SelectControl,
-									{
-										label: 'Vertical Alignment',
-										help: 'Sets how content within each grid container should be justified vertically.',
-										value: yAlignment,
-										options: [
-											{
-												value: 'y-start',
-												label: 'Top'
-											},
-											{
-												value: 'y-center',
-												label: 'Center'
-											},
-											{
-												value: 'y-end',
-												label: 'Bottom'
-											},
-											{
-												value: 'y-stretch',
-												label: 'Stretch'
-											}
-										],
-										onChange: onChangeYAlignment
-									}
-								),
-								el(
-									SelectControl,
-									{
-										label: 'Left and Right Padding',
-										help: 'This value affects how much horizontal padding exists on the outside of the grid, and will only be apparent on the frontend. Set this to "None" and alignment to "Full Width" for a true edge-to-edge grid',
-										value: xPadding,
-										options: [
-											{
-												value: 'x-padding-none',
-												label: 'None'
-											},
-											{
-												value: 'x-padding-xs',
-												label: 'Extra Small'
-											},
-											{
-												value: 'x-padding-sm',
-												label: 'Small'
-											},
-											{
-												value: 'x-padding-md',
-												label: 'Medium'
-											},
-											{
-												value: 'x-padding-lg',
-												label: 'Large'
-											},
-											{
-												value: 'x-padding-xl',
-												label: 'Extra Large'
-											}
-										],
-										onChange: onChangeXPadding
-									}
-								),
-							),
-						),
-						el('div', { className: classes },
-						el( InnerBlocks ),
-					),
+            InspectorControls,
+            null,
+            el(
+              PanelBody,
+              {},
+              el(
+                SelectControl,
+                {
+                  label: 'Minimum Column Width',
+                  value: minColumnWidth,
+                  options: [
+                    {
+                      value: 'col-xs',
+                      label: 'Extra Small'
+                    },
+                    {
+                      value: 'col-sm',
+                      label: 'Small'
+                    },
+                    {
+                      value: 'col-md',
+                      label: 'Medium'
+                    },
+                    {
+                      value: 'col-lg',
+                      label: 'Large'
+                    },
+                    {
+                      value: 'col-xl',
+                      label: 'Extra Large'
+                    }
+                  ],
+                  onChange: onChangeMinColumnWidth
+                }
+              ),
+              el(
+                SelectControl,
+                {
+                  label: 'Gap Between Columns',
+                  value: columnGap,
+                  options: [
+                    {
+                      value: 'col-gap-none',
+                      label: 'None'
+                    },
+                    {
+                      value: 'col-gap-xs',
+                      label: 'Extra Small'
+                    },
+                    {
+                      value: 'col-gap-sm',
+                      label: 'Small'
+                    },
+                    {
+                      value: 'col-gap-md',
+                      label: 'Medium'
+                    },
+                    {
+                      value: 'col-gap-lg',
+                      label: 'Large'
+                    },
+                    {
+                      value: 'col-gap-xl',
+                      label: 'Extra Large'
+                    }
+                  ],
+                  onChange: onChangeColumnGap
+                }
+              ),
+              el(
+                SelectControl,
+                {
+                  label: 'Gap Between Rows',
+                  value: rowGap,
+                  options: [
+                    {
+                      value: 'row-gap-none',
+                      label: 'None'
+                    },
+                    {
+                      value: 'row-gap-xs',
+                      label: 'Extra Small'
+                    },
+                    {
+                      value: 'row-gap-sm',
+                      label: 'Small'
+                    },
+                    {
+                      value: 'row-gap-md',
+                      label: 'Medium'
+                    },
+                    {
+                      value: 'row-gap-lg',
+                      label: 'Large'
+                    },
+                    {
+                      value: 'row-gap-xl',
+                      label: 'Extra Large'
+                    }
+                  ],
+                  onChange: onChangeRowGap
+                }
+              ),
+              el(
+                SelectControl,
+                {
+                  label: 'Horizontal Alignment',
+                  help: 'Sets how content within each grid container should be justified horizontally.',
+                  value: xAlignment,
+                  options: [
+                    {
+                      value: 'x-start',
+                      label: 'Left'
+                    },
+                    {
+                      value: 'x-center',
+                      label: 'Center'
+                    },
+                    {
+                      value: 'x-end',
+                      label: 'Right'
+                    },
+                    {
+                      value: 'x-stretch',
+                      label: 'Stretch'
+                    }
+                  ],
+                  onChange: onChangeXAlignment
+                }
+              ),
+              el(
+                SelectControl,
+                {
+                  label: 'Vertical Alignment',
+                  help: 'Sets how content within each grid container should be justified vertically.',
+                  value: yAlignment,
+                  options: [
+                    {
+                      value: 'y-start',
+                      label: 'Top'
+                    },
+                    {
+                      value: 'y-center',
+                      label: 'Center'
+                    },
+                    {
+                      value: 'y-end',
+                      label: 'Bottom'
+                    },
+                    {
+                      value: 'y-stretch',
+                      label: 'Stretch'
+                    }
+                  ],
+                  onChange: onChangeYAlignment
+                }
+              ),
+              el(
+                SelectControl,
+                {
+                  label: 'Left and Right Padding',
+                  help: 'This value affects how much horizontal padding exists on the outside of the grid, and will only be apparent on the frontend. Set this to "None" and alignment to "Full Width" for a true edge-to-edge grid',
+                  value: xPadding,
+                  options: [
+                    {
+                      value: 'x-padding-none',
+                      label: 'None'
+                    },
+                    {
+                      value: 'x-padding-xs',
+                      label: 'Extra Small'
+                    },
+                    {
+                      value: 'x-padding-sm',
+                      label: 'Small'
+                    },
+                    {
+                      value: 'x-padding-md',
+                      label: 'Medium'
+                    },
+                    {
+                      value: 'x-padding-lg',
+                      label: 'Large'
+                    },
+                    {
+                      value: 'x-padding-xl',
+                      label: 'Extra Large'
+                    }
+                  ],
+                  onChange: onChangeXPadding
+                }
+              ),
+            ),
+          ),
+          el(
+            'div', { className: classes },
+            el( InnerBlocks ),
+          ),
         )
       );
     },
 
     save: function( props ) {
-				var classes = props.className + " "
-									+	props.attributes.minColumnWidth + " "
-									+	props.attributes.columnGap + " "
-									+	props.attributes.rowGap + " "
-									+	props.attributes.xPadding + " "
-									+	props.attributes.xAlignment + " "
-									+	props.attributes.yAlignment;
-        return (
-            el('div', { className: classes },
-                el('div', { className: 'responsive-grid__inner-container' },
-                    el( InnerBlocks.Content, null )
-                )
-            )
-					);
-				}
-		});
-	}
-)(
-    window.wp.editor,
-    window.wp.element
+      var classes = props.className + " "
+                  +	props.attributes.minColumnWidth + " "
+                  +	props.attributes.columnGap + " "
+                  +	props.attributes.rowGap + " "
+                  +	props.attributes.xPadding + " "
+                  +	props.attributes.xAlignment + " "
+                  +	props.attributes.yAlignment;
+      return (
+        el('div', { className: classes },
+          el('div', { className: 'responsive-grid__inner-container' },
+            el( InnerBlocks.Content, null )
+          )
+        )
+      );
+    }
+	} );
+} ) (
+  window.wp.editor,
+  window.wp.element
 );
