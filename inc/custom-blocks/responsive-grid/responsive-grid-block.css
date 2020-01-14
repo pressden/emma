@@ -158,3 +158,48 @@
 .wp-block-emma-responsive-grid.y-stretch .editor-block-list__layout {
   align-items: stretch;
 }
+
+/**
+ * Grid Cell Styles
+ */
+
+.wp-block-emma-responsive-grid [data-type="emma/grid-cell"].is-selected .wp-block-emma-grid-cell,
+.wp-block-emma-responsive-grid [data-type="emma/grid-cell"].has-child-selected .wp-block-emma-grid-cell {
+  padding: 1px 1rem;
+}
+
+/* Horizontal Alignment */
+
+[data-type="emma/grid-cell"].x-start {
+  justify-self: start;
+}
+
+[data-type="emma/grid-cell"].x-center {
+  justify-self: center;
+}
+
+[data-type="emma/grid-cell"].x-end {
+  justify-self: end;
+}
+
+[data-type="emma/grid-cell"].x-stretch {
+  justify-self: stretch;
+}
+
+/* Vertical Alignment */
+
+[data-type="emma/grid-cell"].y-start {
+  align-self: start;
+}
+
+[data-type="emma/grid-cell"].y-center {
+  align-self: center;
+}
+
+[data-type="emma/grid-cell"].y-end {
+  align-self: end;
+}
+
+[data-type="emma/grid-cell"].y-stretch {
+  align-self: stretch;
+}

@@ -1,4 +1,6 @@
-/* This section of the code registers a new block, sets an icon and a category, and indicates what type of fields it'll include. */
+/**
+ * Register the Flexslider block
+ */
 
 (function( editor, element ) {
 
