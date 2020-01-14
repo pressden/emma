@@ -10,12 +10,12 @@
 	var PanelBody = wp.components.PanelBody;
   var SelectControl = wp.components.SelectControl;
 
-  registerBlockType( 'custom/responsive-grid', {
+  registerBlockType( 'emma/responsive-grid', {
     title: 'Responsive Grid',
     description: 'A block to help you easily make a responsive grid with varying column sizes available',
     icon: 'grid-view',
     category: 'layout',
-		keywords: ['custom grid responsive'],
+		keywords: ['emma grid responsive'],
 
     supports: {
 			align: ['wide', 'full'],
@@ -49,7 +49,7 @@
 			var columnGap = props.attributes.columnGap || "col-gap-md";
 			var rowGap = props.attributes.rowGap || "row-gap-md";
 			var xPadding = props.attributes.xPadding || "x-padding-md";
-			var xAlignment = props.attributes.xAlignment || "x-center";
+			var xAlignment = props.attributes.xAlignment || "x-stretch";
 			var yAlignment = props.attributes.yAlignment || "y-start";
 			var classes = props.className + " "
 									+	minColumnWidth + " "

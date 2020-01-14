@@ -38,7 +38,7 @@ function emma_customize_register( $wp_customize ) {
 
 	// Add theme settings section
 	$wp_customize->add_panel( 'theme_settings', array(
-		'priority'		=> 10,
+		'priority'		=> 30,
 		'theme_supports'	=> '',
 		'title'						=> 'Theme Settings',
 		'description'			=> 'Settings specific to Emma.',
@@ -75,6 +75,23 @@ function emma_customize_register( $wp_customize ) {
 		'priority'	=> 10,
 		'section'		=> 'search',
 		'label'			=> 'Show Post Thumbnail',
+	) );
+
+	$wp_customize->add_section( 'blocks', array(
+		'priority' => 9,
+		'theme_supports' => '',
+		'title' => 'Block Settings',
+		'description' => '',
+		'panel' => 'theme_settings',
+	) );
+
+	$wp_customize->add_setting( 'activate_flexslider' );
+	$wp_customize->add_control( 'activate_flexslider', array(
+		'type'			=> 'checkbox',
+		'priority'	=> 10,
+		'section'		=> 'blocks',
+		'label'			=> 'Activate Flexslider Block',
+		'description'	=> 'This will enqueue all the needed scripts to use the flexslider block (including jQuery).',
 	) );
 
 }
