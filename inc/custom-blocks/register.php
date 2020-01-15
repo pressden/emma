@@ -31,9 +31,9 @@ if( $activate_flexslider != '' ) {
 
   // various frontend resources required for flexslider
   function load_flexslider_frontend_scripts() {
-    $flexslider_js = get_stylesheet_directory_uri() . '/src/vendor/flexslider/jquery.flexslider-min.js';
-    $flexslider_block_js = get_stylesheet_directory_uri() . '/src/vendor/flexslider/flexslider-custom.js';
-    $flexslider_block_css = get_stylesheet_directory_uri() . '/src/vendor/flexslider/flexslider.css';
+    $flexslider_js = get_template_directory_uri() . '/src/vendor/flexslider/jquery.flexslider-min.js';
+    $flexslider_block_js = get_template_directory_uri() . '/src/vendor/flexslider/flexslider-custom.js';
+    $flexslider_block_css = get_template_directory_uri() . '/src/vendor/flexslider/flexslider.css';
 
     wp_enqueue_script( 'jquery' ); //jQuery
     wp_enqueue_script( 'flexslider', $flexslider_js, ['jquery'] ); //flexslider library
