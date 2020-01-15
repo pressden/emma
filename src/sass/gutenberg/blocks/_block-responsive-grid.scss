@@ -22,7 +22,7 @@ $alignments: (
   stretch
 );
 
-.wp-block-custom-responsive-grid {
+.wp-block-emma-responsive-grid {
 
   @each $name, $size in $spacer-sizes {
     &.col-gap-#{$name} {
@@ -63,6 +63,18 @@ $alignments: (
     &.y-#{$alignment} {
       .responsive-grid__inner-container {
         align-items: $alignment;
+      }
+    }
+
+    .wp-block-emma-grid-cell {
+      &.x-#{$alignment} {
+        justify-self: $alignment;
+      }
+    }
+
+    .wp-block-emma-grid-cell {
+      &.y-#{$alignment} {
+        align-self: $alignment;
       }
     }
   }

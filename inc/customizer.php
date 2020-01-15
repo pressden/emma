@@ -17,11 +17,11 @@ function emma_customize_register( $wp_customize ) {
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
-			'selector'        => '.site-title a',
+			'selector' => '.site-title a',
 			'render_callback' => 'emma_customize_partial_blogname',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
-			'selector'        => '.site-description',
+			'selector' => '.site-description',
 			'render_callback' => 'emma_customize_partial_blogdescription',
 		) );
 	}
@@ -29,19 +29,19 @@ function emma_customize_register( $wp_customize ) {
 	// Add "Alternate Logo" to Site Identity options in customizer
 	$wp_customize->add_setting( 'alternate_logo' );
 	$wp_customize->add_control( new WP_Customize_Media_Control( $wp_customize, 'alternate_logo', array (
-		'label' 			=> __( 'Alternate Logo', 'emma' ),
-		'section'			=> 'title_tagline',
-		'settings'		=> 'alternate_logo',
-		'priority'		=> 9,
-		'description'	=> __( 'Typically used for mobile or scrolling versions of the logo.' ),
+		'label' => __( 'Alternate Logo', 'emma' ),
+		'section' => 'title_tagline',
+		'settings' => 'alternate_logo',
+		'priority' => 9,
+		'description' => __( 'Typically used for mobile or scrolling versions of the logo.' ),
 	) ) );
 
 	// Add theme settings section
 	$wp_customize->add_panel( 'theme_settings', array(
-		'priority'		=> 10,
-		'theme_supports'	=> '',
-		'title'						=> 'Theme Settings',
-		'description'			=> 'Settings specific to Emma.',
+		'priority'		=> 30,
+		'theme_supports' => '',
+		'title' => 'Theme Settings',
+		'description' => 'Settings specific to Emma.',
 	) );
 
 	$wp_customize->add_section( 'analytics', array(
@@ -54,10 +54,10 @@ function emma_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'gtm_id' );
 	$wp_customize->add_control( 'gtm_id', array(
-		'type'			=> 'text',
-		'priority'	=> 10,
-		'section'		=> 'analytics',
-		'label'			=> 'Google Tag Manager ID',
+		'type' => 'text',
+		'priority' => 10,
+		'section' => 'analytics',
+		'label' => 'Google Tag Manager ID',
 		'description'	=> 'Enter the full ID, starting with "GTM-"',
 	) );
 
@@ -71,10 +71,27 @@ function emma_customize_register( $wp_customize ) {
 
 	$wp_customize->add_setting( 'show_thumbnail' );
 	$wp_customize->add_control( 'show_thumbnail', array(
-		'type'			=> 'checkbox',
-		'priority'	=> 10,
-		'section'		=> 'search',
-		'label'			=> 'Show Post Thumbnail',
+		'type' => 'checkbox',
+		'priority' => 10,
+		'section' => 'search',
+		'label' => 'Show Post Thumbnail',
+	) );
+
+	$wp_customize->add_section( 'blocks', array(
+		'priority' => 9,
+		'theme_supports' => '',
+		'title' => 'Block Settings',
+		'description' => '',
+		'panel' => 'theme_settings',
+	) );
+
+	$wp_customize->add_setting( 'activate_flexslider' );
+	$wp_customize->add_control( 'activate_flexslider', array(
+		'type' => 'checkbox',
+		'priority' => 10,
+		'section' => 'blocks',
+		'label' => 'Activate Flexslider Block',
+		'description'	=> 'This will enqueue all the needed scripts to use the flexslider block (including jQuery).',
 	) );
 
 }
