@@ -32,4 +32,14 @@
       }
     }
   }
+
+  .wp-block-emma-slide {
+    > *:last-of-type() {
+      margin-bottom: 0 !important; //try to make sure the bottom item in each slide has no bottom margin
+    }
+  }
+
+  .flex-control-nav {
+    bottom: -$spacer-lg;
+  }
 }
