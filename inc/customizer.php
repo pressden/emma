@@ -76,24 +76,6 @@ function emma_customize_register( $wp_customize ) {
 		'section' => 'search',
 		'label' => 'Show Post Thumbnail',
 	) );
-
-	$wp_customize->add_section( 'blocks', array(
-		'priority' => 9,
-		'theme_supports' => '',
-		'title' => 'Block Settings',
-		'description' => '',
-		'panel' => 'theme_settings',
-	) );
-
-	$wp_customize->add_setting( 'activate_flexslider' );
-	$wp_customize->add_control( 'activate_flexslider', array(
-		'type' => 'checkbox',
-		'priority' => 10,
-		'section' => 'blocks',
-		'label' => 'Activate Flexslider Block',
-		'description'	=> 'This will enqueue all the needed scripts to use the flexslider block (including jQuery).',
-	) );
-
 }
 add_action( 'customize_register', 'emma_customize_register' );
 
