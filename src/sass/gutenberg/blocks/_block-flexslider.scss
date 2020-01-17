@@ -2,7 +2,7 @@
   max-width: $content-max-width;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   padding-left: 0;
   padding-right: 0;
   background-color: transparent;
@@ -60,9 +60,14 @@
   }
 
   .flex-control-nav {
-    bottom: -2.5rem;
+    display: flex;
+    bottom: -1.5rem;
     left: 50%;
     transform: translateX( -50% );
     width: unset;
+
+    a {
+      overflow: hidden;
+    }
   }
 }
