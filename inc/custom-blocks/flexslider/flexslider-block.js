@@ -297,6 +297,8 @@
       }
       if( a.controlNav == "thumbnails" ) {
         settings.controlNav = "thumbnails";
+      } else if ( a.controlNav == "dots" ) {
+        classes += " dot-control-nav";
       } else if ( a.controlNav == "none" ) {
         settings.controlNav = false;
       }
