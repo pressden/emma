@@ -59,8 +59,8 @@
 
     edit: function( props ) {
       var sliderType = props.attributes.sliderType || 'slider';
-      var fullItems = props.attributes.fullItems || false;
-      var itemWidth = props.attributes.itemWidth || 300;
+      var fullItems = props.attributes.fullItems || true;
+      var itemWidth = props.attributes.itemWidth || 200;
       var itemMargin = props.attributes.itemMargin || 15;
       var animationType = props.attributes.animationType || 'fade';
       var controlNav = props.attributes.controlNav || "none";
