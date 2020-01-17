@@ -125,13 +125,11 @@
   > a {
     display: block;
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
     min-height: 40px;
     text-indent: -999rem;
     white-space: nowrap;
     overflow: hidden;
-    width: 3rem;
+    min-width: 3rem;
 
     &::before {
       content: "\f174";
