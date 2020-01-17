@@ -38,16 +38,10 @@
 
       .flex-prev,
       .flex-next {
+        text-shadow: unset;
+
         &:before {
-          text-shadow:
-            -2px -2px 3px rgba( $white, 0.6 ),
-            2px -2px 3px rgba( $white, 0.6 ),
-            -2px  2px 3px rgba( $white, 0.6 ),
-            2px  2px 3px rgba( $white, 0.6 ),
-            2px  0px 3px rgba( $white, 0.6 ),
-            -2px  0px 3px rgba( $white, 0.6 ),
-            0px  2px 3px rgba( $white, 0.6 ),
-            0px -2px 3px rgba( $white, 0.6 );
+          text-shadow: unset;
         }
       }
     }
