@@ -34,6 +34,9 @@
       sliderType: {
         type: 'string',
       },
+      fullItems: {
+        type: 'boolean',
+      },
       itemWidth: {
         type: 'string',
       },
@@ -56,6 +59,7 @@
 
     edit: function( props ) {
       var sliderType = props.attributes.sliderType || 'slider';
+      var fullItems = props.attributes.fullItems || false;
       var itemWidth = props.attributes.itemWidth || 300;
       var itemMargin = props.attributes.itemMargin || 15;
       var animationType = props.attributes.animationType || 'fade';
@@ -85,26 +89,40 @@
           options: [
             {
               value: 'slider',
-              label: 'Slider (one image at a time)'
+              label: 'Slider (one item at a time)'
             },
             {
               value: 'carousel',
-              label: 'Carousel (multiple images at a time)'
+              label: 'Carousel (multiple items at a time)'
             },
           ],
           onChange: onChangeSliderType,
         }
       );
 
+      function onChangefullItems( newValue ) {
+        props.setAttributes( { fullItems: newValue } );
+      }
+      var fullItemsControl =  el(
+        ToggleControl,
+        {
+          label: 'Show Only Full Items',
+          checked: fullItems,
+          help: 'Resizes items dynamically to prevent partials',
+          onChange: onChangefullItems,
+        }
+      );
+
       function onChangeItemWidth( newValue ) {
         props.setAttributes( { itemWidth: newValue } );
       }
+      var itemWidthLabel = fullItems ? "Minimum Item Width (px)" : "Item Width (px)";
       var itemWidthControl = el(
         TextControl,
         {
-          label: 'Item Width (px)',
+          label: itemWidthLabel,
           value: itemWidth,
-          help: 'The width (in pixels) of the carousel items',
+          help: 'The width (in pixels) of the carousel items; this acts as the minimum item width when "Full Items" is selected',
           type: 'number',
           onChange: onChangeItemWidth,
         }
@@ -131,6 +149,7 @@
             title: 'Carousel Settings',
             initialOpen: false,
           },
+          fullItemsControl,
           itemWidthControl,
           itemMarginControl,
         );
@@ -269,6 +288,9 @@
       if( a.sliderType == 'carousel' ) {
         settings.itemWidth = parseInt( a.itemWidth );
         settings.itemMargin = parseInt( a.itemMargin );
+        if( a.fullItems ) {
+          settings.fullItems = true;
+        }
       }
       if( a.animationType != 'fade' ) {
         settings.animation = a.animationType;
