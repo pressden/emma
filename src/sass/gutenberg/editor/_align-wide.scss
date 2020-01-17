@@ -1,9 +1,9 @@
 // @TODO: BEGIN Convert to SASS variables
-.entry-content > .alignwide {
-  max-width: 1100px;
+.alignwide {
+  max-width: $content-max-alignwide-width;
 }
 
-.entry-content > .alignfull {
+.alignfull {
   margin-left: 0;
   margin-right: 0;
   max-width: 100%;

@@ -59,7 +59,7 @@
 
     edit: function( props ) {
       var sliderType = props.attributes.sliderType || 'slider';
-      var fullItems = props.attributes.fullItems || true;
+      var fullItems = props.attributes.fullItems == undefined ? true : props.attributes.fullItems;
       var itemWidth = props.attributes.itemWidth || 200;
       var itemMargin = props.attributes.itemMargin || 15;
       var animationType = props.attributes.animationType || 'fade';
