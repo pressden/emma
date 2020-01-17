@@ -10,7 +10,7 @@ var toggle, closer, drawer, clones;
 ( function() {
   var collection, container, menu, links, i, len;
 
-  toggle = document.getElementById( 'menu-toggle' );
+  toggle = document.getElementById( 'menu-opener' );
   closer = document.getElementById( 'menu-closer' );
   drawer = document.getElementById( 'menu-drawer' );
   clones = document.getElementById( 'menu-clones' );
