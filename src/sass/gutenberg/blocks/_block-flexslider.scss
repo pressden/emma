@@ -2,15 +2,24 @@
   max-width: $content-max-width;
   margin-left: auto;
   margin-right: auto;
-  margin-top: $spacer-lg;
-  margin-bottom: $spacer-lg;
+  margin-top: 0;
+  margin-bottom: $spacer;
   padding-left: 0;
   padding-right: 0;
   background-color: transparent;
   border: 0;
 
   &.dot-control-nav {
-    margin-bottom: $spacer-lg + 1.5rem; //adds 1.5rem to account for the dot nav that is absolute positioned beneath the flexslider
+    margin-bottom: $spacer + 1.5rem; //adds 1.5rem to account for the dot nav that is absolute positioned beneath the flexslider
+  }
+
+  .entry-content > & {
+    margin-top: $spacer-lg;
+    margin-bottom: $spacer-lg;
+
+    &.dot-control-nav {
+      margin-bottom: $spacer-lg + 1.5rem; //adds 1.5rem to account for the dot nav that is absolute positioned beneath the flexslider
+    }
   }
 
   .flex-direction-nav{
