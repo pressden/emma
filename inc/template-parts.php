@@ -6,6 +6,22 @@
  */
 
 /**
+ * Gets the footer menu template part.
+ */
+function emma_footer_menu_template() {
+  get_template_part( 'template-parts/footer', 'menu' );
+}
+add_action( 'emma_footer', 'emma_footer_menu_template', 10 );
+
+/**
+ * Gets the site info template part.
+ */
+function emma_site_info_template() {
+  get_template_part( 'template-parts/site', 'info' );
+}
+add_action( 'emma_footer', 'emma_site_info_template', 20 );
+
+ /**
  * Gets the footer widgets template part.
  */
 function emma_footer_widgets_template() {
