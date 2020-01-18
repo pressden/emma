@@ -25,7 +25,14 @@
 	<footer id="colophon" class="site-footer">
     <div class="wrap">
 
-      <?php do_action( 'emma_footer' ); ?>
+      <?php
+      /**
+       * Fires inside the footer element and wrap markup.
+       *
+       * @since 1.0.0
+      */
+      do_action( 'emma_footer' );
+      ?>
 
     </div><!-- .wrap -->
   </footer><!-- #colophon -->
