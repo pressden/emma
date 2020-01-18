@@ -6,6 +6,22 @@
  */
 
 /**
+ * Gets the post title template part.
+ */
+function emma_post_title_template() {
+  get_template_part( 'template-parts/post', 'title' );
+}
+add_action( 'emma_entry_header', 'emma_post_title_template' );
+
+/**
+ * Gets the post thumbnail template part.
+ */
+function emma_post_thumbnail_template() {
+  get_template_part( 'template-parts/post', 'thumbnail' );
+}
+add_action( 'emma_after_entry_header', 'emma_post_thumbnail_template' );
+
+ /**
  * Gets the footer widgets template part.
  */
 function emma_footer_widgets_template() {

@@ -22,11 +22,27 @@
 
 	<header class="entry-header">
     <div class="wrap">
-      <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-    </div><!-- .wrap -->
-	</header><!-- .entry-header -->
 
-	<?php emma_post_thumbnail(); ?>
+      <?php
+      /**
+       * Fires inside the entry-header and wrap markup.
+       *
+       * @since 1.0.0
+      */
+      do_action( 'emma_entry_header' );
+      ?>
+
+    </div><!-- .wrap -->
+  </header><!-- .entry-header -->
+
+  <?php
+  /**
+   * Fires immediately after the entry-header closing markup.
+   *
+   * @since 1.0.0
+   */
+  do_action( 'emma_after_entry_header' );
+  ?>
 
 	<div class="entry-content">
 		<?php
