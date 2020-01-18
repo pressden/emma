@@ -10,6 +10,16 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+
+  <?php
+  /**
+   * Fires immediately before the entry-header opening markup.
+   *
+   * @since 1.0.0
+   */
+  do_action( 'emma_before_entry_header' );
+  ?>
+
 	<header class="entry-header">
     <div class="wrap">
       <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>

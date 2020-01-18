@@ -6,6 +6,14 @@
  */
 
 /**
+ * Gets the footer widgets template part.
+ */
+function emma_footer_widgets_template() {
+  get_template_part( 'template-parts/footer', 'widgets' );
+}
+add_action( 'emma_before_footer', 'emma_footer_widgets_template' );
+
+/**
  * Gets the footer menu template part.
  */
 function emma_footer_menu_template() {
@@ -20,14 +28,6 @@ function emma_site_info_template() {
   get_template_part( 'template-parts/site', 'info' );
 }
 add_action( 'emma_footer', 'emma_site_info_template', 20 );
-
- /**
- * Gets the footer widgets template part.
- */
-function emma_footer_widgets_template() {
-  get_template_part( 'template-parts/footer', 'widgets' );
-}
-add_action( 'emma_before_footer', 'emma_footer_widgets_template' );
 
 /**
  * Gets the menu drawer template part.
