@@ -13,4 +13,9 @@
       justify-content: $footer-widgets-wrap-justify-content;
     }
   }
+
+  .widget-area {
+    flex-basis: $footer-widgets-widget-area-flex-basis;
+    flex-grow: $footer-widgets-widget-area-flex-grow;
+  }
 }

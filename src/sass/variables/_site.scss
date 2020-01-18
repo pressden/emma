@@ -74,6 +74,8 @@ $footer-widgets-wrap-padding-x: $footer-widgets-wrap-padding !default;
 $footer-widgets-wrap-padding-y: $footer-widgets-wrap-padding !default;
 $footer-widgets-wrap-align-items: flex-start !default;
 $footer-widgets-wrap-justify-content: space-between !default;
+$footer-widgets-widget-area-flex-basis: 0 !default;
+$footer-widgets-widget-area-flex-grow: 1 !default;
 
 // Footer
 $footer-wrap-max-width: $wrap-max-width !default;
