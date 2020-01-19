@@ -42,6 +42,7 @@ do_action( 'emma_before' );
 
       <?php if ( has_nav_menu( 'left' ) ) : ?>
         <nav id="left-navigation" class="site-navigation split-navigation split-left-navigation">
+
           <?php
           wp_nav_menu( array(
             'theme_location'  => 'left',
@@ -49,22 +50,28 @@ do_action( 'emma_before' );
             'container_class' => 'menu-container',
           ) );
           ?>
+
         </nav><!-- #left-navigation -->
       <?php endif; ?>
 
       <div class="site-branding">
+
         <?php do_action( 'site_branding' ); ?>
+
         <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+
         <?php
         $emma_description = get_bloginfo( 'description', 'display' );
         if ( $emma_description || is_customize_preview() ) :
           ?>
-          <p class="site-description"><?php echo $emma_description; /* WPCS: xss ok. */ ?></p>
+          <p class="site-description"><?php echo $emma_description; ?></p>
         <?php endif; ?>
+
       </div><!-- .site-branding -->
 
       <?php if ( has_nav_menu( 'right' ) ) : ?>
         <nav id="right-navigation" class="site-navigation split-navigation split-right-navigation">
+
           <?php
           wp_nav_menu( array(
             'theme_location'  => 'right',
@@ -72,6 +79,7 @@ do_action( 'emma_before' );
             'container_class' => 'menu-container',
           ) );
           ?>
+
         </nav><!-- #right-navigation -->
       <?php endif; ?>
 
@@ -80,7 +88,9 @@ do_action( 'emma_before' );
         ?>
 
         <div id="header-widgets" class="header-widgets">
+
           <?php dynamic_sidebar( 'header-widgets' ); ?>
+
         </div>
 
         <?php
@@ -101,6 +111,7 @@ do_action( 'emma_before' );
 
   <?php if ( has_nav_menu( 'primary' ) ) : ?>
       <nav id="main-navigation" class="site-navigation main-navigation">
+
         <?php
         wp_nav_menu( array(
           'theme_location'  => 'primary',
@@ -108,6 +119,7 @@ do_action( 'emma_before' );
           'container_class' => 'menu-container',
         ) );
         ?>
+
       </nav><!-- #main-navigation -->
     <?php endif; ?>
 
