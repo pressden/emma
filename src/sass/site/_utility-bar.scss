@@ -2,7 +2,7 @@
   color: $utility-bar-color;
   background-color: $utility-bar-background-color;
 
-  .wrap {
+  > .wrap {
     padding: $utility-bar-wrap-padding-y $utility-bar-wrap-padding-x;
     @include center-wrap($utility-bar-wrap-max-width);
 
