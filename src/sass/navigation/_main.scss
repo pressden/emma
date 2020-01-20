@@ -1,4 +1,9 @@
 .main-navigation {
+  > .wrap {
+    @include center-wrap($wrap-max-width);
+    padding: $main-navigation-wrap-padding-y $main-navigation-wrap-padding-x;
+  }
+
   .menu-container {
     ul {
       display: none;

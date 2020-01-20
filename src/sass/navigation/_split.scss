@@ -1,4 +1,5 @@
-.split-navigation {
+.left-navigation,
+.right-navigation {
   .menu-container {
     ul {
       display: none;
@@ -7,25 +8,5 @@
         display: flex;
       }
     }
-  }
-}
-
-.split-left-navigation {
-  @media screen and (min-width: $menu-breakpoint) {
-    margin-right: $menu-split-left-margin-right;
-  }
-
-  ul {
-    justify-content: $menu-split-left-justify-content;
-  }
-}
-
-.split-right-navigation {
-  @media screen and (min-width: $menu-breakpoint) {
-    margin-left: $menu-split-right-margin-left;
-  }
-
-  ul {
-    justify-content: $menu-split-right-justify-content;
   }
 }

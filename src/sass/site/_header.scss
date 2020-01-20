@@ -2,13 +2,26 @@
   background-color: $header-background-color;
 
   > .wrap {
+    display: $header-wrap-display;
+    grid-column-gap: $header-wrap-grid-column-gap;
     padding: $header-wrap-padding-y $header-wrap-padding-x;
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
     align-items: $header-wrap-align-items;
     justify-content: $header-wrap-justify-content;
+
     @include center-wrap($header-wrap-max-width);
+
+    .has-left-navigation & {
+      grid-template-columns: $header-wrap-left-navigation-columns;
+    }
+
+    .has-right-navigation & {
+      grid-template-columns: $header-wrap-right-navigation-columns;
+    }
+
+    .has-split-navigation & {
+      grid-template-columns: $header-wrap-split-navigation-columns;
+    }
   }
 }
 

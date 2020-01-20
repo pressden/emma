@@ -14,12 +14,19 @@ $utility-bar-wrap-align-items: center !default;
 $utility-bar-wrap-justify-content: space-between !default;
 
 // Header
+$header-wrap-display: grid !default;
+$header-wrap-grid-column-gap: $spacer-md !default;
 $header-wrap-max-width: $wrap-max-width !default;
 $header-wrap-padding: $spacer-md !default;
 $header-wrap-padding-x: $header-wrap-padding !default;
 $header-wrap-padding-y: $header-wrap-padding !default;
 $header-wrap-align-items: center !default;
 $header-wrap-justify-content: space-between !default;
+
+// Header - navigation columns
+$header-wrap-left-navigation-columns: 1fr fit-content(50%) !default;
+$header-wrap-right-navigation-columns: fit-content(50%) 1fr !default;
+$header-wrap-split-navigation-columns: 1fr fit-content(50%) 1fr !default;
 
 // Header - sticky
 $sticky-header-offset: 72px !default;
@@ -41,6 +48,10 @@ $header-widgets-display: flex !default;
 $header-widgets-justify-content: flex-end !default;
 $header-widgets-flex-wrap: wrap !default;
 $header-widgets-flex-grow: 1 !default;
+
+// Main Navigation
+$main-navigation-wrap-padding-x: $spacer-md !default;
+$main-navigation-wrap-padding-y: 0 !default;
 
 // Content
 $content-padding-x: $spacer-md !default;
