@@ -19,7 +19,7 @@
   }
 
   > .wrap {
-    @include center-wrap($footer-widgets-wrap-max-width);
+    @include center-wrap($wrap-max-width);
     padding: $menu-drawer-padding-y $menu-drawer-padding-x;
     text-align: right;
   }
