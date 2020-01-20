@@ -41,7 +41,7 @@ do_action( 'emma_before' );
     <div class="wrap">
 
       <?php if ( has_nav_menu( 'left' ) ) : ?>
-        <nav id="left-navigation" class="site-navigation split-navigation split-left-navigation">
+        <nav id="left-navigation" class="site-navigation left-navigation">
 
           <?php
           wp_nav_menu( array(
@@ -70,7 +70,7 @@ do_action( 'emma_before' );
       </div><!-- .site-branding -->
 
       <?php if ( has_nav_menu( 'right' ) ) : ?>
-        <nav id="right-navigation" class="site-navigation split-navigation split-right-navigation">
+        <nav id="right-navigation" class="site-navigation right-navigation">
 
           <?php
           wp_nav_menu( array(
@@ -111,14 +111,17 @@ do_action( 'emma_before' );
 
   <?php if ( has_nav_menu( 'primary' ) ) : ?>
       <nav id="main-navigation" class="site-navigation main-navigation">
+        <div class="wrap">
 
-        <?php
-        wp_nav_menu( array(
-          'theme_location'  => 'primary',
-          'menu_id'         => 'primary-menu',
-          'container_class' => 'menu-container',
-        ) );
-        ?>
+          <?php
+          wp_nav_menu( array(
+            'theme_location'  => 'primary',
+            'menu_id'         => 'primary-menu',
+            'container_class' => 'menu-container',
+          ) );
+          ?>
+
+        </div><!-- .wrap -->
 
       </nav><!-- #main-navigation -->
     <?php endif; ?>
