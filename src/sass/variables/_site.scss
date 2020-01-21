@@ -24,6 +24,7 @@ $header-wrap-align-items: center !default;
 $header-wrap-justify-content: space-between !default;
 
 // Header - navigation columns
+$header-wrap-no-navigation-columns: 1fr !default;
 $header-wrap-left-navigation-columns: 1fr fit-content(50%) !default;
 $header-wrap-right-navigation-columns: fit-content(50%) 1fr !default;
 $header-wrap-split-navigation-columns: 1fr fit-content(50%) 1fr !default;
