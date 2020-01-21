@@ -52,7 +52,7 @@ add_action( 'wp_head', 'emma_pingback_header' );
  */
 function emma_add_gtm_head_script() {
 	$gtm_id = get_theme_mod( 'gtm_id', '' );
-	if( $gtm_id != '' ) {
+	if( $gtm_id != '' && ! current_user_can( 'administrator' ) ) {
 		?>
 			<!-- Google Tag Manager -->
 			<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
