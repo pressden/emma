@@ -58,6 +58,15 @@ var toggle, closer, drawer, clones;
     }
   } );
 
+  document.querySelectorAll( '.menu-item-has-children > a' ).forEach( item => {
+    item.addEventListener( 'touchstart', function( event ) {
+      if( item !== document.activeElement ) {
+        item.focus();
+        event.preventDefault();
+      }
+    } );
+  } );
+
   // Get all the link elements within the menu.
   drawer.querySelectorAll( '.menu-item-has-children > a' ).forEach( item => {
     item.addEventListener( 'focus', function( event ) {
@@ -111,7 +120,6 @@ function closeMenuDrawer() {
  */
 function toggleFocus( menuItem ) {
   drawer.querySelectorAll( '.focus' ).forEach( focusItem => function() {
-    alert('test');
     focusItem.classList.remove( 'focus' );
   } );
   menuItem.closest( 'li' ).classList.add( 'focus' );
