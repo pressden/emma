@@ -33,3 +33,19 @@
 .wp-block-emma-flexslider [data-type="emma/slide"] > .editor-block-list__insertion-point {
   top: 0;
 }
+
+.columns-2 > .editor-inner-blocks > .editor-block-list__layout {
+  grid-template-columns: repeat( 2, 1fr );
+}
+
+.columns-3 > .editor-inner-blocks > .editor-block-list__layout {
+  grid-template-columns: repeat( 3, 1fr );
+}
+
+.columns-4 > .editor-inner-blocks > .editor-block-list__layout {
+  grid-template-columns: repeat( 4, 1fr );
+}
+
+.columns-5 > .editor-inner-blocks > .editor-block-list__layout {
+  grid-template-columns: repeat( 5, 1fr );
+}

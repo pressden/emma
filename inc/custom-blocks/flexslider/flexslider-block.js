@@ -14,6 +14,7 @@
   var ToggleControl = wp.components.ToggleControl;
   var TextareaControl = wp.components.TextareaControl;
   var TextControl = wp.components.TextControl;
+  var RangeControl = wp.components.RangeControl;
   var Disabled = wp.components.Disabled;
   var htmlToElem = ( html ) => wp.element.RawHTML( { children: html } );
 
@@ -31,6 +32,9 @@
 		},
 
 		attributes: {
+      editorColumns: {
+        type: 'number',
+      },
       sliderType: {
         type: 'string',
       },
@@ -58,6 +62,7 @@
 		},
 
     edit: function( props ) {
+      var editorColumns = props.attributes.editorColumns || 1;
       var sliderType = props.attributes.sliderType || 'slider';
       var fullItems = props.attributes.fullItems == undefined ? true : props.attributes.fullItems;
       var itemWidth = props.attributes.itemWidth || 200;
@@ -76,6 +81,29 @@
 
         return disabledControl;
       }
+
+      function onChangeEditorColumns( newValue ) {
+        props.setAttributes( { editorColumns: newValue } );
+      }
+      var editorColumnsControl =  el(
+        RangeControl,
+        {
+          label: 'Columns',
+          value: editorColumns,
+          min: 1,
+          max: 5,
+          onChange: onChangeEditorColumns,
+          help: "How many slides you'd like to view on each row in the editor. This has no effect on the frontend."
+        }
+      );
+
+      var viewControls = el(
+        PanelBody, {
+          title: 'Editor Settings',
+          initialOpen: true,
+        },
+          editorColumnsControl,
+      );
 
       function onChangeSliderType( newValue ) {
         props.setAttributes( { sliderType: newValue } );
@@ -221,6 +249,18 @@
         }
       );
 
+      var generalControls = el(
+        PanelBody, {
+          title: 'General Settings',
+          initialOpen: true,
+        },
+          sliderTypeControl,
+          animationTypeControl,
+          controlNavControl,
+          showArrowsControl,
+      );
+
+
       function onChangeSettingsJSON( newValue ) {
         props.setAttributes( { settingsJSON: newValue } );
       }
@@ -246,19 +286,13 @@
           el(
             InspectorControls,
             null,
-            el(
-              PanelBody,
-              {},
-              sliderTypeControl,
-              animationTypeControl,
-              controlNavControl,
-              showArrowsControl,
-              carouselControls,
-              settingsJSONControl
-            ),
+            viewControls,
+            generalControls,
+            carouselControls,
+            settingsJSONControl
           ),
           el(
-            'div', { className: props.className },
+            'div', { className: props.className + " columns-" + props.attributes.editorColumns  },
             el( InnerBlocks, {
               allowedBlocks: ['emma/slide'],
             } ),
@@ -370,7 +404,6 @@
       var thumbnailURL = props.attributes.thumbnailURL;
 
       function onSelectThumbnail( thumbnail ) {
-        alert( Object.keys( thumbnail ) );
         return props.setAttributes( {
           thumbnailID: thumbnail.id,
           thumbnailURL: thumbnail.url,
