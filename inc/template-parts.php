@@ -10,6 +10,7 @@
  */
 function emma_post_title_template() {
   get_template_part( 'template-parts/post', 'title' );
+  get_template_part( 'template-parts/entry', 'meta' );
 }
 add_action( 'emma_entry_header', 'emma_post_title_template' );
 

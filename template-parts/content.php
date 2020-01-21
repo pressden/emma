@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
+ * Template part for displaying content
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -10,23 +10,43 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-    <div class="wrap">
 
-      <?php
-      if ( is_singular() ) :
-        the_title( '<h1 class="entry-title">', '</h1>' );
-      else :
-        the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-      endif;
+  <?php
+  /**
+   * Fires immediately before the entry-header opening markup.
+   *
+   * @since 1.0.0
+   */
+  do_action( 'emma_before_entry_header' );
 
-      get_template_part( 'template-parts/entry', 'meta' );
-      ?>
+  $hide_title = get_post_meta( $post->ID, 'hide_title', true );
+  if( empty( $hide_title ) ) { ?>
 
-    </div><!-- .wrap -->
-	</header><!-- .entry-header -->
+    <header class="entry-header">
+      <div class="wrap">
 
-	<?php emma_post_thumbnail(); ?>
+        <?php
+        /**
+         * Fires inside the entry-header and wrap markup.
+         *
+         * @since 1.0.0
+        */
+        do_action( 'emma_entry_header' );
+        ?>
+
+      </div><!-- .wrap -->
+    </header><!-- .entry-header -->
+
+  <?php } ?>
+
+  <?php
+  /**
+   * Fires immediately after the entry-header closing markup.
+   *
+   * @since 1.0.0
+   */
+  do_action( 'emma_after_entry_header' );
+  ?>
 
 	<div class="entry-content">
 		<?php

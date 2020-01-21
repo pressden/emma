@@ -169,21 +169,6 @@ function emma_save_layout_options_postdata( $post_id ) {
 add_action('save_post', 'emma_save_layout_options_postdata');
 
 /**
- * Add custom body classes to body tag
- */
-function emma_output_layout_options_classes( $classes ) {
-	global $post;
-	$hide_title = get_post_meta( $post->ID, 'hide_title', true );
-
-	if( ! empty( $hide_title ) && $hide_title == 1 ) {
-		$classes[] = 'hide-title';
-	}
-	return $classes;
-}
-add_filter( 'body_class', 'emma_output_layout_options_classes' );
-
-
-/**
  * Site Branding action
  */
 function emma_site_branding() {
