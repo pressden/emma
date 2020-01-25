@@ -32,7 +32,9 @@
       }
 
       .dashicons-dismiss {
-        font-size: 1.5rem;
+        width: $menu-icon-size;
+        height: $menu-icon-size;
+        @include font-size($menu-icon-size);
       }
     }
   }
@@ -72,8 +74,8 @@
             top: 0;
             left: 0;
             font-family: "dashicons";
-            font-size: 1.2rem;
             text-indent: 0;
+            @include font-size($menu-font-size);
           }
         }
 
@@ -103,7 +105,6 @@
       width: 42%;
       text-align: center;
       padding: $spacer-sm $spacer;
-      font-size: 1.2rem;
 
       &.checkout {
         @include button-color( $accent );
@@ -139,7 +140,7 @@
       transform: translate( -50%, -50% );
       text-indent: 0;
       font-family: "dashicons";
-      font-size: $spacer-lg;
+      @include font-size($menu-icon-size);
     }
 
     .cart-count {
@@ -150,7 +151,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.7rem;
+      @include font-size(.7rem);
       font-weight: bold;
       padding: $spacer-sm;
       border-radius: 999px;
