@@ -2,6 +2,8 @@
 $menu-breakpoint: $breakpoint-md !default;
 
 // Menu - Global
+$menu-font-size: $font-size-base !default;
+$menu-icon-size: $menu-font-size * 1.75 !default;
 $menu-container-max-width: $wrap-max-width !default;
 $menu-container-padding-x: 0 !default;
 $menu-container-padding-y: $spacer-sm !default;
@@ -23,7 +25,6 @@ $menu-footer-justify-content: center !default;
 $menu-toggle-padding-x: $menu-link-padding-x !default;
 $menu-toggle-padding-y: $menu-link-padding-y !default;
 $menu-toggle-display: inline-block !default;
-$menu-toggle-icon-size: 1.5rem !default;
 
 // Menu - Drawer
 $menu-drawer-padding: $spacer-md !default;

@@ -10,6 +10,7 @@
 
 .menu-container {
   @include center-wrap($menu-container-max-width);
+  @include font-size($menu-font-size);
 
   ul {
     display: flex;

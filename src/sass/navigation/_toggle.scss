@@ -5,9 +5,9 @@
   text-decoration: none !important;
 
   .dashicons, .dashicons-before:before {
-    width: $menu-toggle-icon-size;
-    height: $menu-toggle-icon-size;
-    font-size: $menu-toggle-icon-size;
+    width: $menu-icon-size;
+    height: $menu-icon-size;
+    @include font-size($menu-icon-size);
   }
 
   @if $enable-responsive-toggle {

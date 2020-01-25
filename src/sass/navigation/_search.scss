@@ -22,7 +22,7 @@
       transform: translate( -50%, -50% );
       text-indent: 0;
       font-family: "dashicons";
-      font-size: $spacer-lg;
+      @include font-size($menu-icon-size);
     }
 
     &:hover, &:focus {
