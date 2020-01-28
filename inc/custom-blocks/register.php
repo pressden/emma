@@ -53,10 +53,9 @@ function emma_conditional_block_enqueues() {
    * Slider Block
    */
   if( strpos( $post->post_content, 'emma/slider' ) ) {
-    wp_enqueue_script( 'slider' ); //flexslider library
-    wp_enqueue_script( 'slider-custom' ); //our custom flexslider implementaton code
-    wp_enqueue_style( 'slider-core' ); //our custom flexslider block frontend CSS
-    wp_enqueue_style( 'slider-theme' ); //our custom flexslider block frontend CSS
+    wp_enqueue_script( 'slider' ); //slider library
+    wp_enqueue_script( 'slider-custom' ); //our custom slider implementaton code
+    wp_enqueue_style( 'slider-core' ); //our custom slider block frontend CSS
   }
 }
 add_action( 'wp_head', 'emma_conditional_block_enqueues' );

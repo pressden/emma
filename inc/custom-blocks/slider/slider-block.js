@@ -32,6 +32,10 @@
 		},
 
 		attributes: {
+      editorColumns: {
+        type: 'number',
+        default: 1,
+      },
       loopType: {
         type: 'string',
         default: 'carousel',
@@ -58,6 +62,7 @@
       },
       settingsJSON: {
         type: 'string',
+        default: '',
       },
       slideCount: {
         type: 'number',
@@ -65,14 +70,14 @@
 		},
 
     edit: function( props ) {
-      var loopType = props.attributes.loopType || 'slider';
+      var editorColumns = props.attributes.editorColumns;
+      var loopType = props.attributes.loopType;
       var itemWidth = props.attributes.itemWidth;
       var gap = props.attributes.gap;
       var controlNav = props.attributes.controlNav;
       var showArrows = props.attributes.showArrows;
       var outerArrows = props.attributes.outerArrows;
-      var settingsJSON = props.attributes.settingsJSON || '';
-      //var slideCount = props.attributes.slideCount;
+      var settingsJSON = props.attributes.settingsJSON;
 
       var clientId = props.clientId;
       var slideCount = wp.data.select( 'core/block-editor' ).getBlocksByClientId( clientId )[0].innerBlocks.length;
@@ -92,6 +97,29 @@
 
         return disabledControl;
       }
+
+      function onChangeEditorColumns( newValue ) {
+        props.setAttributes( { editorColumns: newValue } );
+      }
+      var editorColumnsControl =  el(
+        RangeControl,
+        {
+          label: 'Columns',
+          value: editorColumns,
+          min: 1,
+          max: 5,
+          onChange: onChangeEditorColumns,
+          help: "How many slides you'd like to view on each row in the editor. This has no effect on the frontend."
+        }
+      );
+
+      var viewControls = el(
+        PanelBody, {
+          title: 'Editor Settings',
+          initialOpen: true,
+        },
+          editorColumnsControl,
+      );
 
       function onChangeLoopType( newValue ) {
         props.setAttributes( { loopType: newValue } );
@@ -243,7 +271,7 @@
           TextareaControl,
           {
             value: settingsJSON,
-            help: htmlToElem( 'Enter JSON properties for additional settings found <a href="https://github.com/woocommerce/FlexSlider/wiki/FlexSlider-Properties" target="_blank">here</a>. Make sure there are not quotes around numeric values!' ),
+            help: htmlToElem( 'Enter JSON properties for additional settings found <a href="https://glidejs.com/docs/options/" target="_blank">here</a>. Make sure there are not quotes around numeric values!' ),
             onChange: onChangeSettingsJSON,
             placeholder: '"setting1":"value1",\n"setting2":"value2",\n"numberSetting":1234',
           }
@@ -257,13 +285,14 @@
           el(
             InspectorControls,
             null,
+            viewControls,
             generalControls,
             navigationControls,
             formatControls,
             settingsJSONControl
           ),
           el(
-            'div', { className: props.className },
+            'div', { className: props.className + " columns-" + props.attributes.editorColumns },
             el( InnerBlocks, {
               allowedBlocks: ['emma/slide'],
             } ),
