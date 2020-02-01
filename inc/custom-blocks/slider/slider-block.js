@@ -1,5 +1,5 @@
 /**
- * Register the Flexslider block
+ * Register the Slider block
  */
 
 (function( editor, element ) {
@@ -18,12 +18,12 @@
   var Disabled = wp.components.Disabled;
   var htmlToElem = ( html ) => wp.element.RawHTML( { children: html } );
 
-  registerBlockType( 'emma/flexslider', {
-    title: 'Flexslider',
-    description: 'A block that creates a slider using the flexslider javascript library.',
+  registerBlockType( 'emma/slider', {
+    title: 'Slider',
+    description: 'A block that creates a slider using the slider javascript library.',
     icon: 'slides',
     category: 'layout',
-		keywords: ['emma slider flexslider slides'],
+		keywords: ['emma slider slides'],
 
     supports: {
 			align: ['wide', 'full'],
@@ -34,44 +34,60 @@
 		attributes: {
       editorColumns: {
         type: 'number',
+        default: 1,
       },
-      sliderType: {
+      loopType: {
         type: 'string',
-      },
-      fullItems: {
-        type: 'boolean',
+        default: 'carousel',
       },
       itemWidth: {
-        type: 'string',
+        type: 'number',
+        default: '',
       },
-      itemMargin: {
-        type: 'string',
-      },
-      animationType: {
-        type: 'string',
+      gap: {
+        type: 'number',
+        default: '',
       },
       controlNav: {
         type: 'string',
+        default: 'none',
       },
       showArrows: {
         type: 'boolean',
+        default: true,
+      },
+      outerArrows: {
+        type: 'boolean',
+        default: false,
       },
       settingsJSON: {
         type: 'string',
-      }
+        default: '',
+      },
+      slideCount: {
+        type: 'number',
+      },
 		},
 
     edit: function( props ) {
-      var editorColumns = props.attributes.editorColumns || 1;
-      var sliderType = props.attributes.sliderType || 'slider';
-      var fullItems = props.attributes.fullItems == undefined ? true : props.attributes.fullItems;
-      var itemWidth = props.attributes.itemWidth || 200;
-      var itemMargin = props.attributes.itemMargin || 15;
-      var animationType = props.attributes.animationType || 'fade';
-      var controlNav = props.attributes.controlNav || "none";
-      var showArrows = props.attributes.showArrows || false;
-      var settingsJSON = props.attributes.settingsJSON || '';
+      var editorColumns = props.attributes.editorColumns;
+      var loopType = props.attributes.loopType;
+      var itemWidth = props.attributes.itemWidth;
+      var gap = props.attributes.gap;
+      var controlNav = props.attributes.controlNav;
+      var showArrows = props.attributes.showArrows;
+      var outerArrows = props.attributes.outerArrows;
+      var settingsJSON = props.attributes.settingsJSON;
 
+      var clientId = props.clientId;
+      var slideCount = wp.data.select( 'core/block-editor' ).getBlocksByClientId( clientId )[0].innerBlocks.length;
+      props.setAttributes( { slideCount: slideCount } );
+
+      /**
+       * Wraps a form control in a Disabled element
+       * use the following format: `controlVariable = disableControl( controlVariable );`
+       * @param control
+       */
       function disableControl( control ) {
         var disabledControl = el(
           Disabled,
@@ -105,111 +121,71 @@
           editorColumnsControl,
       );
 
-      function onChangeSliderType( newValue ) {
-        props.setAttributes( { sliderType: newValue } );
-        props.setAttributes( { animationType: 'slide' } );
+      function onChangeLoopType( newValue ) {
+        props.setAttributes( { loopType: newValue } );
       }
-      var sliderTypeControl =  el(
+      var loopTypeControl =  el(
         RadioControl,
         {
-          label: 'Type',
-          selected: sliderType,
+          label: 'Loop Behavior',
+          help: 'What the slider should do when it reaches the end of the slides.',
+          selected: loopType,
           options: [
             {
               value: 'slider',
-              label: 'Slider (one item at a time)'
+              label: 'Rewind to Start'
             },
             {
               value: 'carousel',
-              label: 'Carousel (multiple items at a time)'
+              label: 'Infinitely Rotate'
+            },
+            {
+              value: 'end',
+              label: "Don't Loop",
             },
           ],
-          onChange: onChangeSliderType,
-        }
-      );
-
-      function onChangefullItems( newValue ) {
-        props.setAttributes( { fullItems: newValue } );
-      }
-      var fullItemsControl =  el(
-        ToggleControl,
-        {
-          label: 'Show Only Full Items',
-          checked: fullItems,
-          help: 'Resizes items dynamically to prevent partials',
-          onChange: onChangefullItems,
+          onChange: onChangeLoopType,
         }
       );
 
       function onChangeItemWidth( newValue ) {
-        props.setAttributes( { itemWidth: newValue } );
+        props.setAttributes( { itemWidth: parseInt( newValue ) } );
       }
-      var itemWidthLabel = fullItems ? "Minimum Item Width (px)" : "Item Width (px)";
       var itemWidthControl = el(
         TextControl,
         {
-          label: itemWidthLabel,
+          label: "Minimum Item Width (px)",
           value: itemWidth,
-          help: 'The width (in pixels) of the carousel items; this acts as the minimum item width when "Full Items" is selected',
+          help: 'Minimum width of slides. Leave empty to only show one slide at a time.',
           type: 'number',
           onChange: onChangeItemWidth,
         }
       );
 
-      function onChangeItemMargin( newValue ) {
-        props.setAttributes( { itemMargin: newValue } );
+      function onChangeGap( newValue ) {
+        props.setAttributes( { gap: parseInt( newValue ) } );
       }
-      var itemMarginControl = el(
+      var gapControl = el(
         TextControl,
         {
-          label: 'Item Margin (px)',
-          value: itemMargin,
-          help: 'The margin (in pixels) between carousel items',
+          label: 'Slide Gap (px)',
+          value: gap,
+          help: 'The gap (in pixels) between slides. Only relevant when multiple slides are shown at a time.',
           type: 'number',
-          onChange: onChangeItemMargin,
+          onChange: onChangeGap,
         }
       );
 
-      var carouselControls = null;
-      if( sliderType == 'carousel' ) {
-        carouselControls = el(
-          PanelBody, {
-            title: 'Carousel Settings',
-            initialOpen: false,
-          },
-          fullItemsControl,
-          itemWidthControl,
-          itemMarginControl,
-        );
-      }
-
-      function onChangeAnimationType( newValue ) {
-        props.setAttributes( { animationType: newValue } );
-      }
-      var animationTypeControl =  el(
-        RadioControl,
-        {
-          label: 'Animation',
-          selected: animationType,
-          help: 'For a carousel slider, Slide animation is required.',
-          options: [
-            {
-              value: 'fade',
-              label: 'Fade'
-            },
-            {
-              value: 'slide',
-              label: 'Slide'
-            },
-          ],
-          onChange: onChangeAnimationType,
-        }
+      formatControls = el(
+        PanelBody, {
+          title: 'Format Settings',
+          initialOpen: false,
+        },
+        itemWidthControl,
+        gapControl,
       );
-      if( sliderType == 'carousel' ) {
-        animationTypeControl = disableControl( animationTypeControl );
-      }
 
-      function onChangecontrolNav( newValue ) {
+      function onChangeControlNav( newValue ) {
         props.setAttributes( { controlNav: newValue } );
       }
       var controlNavControl =  el(
@@ -232,21 +208,47 @@
             //   label: 'Thumbnails'
             // },
           ],
-          onChange: onChangecontrolNav,
+          onChange: onChangeControlNav,
         }
       );
 
-      function onChangeshowArrows( newValue ) {
+      function onChangeShowArrows( newValue ) {
         props.setAttributes( { showArrows: newValue } );
       }
-      var showArrowsControl =  el(
+      var showArrowsControl = el(
         ToggleControl,
         {
-          label: 'Always Show Nav',
+          label: 'Prev/Next Navigation',
           checked: showArrows,
-          help: 'Makes the left/right navigation arrows always visible (not just on hover).',
-          onChange: onChangeshowArrows,
+          help: 'Activates the left/right navigation arrows.',
+          onChange: onChangeShowArrows,
         }
+      );
+
+      function onChangeOuterArrows( newValue ) {
+        props.setAttributes( { outerArrows: newValue } );
+      }
+      var outerArrowsControl = ''
+      if( showArrows ) {
+        outerArrowsControl = el(
+          ToggleControl,
+          {
+            label: 'Outer Navigation',
+            checked: outerArrows,
+            help: 'Adds side margin to slider so arrows are outside of slides.',
+            onChange: onChangeOuterArrows,
+          }
+        );
+      }
+
+      var navigationControls = el(
+        PanelBody, {
+          title: 'Navigation Settings',
+          initialOpen: true,
+        },
+          showArrowsControl,
+          outerArrowsControl,
+          controlNavControl,
       );
 
       var generalControls = el(
@@ -254,10 +256,7 @@
           title: 'General Settings',
           initialOpen: true,
         },
-          sliderTypeControl,
-          animationTypeControl,
-          controlNavControl,
-          showArrowsControl,
+          loopTypeControl,
       );
 
 
@@ -272,7 +271,7 @@
           TextareaControl,
           {
             value: settingsJSON,
-            help: htmlToElem( 'Enter JSON properties for additional settings found <a href="https://github.com/woocommerce/FlexSlider/wiki/FlexSlider-Properties" target="_blank">here</a>. Make sure there are not quotes around numeric values!' ),
+            help: htmlToElem( 'Enter JSON properties for additional settings found <a href="https://glidejs.com/docs/options/" target="_blank">here</a>. Make sure there are not quotes around numeric values!' ),
             onChange: onChangeSettingsJSON,
             placeholder: '"setting1":"value1",\n"setting2":"value2",\n"numberSetting":1234',
           }
@@ -288,11 +287,12 @@
             null,
             viewControls,
             generalControls,
-            carouselControls,
+            navigationControls,
+            formatControls,
             settingsJSONControl
           ),
           el(
-            'div', { className: props.className + " columns-" + props.attributes.editorColumns  },
+            'div', { className: props.className + " columns-" + props.attributes.editorColumns },
             el( InnerBlocks, {
               allowedBlocks: ['emma/slide'],
             } ),
@@ -303,8 +303,13 @@
 
     save: function( props ) {
       var a = props.attributes;
-      var settings = {}
+      var settings = {};
+      var wrapperClasses = "glide__wrapper";
 
+      /**
+       * Check if object is valid JSON
+       * @param str
+       */
       function isJSONString( str ) {
         try {
           JSON.parse( str );
@@ -314,28 +319,88 @@
         return true;
       }
 
-      var classes = props.className;
-      if( a.showArrows ) {
-        classes += " show-arrows";
+      // set loopType setting
+      if( a.loopType == 'end' ) {
+        settings.rewind = false;
+      } else {
+        settings.type = a.loopType;
       }
 
-      if( a.sliderType == 'carousel' ) {
-        settings.itemWidth = parseInt( a.itemWidth );
-        settings.itemMargin = parseInt( a.itemMargin );
-        if( a.fullItems ) {
-          settings.fullItems = true;
+      // set minimum slide width for responsive carousels
+      if( a.itemWidth > 0 ) {
+        settings.itemWidth = a.itemWidth;
+      }
+
+      // set slide gap for multi-slide layouts
+      if( a.gap > 0 ) {
+        settings.gap = a.gap;
+      }
+
+      // generate markup for arrow nav if active
+      var arrowNav = '';
+      if( a.showArrows ) {
+        arrowNav = el('div', {
+          className: "glide__arrows",
+          "data-glide-el": "controls",
+        },
+          el('a', {
+            href: "#",
+            className: "glide-control glide-control__previous",
+            "data-glide-dir": "<"
+          },
+            el( 'span', {
+              className: 'screen-reader-text'
+            },
+              "Previous"
+            ),
+          ),
+          el('a', {
+            href: "#",
+            className: "glide-control glide-control__next",
+            "data-glide-dir": ">"
+          },
+            el( 'span', {
+              className: 'screen-reader-text'
+            },
+              "Next"
+            )
+          )
+        );
+
+        if( a.outerArrows ) {
+          wrapperClasses += " outer-glide-control";
         }
       }
-      if( a.animationType != 'fade' ) {
-        settings.animation = a.animationType;
+
+      // generate markup for bullet nav if active
+      var bulletNav = "";
+      var slideCount = a.slideCount;
+      if( a.controlNav == 'dots' ) {
+        var bullets = [];
+        for( let i = 0; i < slideCount; i++ ) {
+          bullets.push(
+            el( 'a', {
+              href: "#",
+              className: "glide__bullet",
+              "data-glide-dir": "=" + i,
+            },
+              el( 'span', {
+                className: 'screen-reader-text'
+              },
+                "Slide " + i
+              )
+            )
+          );
+        }
+        bulletNav = el( 'div', {
+          className: "glide__bullets",
+          "data-glide-el": "controls[nav]",
+        },
+          bullets,
+        );
       }
-      if( a.controlNav == "thumbnails" ) {
-        settings.controlNav = "thumbnails";
-      } else if ( a.controlNav == "dots" ) {
-        classes += " dot-control-nav";
-      } else if ( a.controlNav == "none" ) {
-        settings.controlNav = false;
-      }
+
+      // add manual settings
       var manualSettings = "{" + a.settingsJSON + "}";
       if( isJSONString( manualSettings ) ) {
         Object.assign( settings, JSON.parse( manualSettings ) );
@@ -343,14 +408,27 @@
 
       return (
         el('div', {
-            className: classes + " flexslider",
-            'data-flexslider-settings': JSON.stringify( settings ),
+          className: wrapperClasses,
+        },
+          el('div', {
+            className: "glide__main",
+            'data-slider-settings': JSON.stringify( settings ),
           },
-          el('ul', { className: 'flexslider__inner-container slides' },
-            el( InnerBlocks.Content, null )
+            el('div', {
+              className: "glide__track",
+              'data-glide-el': 'track',
+            },
+              el('ul', {
+                className: 'slider__inner-container glide__slides'
+              },
+                el( InnerBlocks.Content, null )
+              )
+            ),
+            arrowNav,
+            bulletNav,
           )
         )
-      );
+      )
     }
 	} );
 } ) (
@@ -359,7 +437,7 @@
 );
 
 /**
- * Register the Slide child block (child of Flexslider)
+ * Register the Slide child block (child of Slider)
  */
 
 (function( editor, element ) {
@@ -377,11 +455,11 @@
 
   registerBlockType( 'emma/slide', {
     title: 'Slide',
-    parent: [ 'emma/flexslider' ],
-    description: 'A child block of emma/flexslider.',
+    parent: [ 'emma/slider' ],
+    description: 'A child block of emma/slider.',
     icon: 'slides',
     category: 'layout',
-		keywords: ['emma slider flexslider slides'],
+		keywords: ['emma slider slides'],
 
     supports: {
       html: false,
@@ -467,7 +545,7 @@
 
     save: function( props ) {
       return (
-        el( 'li', { className: props.className, 'data-thumb': props.attributes.thumbnailURL },
+        el( 'li', { className: props.className + " glide__slide", 'data-thumb': props.attributes.thumbnailURL },
           el( InnerBlocks.Content, null )
         )
       );
