@@ -1,0 +1,20 @@
+// Remove padding on blocks that benefit from full bleed
+// Add some responsive styles to Media/Text blocks
+.wp-block-media-text {
+  display: block;
+  padding-left: 0;
+  padding-right: 0;
+
+  .wp-block-media-text__media,
+  .wp-block-media-text__content {
+    padding-bottom: $spacer;
+
+    @media screen and (min-width: $menu-breakpoint) {
+      padding-bottom: 0;
+    }
+  }
+
+  @media screen and (min-width: $menu-breakpoint) {
+    display: grid;
+  }
+}

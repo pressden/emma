@@ -73,35 +73,6 @@
   > ol {
     padding-left: 4rem;
   }
-
-  // Remove padding on blocks that benefit from full bleed
-  .wp-block-columns,
-  .wp-block-media-text {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  // Add some responsive styles to Media/Text blocks
-  .wp-block-media-text {
-    display: block;
-
-    .wp-block-media-text__media,
-    .wp-block-media-text__content {
-      padding-bottom: $spacer-md;
-
-      @media screen and (min-width: $menu-breakpoint) {
-        padding-bottom: 0;
-      }
-    }
-
-    @media screen and (min-width: $menu-breakpoint) {
-      display: grid;
-    }
-  }
-
-  .wp-block-button {
-    margin-bottom: $spacer-md;
-  }
 }
 
 .entry-footer {

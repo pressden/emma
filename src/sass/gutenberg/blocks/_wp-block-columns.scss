@@ -1,0 +1,19 @@
+// Remove padding on blocks that benefit from full bleed
+.wp-block-columns {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.wp-block-column {
+  padding-left: $spacer;
+  padding-right: $spacer;
+
+  @media screen and ( min-width: $breakpoint-sm ) {
+    flex-basis: 50%;
+
+    &:nth-child( 2n ),
+    &:not( :first-child ) {
+      margin-left: 0;
+    }
+  }
+}
