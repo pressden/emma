@@ -6,3 +6,16 @@ a.button {
 	@include button;
 	@include button-color;
 }
+
+.menu-container {
+	ul {
+		li.button {
+			a {
+				@include button;
+				@include button-color;
+
+				padding: $menu-sub-link-padding-y $menu-sub-link-padding-x;
+			}
+		}
+	}
+}
