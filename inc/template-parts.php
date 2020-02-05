@@ -22,6 +22,14 @@ function emma_post_thumbnail_template() {
 }
 add_action( 'emma_after_entry_header', 'emma_post_thumbnail_template' );
 
+/**
+ * Gets the entry footer template part.
+ */
+function emma_entry_footer_template() {
+  get_template_part( 'template-parts/entry', 'footer' );
+}
+add_action( 'emma_after_entry_content', 'emma_entry_footer_template' );
+
  /**
  * Gets the footer widgets template part.
  */

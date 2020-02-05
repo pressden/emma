@@ -70,9 +70,5 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-    <div class="wrap">
-      <?php emma_entry_footer(); ?>
-    </div><!-- .wrap -->
-	</footer><!-- .entry-footer -->
+  <?php do_action( 'emma_after_entry_content' ); ?>
 </article><!-- #post-<?php the_ID(); ?> -->
