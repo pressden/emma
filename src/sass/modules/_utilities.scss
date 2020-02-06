@@ -8,3 +8,12 @@
   padding-left: $spacer-sm;
   padding-right: $spacer-sm;
 }
+
+// text transforms
+.text-transform-uppercase {
+  text-transform: uppercase;
+}
+
+.text-transform-capitalize {
+  text-transform: capitalize;
+}

@@ -2,3 +2,20 @@ img {
 	height: auto; /* Make sure images are scaled correctly. */
 	max-width: 100%; /* Adhere to container width. */
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+address,
+ol,
+ul,
+dl,
+pre {
+	&:last-child() {
+    margin-bottom: 0;
+  }
+}

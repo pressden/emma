@@ -85,10 +85,6 @@ hr:not([size]) {
   font-weight: $headings-font-weight;
   line-height: $headings-line-height;
   color: $headings-color;
-
-  &:last-child() {
-    margin-bottom: 0;
-  }
 }
 
 h1 {
@@ -130,10 +126,6 @@ h6 {
 p {
   margin-top: 0;
   margin-bottom: $paragraph-margin-bottom;
-
-  &:last-child() {
-    margin-bottom: 0;
-  }
 }
 
 
@@ -157,10 +149,6 @@ address {
   margin-bottom: 1rem;
   font-style: normal;
   line-height: inherit;
-
-  &:last-child() {
-    margin-bottom: 0;
-  }
 }
 
 ol,
@@ -173,10 +161,6 @@ ul,
 dl {
   margin-top: 0;
   margin-bottom: 1rem;
-
-  &:last-child() {
-    margin-bottom: 0;
-  }
 }
 
 ol ol,
@@ -277,10 +261,6 @@ pre {
   overflow: auto; // 3
   @include font-size($code-font-size);
   color: $pre-color;
-
-  &:last-child() {
-    margin-bottom: 0;
-  }
 
   // Account for some code outputs that place code tags in pre tags
   code {
