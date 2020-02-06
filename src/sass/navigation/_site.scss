@@ -66,7 +66,7 @@
     }
   }
 
-  li:not( .woocommerce-mini-cart-item ) {
+  li:not( .woocommerce-mini-cart-item, .button ) {
     position: relative;
 
     &:hover > a:not( .button ),

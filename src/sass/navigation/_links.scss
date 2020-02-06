@@ -1,21 +1,23 @@
-a {
-	color: $link-color;
+*:not( .button ) {
+	> a {
+		color: $link-color;
 
-	&:hover,
-	&:focus,
-	&:active {
-		&:not( .button ):not( .wp-block-button__link ) {
-			color: $link-color-hover;
+		&:hover,
+		&:focus,
+		&:active {
+			&:not( .button ):not( .wp-block-button__link ) {
+				color: $link-color-hover;
+			}
 		}
-  }
 
-	&:focus {
-		outline: thin dotted;
-  }
+		&:focus {
+			outline: thin dotted;
+		}
 
-	&:hover,
-	&:active {
-		outline: 0;
+		&:hover,
+		&:active {
+			outline: 0;
+		}
 	}
 }
 
