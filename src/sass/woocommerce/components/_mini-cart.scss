@@ -197,7 +197,7 @@
   .mini-cart-toggle {
     &:hover > a .cart-count,
     &:focus > a .cart-count {
-      background-color: $menu-link-color-hover;
+      background-color: $menu-link-hover-color;
     }
   }
 }

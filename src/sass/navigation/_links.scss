@@ -6,7 +6,7 @@
 		&:focus,
 		&:active {
 			&:not( .button ):not( .wp-block-button__link ) {
-				color: $link-color-hover;
+				color: $link-hover-color;
 			}
 		}
 

@@ -61,12 +61,12 @@
   }
 }
 
-@mixin button-outline-variant($color, $color-hover: color-yiq($color), $active-background: $color, $active-border: $color) {
+@mixin button-outline-variant($color, $hover-color: color-yiq($color), $active-background: $color, $active-border: $color) {
   color: $color;
   border-color: $color;
 
   &:hover {
-    color: $color-hover;
+    color: $hover-color;
     background-color: $active-background;
     border-color: $active-border;
   }

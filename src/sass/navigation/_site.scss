@@ -49,7 +49,7 @@
 
       :hover > a,
       :focus > a {
-        color: $menu-sub-link-color-hover;
+        color: $menu-sub-link-hover-color;
       }
 
       a:hover,
@@ -71,7 +71,7 @@
 
     &:hover > a:not( .button ),
     &:focus > a:not( .button ) {
-      color: $menu-link-color-hover;
+      color: $menu-link-hover-color;
     }
   }
 

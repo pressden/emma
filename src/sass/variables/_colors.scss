@@ -38,12 +38,12 @@ $screen-color: #21759b !default;
 $screen-background-color: #f1f1f1 !default;
 
 $link-color: $action !default;
-$link-color-hover: darken($link-color, 15%) !default;
+$link-hover-color: darken($link-color, 15%) !default;
 
 $menu-link-color: $link-color !default;
-$menu-link-color-hover: $link-color-hover !default;
+$menu-link-hover-color: $link-hover-color !default;
 $menu-sub-link-color: $menu-link-color !default;
-$menu-sub-link-color-hover: $menu-link-color-hover !default;
+$menu-sub-link-hover-color: $menu-link-hover-color !default;
 $menu-sub-background-color: $white !default;
 
 $utility-bar-color: $gray-100 !default;
