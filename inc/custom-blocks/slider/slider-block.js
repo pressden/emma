@@ -537,7 +537,9 @@
             thumbnailControl,
           ),
           el( 'div', { className: props.className, 'data-thumb': props.attributes.thumbnailURL },
-            el( InnerBlocks ),
+            el( InnerBlocks, {
+              allowedBlocks: wp.blocks.getBlockTypes().map(block => block.name).filter(blockName => blockName !== 'emma/slider' && blockName != 'emma/slide'),
+            } ),
           ),
         )
       );
