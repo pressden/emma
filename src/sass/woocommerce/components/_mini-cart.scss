@@ -99,6 +99,7 @@
   .woocommerce-mini-cart__buttons {
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: $spacer;
 
     a {
       display: inline-block;
