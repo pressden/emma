@@ -11,3 +11,8 @@
 #content[tabindex="-1"]:focus {
   outline: 0;
 }
+
+/* Override the #wpadminbar .screen-reader-shortcut font-family */
+#wpadminbar .screen-reader-shortcut {
+  font-family: $font-family-base;
+}
