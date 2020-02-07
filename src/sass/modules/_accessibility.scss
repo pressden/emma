@@ -12,7 +12,9 @@
   outline: 0;
 }
 
-/* Override the #wpadminbar .screen-reader-shortcut font-family */
-#wpadminbar .screen-reader-shortcut {
-  font-family: $font-family-base;
+/* Override styles inherited from #wpadminbar */
+#wpadminbar {
+  .screen-reader-shortcut {
+    font-family: $font-family-base;
+  }
 }
