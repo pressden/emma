@@ -1,6 +1,6 @@
 .header-widgets {
   .menu-container {
-    ul {
+    .menu {
       display: none;
 
       @media screen and (min-width: $menu-breakpoint) {

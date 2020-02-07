@@ -13,30 +13,65 @@
   @include font-size($menu-font-size);
 
   ul {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  li {
+    position: relative;
+    color: $menu-link-color;
+
+    &:hover,
+    &:focus,
+    &:focus-within,
+    &:active {
+      color: $menu-link-hover-color;
+    }
+  }
+
+  a {
+    display: block;
+    padding: $menu-link-padding-y $menu-link-padding-x;
+    text-decoration: none;
+    color: inherit;
+
+    &:focus {
+      outline-offset: -1px;
+    }
+  }
+
+  .menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: $menu-justify-content;
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
+  }
 
-    ul:not( .woocommerce-mini-cart ) {
-      box-shadow: $menu-sub-box-shadow;
-      position: absolute;
-      top: 100%;
+  .sub-menu {
+    box-shadow: $menu-sub-box-shadow;
+    position: absolute;
+    top: 100%;
+    left: -999em;
+    z-index: 99999;
+    background-color: $menu-sub-background-color;
+
+    .sub-menu {
       left: -999em;
-      z-index: 99999;
-      background-color: $menu-sub-background-color;
+      top: 0;
+    }
 
-      ul {
-        left: -999em;
-        top: 0;
+    .menu-item {
+      &:hover,
+      &:focus,
+      &:focus-within,
+      &:active {
+        color: $menu-sub-link-hover-color;
       }
 
-      li {
-        &:hover > ul,
-        &:focus-within > ul,
-        &.focus > ul {
+      &:hover,
+      &:focus-within,
+      &.focus {
+        & > .sub-menu {
           left: 100%;
         }
       }
@@ -44,53 +79,17 @@
       a {
         width: $menu-sub-link-width;
         padding: $menu-sub-link-padding-y $menu-sub-link-padding-x;
-        color: $menu-sub-link-color;
-      }
-
-      :hover > a,
-      :focus > a {
-        color: $menu-sub-link-hover-color;
-      }
-
-      a:hover,
-      a:focus {
       }
     }
+  }
 
-    li {
-      &:hover > ul,
-      &:focus-within > ul,
-      &.focus > ul {
+  .menu-item {
+    &:hover,
+    &:focus-within,
+    &.focus {
+      & > .sub-menu {
         left: auto;
       }
     }
-  }
-
-  li:not( .woocommerce-mini-cart-item, .button ) {
-    position: relative;
-
-    &:hover > a:not( .button ),
-    &:focus > a:not( .button ) {
-      color: $menu-link-hover-color;
-    }
-  }
-
-  a {
-    &:focus {
-      outline-offset: -1px;
-    }
-  }
-
-  a:not( .button ) {
-    display: block;
-    padding: $menu-link-padding-y $menu-link-padding-x;
-    text-decoration: none;
-    color: $menu-link-color;
-  }
-
-  .current_page_item > a,
-  .current-menu-item > a,
-  .current_page_ancestor > a,
-  .current-menu-ancestor > a {
   }
 }

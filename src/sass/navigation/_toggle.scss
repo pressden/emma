@@ -4,7 +4,8 @@
   display: $menu-toggle-display;
   text-decoration: none !important;
 
-  .dashicons, .dashicons-before:before {
+  .dashicons,
+  .dashicons-before:before {
     width: $menu-icon-size;
     height: $menu-icon-size;
     @include font-size($menu-icon-size);

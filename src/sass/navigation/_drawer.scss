@@ -32,23 +32,27 @@
     max-width: none;
     width: 100%;
 
-    ul {
+    .menu {
       display: block;
 
       .sub-menu {
         display: none;
         position: static;
         width: 100%;
+        box-shadow: none;
 
         a {
           width: 100%;
         }
       }
 
-      li.focus {
-        .sub-menu {
-          display: block;
+      .menu-item {
+        &.focus {
+          .sub-menu {
+            display: block;
+          }
         }
+
       }
     }
 

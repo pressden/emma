@@ -19,3 +19,15 @@ pre {
     margin-bottom: 0;
   }
 }
+
+a {
+  // Global a:hover is handled by Reboot, no need to repeat it here
+  &:focus,
+  &:active {
+    color: $link-hover-color;
+  }
+
+  &:focus {
+    outline: thin dotted;
+  }
+}
