@@ -87,12 +87,12 @@
 	}
 }
 
-@mixin sr-only-focusable-absolute() {
+@mixin sr-only-focusable-fixed() {
 	@include sr-only-focusable;
 
   &:focus {
     display: block;
-    position: absolute;
+    position: fixed;
     left: 6px;
     top: 7px;
     height: auto;
@@ -107,6 +107,8 @@
     line-height: normal;
     text-decoration: none;
     box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+    box-sizing: content-box;
+    outline-offset: -1px;
   }
 }
 

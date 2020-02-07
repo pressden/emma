@@ -75,6 +75,12 @@
     }
   }
 
+  a {
+    &:focus {
+      outline-offset: -1px;
+    }
+  }
+
   a:not( .button ) {
     display: block;
     padding: $menu-link-padding-y $menu-link-padding-x;

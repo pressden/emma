@@ -1,6 +1,6 @@
 /* Text meant only for screen readers. */
 .screen-reader-shortcut {
-  @include sr-only-focusable-absolute;
+  @include sr-only-focusable-fixed;
 }
 
 .screen-reader-text {
