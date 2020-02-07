@@ -436,13 +436,17 @@ function emma_add_close_div() {
  * Hijack the old column count hook in WooCommerce to insert our custom column definition class (sm, md, lg)
  */
 function emma_product_columns() {
-  $default_columns = '2'; //change to adjust default | 1 = SM, 2 = MD, 3 = LG
-
-  if( isset( $_COOKIE['column_size'] ) ) {
-    $default_columns = $_COOKIE['column_size'];
-  }
-
+  $default_columns = 2; //change to adjust default | 1 = SM, 2 = MD, 3 = LG
   return $default_columns;
+}
+
+/**
+ * Set a default column count for related products as well
+ */
+function emma_related_product_columns( $args ) {
+  $default_columns = 2; //change to adjust default | 1 = SM, 2 = MD, 3 = LG
+  $args['columns'] = $default_columns;
+  return $args;
 }
 
 /**
@@ -481,7 +485,8 @@ if ( class_exists( 'WooCommerce' ) ) {
   add_action( 'woocommerce_before_shop_loop', 'emma_add_product_sorting_open_div', 19 ); // this happens right before the note of how many products are shown on the shop page
   add_action( 'woocommerce_before_shop_loop', 'emma_add_product_sorting_column_sizer', 25 ); // this happens between the results count and the sorting method
   add_action( 'woocommerce_before_shop_loop', 'emma_add_close_div', 31 ); // this happens right after the sorting form on the shop page
-  add_filter('loop_shop_columns', 'emma_product_columns');
+  add_filter( 'loop_shop_columns', 'emma_product_columns');
+  add_filter( 'woocommerce_output_related_products_args', 'emma_related_product_columns', 20 );
   add_filter( 'loop_shop_per_page', 'emma_products_per_page', 20 );
   add_filter( 'woocommerce_add_to_cart_fragments', 'emma_cart_anchor_fragment' );
   wp_enqueue_script( 'emma-woocommerce-scripts', get_template_directory_uri() . '/src/js/woocommerce.js', array(), wp_get_theme()->get( 'Version' ), true ); // enqueue woocommerce js
