@@ -491,3 +491,11 @@ if ( class_exists( 'WooCommerce' ) ) {
   add_filter( 'woocommerce_add_to_cart_fragments', 'emma_cart_anchor_fragment' );
   wp_enqueue_script( 'emma-woocommerce-scripts', get_template_directory_uri() . '/src/js/woocommerce.js', array(), wp_get_theme()->get( 'Version' ), true ); // enqueue woocommerce js
 }
+
+/**
+ * Enqueue Ninja Forms Google Analytics submission event scripts when form is rendered
+ */
+function emma_ninja_forms_custom() {
+  wp_enqueue_script( 'emma-ninja-forms-custom', get_template_directory_uri() . '/src/vendor/ninja-forms/ninja-forms-custom.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
+}
+add_action( 'ninja_forms_enqueue_scripts', 'emma_ninja_forms_custom', 10, 2 );
