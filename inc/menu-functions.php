@@ -74,3 +74,9 @@ function emma_feature_link_meta_box_content(){
 	</div><!-- /.categorydiv -->
 <?php
 }
+
+function emma_change_menu_hidden_metaboxes($user_id) {
+	$hidden_metaboxes = array(); // empty array
+	update_user_option( $user_id, 'metaboxhidden_nav-menus', $hidden_metaboxes ); // update the user metaboxes
+}
+add_action( 'user_register', 'emma_change_menu_hidden_metaboxes', 10, 1 );

@@ -12,12 +12,12 @@
     justify-content: $utility-bar-wrap-justify-content;
 
     & > div {
-      &:first-child {
+      &.utility-widgets-1 {
         display: flex;
         justify-content: flex-start;
       }
 
-      &:last-child {
+      &.utility-widgets-2 {
         display: flex;
         justify-content: flex-end;
       }
