@@ -1,0 +1,20 @@
+.has-small-font-size {
+  font-size: $font-size-sm;
+}
+.has-medium-font-size {
+  font-size: $font-size-md;
+}
+.has-large-font-size {
+  font-size: $font-size-lg-mobile;
+
+  @media screen and ( min-width: $breakpoint-md ) {
+    font-size: $font-size-lg;
+  }
+}
+.has-huge-font-size {
+  font-size: $font-size-xl-mobile;
+
+  @media screen and ( min-width: $breakpoint-md ) {
+    font-size: $font-size-xl;
+  }
+}

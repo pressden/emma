@@ -9,3 +9,11 @@ $spacer-sm: $base-unit / 2 !default;
 $spacer-md: $base-unit !default;
 $spacer-lg: $base-unit * 2 !default;
 $spacer-xl: $base-unit * 4 !default;
+
+// Font sizes
+$font-size-sm: $font-size-base * .875 !default;
+$font-size-md: $font-size-base * 1.25 !default;
+$font-size-lg: $font-size-base * 2.25 !default;
+$font-size-lg-mobile: $font-size-base * 1.5 !default;
+$font-size-xl: $font-size-base * 3 !default;
+$font-size-xl-mobile: $font-size-base * 1.875 !default;
