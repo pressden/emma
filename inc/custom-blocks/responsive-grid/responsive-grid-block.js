@@ -27,32 +27,38 @@
 
 		attributes: {
 			minColumnWidth: {
-				type: 'string',
+        type: 'string',
+        default: 'col-md',
 			},
 			columnGap: {
-				type: 'string',
+        type: 'string',
+        default: 'col-gap-md',
 			},
 			rowGap: {
-				type: 'string',
+        type: 'string',
+        default: 'row-gap-md',
 			},
 			xPadding: {
-				type: 'string',
+        type: 'string',
+        default: 'x-padding-md',
 			},
 			xAlignment: {
-				type: 'string',
+        type: 'string',
+        default: 'x-stretch',
 			},
 			yAlignment: {
-				type: 'string',
+        type: 'string',
+        default: 'y-start',
 			},
 		},
 
     edit: function( props ) {
-			var minColumnWidth = props.attributes.minColumnWidth || "col-md"; //set to saved value if it exists, otherwise use default
-			var columnGap = props.attributes.columnGap || "col-gap-md";
-			var rowGap = props.attributes.rowGap || "row-gap-md";
-			var xPadding = props.attributes.xPadding || "x-padding-md";
-			var xAlignment = props.attributes.xAlignment || "x-stretch";
-			var yAlignment = props.attributes.yAlignment || "y-start";
+			var minColumnWidth = props.attributes.minColumnWidth;
+			var columnGap = props.attributes.columnGap;
+			var rowGap = props.attributes.rowGap;
+			var xPadding = props.attributes.xPadding;
+			var xAlignment = props.attributes.xAlignment;
+			var yAlignment = props.attributes.yAlignment;
 			var classes = props.className + " "
 									+	minColumnWidth + " "
 									+	columnGap + " "
