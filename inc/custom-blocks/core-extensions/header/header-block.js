@@ -1,9 +1,10 @@
 var el = wp.element.createElement;
 var SelectControl = wp.components.SelectControl;
+var classNames = wp.blockEditor.classNames;
 
 var updateBlock = 'core/heading';
 
-function blockSettings( props, name ) {
+function blockProps( props, name ) {
   if( updateBlock == name ){
     props.attributes.fontSize = {
       type: 'string',
@@ -12,7 +13,7 @@ function blockSettings( props, name ) {
   }
   return props;
 }
-wp.hooks.addFilter( 'blocks.registerBlockType', 'heading-block/add-font-size', blockSettings );
+wp.hooks.addFilter( 'blocks.registerBlockType', 'heading-block/add-font-size', blockProps );
 
 var blockEdit = wp.compose.createHigherOrderComponent( function( BlockEdit ) {
   return function( props ) {
@@ -31,12 +32,7 @@ var blockEdit = wp.compose.createHigherOrderComponent( function( BlockEdit ) {
 
     function onChangeFontSize( newValue ) {
       props.setAttributes( { fontSize: newValue } );
-
-      if( newValue != '' ) {
-        props.setAttributes( { className: 'has-' + newValue + '-font-size' } );
-      } else {
-        props.setAttributes( { className: '' } );
-      }
+      //alert( Object.keys( props.attributes ) );
     }
     var fontSizeControl = el(
       SelectControl, {
@@ -72,13 +68,27 @@ var blockEdit = wp.compose.createHigherOrderComponent( function( BlockEdit ) {
       }
     );
 
+    var returnBlock;
+    if( fontSize != '' ) {
+      returnBlock = el( 'div', {
+        className: 'heading-reset has-' + fontSize + '-font-size',
+      },
+        el(
+          BlockEdit,
+          props
+        ),
+      );
+    } else {
+      returnBlock = el(
+        BlockEdit,
+        props
+      );
+    }
+
     return el(
       wp.element.Fragment,
       {},
-      el(
-        BlockEdit,
-        props
-      ),
+      returnBlock,
       el(
         wp.editor.InspectorControls,
         {},
@@ -94,3 +104,19 @@ var blockEdit = wp.compose.createHigherOrderComponent( function( BlockEdit ) {
   };
 }, 'blockEdit' );
 wp.hooks.addFilter( 'editor.BlockEdit', 'core/heading', blockEdit );
+
+function blockSave( props, blockType, attributes ) {
+  if( updateBlock != blockType.name ) {
+    return props;
+  }
+  if( attributes.fontSize && attributes.fontSize != '' ) {
+    var newClass = "has-" + attributes.fontSize + "-font-size";
+    if( props.className ) {
+      props.className = classNames( props.className, newClass );
+    } else {
+      props.className = newClass;
+    }
+  }
+  return props;
+}
+wp.hooks.addFilter( 'blocks.getSaveContent.extraProps',	'editorskit/applyExtraClass',	blockSave );

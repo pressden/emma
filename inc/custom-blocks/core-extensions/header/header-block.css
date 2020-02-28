@@ -1,125 +1,104 @@
-h1.has-small-font-size {
+.heading-reset.has-small-font-size h1 {
   font-size: 13px !important;
-  font-weight: normal;
 }
-h1.has-normal-font-size {
+.heading-reset.has-normal-font-size h1 {
   font-size: 16px !important;
-  font-weight: normal;
 }
-h1.has-medium-font-size {
+.heading-reset.has-medium-font-size h1 {
   font-size: 20px !important;
-  font-weight: normal;
 }
-h1.has-large-font-size {
+.heading-reset.has-large-font-size h1 {
   font-size: 36px !important;
-  font-weight: normal;
 }
-h1.has-huge-font-size {
+.heading-reset.has-huge-font-size h1 {
   font-size: 48px !important;
-  font-weight: normal;
 }
 
-h2.has-small-font-size {
+.heading-reset.has-small-font-size h2 {
   font-size: 13px !important;
-  font-weight: normal;
 }
-h2.has-normal-font-size {
+.heading-reset.has-normal-font-size h2 {
   font-size: 16px !important;
-  font-weight: normal;
 }
-h2.has-medium-font-size {
+.heading-reset.has-medium-font-size h2 {
   font-size: 20px !important;
-  font-weight: normal;
 }
-h2.has-large-font-size {
+.heading-reset.has-large-font-size h2 {
   font-size: 36px !important;
-  font-weight: normal;
 }
-h2.has-huge-font-size {
+.heading-reset.has-huge-font-size h2 {
   font-size: 48px !important;
-  font-weight: normal;
 }
 
-h3.has-small-font-size {
+.heading-reset.has-small-font-size h3 {
   font-size: 13px !important;
-  font-weight: normal;
 }
-h3.has-normal-font-size {
+.heading-reset.has-normal-font-size h3 {
   font-size: 16px !important;
-  font-weight: normal;
 }
-h3.has-medium-font-size {
+.heading-reset.has-medium-font-size h3 {
   font-size: 20px !important;
-  font-weight: normal;
 }
-h3.has-large-font-size {
+.heading-reset.has-large-font-size h3 {
   font-size: 36px !important;
-  font-weight: normal;
 }
-h3.has-huge-font-size {
+.heading-reset.has-huge-font-size h3 {
   font-size: 48px !important;
-  font-weight: normal;
 }
 
-h4.has-small-font-size {
+.heading-reset.has-small-font-size h4 {
   font-size: 13px !important;
-  font-weight: normal;
 }
-h4.has-normal-font-size {
+.heading-reset.has-normal-font-size h4 {
   font-size: 16px !important;
-  font-weight: normal;
 }
-h4.has-medium-font-size {
+.heading-reset.has-medium-font-size h4 {
   font-size: 20px !important;
-  font-weight: normal;
 }
-h4.has-large-font-size {
+.heading-reset.has-large-font-size h4 {
   font-size: 36px !important;
-  font-weight: normal;
 }
-h4.has-huge-font-size {
+.heading-reset.has-huge-font-size h4 {
   font-size: 48px !important;
-  font-weight: normal;
 }
 
-h5.has-small-font-size {
+.heading-reset.has-small-font-size h5 {
   font-size: 13px !important;
-  font-weight: normal;
 }
-h5.has-normal-font-size {
+.heading-reset.has-normal-font-size h5 {
   font-size: 16px !important;
-  font-weight: normal;
 }
-h5.has-medium-font-size {
+.heading-reset.has-medium-font-size h5 {
   font-size: 20px !important;
-  font-weight: normal;
 }
-h5.has-large-font-size {
+.heading-reset.has-large-font-size h5 {
   font-size: 36px !important;
-  font-weight: normal;
 }
-h5.has-huge-font-size {
+.heading-reset.has-huge-font-size h5 {
   font-size: 48px !important;
-  font-weight: normal;
 }
 
-h6.has-small-font-size {
+.heading-reset.has-small-font-size h6 {
   font-size: 13px !important;
-  font-weight: normal;
 }
-h6.has-normal-font-size {
+.heading-reset.has-normal-font-size h6 {
   font-size: 16px !important;
-  font-weight: normal;
 }
-h6.has-medium-font-size {
+.heading-reset.has-medium-font-size h6 {
   font-size: 20px !important;
-  font-weight: normal;
 }
-h6.has-large-font-size {
+.heading-reset.has-large-font-size h6 {
   font-size: 36px !important;
-  font-weight: normal;
 }
-h6.has-huge-font-size {
+.heading-reset.has-huge-font-size h6 {
   font-size: 48px !important;
+}
+
+.heading-reset h1,
+.heading-reset h2,
+.heading-reset h3,
+.heading-reset h4,
+.heading-reset h5,
+.heading-reset h6 {
   font-weight: normal;
 }
