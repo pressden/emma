@@ -112,7 +112,7 @@ function blockSave( props, blockType, attributes ) {
   if( attributes.fontSize && attributes.fontSize != '' ) {
     var newClass = "has-" + attributes.fontSize + "-font-size";
     if( props.className ) {
-      props.className = classNames( props.className, newClass );
+      props.className += " " + newClass;
     } else {
       props.className = newClass;
     }
