@@ -5,11 +5,11 @@
       if (tracker) {
         var href = event.target.href;
         if( href.substring( 0, 4 ) == 'tel:' ) {
-          tracker.send( 'event', 'Contact', 'Phone Call Link', href.substring( 4 ) );
+          tracker.send( 'event', 'Contact', 'Phone Number Click', href.substring( 4 ) );
         }
 
         if( href.substring( 0, 7 ) == 'mailto:' ) {
-          tracker.send( 'event', 'Contact', 'Email Link', href.substring( 7 ) );
+          tracker.send( 'event', 'Contact', 'Email Click', href.substring( 7 ) );
         }
 
         if( href.substring( href.length - 4 ) == '.pdf' ) {
