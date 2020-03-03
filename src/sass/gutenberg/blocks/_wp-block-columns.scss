@@ -5,9 +5,6 @@
 }
 
 .wp-block-column {
-  padding-left: $spacer;
-  padding-right: $spacer;
-
   @media screen and ( min-width: $breakpoint-sm ) {
     flex-basis: 50%;
 

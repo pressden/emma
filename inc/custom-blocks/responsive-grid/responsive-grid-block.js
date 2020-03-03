@@ -40,7 +40,7 @@
 			},
 			xPadding: {
         type: 'string',
-        default: 'x-padding-md',
+        default: 'x-padding-none',
 			},
 			xAlignment: {
         type: 'string',

@@ -22,3 +22,47 @@
 .link-extend {
   cursor: pointer;
 }
+
+@each $name, $size in $spacer-sizes {
+  .py-#{$name} {
+    padding-top: #{$size};
+    padding-bottom: #{$size};
+  }
+  .px-#{$name} {
+    padding-left: #{$size};
+    padding-right: #{$size};
+  }
+  .pt-#{$name} {
+    padding-top: #{$size};
+  }
+  .pb-#{$name} {
+    padding-bottom: #{$size};
+  }
+  .pl-#{$name} {
+    padding-left: #{$size};
+  }
+  .pr-#{$name} {
+    padding-right: #{$size};
+  }
+
+  .my-#{$name} {
+    margin-top: #{$size};
+    margin-bottom: #{$size};
+  }
+  .mx-#{$name} {
+    margin-left: #{$size};
+    margin-right: #{$size};
+  }
+  .mt-#{$name} {
+    margin-top: #{$size};
+  }
+  .mb-#{$name} {
+    margin-bottom: #{$size};
+  }
+  .ml-#{$name} {
+    margin-left: #{$size};
+  }
+  .mr-#{$name} {
+    margin-right: #{$size};
+  }
+}
