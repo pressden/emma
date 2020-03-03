@@ -63,15 +63,63 @@
 // @TODO: BEGIN Convert to SASS variables
 .entry-content {
   > * {
-    margin: 2rem auto;
+    margin-top: $spacer-lg;
+    margin-bottom: $spacer-lg;
+    margin-left: auto;
+    margin-right: auto;
     max-width: $content-max-width;
-    padding-left: $content-padding-x;
-    padding-right: $content-padding-x;
+
+    &:not(.alignfull):not(.has-background) {
+      width: calc( 100% - #{$content-padding-x} * 2 );
+    }
+
+    &.wp-block-columns:not(.alignfull) {
+      max-width: calc( #{$content-max-width} + #{$spacer} * 2 );
+      width: 100%;
+
+      &.alignwide {
+        max-width: calc( #{$content-max-alignwide-width} + #{$spacer} * 2 );
+      }
+    }
+  }
+
+  > .has-background,
+  > .wp-block-cover {
+    [class *= "__inner-container"] {
+      padding-top: $spacer-lg;
+      padding-bottom: $spacer-lg;
+    }
   }
 
   > ul:not(.wp-block-gallery),
   > ol {
     padding-left: 4rem;
+  }
+}
+
+[class *= "__inner-container"],
+.wp-block-column {
+  padding-left: $content-padding-x;
+  padding-right: $content-padding-x;
+
+  :not( .has-background ) > [class *= "__inner-container"] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .has-background {
+    margin-bottom: $spacer;
+
+    [class *= "__inner-container"] {
+      padding-top: $content-padding-x;
+      padding-bottom: $content-padding-x;
+    }
+  }
+
+  > * {
+    max-width: $content-max-width;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

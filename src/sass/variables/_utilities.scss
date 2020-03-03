@@ -10,6 +10,15 @@ $spacer-md: $base-unit !default;
 $spacer-lg: $base-unit * 2 !default;
 $spacer-xl: $base-unit * 4 !default;
 
+$spacer-sizes: (
+  'none': 0,
+  'xs': $spacer-xs,
+  'sm': $spacer-sm,
+  'md': $spacer-md,
+  'lg': $spacer-lg,
+  'xl': $spacer-xl
+);
+
 // Font sizes
 $font-size-sm: $font-size-base * .875 !default;
 $font-size-md: $font-size-base * 1.25 !default;

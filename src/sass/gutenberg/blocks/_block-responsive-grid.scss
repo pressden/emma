@@ -1,12 +1,3 @@
-$spacer-sizes: (
-  'none': 0,
-  'xs': $spacer-xs,
-  'sm': $spacer-sm,
-  'md': $spacer,
-  'lg': $spacer-lg,
-  'xl': $spacer-xl
-);
-
 $column-sizes: (
   'xs': 100px,
   'sm': 150px,
@@ -81,5 +72,11 @@ $alignments: (
 
   .responsive-grid__inner-container {
     display: grid;
+  }
+}
+
+.wp-block-emma-grid-cell {
+  > :last-child() {
+    margin-bottom: 0;
   }
 }
