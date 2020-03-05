@@ -26,7 +26,13 @@ module.exports = {
                 source maps must be enabled on any preceding loader */
             loader: 'sass-loader?sourceMap' }
         ]
-      }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          'file-loader',
+        ],
+      },
     ]
   }
 }
