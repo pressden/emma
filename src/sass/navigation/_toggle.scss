@@ -10,7 +10,9 @@
     height: $menu-icon-size;
     @include font-size($menu-icon-size);
   }
+}
 
+.menu-opener {
   @if $enable-responsive-toggle {
     @media screen and (min-width: $menu-breakpoint) {
       display: none;
