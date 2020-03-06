@@ -496,6 +496,6 @@ if ( class_exists( 'WooCommerce' ) ) {
  * Enqueue Ninja Forms Google Analytics submission event scripts when form is rendered
  */
 function emma_ninja_forms() {
-  wp_enqueue_script( 'emma-ninja-forms', get_template_directory_uri() . '/src/ninja-forms.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
+  wp_enqueue_script( 'emma-ninja-forms', get_template_directory_uri() . '/src/js/ninja-forms.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
 }
 add_action( 'ninja_forms_enqueue_scripts', 'emma_ninja_forms', 10, 2 );
