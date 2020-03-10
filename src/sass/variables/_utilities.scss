@@ -11,7 +11,7 @@ $spacer-lg: $base-unit * 2 !default;
 $spacer-xl: $base-unit * 4 !default;
 
 $spacer-sizes: (
-  'none': 0,
+  '0': 0,
   'xs': $spacer-xs,
   'sm': $spacer-sm,
   'md': $spacer-md,
