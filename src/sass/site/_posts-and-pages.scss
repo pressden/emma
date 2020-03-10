@@ -90,6 +90,11 @@
   }
 }
 
+.wp-block-group.has-background {
+  padding-top: $content-padding-x;
+  padding-bottom: $content-padding-x;
+}
+
 [class *= "__inner-container"] {
   padding-left: $content-padding-x;
   padding-right: $content-padding-x;
@@ -100,11 +105,6 @@
   :not( .has-background ) > [class *= "__inner-container"] {
     padding-left: 0;
     padding-right: 0;
-  }
-
-  .wp-block-group.has-background {
-    padding-top: $content-padding-x;
-    padding-bottom: $content-padding-x;
   }
 
   > * {
