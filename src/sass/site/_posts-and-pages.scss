@@ -78,7 +78,7 @@
     }
   }
 
-  > .has-background,
+  > .wp-block-group.has-background,
   > .wp-block-cover {
       padding-top: $spacer-lg;
       padding-bottom: $spacer-lg;
@@ -102,7 +102,7 @@
     padding-right: 0;
   }
 
-  .has-background {
+  .wp-block-group.has-background {
     margin-bottom: $spacer;
     padding-top: $content-padding-x;
     padding-bottom: $content-padding-x;
