@@ -61,6 +61,11 @@
     }
   }
 
+  .button {
+    display: flex;
+    justify-content: center;
+  }
+
   .admin-bar & {
     top: $admin-bar-mobile-height;
 

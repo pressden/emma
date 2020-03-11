@@ -4,5 +4,11 @@
       flex-basis: 50%;
       margin-left: 0;
     }
+
+    @media screen and ( max-width: 599px ) { // matches gutenberg breakpoint for columns
+      &:not( :last-child() ) {
+        margin-bottom: $spacer;
+      }
+    }
   }
 }

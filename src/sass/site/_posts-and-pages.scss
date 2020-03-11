@@ -67,6 +67,10 @@
   &.alignwide {
     max-width: calc( #{$content-max-alignwide-width} + #{$content-padding-x} * 2 );
   }
+
+  &.alignfull {
+    max-width: 100%;
+  }
 }
 
 .entry-content,
