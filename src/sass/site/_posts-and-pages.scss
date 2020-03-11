@@ -108,7 +108,8 @@
   }
 }
 
-[class *= "__inner-container"] {
+[class *= "__inner-container"],
+.wp-block-column {
   > * {
     max-width: $content-max-width;
     margin-left: auto;
