@@ -95,10 +95,7 @@
 .wp-block-group.has-background {
   padding-top: $content-padding-x;
   padding-bottom: $content-padding-x;
-}
 
-.entry-content > .wp-block-group,
-.wp-block-group.has-background {
   > .wp-block-group__inner-container {
     > * {
       width: calc( 100% - #{$content-padding-x} * 2 );
