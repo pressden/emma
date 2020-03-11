@@ -38,10 +38,6 @@
         type: 'string',
         default: 'row-gap-md',
 			},
-			xPadding: {
-        type: 'string',
-        default: 'x-padding-none',
-			},
 			xAlignment: {
         type: 'string',
         default: 'x-stretch',
@@ -56,14 +52,12 @@
 			var minColumnWidth = props.attributes.minColumnWidth;
 			var columnGap = props.attributes.columnGap;
 			var rowGap = props.attributes.rowGap;
-			var xPadding = props.attributes.xPadding;
 			var xAlignment = props.attributes.xAlignment;
 			var yAlignment = props.attributes.yAlignment;
 			var classes = props.className + " "
 									+	minColumnWidth + " "
 									+	columnGap + " "
 									+	rowGap + " "
-									+	xPadding + " "
 									+	xAlignment + " "
 									+	yAlignment;
 
@@ -75,9 +69,6 @@
 			}
 			function onChangeRowGap( newValue ) {
 				props.setAttributes( { rowGap: newValue } );
-			}
-			function onChangeXPadding( newValue ) {
-				props.setAttributes( { xPadding: newValue } );
 			}
 			function onChangeXAlignment( newValue ) {
 				props.setAttributes( { xAlignment: newValue } );
@@ -248,41 +239,6 @@
                   onChange: onChangeYAlignment
                 }
               ),
-              el(
-                SelectControl,
-                {
-                  label: 'Left and Right Padding',
-                  help: 'This value affects how much horizontal padding exists on the outside of the grid, and will only be apparent on the frontend. Set this to "None" and alignment to "Full Width" for a true edge-to-edge grid',
-                  value: xPadding,
-                  options: [
-                    {
-                      value: 'x-padding-none',
-                      label: 'None'
-                    },
-                    {
-                      value: 'x-padding-xs',
-                      label: 'Extra Small'
-                    },
-                    {
-                      value: 'x-padding-sm',
-                      label: 'Small'
-                    },
-                    {
-                      value: 'x-padding-md',
-                      label: 'Medium'
-                    },
-                    {
-                      value: 'x-padding-lg',
-                      label: 'Large'
-                    },
-                    {
-                      value: 'x-padding-xl',
-                      label: 'Extra Large'
-                    }
-                  ],
-                  onChange: onChangeXPadding
-                }
-              ),
             ),
           ),
           el(
@@ -300,7 +256,6 @@
                   +	props.attributes.minColumnWidth + " "
                   +	props.attributes.columnGap + " "
                   +	props.attributes.rowGap + " "
-                  +	props.attributes.xPadding + " "
                   +	props.attributes.xAlignment + " "
                   +	props.attributes.yAlignment;
       return (
