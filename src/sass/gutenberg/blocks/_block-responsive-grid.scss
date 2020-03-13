@@ -27,11 +27,6 @@ $alignments: (
         row-gap: $size;
       }
     }
-
-    &.x-padding-#{$name} {
-      padding-left: $size;
-      padding-right: $size;
-    }
   }
 
   @each $name, $size in $column-sizes {
