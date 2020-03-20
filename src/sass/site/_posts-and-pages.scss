@@ -83,6 +83,10 @@
       &:last-child() {
         margin-bottom: 0;
       }
+
+      &:only-child() {
+        height: 100%;
+      }
     }
   }
 }
