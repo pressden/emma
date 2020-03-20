@@ -77,7 +77,7 @@
       width: 100%;
     }
 
-    > .wp-block-group.has-background {
+    &.wp-block-group.has-background {
       width: calc( 100% - #{$content-padding-x} * 2 );
 
       &:last-child() {
