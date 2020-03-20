@@ -83,10 +83,15 @@
       &:last-child() {
         margin-bottom: 0;
       }
+    }
+  }
+}
 
-      &:only-child() {
-        height: 100%;
-      }
+.wp-block-column,
+.wp-block-emma-grid-cell {
+  > .wp-block-group.has-background {
+    &:only-child() {
+      height: 100%;
     }
   }
 }
