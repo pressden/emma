@@ -44,7 +44,7 @@
 			},
 			yAlignment: {
         type: 'string',
-        default: 'y-start',
+        default: 'y-stretch',
 			},
 		},
 
