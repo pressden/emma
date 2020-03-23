@@ -11,6 +11,8 @@
 	var InspectorControls = wp.blockEditor.InspectorControls;
 	var PanelBody = wp.components.PanelBody;
   var SelectControl = wp.components.SelectControl;
+  var ToggleControl = wp.components.ToggleControl;
+  var Disabled = wp.components.Disabled;
 
   registerBlockType( 'emma/responsive-grid', {
     title: 'Responsive Grid',
@@ -46,6 +48,10 @@
         type: 'string',
         default: 'y-stretch',
 			},
+			imageFill: {
+        type: 'boolean',
+        default: true,
+      },
 		},
 
     edit: function( props ) {
@@ -53,13 +59,29 @@
 			var columnGap = props.attributes.columnGap;
 			var rowGap = props.attributes.rowGap;
 			var xAlignment = props.attributes.xAlignment;
-			var yAlignment = props.attributes.yAlignment;
+      var yAlignment = props.attributes.yAlignment;
+      var imageFill = props.attributes.imageFill;
 			var classes = props.className + " "
 									+	minColumnWidth + " "
 									+	columnGap + " "
 									+	rowGap + " "
 									+	xAlignment + " "
-									+	yAlignment;
+                  +	yAlignment;
+
+      /**
+       * Wraps a form control in a Disabled element
+       * use the following format: `controlVariable = disableControl( controlVariable );`
+       * @param control
+       */
+      function disableControl( control ) {
+        var disabledControl = el(
+          Disabled,
+          {},
+          control
+        );
+
+        return disabledControl;
+      }
 
       function onChangeMinColumnWidth( newValue ) {
 				props.setAttributes( { minColumnWidth: newValue } );
@@ -75,7 +97,23 @@
 			}
 			function onChangeYAlignment( newValue ) {
 				props.setAttributes( { yAlignment: newValue } );
-			}
+      }
+			function onChangeImageFill( newValue ) {
+				props.setAttributes( { imageFill: newValue } );
+      }
+
+      var imageFillControl = el(
+        ToggleControl,
+        {
+          label: 'Image Fill',
+          help: 'Extends images in the cell to cover any spare vertical space. Images will be horizontally-cropped as-needed to maintain aspect ratio. Requires Vertical Alignment to be set to Stretch',
+          checked: imageFill,
+          onChange: onChangeImageFill
+        }
+      );
+      if( yAlignment != 'y-stretch' ) {
+        imageFillControl = disableControl( imageFillControl );
+      }
 
       return (
         el(
@@ -239,6 +277,7 @@
                   onChange: onChangeYAlignment
                 }
               ),
+              imageFillControl,
             ),
           ),
           el(
@@ -252,12 +291,12 @@
     },
 
     save: function( props ) {
-      var classes = props.className + " "
-                  +	props.attributes.minColumnWidth + " "
+      var classes = props.attributes.minColumnWidth + " "
                   +	props.attributes.columnGap + " "
                   +	props.attributes.rowGap + " "
                   +	props.attributes.xAlignment + " "
-                  +	props.attributes.yAlignment;
+                  +	props.attributes.yAlignment + " "
+                  +	( props.attributes.imageFill && props.attributes.yAlignment == 'y-stretch' ? 'image-fill' : '' );
       return (
         el('div', { className: classes },
           el('div', { className: 'responsive-grid__inner-container' },
@@ -412,9 +451,8 @@
         yAlignment = " " + props.attributes.yAlignment;
       }
 
-      var classes = props.className + " "
-      +	xAlignment + " "
-      +	yAlignment;
+      var classes = xAlignment + " "
+                    +	yAlignment;
 
       return (
         el( 'div', { className: classes },

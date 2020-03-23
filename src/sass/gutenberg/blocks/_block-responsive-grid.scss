@@ -74,4 +74,20 @@ $alignments: (
   > :last-child() {
     margin-bottom: 0;
   }
+
+  .image-fill & {
+    display: flex;
+    flex-direction: column;
+
+    figure {
+      flex-grow: 1;
+
+      img,
+      video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
 }

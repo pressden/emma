@@ -18,24 +18,6 @@
   text-transform: lowercase;
 }
 
-// object fit utilities
-.object-fit-cover {
-  height: 100%;
-  width: 100%;
-
-  * {
-    height: 100%;
-    width: 100%;
-  }
-
-  &img,
-  img,
-  &video,
-  video {
-    object-fit: cover;
-  }
-}
-
 // link utilities
 .link-extend {
   cursor: pointer;
