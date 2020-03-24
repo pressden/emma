@@ -4,13 +4,11 @@
     padding: $main-navigation-wrap-padding-y $main-navigation-wrap-padding-x;
   }
 
-  .menu-container {
-    .menu {
-      display: none;
+  .main-navigation {
+    display: none;
 
-      @media screen and (min-width: $menu-breakpoint) {
-        display: flex;
-      }
+    @media screen and (min-width: $menu-breakpoint) {
+      display: flex;
     }
   }
 }
