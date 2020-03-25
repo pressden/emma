@@ -376,6 +376,7 @@
       var bulletNav = "";
       var slideCount = a.slideCount;
       if( a.controlNav == 'dots' ) {
+        wrapperClasses += ' dot-nav';
         var bullets = [];
         for( let i = 0; i < slideCount; i++ ) {
           bullets.push(
@@ -547,7 +548,7 @@
 
     save: function( props ) {
       return (
-        el( 'li', { className: props.className + " glide__slide", 'data-thumb': props.attributes.thumbnailURL },
+        el( 'li', { className: "glide__slide", 'data-thumb': props.attributes.thumbnailURL },
           el( InnerBlocks.Content, null )
         )
       );
