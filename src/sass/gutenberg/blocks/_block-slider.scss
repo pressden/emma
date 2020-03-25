@@ -19,11 +19,15 @@
   }
 }
 
+.wp-block-emma-slider {
   .glide__slide {
+    height: unset;
+
     > *:last-of-type() {
       margin-bottom: 0;
     }
   }
+}
 
 .glide-control {
   position: absolute;
