@@ -33,7 +33,7 @@ $button-colors: (
 );
 
 @each $name, $color in $button-colors {
-	.has-#{$name}-background-color,
+	.wp-block-button__link.has-#{$name}-background-color,
 	.button-#{$name} {
 		@include button-color( $color );
 	}
