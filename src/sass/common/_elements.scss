@@ -17,6 +17,10 @@ dl,
 pre {
 	&:last-child() {
     margin-bottom: 0;
+
+    .entry-content > & {
+      margin-bottom: $spacer-lg;
+    }
   }
 }
 
