@@ -2,18 +2,21 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"],
-a.button {
+a.button,
+.menu-container ul li.button > a,
+.wp-block-button__link {
 	@include button;
 	@include button-color;
+}
+
+.wp-block-button__link {
+	padding: $button-block-padding;
 }
 
 .menu-container {
 	ul {
 		li.button {
-			a {
-				@include button;
-				@include button-color;
-
+			> a {
 				padding: $menu-sub-link-padding-y $menu-sub-link-padding-x;
 			}
 		}

@@ -1,5 +1,6 @@
 // Buttons
 $button-padding: $spacer-xs $spacer-sm !default;
+$button-block-padding: 12px 24px !default;
 $button-border-radius: 3px !default;
 $button-hover-filter-effect: saturate( 0.7 ) !default;
 $button-focus-box-shadow: 0 0 0 2px rgba( $black, .4 );
