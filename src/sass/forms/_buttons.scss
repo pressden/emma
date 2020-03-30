@@ -23,16 +23,7 @@ a.button,
 	}
 }
 
-$button-colors: (
-	'primary': $primary,
-	'primary-support': $primary-support,
-	'secondary': $secondary,
-	'secondary-support': $secondary-support,
-	'action': $action,
-	'accent': $accent,
-);
-
-@each $name, $color in $button-colors {
+@each $name, $color in $limited-palette {
 	.wp-block-button__link.has-#{$name}-background-color,
 	.button-#{$name} {
 		@include button-color( $color );
