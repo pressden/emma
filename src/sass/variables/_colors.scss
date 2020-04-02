@@ -21,7 +21,6 @@ $editor-palette: map-merge(
     'accent': $accent,
     'info': $info,
     'success': $success,
-    'notice': $notice,
     'warning': $warning,
     'danger': $danger,
     'white': $white,
@@ -32,15 +31,6 @@ $editor-palette: map-merge(
     'black': $black,
   ),
   $editor-palette
-);
-
-$limited-palette: (
-	'primary': $primary,
-	'primary-support': $primary-support,
-	'secondary': $secondary,
-	'secondary-support': $secondary-support,
-	'action': $action,
-  'accent': $accent,
 );
 
 $screen-color: #21759b !default;

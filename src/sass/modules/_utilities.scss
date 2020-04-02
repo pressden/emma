@@ -117,7 +117,7 @@ $border-locations: (
   }
 }
 
-@each $name, $color in $limited-palette {
+@each $name, $color in $editor-palette {
 	.b-#{$name} {
     border-color: $color;
 	}

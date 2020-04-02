@@ -23,7 +23,7 @@ a.button,
 	}
 }
 
-@each $name, $color in $limited-palette {
+@each $name, $color in $editor-palette {
 	.wp-block-button__link.has-#{$name}-background-color,
 	.button-#{$name} {
 		@include button-color( $color );

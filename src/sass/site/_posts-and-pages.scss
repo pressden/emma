@@ -73,10 +73,6 @@
     width: calc( 100% - #{$content-padding-x} * 2 );
     margin-bottom: $spacer;
 
-    &:last-child() {
-      margin-bottom: 0;
-    }
-
     &.alignfull,
     &.wp-block-group,
     &.wp-block-columns {
@@ -93,6 +89,14 @@
         }
       }
     }
+  }
+}
+
+.wp-block-column,
+.wp-block-cover__inner-container,
+.wp-block-group__inner-container {
+  >:last-child() {
+    margin-bottom: 0;
   }
 }
 

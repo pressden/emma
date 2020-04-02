@@ -122,42 +122,22 @@ function emma_editor_color_palette() {
     'primary-support' => array(
       'name'  => __( 'Primary support', 'emma' ),
       'slug'  => 'primary-support',
-      'color'	=> '#00a0d2',
+      'color'	=> '#D4F9F8',
     ),
     'secondary' => array(
       'name'  => __( 'Secondary', 'emma' ),
       'slug'  => 'secondary',
-      'color' => '#23282d',
+      'color' => '#663F46',
     ),
     'secondary-support' => array(
       'name'  => __( 'Secondary support', 'emma' ),
       'slug'  => 'secondary-support',
-      'color' => '#a0a5aa',
+      'color' => '#B8D8D8',
     ),
     'accent' => array(
       'name'  => __( 'Accent', 'emma' ),
       'slug'  => 'accent',
-      'color'	=> '#826eb4',
-    ),
-    'notice' => array(
-      'name'  => __( 'Notice', 'emma' ),
-      'slug'  => 'notice',
-      'color'	=> '#ffb900',
-    ),
-    'warning' => array(
-      'name'  => __( 'Warning', 'emma' ),
-      'slug'  => 'warning',
-      'color'	=> '#f56e28',
-    ),
-    'success' => array(
-      'name'  => __( 'Success', 'emma' ),
-      'slug'  => 'success',
-      'color'	=> '#46b450',
-    ),
-    'error' => array(
-      'name'  => __( 'Error', 'emma' ),
-      'slug'  => 'error',
-      'color'	=> '#dc3232',
+      'color'	=> '#D34E24',
     ),
     'white' => array(
       'name'  => __( 'White', 'emma' ),
@@ -188,6 +168,21 @@ function emma_editor_color_palette() {
       'name'  => __( 'Black', 'emma' ),
       'slug'  => 'black',
       'color'	=> '#000',
+    ),
+    'success' => array(
+      'name'  => __( 'Success', 'emma' ),
+      'slug'  => 'success',
+      'color'	=> '#46b450',
+    ),
+    'warning' => array(
+      'name'  => __( 'Warning', 'emma' ),
+      'slug'  => 'warning',
+      'color'	=> '#f56e28',
+    ),
+    'danger' => array(
+      'name'  => __( 'Danger', 'emma' ),
+      'slug'  => 'danger',
+      'color'	=> '#dc3232',
     ),
   );
 
