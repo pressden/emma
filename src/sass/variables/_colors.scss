@@ -51,6 +51,8 @@ $menu-sub-link-hover-color: $menu-link-hover-color !default;
 $menu-sub-background-color: $white !default;
 
 $utility-bar-background-color: $primary-support !default;
+$utility-bar-link-color: color-yiq($utility-bar-background-color);
+$utility-bar-link-hover-color: darken($utility-bar-link-color, 15);
 
 $header-background-color: rgba(255, 255,255, .95) !default;
 
