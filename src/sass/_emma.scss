@@ -1,13 +1,20 @@
 /*--------------------------------------------------------------
+# Bootstrap Functions (vendor/bootstrap/bootstrap-reboot.scss)
+--------------------------------------------------------------*/
+@import "vendor/bootstrap/_functions.scss";
+
+/*--------------------------------------------------------------
 # Variables
 --------------------------------------------------------------*/
 @import "variables/variables";
 @import "mixins/mixins";
 
 /*--------------------------------------------------------------
-# Bootstrap Reboot
+# Bootstrap Reboot (vendor/bootstrap/bootstrap-reboot.scss)
 --------------------------------------------------------------*/
-@import "vendor/bootstrap/bootstrap-reboot.scss";
+@import "vendor/bootstrap/_variables.scss";
+@import "vendor/bootstrap/_mixins.scss";
+@import "vendor/bootstrap/_reboot.scss";
 
 /*--------------------------------------------------------------
 # Functions
