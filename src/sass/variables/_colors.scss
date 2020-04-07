@@ -10,6 +10,11 @@ $gray-800: #393939 !default;
 $gray-900: #242424 !default;
 $black: #000 !default;
 
+// YIQ (variables required by `color_yiq`: https://getbootstrap.com/docs/4.0/getting-started/theming/#color-contrast)
+$yiq-contrasted-threshold: 150 !default;
+$yiq-text-dark: $gray-900 !default;
+$yiq-text-light: $white !default;
+
 $editor-palette: () !default;
 $editor-palette: map-merge(
   (
