@@ -1,0 +1,13 @@
+.utility-bar {
+  .menu-container {
+    .menu {
+      a {
+        color: $utility-bar-link-color;
+
+        &:hover {
+          color: $utility-bar-link-hover-color;
+        }
+      }
+    }
+  }
+}
