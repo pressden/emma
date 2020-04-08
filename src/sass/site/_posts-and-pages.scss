@@ -63,7 +63,6 @@
 }
 
 .entry-content,
-.wp-block-column,
 .wp-block-cover__inner-container,
 .wp-block-group__inner-container {
   > * {
@@ -74,8 +73,7 @@
     margin-bottom: $spacer;
 
     &.alignfull,
-    &.wp-block-group,
-    &.wp-block-columns {
+    &.wp-block-group {
       width: 100%;
     }
 
@@ -112,7 +110,6 @@
   }
 }
 
-.wp-block-columns,
 .wp-block-group:not( .has-background ):not( .border ) {
   max-width: calc( #{$content-max-width} + #{$content-padding-x} * 2 );
 
