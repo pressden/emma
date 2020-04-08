@@ -71,22 +71,12 @@
     max-width: $content-max-width;
     width: calc( 100% - #{$content-padding-x} * 2 );
     margin-bottom: $spacer;
+  }
+}
 
-    &.alignfull,
-    &.wp-block-group {
-      width: 100%;
-    }
-
-    &.wp-block-group {
-      &.has-background,
-      &.border {
-        width: calc( 100% - #{$content-padding-x} * 2 );
-
-        &.alignfull {
-          width: 100%;
-        }
-      }
-    }
+.wp-block-group:not( .has-background ):not( .border ) > .wp-block-group__inner-container {
+  > * {
+    width: 100%;
   }
 }
 
@@ -107,18 +97,6 @@
         height: 100%;
       }
     }
-  }
-}
-
-.wp-block-group:not( .has-background ):not( .border ) {
-  max-width: calc( #{$content-max-width} + #{$content-padding-x} * 2 );
-
-  &.alignwide {
-    max-width: calc( #{$content-max-alignwide-width} + #{$content-padding-x} * 2 );
-  }
-
-  &.alignfull {
-    max-width: 100%;
   }
 }
 
