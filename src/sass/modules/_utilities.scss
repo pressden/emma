@@ -25,6 +25,9 @@
 
 // spacing utilities
 @each $name, $size in $spacer-sizes {
+  .p-#{$name} {
+    padding: #{$size} !important;
+  }
   .py-#{$name} {
     padding-top: #{$size} !important;
     padding-bottom: #{$size} !important;
@@ -46,6 +49,9 @@
     padding-right: #{$size} !important;
   }
 
+  .m-#{$name} {
+    margin: #{$size} !important;
+  }
   .my-#{$name} {
     margin-top: #{$size} !important;
     margin-bottom: #{$size} !important;
