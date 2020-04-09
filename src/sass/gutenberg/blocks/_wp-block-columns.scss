@@ -2,18 +2,29 @@ $two-columns-breakpoint: 600px;
 $full-columns-breakpoint: 782px;
 
 .wp-block-columns {
-  margin-top: -$spacer;
   justify-content: center;
 
   .wp-block-column {
-    margin-top: $spacer;
+    margin-bottom: $spacer;
+
+    &:last-of-type() {
+      margin-bottom: 0;
+    }
+
+    @media screen and ( min-width: $two-columns-breakpoint ) {
+      &:nth-last-child( 2 ):nth-child( odd ) {
+        margin-bottom: 0;
+      }
+    }
+
+    @media screen and ( min-width: $full-columns-breakpoint ) {
+      margin-bottom: 0;
+    }
   }
 
   &.rg-0 {
-    margin-top: 0;
-
     .wp-block-column {
-      margin-top: 0 !important;
+      margin-bottom: 0 !important;
     }
   }
 
