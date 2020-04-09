@@ -75,8 +75,7 @@
 }
 
 .entry-content,
-.wp-block-cover__inner-container,
-.wp-block-group__inner-container {
+.wp-block-cover__inner-container {
   > * {
     width: calc( 100% - #{$content-padding-x} * 2 );
   }
