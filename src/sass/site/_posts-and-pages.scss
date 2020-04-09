@@ -64,24 +64,29 @@
 
 .entry-content,
 .wp-block-cover__inner-container,
-.wp-block-group__inner-container {
+.wp-block-group__inner-container,
+.wp-block-column {
   > * {
     margin-left: auto;
     margin-right: auto;
     max-width: $content-max-width;
-    width: calc( 100% - #{$content-padding-x} * 2 );
     margin-bottom: $spacer;
-
-    &.alignfull {
-      width: 100%;
-    }
   }
 }
 
-.wp-block-group:not( .has-background ):not( .border ) {
+.entry-content,
+.wp-block-cover__inner-container,
+.wp-block-group__inner-container {
+  > * {
+    width: calc( 100% - #{$content-padding-x} * 2 );
+  }
+}
+
+.wp-block-group.has-background,
+.wp-block-group.border {
   > .wp-block-group__inner-container {
     > * {
-      width: 100%;
+      width: calc( 100% - #{$content-padding-x} * 2 );
     }
   }
 }
