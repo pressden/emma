@@ -33,7 +33,7 @@ get_header();
           emma_pagination();
           ?>
 
-        </div>
+        </div><!-- .entry-content -->
 
       <?php else : ?>
 
