@@ -10,39 +10,39 @@
 get_header();
 ?>
 
-<div id="primary" class="content-area">
-  <main id="main" class="site-main">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main">
 
-    <?php if ( have_posts() ) : ?>
-      <header class="entry-header">
-        <div class="wrap">
-          <h1 class="entry-title">Search Results</h1>
-        </div><!-- .wrap -->
-      </header><!-- .entry-header -->
+      <?php if ( have_posts() ) : ?>
+        <header class="entry-header">
+          <div class="wrap">
+            <h1 class="entry-title">Search Results</h1>
+          </div><!-- .wrap -->
+        </header><!-- .entry-header -->
 
-      <div class="entry-content">
-        <?php echo get_search_form(); ?>
+        <div class="entry-content">
+          <?php echo get_search_form(); ?>
 
-        <?php
-        /* Start the Loop */
-        while ( have_posts() ) :
-          the_post();
-          get_template_part( 'template-parts/content', 'search' );
-        endwhile;
+          <?php
+          /* Start the Loop */
+          while ( have_posts() ) :
+            the_post();
+            get_template_part( 'template-parts/content', 'search' );
+          endwhile;
 
-        emma_pagination();
-        ?>
+          emma_pagination();
+          ?>
 
-      </div>
+        </div>
 
-    <?php else : ?>
+      <?php else : ?>
 
-      <?php get_template_part( 'template-parts/content', 'none' ); ?>
+        <?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-    <?php endif; ?>
+      <?php endif; ?>
 
-  </main><!-- #main -->
-</div><!-- #primary -->
+    </main><!-- #main -->
+  </div><!-- #primary -->
 
 <?php
 get_sidebar();
