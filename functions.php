@@ -297,21 +297,7 @@ add_action( 'wp_enqueue_scripts', 'emma_register_jquery' );
 function emma_require_fieldmanager() {
   require get_template_directory() . '/inc/vendor/wordpress-fieldmanager/fieldmanager.php';
 }
-//add_action( 'after_setup_theme', 'emma_require_fieldmanager' );
-
-/*
-function emma_fm_filter_scripts( $content ) {
-  var_dump( $content );
-  die();
-}
-add_filter( 'emma_fm_filter_scripts', 'fm_enqueue_scripts' );
-
-function emma_fm_filter_styles( $content ) {
-  var_dump( $content );
-  die();
-}
-add_filter( 'emma_fm_filter_styles', 'fm_enqueue_scripts' );
-*/
+add_action( 'after_setup_theme', 'emma_require_fieldmanager' );
 
 /**
  * Optimize WordPress by removing unused features.
