@@ -292,14 +292,17 @@ function emma_register_jquery() {
 add_action( 'wp_enqueue_scripts', 'emma_register_jquery' );
 
 /**
+ * Require WordPress Fieldmanager
+ */
+function emma_require_fieldmanager() {
+  require get_template_directory() . '/inc/vendor/wordpress-fieldmanager/fieldmanager.php';
+}
+add_action( 'after_setup_theme', 'emma_require_fieldmanager' );
+
+/**
  * Optimize WordPress by removing unused features.
  */
 require get_template_directory() . '/inc/optimize.php';
-
-/**
- * Load WordPress Fieldmanager
- */
-require get_template_directory() . '/inc/vendor/wordpress-fieldmanager/fieldmanager.php';
 
 /**
  * Implement the Custom Header feature.
