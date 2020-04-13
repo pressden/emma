@@ -519,7 +519,7 @@ function emma_enqueue_woocommerce_scripts() {
 /**
  * Enqueue Ninja Forms Google Analytics submission event scripts when form is rendered
  */
-function emma_ninja_forms() {
+function emma_enqueue_ninja_forms_scripts() {
   wp_enqueue_script( 'emma-ninja-forms', get_template_directory_uri() . '/src/js/ninja-forms.js', array( 'jquery' ), wp_get_theme()->get( 'Version' ), true );
 }
-add_action( 'ninja_forms_enqueue_scripts', 'emma_ninja_forms', 10, 2 );
+add_action( 'ninja_forms_enqueue_scripts', 'emma_enqueue_ninja_forms_scripts', 10, 2 );
