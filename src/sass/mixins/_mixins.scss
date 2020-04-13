@@ -79,7 +79,7 @@
 // Button colors
 @mixin button-color( $background-color: $action ) {
   background-color: $background-color;
-	color: color-yiq( $background-color ) !important;
+	color: color-yiq( $background-color );
 	&.loading {
 		&:before {
 			color: color-yiq( $background-color );
