@@ -297,6 +297,11 @@ add_action( 'wp_enqueue_scripts', 'emma_register_jquery' );
 require get_template_directory() . '/inc/optimize.php';
 
 /**
+ * Load WordPress Fieldmanager
+ */
+require get_template_directory() . '/inc/vendor/wordpress-fieldmanager/fieldmanager.php';
+
+/**
  * Implement the Custom Header feature.
  */
 require get_template_directory() . '/inc/custom-header.php';
