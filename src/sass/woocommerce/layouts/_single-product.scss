@@ -97,6 +97,10 @@
       }
     }
 
+    .woocommerce-product-details__short-description {
+      margin-bottom: $spacer;
+    }
+
     .woocommerce-variation-add-to-cart, &.product-type-simple form.cart {
       display: flex;
       justify-content: flex-start;
@@ -133,6 +137,7 @@
       }
 
       .woocommerce-Tabs-panel {
+        padding-top: $spacer;
         border-top: 1px solid $input-border-color;
       }
     }
