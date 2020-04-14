@@ -1,4 +1,9 @@
 /*--------------------------------------------------------------
-# Emma
+# Emma - Webpack Theme Entrypoint
 --------------------------------------------------------------*/
-@import "emma";
+
+// CSS
+import './sass/emma-theme.scss';
+
+// JS
+import './js/emma-theme';
