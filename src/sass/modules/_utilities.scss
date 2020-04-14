@@ -3,6 +3,14 @@
   display: none !important;
 }
 
+@each $name, $breakpoint in $breakpoints {
+  @media screen and ( max-width: $breakpoint - 1 ) {
+    .d-none-#{$name} {
+      display: none;
+    }
+  }
+}
+
 // separator utilities
 .sep {
   padding-left: $spacer-sm;

@@ -9,6 +9,14 @@ $breakpoint-md: 782px !default;
 $breakpoint-lg: 960px !default;
 $breakpoint-xl: 1280px !default;
 
+$breakpoints: (
+	'xs': $breakpoint-xs,
+	'sm': $breakpoint-sm,
+	'md': $breakpoint-md,
+	'lg': $breakpoint-lg,
+	'xl': $breakpoint-xl
+);
+
 // Colors
 $primary: #0073aa !default;
 $primary-support: #D4F9F8 !default;
