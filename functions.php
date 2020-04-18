@@ -294,10 +294,11 @@ add_action( 'wp_enqueue_scripts', 'emma_register_jquery' );
 /**
  * Require WordPress Fieldmanager
  */
-function emma_require_fieldmanager() {
+function emma_load_fieldmanager() {
   require get_template_directory() . '/inc/vendor/wordpress-fieldmanager/fieldmanager.php';
+  fieldmanager_set_baseurl( get_template_directory_uri() . '/inc/vendor/wordpress-fieldmanager/' );
 }
-add_action( 'after_setup_theme', 'emma_require_fieldmanager' );
+add_action( 'after_setup_theme', 'emma_load_fieldmanager' );
 
 /**
  * Optimize WordPress by removing unused features.
