@@ -292,7 +292,7 @@ function emma_register_jquery() {
 add_action( 'wp_enqueue_scripts', 'emma_register_jquery' );
 
 /**
- * Require WordPress Fieldmanager
+ * Load WordPress Fieldmanager
  */
 function emma_load_fieldmanager() {
   require get_template_directory() . '/inc/vendor/wordpress-fieldmanager/fieldmanager.php';
