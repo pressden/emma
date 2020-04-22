@@ -341,11 +341,6 @@ require get_template_directory() . '/inc/menu-functions.php';
 require get_template_directory() . '/inc/pagination.php';
 
 /**
- * Structured Data.
- */
-require get_template_directory() . '/inc/structured-data.php';
-
-/**
  * Custom blocks.
  */
 require get_template_directory() . '/inc/custom-blocks/register.php';
