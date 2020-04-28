@@ -371,6 +371,29 @@ function emma_scripts() {
 add_action( 'wp_enqueue_scripts', 'emma_scripts' );
 
 /**
+ * Get the layout. Post layout settings override the site layout setting.
+ */
+function emma_get_layout_option( $post_id = null ) {
+  $post_id = ! empty( $post_id ) ? $post_id : get_the_ID();
+
+  // default layout
+  $default_layout = 'no-sidebar';
+
+  // site layout (overrides default)
+  $site_layout = get_theme_mod( 'site_layout', $default_layout );
+
+  // exit early if no $post_id is found
+  if( ! $post_id )
+    return $site_layout;
+
+  // post layout (overrides site layout)
+  $post_layout = get_post_meta( get_the_ID(), 'post_layout', true );
+  $post_layout = ! empty( $post_layout ) ? $post_layout : $site_layout;
+
+  return $post_layout;
+}
+
+/**
  * Declare WooCommerce theme support.
  */
 function emma_declare_woocommerce_support() {

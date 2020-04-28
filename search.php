@@ -45,6 +45,6 @@ get_header();
   </div><!-- #primary -->
 
 <?php
-get_sidebar();
-get_sidebar( 'secondary' );
+get_template_part( 'template-parts/sidebars' );
+
 get_footer();

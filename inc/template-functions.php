@@ -28,10 +28,28 @@ function emma_body_classes( $classes ) {
     $classes[] = 'has-right-navigation';
   }
 
-  // Adds a class of no-sidebar when there is no sidebar present.
-  if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-    $classes[] = 'no-sidebar';
-  }
+	// Add a layout body class
+	$post_layout = emma_get_layout_option( get_the_ID() );
+
+	// Check sidebar availability
+	switch( $post_layout ) {
+		case 'content-sidebar':
+		case 'sidebar-content':
+			if( is_active_sidebar( 'primary-sidebar' ) ) {
+				break;
+			}
+
+		case 'sidebar-content-sidebar':
+			if ( is_active_sidebar( 'primary-sidebar' ) && is_active_sidebar( 'secondary-sidebar' ) ) {
+				break;
+			}
+
+		default:
+			$post_layout = $default_layout;
+		break;
+	}
+
+	$classes[] = $post_layout;
 
 	return $classes;
 }
@@ -136,15 +154,41 @@ add_filter( 'body_class', 'emma_output_custom_body_classes' );
  * Layout options metabox content
  */
 function emma_layout_options_metabox_html( $post ) {
+	// hide_title
 	$hide_title = get_post_meta( $post->ID, 'hide_title', true );
+	$hide_title_checked = $hide_title == 1 ? 'checked' : '';
+
+	// post_layout
+	$post_layout = get_post_meta( $post->ID, 'post_layout', true );
+
+	// feature_image_before_title
 	$featured_image_before_title = get_post_meta( $post->ID, 'featured_image_before_title', true );
 	?>
+
+	<div class="components-base-control">
+		<div class="components-base-control__field">
+			<span class="components-checkbox-control__input-container">
+				<input id="hide-title-checkbox-control" name="hide_title" type="checkbox" <?php echo $hide_title_checked; ?>>
+			</span>
+			<label class="components-checkbox-control__label" for="hide-title-checkbox-control">Hide Title</label>
+		</div>
+	</div>
+
+	<div class="components-panel__row">
 		<div class="components-base-control">
 			<div class="components-base-control__field">
-				<span class="components-checkbox-control__input-container"><input id="hide-title-checkbox-control" name="hide_title" type="checkbox" <?php echo $hide_title == 1 ? "checked" : ""; ?>></span>
-				<label class="components-checkbox-control__label" for="hide-title-checkbox-control">Hide Title</label>
+				<label class="components-base-control__label" for="post-layout-select-control">Select Layout: <?php echo $post_layout; ?></label>
+				<?php //@TODO: The WP class `components-select-control__input` was removed due to horizontal overflow. Consider debugging. ?>
+				<select name="post_layout" id="post-layout-select-control">
+					<option value="">Default</option>
+					<option value="content-sidebar" <?php selected( 'content-sidebar', $post_layout ); ?>>Content + Sidebar</option>
+					<option value="sidebar-content" <?php selected( 'sidebar-content', $post_layout ); ?>>Sidebar + Content</option>
+					<option value="sidebar-content-sidebar" <?php selected( 'sidebar-content-sidebar', $post_layout ); ?>>Sidebar + Content + Sidebar</option>
+				</select>
 			</div>
 		</div>
+	</div>
+
 	<?php
 }
 
@@ -160,10 +204,18 @@ add_action('add_meta_boxes', 'emma_add_layout_options_metabox');
  * Save layout options postdata
  */
 function emma_save_layout_options_postdata( $post_id ) {
+	// hide_title
 	if( array_key_exists( 'hide_title', $_POST ) ) {
 		update_post_meta(	$post_id,	'hide_title',	1	);
 	} else {
 		delete_post_meta( $post_id, 'hide_title' );
+	}
+
+	// post_layout
+	if( isset( $_POST['post_layout'] ) && ! empty( $_POST['post_layout'] ) ) {
+		update_post_meta(	$post_id,	'post_layout', $_POST['post_layout'] );
+	} else {
+		delete_post_meta( $post_id, 'post_layout' );
 	}
 }
 add_action('save_post', 'emma_save_layout_options_postdata');
