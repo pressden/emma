@@ -2,19 +2,19 @@
   .site-content {
     @include center-wrap($wrap-max-width);
 
-    @media screen and ( min-width: $breakpoint-lg ) {
+    @media screen and ( min-width: $layout-breakpoint-lg ) {
       grid-template-columns: $layout-sidebar-content-columns;
     }
   }
 
   .content-area {
-    @media screen and ( min-width: $breakpoint-lg ) {
+    @media screen and ( min-width: $layout-breakpoint-lg ) {
       grid-column: 2;
     }
   }
 
   .primary-widget-area {
-    @media screen and ( min-width: $breakpoint-lg ) {
+    @media screen and ( min-width: $layout-breakpoint-lg ) {
       grid-column: 1;
       grid-row: 1;
     }

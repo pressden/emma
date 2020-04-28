@@ -55,6 +55,8 @@ $main-navigation-wrap-padding-x: $spacer-md !default;
 $main-navigation-wrap-padding-y: 0 !default;
 
 // Layout
+$layout-breakpoint-sm: $breakpoint-sm !default;
+$layout-breakpoint-lg: $breakpoint-lg !default;
 $layout-column-gap: 1rem !default;
 $layout-sidebar-width: 1fr !default;
 $layout-content-width: 3fr !default;

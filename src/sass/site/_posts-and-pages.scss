@@ -37,7 +37,7 @@
 
 .primary-widget-area,
 .secondary-widget-area {
-  @media screen and ( min-width: $breakpoint-lg ) {
+  @media screen and ( min-width: $layout-breakpoint-lg ) {
     grid-row: 1;
   }
 
