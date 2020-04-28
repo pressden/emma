@@ -54,6 +54,17 @@ $header-widgets-flex-grow: 1 !default;
 $main-navigation-wrap-padding-x: $spacer-md !default;
 $main-navigation-wrap-padding-y: 0 !default;
 
+// Layout
+$layout-column-gap: 1rem !default;
+$layout-sidebar-width: 1fr !default;
+$layout-content-width: 3fr !default;
+
+// Layout - content / sidebar column variations
+$layout-content-columns: 1fr !default;
+$layout-content-sidebar-columns: $layout-content-width $layout-sidebar-width !default;
+$layout-sidebar-content-columns: $layout-sidebar-width $layout-content-width !default;
+$layout-sidebar-content-sidebar-columns: $layout-sidebar-width $layout-content-width $layout-sidebar-width !default;
+
 // Content
 $content-padding-x: $spacer-md !default;
 
@@ -76,8 +87,10 @@ $entry-footer-wrap-max-width: $content-max-width !default;
 $entry-footer-wrap-align-items: center !default;
 $entry-footer-wrap-justify-content: space-between !default;
 
-// Sidebar
-$sidebar-width: 25% !default;
+// Sidebar - widget
+$sidebar-widget-padding: $spacer-md !default;
+$sidebar-widget-padding-x: $sidebar-widget-padding !default;
+$sidebar-widget-padding-y: $sidebar-widget-padding !default;
 
 // Footer widgets
 $footer-widgets-wrap-max-width: $wrap-max-width !default;
