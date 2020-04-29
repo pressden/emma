@@ -1,20 +1,22 @@
-.content-area {
-	float: right;
-	margin: 0 0 0 (-$sidebar-width);
-}
+.sidebar-content {
+  .site-content {
+    @include center-wrap($wrap-max-width);
 
-.site-main {
-	margin: 0 0 0 $sidebar-width;
-}
+    @media screen and ( min-width: $layout-breakpoint-lg ) {
+      grid-template-columns: $layout-sidebar-content-columns;
+    }
+  }
 
-.site-content .widget-area {
-	float: left;
-	overflow: hidden;
-	width: $sidebar-width;
-}
+  .content-area {
+    @media screen and ( min-width: $layout-breakpoint-lg ) {
+      grid-column: 2;
+    }
+  }
 
-.site-footer {
-	clear: both;
+  .primary-widget-area {
+    @media screen and ( min-width: $layout-breakpoint-lg ) {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
 }
-
-@import "no-sidebar";

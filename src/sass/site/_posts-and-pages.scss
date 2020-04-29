@@ -17,7 +17,34 @@
 }
 
 .site-content {
+  display: grid;
+  grid-template-columns: $layout-content-columns;
+  column-gap: $layout-column-gap;
   padding: $site-content-padding-y $site-content-padding-x;
+}
+
+.content-area {
+  grid-row: 1;
+  min-width: 0;
+}
+
+.primary-widget-area {
+  grid-row: 2;
+}
+
+.secondary-widget-area {
+  grid-row: 3;
+}
+
+.primary-widget-area,
+.secondary-widget-area {
+  @media screen and ( min-width: $layout-breakpoint-lg ) {
+    grid-row: 1;
+  }
+
+  .widget {
+    padding: $sidebar-widget-padding-y $sidebar-widget-padding-x;
+  }
 }
 
 .sticky {
