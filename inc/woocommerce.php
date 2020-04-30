@@ -173,7 +173,7 @@ if ( ! function_exists( 'emma_woocommerce_wrapper_after' ) ) {
 	 * @return void
 	 */
 	function emma_woocommerce_wrapper_after() {
-			?>
+		?>
 			</main><!-- #main -->
 		</div><!-- #primary -->
 		<?php

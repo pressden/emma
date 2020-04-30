@@ -21,33 +21,33 @@ add_filter( 'nav_menu_meta_box_object', 'emma_add_feature_link_meta_box', 10, 1 
  * @link https://core.trac.wordpress.org/browser/tags/4.5/src/wp-admin/includes/class-walker-nav-menu-edit.php
  * @link https://core.trac.wordpress.org/browser/tags/4.5/src/wp-admin/includes/class-walker-nav-menu-checklist.php
  */
-function emma_feature_link_meta_box_content(){
+function emma_feature_link_meta_box_content() {
 	global $nav_menu_selected_id;
-  $walker = new Walker_Nav_Menu_Checklist();
+	$walker = new Walker_Nav_Menu_Checklist();
 
-  class Feature {};
+	class Feature {};
 
-  $feature = new Feature();
-  $feature->classes= array( 'search-form-toggle' );
-  $feature->type = 'custom';
-  $feature->object_id = 'search-toggle';
-  $feature->title = 'Search';
-  $feature->object = 'custom';
-  $feature->url = '#';
+	$feature            = new Feature();
+	$feature->classes   = array( 'search-form-toggle' );
+	$feature->type      = 'custom';
+	$feature->object_id = 'search-toggle';
+	$feature->title     = 'Search';
+	$feature->object    = 'custom';
+	$feature->url       = '#';
 
-  $features[] = $feature;
+	$features[] = $feature;
 
-  if ( class_exists( 'WooCommerce' ) ) {
-    $feature = new Feature();
-    $feature->classes= array( 'mini-cart-toggle' );
-    $feature->type = 'custom';
-    $feature->object_id = 'mini-cart-toggle';
-    $feature->title = 'Cart';
-    $feature->object = 'custom';
-    $feature->url = get_permalink( wc_get_page_id( 'cart' ) );
+	if ( class_exists( 'WooCommerce' ) ) {
+		$feature            = new Feature();
+		$feature->classes   = array( 'mini-cart-toggle' );
+		$feature->type      = 'custom';
+		$feature->object_id = 'mini-cart-toggle';
+		$feature->title     = 'Cart';
+		$feature->object    = 'custom';
+		$feature->url       = get_permalink( wc_get_page_id( 'cart' ) );
 
-    $features[] = $feature;
-  }
+		$features[] = $feature;
+	}
 
 	/* set values to required item properties */
 	?>
@@ -61,9 +61,9 @@ function emma_feature_link_meta_box_content(){
 		</div><!-- /.tabs-panel -->
 
 		<p class="button-controls wp-clearfix" data-items-type="feature-links" >
-      <span class="list-controls hide-if-no-js">
+	  <span class="list-controls hide-if-no-js">
 				<input type="checkbox" id="feature-links-tab" class="select-all">
-				<label for="feature-links-tab">Select All</label>
+				<label for="feature-links-tab"><?php esc_html_e( 'Select All', 'emma' ); ?></label>
 			</span>
 			<span class="add-to-menu">
 				<input type="submit"<?php wp_nav_menu_disabled_check( $nav_menu_selected_id ); ?> class="button-secondary submit-add-to-menu right" value="<?php esc_attr_e( 'Add to Menu' ); ?>" name="add-feature-links-menu-item" id="submit-feature-links" />
@@ -72,10 +72,10 @@ function emma_feature_link_meta_box_content(){
 		</p>
 
 	</div><!-- /.categorydiv -->
-<?php
+	<?php
 }
 
-function emma_change_menu_hidden_metaboxes($user_id) {
+function emma_change_menu_hidden_metaboxes( $user_id ) {
 	$hidden_metaboxes = array(); // empty array
 	update_user_option( $user_id, 'metaboxhidden_nav-menus', $hidden_metaboxes ); // update the user metaboxes
 }

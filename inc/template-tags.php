@@ -17,7 +17,8 @@ if ( ! function_exists( 'emma_posted_on' ) ) :
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
-		$time_string = sprintf( $time_string,
+		$time_string = sprintf(
+			$time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
 			esc_html( get_the_date() ),
 			esc_attr( get_the_modified_date( DATE_W3C ) ),
@@ -104,41 +105,46 @@ if ( ! function_exists( 'emma_post_thumbnail' ) ) :
 	function emma_post_thumbnail() {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			return;
-    }
-    ?>
+		}
+		?>
 
-    <div class="post-thumbnail">
+	<div class="post-thumbnail">
 
-    <?php
+		<?php
 		if ( ! is_singular() ) :
-      ?>
+			?>
 
-      <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+	  <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 
-      <?php
-    endif; // End ! is_singular().
+			<?php
+	endif; // End ! is_singular().
 
-    if ( is_singular() ) :
-      the_post_thumbnail();
-    else :
-      the_post_thumbnail( 'post-thumbnail', array(
-				'alt' => the_title_attribute( array(
-					'echo' => false,
-				) ),
-			) );
-    endif; // End is_singular().
+		if ( is_singular() ) :
+			the_post_thumbnail();
+	else :
+		the_post_thumbnail(
+			'post-thumbnail',
+			array(
+				'alt' => the_title_attribute(
+					array(
+						'echo' => false,
+					)
+				),
+			)
+		);
+	endif; // End is_singular().
 
-    if ( ! is_singular() ) :
-      ?>
+	if ( ! is_singular() ) :
+		?>
 
-      </a>
+	  </a>
 
-      <?php
-    endif; // End ! is_singular().
-    ?>
+		<?php
+	endif; // End ! is_singular().
+	?>
 
-    </div><!-- .post-thumbnail -->
+	</div><!-- .post-thumbnail -->
 
-    <?php
-  }
+		<?php
+	}
 endif;
