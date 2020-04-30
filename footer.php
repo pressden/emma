@@ -15,7 +15,7 @@
 
   <?php
   /**
-   * Fires immediately before the footer element opening markup.
+   * Fires immediately before the footer element markup.
    *
    * @since 1.0.0
    */
@@ -39,7 +39,7 @@
 
   <?php
   /**
-   * Fires immediately after the footer element closing markup.
+   * Fires immediately after the footer element markup.
    *
    * @since 1.0.0
    */
@@ -50,7 +50,7 @@
 
 <?php
 /**
- * Fires immediately before wp_footer(), before the body element closing markup.
+ * Fires immediately before wp_footer(), before the closing body tag.
  *
  * @since 1.0.0
  */

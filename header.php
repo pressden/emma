@@ -24,7 +24,7 @@
 
 <?php
 /**
- * Fires immediately after the body element opening markup.
+ * Fires immediately after the opening body tag.
  *
  * @since 1.0.0
  */

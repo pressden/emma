@@ -2,7 +2,7 @@
 
   <?php
   /**
-   * Fires immediately before the entry-footer opening markup.
+   * Fires immediately before the entry-footer markup.
    *
    * @since 1.0.0
    */
@@ -26,7 +26,7 @@
 
   <?php
   /**
-   * Fires immediately after the entry-footer closing markup.
+   * Fires immediately after the entry-footer markup.
    *
    * @since 1.0.0
    */
