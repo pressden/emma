@@ -22,12 +22,17 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-summary">
+
 		<?php
-			$show_thumbnail = get_theme_mod( 'search_show_thumbnails', '' );
-			if( $show_thumbnail != '' ) {
-				emma_post_thumbnail();
-			}
+		$show_thumbnail = get_theme_mod( 'search_show_thumbnails', false );
+		if( $show_thumbnail != '' ) {
+			emma_post_thumbnail();
+		}
 		?>
-		<?php the_excerpt(); ?>
+
+		<div class="post-excerpt">
+			<?php the_excerpt(); ?>
+		</div><!-- .post-excerpt -->
+
 	</div><!-- .entry-summary -->
 </article><!-- #post-<?php the_ID(); ?> -->
