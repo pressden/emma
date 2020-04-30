@@ -11,30 +11,35 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-  <?php do_action( 'emma_before_entry_content' ); ?>
+	<?php
+	/**
+	 * Fires before the entry-content markup.
+	 *
+	 * @since 1.0.0
+	*/
+	do_action( 'emma_before_entry_content' );
+	?>
 
 	<div class="entry-content">
-		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'emma' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'emma' ),
-			'after'  => '</div>',
-		) );
+		<?php
+		/**
+		 * Fires inside the entry-content markup.
+		 *
+		 * @since 1.0.0
+		*/
+		do_action( 'emma_entry_content' );
 		?>
+
 	</div><!-- .entry-content -->
 
-  <?php do_action( 'emma_after_entry_content' ); ?>
+	<?php
+	/**
+	 * Fires after the entry-content markup.
+	 *
+	 * @since 1.0.0
+	*/
+	do_action( 'emma_after_entry_content' );
+	?>
 
 </article><!-- #post-<?php the_ID(); ?> -->
