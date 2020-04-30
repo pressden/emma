@@ -61,6 +61,28 @@ function emma_customize_register( $wp_customize ) {
 		'description'	=> 'Enter the full ID, starting with "GTM-"',
 	) );
 
+	$wp_customize->add_section( 'layout', array(
+		'priority' => 10,
+		'theme_supports' => '',
+		'title' => 'Layout',
+		'description' => '',
+		'panel' => 'theme_settings',
+	) );
+
+	$wp_customize->add_setting( 'site_layout' );
+	$wp_customize->add_control( 'site_layout', array(
+		'type' => 'select',
+		'priority' => 10,
+		'section' => 'layout',
+		'label' => __( 'Site Layout', 'emma' ),
+		'choices' => [
+			'no-sidebar' => __( 'Content (no sidebar)', 'emma' ),
+			'content-sidebar' => __( 'Content + Sidebar', 'emma' ),
+			'sidebar-content' => __( 'Sidebar + Content', 'emma' ),
+			'sidebar-content-sidebar' => __( 'Sidebar + Content + Sidebar', 'emma' ),
+		],
+	) );
+
 	$wp_customize->add_section( 'search', array(
 		'priority' => 10,
 		'theme_supports' => '',

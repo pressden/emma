@@ -1,20 +1,9 @@
-.content-area {
-	float: left;
-	margin: 0 (-$sidebar-width) 0 0;
-}
+.content-sidebar {
+  .site-content {
+    @include center-wrap($wrap-max-width);
 
-.site-main {
-	margin: 0 $sidebar-width 0 0;
+    @media screen and ( min-width: $layout-breakpoint-lg ) {
+      grid-template-columns: $layout-content-sidebar-columns;
+    }
+  }
 }
-
-.site-content .widget-area {
-	float: right;
-	overflow: hidden;
-	width: $sidebar-width;
-}
-
-.site-footer {
-	clear: both;
-}
-
-@import "no-sidebar";

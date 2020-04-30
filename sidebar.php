@@ -1,17 +1,17 @@
 <?php
 /**
- * The sidebar containing the main widget area
+ * The primary sidebar widget area
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
  * @package Emma
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+if ( ! is_active_sidebar( 'primary-sidebar' ) ) {
 	return;
 }
 ?>
 
-<aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-</aside><!-- #secondary -->
+<aside id="primary-aside" class="widget-area primary-widget-area">
+	<?php dynamic_sidebar( 'primary-sidebar' ); ?>
+</aside><!-- #primary-aside -->
