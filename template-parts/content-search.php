@@ -23,7 +23,7 @@
 
 	<div class="entry-summary">
 		<?php
-			$show_thumbnail = get_theme_mod( 'show_thumbnail', '' );
+			$show_thumbnail = get_theme_mod( 'search_show_thumbnails', '' );
 			if( $show_thumbnail != '' ) {
 				emma_post_thumbnail();
 			}

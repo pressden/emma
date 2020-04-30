@@ -91,12 +91,12 @@ function emma_customize_register( $wp_customize ) {
 		'panel' => 'theme_settings',
 	) );
 
-	$wp_customize->add_setting( 'show_thumbnail' );
-	$wp_customize->add_control( 'show_thumbnail', array(
+	$wp_customize->add_setting( 'search_show_thumbnails' );
+	$wp_customize->add_control( 'search_show_thumbnails', array(
 		'type' => 'checkbox',
 		'priority' => 10,
 		'section' => 'search',
-		'label' => 'Show Post Thumbnail',
+		'label' => 'Show Thumbnails',
 	) );
 }
 add_action( 'customize_register', 'emma_customize_register' );
