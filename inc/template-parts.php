@@ -23,6 +23,14 @@ function emma_post_thumbnail_template() {
 add_action( 'emma_after_entry_header', 'emma_post_thumbnail_template' );
 
 /**
+ * Gets the entry header template part.
+ */
+function emma_entry_header_template() {
+  get_template_part( 'template-parts/entry', 'header' );
+}
+add_action( 'emma_before_entry_content', 'emma_entry_header_template' );
+
+/**
  * Gets the entry footer template part.
  */
 function emma_entry_footer_template() {
