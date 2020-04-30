@@ -14,37 +14,37 @@
   </div><!-- #content -->
 
   <?php
-  /**
-   * Fires immediately before the footer element opening markup.
-   *
-   * @since 1.0.0
-   */
-  do_action( 'emma_before_footer' );
-  ?>
+	/**
+	 * Fires immediately before the footer element opening markup.
+	 *
+	 * @since 1.0.0
+	 */
+	do_action( 'emma_before_footer' );
+	?>
 
 	<footer id="colophon" class="site-footer">
-    <div class="wrap">
+	<div class="wrap">
 
-      <?php
-      /**
-       * Fires inside the footer element and wrap markup.
-       *
-       * @since 1.0.0
-      */
-      do_action( 'emma_footer' );
-      ?>
+	  <?php
+		/**
+		 * Fires inside the footer element and wrap markup.
+		 *
+		 * @since 1.0.0
+		*/
+		do_action( 'emma_footer' );
+		?>
 
-    </div><!-- .wrap -->
+	</div><!-- .wrap -->
   </footer><!-- #colophon -->
 
   <?php
-  /**
-   * Fires immediately after the footer element closing markup.
-   *
-   * @since 1.0.0
-   */
-  do_action( 'emma_after_footer' );
-  ?>
+	/**
+	 * Fires immediately after the footer element closing markup.
+	 *
+	 * @since 1.0.0
+	 */
+	do_action( 'emma_after_footer' );
+	?>
 
 </div><!-- #page -->
 

@@ -15,36 +15,36 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-    <?php
-    if ( ! is_front_page() ) :
-      ?>
+	<?php
+	if ( ! is_front_page() ) :
+		?>
 
-      <header class="page-header">
-        <h1 class="page-title"><?php single_post_title(); ?></h1>
-      </header><!-- .page-header -->
+	  <header class="page-header">
+		<h1 class="page-title"><?php single_post_title(); ?></h1>
+	  </header><!-- .page-header -->
 
-      <?php
-      if( has_post_thumbnail( get_option( 'page_for_posts', true ) ) ) :
-        ?>
+		<?php
+		if ( has_post_thumbnail( get_option( 'page_for_posts', true ) ) ) :
+			?>
 
-        <div class="page-thumbnail">
-          <?php echo get_the_post_thumbnail( get_option( 'page_for_posts', true ) ); ?>
-        </div><!-- .post-thumbnail .page-thumbnail -->
+		<div class="page-thumbnail">
+			<?php echo get_the_post_thumbnail( get_option( 'page_for_posts', true ) ); ?>
+		</div><!-- .post-thumbnail .page-thumbnail -->
 
-        <?php
-      endif;
-      ?>
+			<?php
+	  endif;
+		?>
 
-      <?php
-    endif;
+		<?php
+	endif;
 
-    if ( have_posts() ) :
+	if ( have_posts() ) :
 
 			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+		while ( have_posts() ) :
+			the_post();
 
-				get_template_part( 'template-parts/content', get_post_type() );
+			get_template_part( 'template-parts/content', get_post_type() );
 
 			endwhile;
 
