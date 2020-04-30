@@ -5,6 +5,66 @@
  * @package Emma
  */
 
+ /**
+ * Gets the skip link template part.
+ */
+function emma_skip_link_template() {
+	?>
+
+  <a class="skip-link screen-reader-shortcut" href="#content"><?php esc_html_e( 'Skip to content', 'emma' ); ?></a>
+
+	<?php
+}
+add_action( 'emma_before_header', 'emma_skip_link_template' );
+
+/**
+ * Gets the utility bar template part.
+ */
+function emma_utility_bar_template() {
+  get_template_part( 'template-parts/utility', 'bar' );
+}
+add_action( 'emma_header_bar', 'emma_utility_bar_template' );
+
+/**
+ * Gets the header inner template parts.
+ */
+function emma_header_inner_template() {
+  get_template_part( 'template-parts/navigation', 'left' );
+  get_template_part( 'template-parts/site', 'branding' );
+  get_template_part( 'template-parts/navigation', 'right' );
+  get_template_part( 'template-parts/header', 'widgets' );
+  get_template_part( 'template-parts/navigation', 'controls' );
+}
+add_action( 'emma_header', 'emma_header_inner_template' );
+
+/**
+ * Gets the site branding template part.
+ */
+function emma_site_branding_template() {
+	the_custom_logo();
+}
+add_action( 'emma_site_branding', 'emma_site_branding_template' );
+
+/**
+ * Gets the sticky saver template part.
+ */
+function emma_sticky_saver_template() {
+	?>
+
+	<div id="sticky-saver" class="sticky-saver"></div>
+
+	<?php
+}
+add_action( 'emma_after_header', 'emma_sticky_saver_template' );
+
+/**
+ * Gets the primary navigation template part.
+ */
+function emma_primary_navigation_template() {
+  get_template_part( 'template-parts/navigation', 'primary' );
+}
+add_action( 'emma_after_header', 'emma_primary_navigation_template' );
+
 /**
  * Gets the post thumbnail template part.
  */
@@ -22,7 +82,7 @@ function emma_entry_header_template() {
 add_action( 'emma_before_entry_content', 'emma_entry_header_template' );
 
 /**
- * Gets the entry header inner template part.
+ * Gets the entry header inner template parts.
  */
 function emma_entry_header_inner_template() {
   get_template_part( 'template-parts/post', 'title' );
@@ -47,7 +107,7 @@ function emma_entry_footer_template() {
 add_action( 'emma_after_entry_content', 'emma_entry_footer_template' );
 
 /**
- * Gets the entry footer inner template part.
+ * Gets the entry footer inner template parts.
  */
 function emma_entry_footer_inner_template() {
   get_template_part( 'template-parts/post', 'categories' );

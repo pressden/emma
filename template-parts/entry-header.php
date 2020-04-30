@@ -1,6 +1,6 @@
 <?php
 /**
- * Fires immediately before the entry-header markup.
+ * Fires before the entry-header markup.
  *
  * @since 1.0.0
  */
@@ -28,7 +28,7 @@ if( empty( $hide_title ) ) { ?>
 
 <?php
 /**
- * Fires immediately after the entry-header markup.
+ * Fires after the entry-header markup.
  *
  * @since 1.0.0
  */

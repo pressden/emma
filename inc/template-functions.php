@@ -219,11 +219,3 @@ function emma_save_layout_options_postdata( $post_id ) {
 	}
 }
 add_action('save_post', 'emma_save_layout_options_postdata');
-
-/**
- * Site Branding action
- */
-function emma_site_branding() {
-	the_custom_logo();
-}
-add_action( 'site_branding', 'emma_site_branding', 10 );
