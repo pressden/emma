@@ -115,72 +115,72 @@ function emma_editor_color_palette() {
   // This variable is intended to be overruled from themes.
   $editor_color_palette = array(
     'primary' => array(
-      'name'  => __( 'Primary', 'emma' ),
+      'name'  => esc_html__( 'Primary', 'emma' ),
       'slug'  => 'primary',
       'color'	=> '#0073aa',
     ),
     'primary-support' => array(
-      'name'  => __( 'Primary support', 'emma' ),
+      'name'  => esc_html__( 'Primary support', 'emma' ),
       'slug'  => 'primary-support',
       'color'	=> '#D4F9F8',
     ),
     'secondary' => array(
-      'name'  => __( 'Secondary', 'emma' ),
+      'name'  => esc_html__( 'Secondary', 'emma' ),
       'slug'  => 'secondary',
       'color' => '#663F46',
     ),
     'secondary-support' => array(
-      'name'  => __( 'Secondary support', 'emma' ),
+      'name'  => esc_html__( 'Secondary support', 'emma' ),
       'slug'  => 'secondary-support',
       'color' => '#B8D8D8',
     ),
     'accent' => array(
-      'name'  => __( 'Accent', 'emma' ),
+      'name'  => esc_html__( 'Accent', 'emma' ),
       'slug'  => 'accent',
       'color'	=> '#D34E24',
     ),
     'white' => array(
-      'name'  => __( 'White', 'emma' ),
+      'name'  => esc_html__( 'White', 'emma' ),
       'slug'  => 'white',
       'color'	=> '#fff',
     ),
     'gray-200' => array(
-      'name'  => __( 'Gray 200', 'emma' ),
+      'name'  => esc_html__( 'Gray 200', 'emma' ),
       'slug'  => 'gray-200',
       'color'	=> '#ebebeb',
     ),
     'gray-400' => array(
-      'name'  => __( 'Gray 400', 'emma' ),
+      'name'  => esc_html__( 'Gray 400', 'emma' ),
       'slug'  => 'gray-400',
       'color'	=> '#d3d3d3',
     ),
     'gray-600' => array(
-      'name'  => __( 'Gray 600', 'emma' ),
+      'name'  => esc_html__( 'Gray 600', 'emma' ),
       'slug'  => 'gray-600',
       'color'	=> '#737373',
     ),
     'gray-800' => array(
-      'name'  => __( 'Gray 800', 'emma' ),
+      'name'  => esc_html__( 'Gray 800', 'emma' ),
       'slug'  => 'gray-800',
       'color'	=> '#393939',
     ),
     'black' => array(
-      'name'  => __( 'Black', 'emma' ),
+      'name'  => esc_html__( 'Black', 'emma' ),
       'slug'  => 'black',
       'color'	=> '#000',
     ),
     'success' => array(
-      'name'  => __( 'Success', 'emma' ),
+      'name'  => esc_html__( 'Success', 'emma' ),
       'slug'  => 'success',
       'color'	=> '#46b450',
     ),
     'warning' => array(
-      'name'  => __( 'Warning', 'emma' ),
+      'name'  => esc_html__( 'Warning', 'emma' ),
       'slug'  => 'warning',
       'color'	=> '#f56e28',
     ),
     'danger' => array(
-      'name'  => __( 'Danger', 'emma' ),
+      'name'  => esc_html__( 'Danger', 'emma' ),
       'slug'  => 'danger',
       'color'	=> '#dc3232',
     ),
@@ -428,19 +428,19 @@ function emma_add_product_sorting_column_sizer() {
   <ul class='woocommerce-columns-sizers'>
     <li class='woocommerce-columns-sizer columns-1 <?php echo $default_columns == '1' ? 'active' : ''; ?>'>
       <a href='#' data-size="columns-1">
-        <span class="screen-reader-text">Make Columns Small Size</span>
+        <span class="screen-reader-text"><?php esc_html_e( 'Make Columns Small Size', 'emma' ); ?></span>
         <svg xmlns="http://www.w3.org/2000/svg" tabindex=-1 preserveAspectRatio="xMidYMin meet" viewBox="0 0 24 24"><rect tabindex=-1 x="18" y="9" width="6" height="6"/><rect tabindex=-1 x="18" y="18" width="6" height="6"/><rect tabindex=-1 x="9" y="18" width="6" height="6"/><rect tabindex=-1 y="18" width="6" height="6"/><rect tabindex=-1 x="9" y="9" width="6" height="6"/><rect tabindex=-1 y="9" width="6" height="6"/><rect tabindex=-1 x="9" width="6" height="6"/><rect tabindex=-1 width="6" height="6"/><rect tabindex=-1 x="18" width="6" height="6"/></svg>
       </a>
     </li>
     <li class='woocommerce-columns-sizer columns-2 <?php echo $default_columns == '2' ? 'active' : ''; ?>'>
       <a href='#' data-size="columns-2">
-        <span class="screen-reader-text">Make Columns Medium Size</span>
+        <span class="screen-reader-text"><?php esc_html_e( 'Make Columns Medium Size', 'emma' ); ?></span>
         <svg xmlns="http://www.w3.org/2000/svg" tabindex=-1 preserveAspectRatio="xMidYMin meet" viewBox="0 0 24 24"><rect tabindex=-1 width="10" height="10"/><rect tabindex=-1 x="14" width="10" height="10"/><rect tabindex=-1 x="14" y="14" width="10" height="10"/><rect tabindex=-1 y="14" width="10" height="10"/></svg>
       </a>
     </li>
     <li class='woocommerce-columns-sizer columns-3 <?php echo $default_columns == '3' ? 'active' : ''; ?>'>
       <a href='#' data-size="columns-3">
-        <span class="screen-reader-text">Make Columns Large Size</span>
+        <span class="screen-reader-text"><?php esc_html_e( 'Make Columns Large Size', 'emma' ); ?></span>
         <svg xmlns="http://www.w3.org/2000/svg" tabindex=-1 preserveAspectRatio="xMidYMin meet" viewBox="0 0 24 24"><rect tabindex=-1 width="24" height="24"/></svg>
       </a>
     </li>
