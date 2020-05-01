@@ -14,13 +14,17 @@ get_header();
     <main id="main" class="site-main">
 
       <?php if ( have_posts() ) : ?>
-        <header class="entry-header">
-          <div class="wrap">
-            <h1 class="entry-title">Search Results</h1>
-          </div><!-- .wrap -->
-        </header><!-- .entry-header -->
 
-        <div class="entry-content">
+        <header class="page-header">
+          <div class="wrap">
+
+            <h1 class="page-title">Search Results</h1>
+
+          </div><!-- .wrap -->
+        </header><!-- .page-header -->
+
+        <div class="page-content">
+
           <?php echo get_search_form(); ?>
 
           <?php
@@ -33,13 +37,13 @@ get_header();
           emma_pagination();
           ?>
 
-        </div><!-- .entry-content -->
+        </div><!-- .page-content -->
 
-      <?php else : ?>
-
-        <?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-      <?php endif; ?>
+        <?php
+      else :
+        get_template_part( 'template-parts/content', 'none' );
+      endif;
+      ?>
 
     </main><!-- #main -->
   </div><!-- #primary -->

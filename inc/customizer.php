@@ -99,6 +99,14 @@ function emma_customize_register( $wp_customize ) {
 		'label' => 'Show Thumbnails',
 	) );
 
+	$wp_customize->add_setting( 'archive_use_excerpts' );
+	$wp_customize->add_control( 'archive_use_excerpts', array(
+		'type' => 'checkbox',
+		'priority' => 10,
+		'section' => 'archives',
+		'label' => 'Use Excerpts',
+	) );
+
 	$wp_customize->add_section( 'search', array(
 		'priority' => 10,
 		'theme_supports' => '',
