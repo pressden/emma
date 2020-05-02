@@ -181,6 +181,7 @@ function emma_layout_options_metabox_html( $post ) {
 				<?php //@TODO: The WP class `components-select-control__input` was removed due to horizontal overflow. Consider debugging. ?>
 				<select name="post_layout" id="post-layout-select-control">
 					<option value="">Default</option>
+					<option value="no-sidebar" <?php selected( 'no-sidebar', $post_layout ); ?>>Content (no sidebar)</option>
 					<option value="content-sidebar" <?php selected( 'content-sidebar', $post_layout ); ?>>Content + Sidebar</option>
 					<option value="sidebar-content" <?php selected( 'sidebar-content', $post_layout ); ?>>Sidebar + Content</option>
 					<option value="sidebar-content-sidebar" <?php selected( 'sidebar-content-sidebar', $post_layout ); ?>>Sidebar + Content + Sidebar</option>
