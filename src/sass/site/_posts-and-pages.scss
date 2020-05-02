@@ -58,7 +58,6 @@
 .page-title,
 .entry-title {
   text-align: center;
-  margin-top: $spacer-lg;
   margin-bottom: $spacer-lg;
 }
 
@@ -184,6 +183,7 @@
 
 .entry-footer {
   margin-top: $spacer-lg;
+  margin-bottom: $spacer-lg;
 
   > .wrap {
     @include center-wrap($entry-footer-wrap-max-width);
