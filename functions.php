@@ -387,7 +387,13 @@ function emma_get_layout_option( $post_id = null ) {
     return $site_layout;
 
   // post layout (overrides site layout)
-  $post_layout = get_post_meta( get_the_ID(), 'post_layout', true );
+  if( is_home() ) {
+    $post_layout = get_post_meta( get_option( 'page_for_posts' ), 'post_layout', true );
+  }
+  else {
+    $post_layout = get_post_meta( get_the_ID(), 'post_layout', true );
+  }
+
   $post_layout = ! empty( $post_layout ) ? $post_layout : $site_layout;
 
   return $post_layout;
