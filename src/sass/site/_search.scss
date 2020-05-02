@@ -28,8 +28,16 @@
 .search-result {
   display: grid;
   gap: $spacer-sm;
+  margin-top: $spacer-lg;
+  margin-bottom: $spacer-lg;
 
   .post-thumbnail {
     margin-bottom: 0;
+  }
+
+  .entry-content {
+    >:last-child() {
+      margin-bottom: 0;
+    }
   }
 }
