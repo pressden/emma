@@ -1,5 +1,8 @@
 <?php
-if( ( is_home() || is_archive() ) && get_theme_mod( 'archive_use_excerpts', false ) ) {
+if( 'post' === get_post_type()
+  && ( is_home() || is_archive() )
+  && get_theme_mod( 'archive_use_excerpts', false )
+) {
   the_excerpt();
 }
 else {
