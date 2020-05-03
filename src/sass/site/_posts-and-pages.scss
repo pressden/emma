@@ -135,7 +135,9 @@
 .wp-block-column,
 .wp-block-cover__inner-container,
 .wp-block-group__inner-container {
-  margin-bottom: $spacer;
+  > * {
+    margin-bottom: $spacer;
+  }
 
   >:last-child() {
     margin-bottom: 0;
