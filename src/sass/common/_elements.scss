@@ -3,27 +3,6 @@ img {
 	max-width: 100%; /* Adhere to container width. */
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-address,
-ol,
-ul,
-dl,
-pre {
-	&:last-child() {
-    margin-bottom: 0;
-
-    .entry-content > & {
-      margin-bottom: $spacer-lg;
-    }
-  }
-}
-
 a {
   // Global a:hover is handled by Reboot, no need to repeat it here
   &:focus,

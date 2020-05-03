@@ -69,7 +69,7 @@ add_action( 'emma_after_header', 'emma_primary_navigation_template' );
  * Gets the post thumbnail template part.
  */
 function emma_post_thumbnail_template() {
-  get_template_part( 'template-parts/post', 'thumbnail' );
+  emma_post_thumbnail();
 }
 add_action( 'emma_after_entry_header', 'emma_post_thumbnail_template' );
 

@@ -102,7 +102,12 @@ if ( ! function_exists( 'emma_post_thumbnail' ) ) :
    * thumbnail on index views.
 	 */
 	function emma_post_thumbnail() {
-		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+		if ( post_password_required()
+			|| is_attachment()
+			|| ! has_post_thumbnail()
+			|| ( is_search() && ! get_theme_mod( 'search_show_thumbnails', false ) )
+			|| ( ( is_home() || is_archive() ) && ! get_theme_mod( 'archive_show_thumbnails', false ) )
+		) {
 			return;
     }
     ?>

@@ -83,6 +83,30 @@ function emma_customize_register( $wp_customize ) {
 		],
 	) );
 
+	$wp_customize->add_section( 'archives', array(
+		'priority' => 10,
+		'theme_supports' => '',
+		'title' => 'Archives',
+		'description' => '',
+		'panel' => 'theme_settings',
+	) );
+
+	$wp_customize->add_setting( 'archive_show_thumbnails' );
+	$wp_customize->add_control( 'archive_show_thumbnails', array(
+		'type' => 'checkbox',
+		'priority' => 10,
+		'section' => 'archives',
+		'label' => 'Show Thumbnails',
+	) );
+
+	$wp_customize->add_setting( 'archive_use_excerpts' );
+	$wp_customize->add_control( 'archive_use_excerpts', array(
+		'type' => 'checkbox',
+		'priority' => 10,
+		'section' => 'archives',
+		'label' => 'Use Excerpts',
+	) );
+
 	$wp_customize->add_section( 'search', array(
 		'priority' => 10,
 		'theme_supports' => '',
@@ -91,12 +115,12 @@ function emma_customize_register( $wp_customize ) {
 		'panel' => 'theme_settings',
 	) );
 
-	$wp_customize->add_setting( 'show_thumbnail' );
-	$wp_customize->add_control( 'show_thumbnail', array(
+	$wp_customize->add_setting( 'search_show_thumbnails' );
+	$wp_customize->add_control( 'search_show_thumbnails', array(
 		'type' => 'checkbox',
 		'priority' => 10,
 		'section' => 'search',
-		'label' => 'Show Post Thumbnail',
+		'label' => 'Show Thumbnails',
 	) );
 }
 add_action( 'customize_register', 'emma_customize_register' );
