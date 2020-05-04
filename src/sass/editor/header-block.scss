@@ -1,0 +1,26 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  .heading-reset & {
+    font-weight: normal;
+  }
+
+  .heading-reset.has-small-font-size & {
+    font-size: $font-size-base * .875 !important;
+  }
+  .heading-reset.has-normal-font-size & {
+    font-size: $font-size-base !important;
+  }
+  .heading-reset.has-medium-font-size & {
+    font-size: $font-size-base * 1.25 !important;
+  }
+  .heading-reset.has-large-font-size & {
+    font-size: $font-size-base * 2.25 !important;
+  }
+  .heading-reset.has-huge-font-size & {
+    font-size: $font-size-base * 3 !important;
+  }
+}
