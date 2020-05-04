@@ -343,7 +343,7 @@ require get_template_directory() . '/inc/pagination.php';
 /**
  * Custom blocks.
  */
-require get_template_directory() . '/inc/custom-blocks/register.php';
+require get_template_directory() . '/inc/enqueues.php';
 
 /**
  * Load Jetpack compatibility file.
