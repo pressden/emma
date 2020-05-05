@@ -1,0 +1,12 @@
+.wp-block {
+  max-width: $content-max-width;
+}
+
+.wp-block[data-align=wide] {
+  max-width: $content-max-alignwide-width;
+}
+
+.editor-styles-wrapper *,
+.editor-post-title__block .editor-post-title__input {
+  font-family: $font-family-base;
+}
