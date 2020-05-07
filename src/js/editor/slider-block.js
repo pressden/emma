@@ -40,6 +40,10 @@
         type: 'string',
         default: 'carousel',
       },
+      autoplay: {
+        type: 'number',
+        default: '5',
+      },
       itemWidth: {
         type: 'number',
         default: '',
@@ -72,6 +76,7 @@
     edit: function( props ) {
       var editorColumns = props.attributes.editorColumns;
       var loopType = props.attributes.loopType;
+      var autoplay = props.attributes.autoplay;
       var itemWidth = props.attributes.itemWidth;
       var gap = props.attributes.gap;
       var controlNav = props.attributes.controlNav;
@@ -145,6 +150,22 @@
             },
           ],
           onChange: onChangeLoopType,
+        }
+      );
+
+      function onChangeAutoplay( newValue ) {
+        var newNumber = parseFloat( newValue );
+        props.setAttributes( { autoplay: newNumber > 0 ? newNumber : 0 } );
+      }
+      var autoplayControl = el(
+        TextControl,
+        {
+          label: "Autoplay Timer (seconds)",
+          value: autoplay,
+          help: 'Use 0 to disable autoplay.',
+          type: 'number',
+          min: 0,
+          onChange: onChangeAutoplay,
         }
       );
 
@@ -257,6 +278,7 @@
           initialOpen: true,
         },
           loopTypeControl,
+          autoplayControl,
       );
 
 
@@ -324,6 +346,12 @@
         settings.rewind = false;
       } else {
         settings.type = a.loopType;
+      }
+
+      // set autoplay setting
+      //settings.autoplay = Number.isFinite( a.autoplay ) ? a.autoplay : 0;
+      if( a.autoplay > 0 ) {
+        settings.autoplay = ( a.autoplay * 1000 );
       }
 
       // set minimum slide width for responsive carousels
