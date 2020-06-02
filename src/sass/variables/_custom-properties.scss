@@ -9,3 +9,11 @@ body.admin-bar {
     --full-height: calc( 100vh - #{$admin-bar-desktop-height} );
   }
 }
+
+.block-editor {
+  --full-height: calc( 100vh - 139px );
+
+  @media screen and (min-width: $breakpoint-admin-bar) {
+    --full-height: calc( 100vh - 81px );
+  }
+}

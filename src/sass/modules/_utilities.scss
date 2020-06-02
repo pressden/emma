@@ -11,28 +11,16 @@
       }
     }
   }
-} else {
+} @else {
   .d-none {
-    display: none !important;
+    @include d-none-overlay();
   }
 
   @each $name, $breakpoint in $breakpoints {
     @media screen and ( max-width: $breakpoint - 1 ) {
       .d-none-#{$name} {
-        display: none;
+        @include d-none-overlay();
       }
-    }
-  }
-}
-
-.d-none {
-  display: none !important;
-}
-
-@each $name, $breakpoint in $breakpoints {
-  @media screen and ( max-width: $breakpoint - 1 ) {
-    .d-none-#{$name} {
-      display: none;
     }
   }
 }
