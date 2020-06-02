@@ -1,15 +1,7 @@
 #page {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-
-  .admin-bar & {
-    min-height: calc( 100vh - #{$admin-bar-mobile-height} );
-
-    @media screen and (min-width: $breakpoint-admin-bar) {
-      min-height: calc( 100vh - #{$admin-bar-desktop-height} );
-    }
-  }
+  min-height: var( --full-height );
 
   .site-content {
     flex-grow: 1;
