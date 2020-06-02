@@ -11,3 +11,10 @@ $enable-sticky-header: false !default;
 ## false: the menu toggle will display based on $menu-toggle-display
 --------------------------------------------------------------*/
 $enable-responsive-toggle: true !default;
+
+/*--------------------------------------------------------------
+## Backend Only
+## true: this will prevent compilation of editor-breaking classes for the admin CSS file
+## false: all classes will be compiled (this is for the frontend, and is default)
+--------------------------------------------------------------*/
+$backend-only: false !default;

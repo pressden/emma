@@ -14,7 +14,7 @@
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses emma_header_style()
+ * @imports emma_header_style()
  */
 function emma_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'emma_custom_header_args', array(

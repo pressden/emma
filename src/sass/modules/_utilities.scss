@@ -1,12 +1,39 @@
 // display utilities
-.d-none {
-  display: none !important;
+@if $backend-only == false {
+  .d-none {
+    display: none !important;
+  }
+
+  @each $name, $breakpoint in $breakpoints {
+    @media screen and ( max-width: $breakpoint - 1 ) {
+      .d-none-#{$name} {
+        display: none;
+      }
+    }
+  }
+} @else {
+  .d-none {
+    @include d-none-overlay();
+  }
+
+  @each $name, $breakpoint in $breakpoints {
+    @media screen and ( max-width: $breakpoint - 1 ) {
+      .d-none-#{$name} {
+        @include d-none-overlay();
+      }
+    }
+  }
+}
+
+// 100vh min-height utilities
+.mh-100vh {
+  min-height: var( --full-height );
 }
 
 @each $name, $breakpoint in $breakpoints {
-  @media screen and ( max-width: $breakpoint - 1 ) {
-    .d-none-#{$name} {
-      display: none;
+  @media screen and ( min-width: $breakpoint ) {
+    .mh-100vh-#{$name} {
+      min-height: var( --full-height );
     }
   }
 }
@@ -82,12 +109,19 @@
   }
 }
 
+//width utilities
 .w-100 {
   width: 100% !important;
 }
 
 .h-100 {
   height: 100% !important;
+}
+
+.alignnarrow {
+  max-width: $content-max-width-sm;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 //border utilities
