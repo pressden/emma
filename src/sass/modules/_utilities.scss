@@ -26,13 +26,13 @@
 }
 
 // 100vh min-height utilities
-.mh-100vh {
+.valignfull {
   min-height: var( --full-height );
 }
 
 @each $name, $breakpoint in $breakpoints {
   @media screen and ( min-width: $breakpoint ) {
-    .mh-100vh-#{$name} {
+    .valignfull-#{$name} {
       min-height: var( --full-height );
     }
   }
