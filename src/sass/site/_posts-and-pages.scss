@@ -120,6 +120,10 @@
   > .wp-block-group__inner-container {
     > * {
       width: calc( 100% - #{$content-padding-x} * 2 );
+
+      &.alignfull {
+        width: 100%; //needed because width declaration above this one supercedes normal .alignwide class unless the !important flag is used
+      }
     }
   }
 }
