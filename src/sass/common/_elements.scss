@@ -14,3 +14,7 @@ a {
     outline: thin dotted;
   }
 }
+
+p:empty {
+  display: none;
+}
