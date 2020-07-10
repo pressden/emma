@@ -16,6 +16,9 @@
   var TextControl = wp.components.TextControl;
   var RangeControl = wp.components.RangeControl;
   var Disabled = wp.components.Disabled;
+  var PanelColorSettings = wp.blockEditor.PanelColorSettings;
+  var getColorClassName = wp.blockEditor.getColorClassName;
+  var withColors = wp.blockEditor.withColors;
   var htmlToElem = ( html ) => wp.element.RawHTML( { children: html } );
 
   registerBlockType( 'emma/slider', {
@@ -71,9 +74,12 @@
       slideCount: {
         type: 'number',
       },
+      arrowColor: {
+        type: 'string',
+      },
 		},
 
-    edit: function( props ) {
+    edit: withColors( 'arrowColor' )( function( props ) {
       var editorColumns = props.attributes.editorColumns;
       var loopType = props.attributes.loopType;
       var autoplay = props.attributes.autoplay;
@@ -249,7 +255,7 @@
       function onChangeOuterArrows( newValue ) {
         props.setAttributes( { outerArrows: newValue } );
       }
-      var outerArrowsControl = ''
+      var outerArrowsControl = '';
       if( showArrows ) {
         outerArrowsControl = el(
           ToggleControl,
@@ -260,6 +266,24 @@
             onChange: onChangeOuterArrows,
           }
         );
+      }
+
+      var colorControls = '';
+      if( showArrows ) {
+      colorControls = el(
+          PanelColorSettings, {
+            title: 'Colors',
+            disableCustomColors: true,
+            initialOpen: false,
+            colorSettings: [
+              {
+                label: 'Navigation Arrow Color',
+                value: props.arrowColor.color,
+                onChange: props.setArrowColor,
+              },
+            ]
+          }
+        )
       }
 
       var navigationControls = el(
@@ -311,6 +335,7 @@
             generalControls,
             navigationControls,
             formatControls,
+            colorControls,
             settingsJSONControl
           ),
           el(
@@ -321,12 +346,12 @@
           ),
         )
       );
-    },
+    } ),
 
     save: function( props ) {
       var a = props.attributes;
       var settings = {};
-      var wrapperClasses = "glide__wrapper";
+      var wrapperClasses = "glide__wrapper " + ( getColorClassName( 'arrow-color', a.arrowColor ) || '' );
 
       /**
        * Check if object is valid JSON

@@ -68,6 +68,18 @@
   }
 }
 
+@each $name, $color in $editor-palette {
+	.has-#{$name}-arrow-color {
+    .glide-control {
+      color: $color;
+
+      &:hover {
+        color: darken( $color, 15% );
+      }
+    }
+	}
+}
+
 .glide__bullets {
   display: flex;
   justify-content: center;
