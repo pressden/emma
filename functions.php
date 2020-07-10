@@ -191,6 +191,8 @@ function emma_editor_color_palette() {
   $GLOBALS['editor_color_palette'] = apply_filters( 'emma_editor_color_palette', $editor_color_palette );
 
   add_theme_support( 'editor-color-palette', array_values( $GLOBALS['editor_color_palette'] ) );
+  add_theme_support( 'experimental-custom-spacing' );
+  add_theme_support( 'experimental-link-color' );
 }
 add_action( 'after_setup_theme', 'emma_editor_color_palette', 0 );
 
