@@ -1,42 +1,20 @@
 var Analytics = function() {
-  var initialized = false;
-
   return {
-    initialize: function() {
-      //checks if either already initialized or if ga function exists, indicating GA is present and loaded
-      if ( initialized || typeof ga !== 'function' ) {
-        return
-      }
-      initialized = true;
-    },
-
     fireEvent: function( eventCategory, eventAction, eventLabel ) {
-      if( initialized ) {
-        ga( 'send', {
-          hitType: 'event',
-          eventCategory: eventCategory,
-          eventAction: eventAction,
-          eventLabel: eventLabel,
-        } );
+      if( typeof ga === 'function' ) {
+        var tracker = ga.getAll()[0];
+        if( tracker ) {
+          tracker.send( 'event', eventCategory, eventAction, eventLabel );
+        }
       }
     }
   }
 }();
 
 var Facebook = function() {
-  var initialized = false;
-
   return {
-    initialize: function() {
-      //checks if either already initialized or if fbq function exists, indicating Pixel is present and loaded
-      if ( initialized || typeof fbq !== 'function' ) {
-        return
-      }
-      initialized = true;
-    },
-
     fireEvent: function( eventType, event, params ) {
-      if( initialized ) {
+      if( typeof fbq === 'function' ) {
         fbq( eventType, event, params );
       }
     }
@@ -74,13 +52,7 @@ function getLinkFilename (link) {
   }
 }
 
-function initialize() {
-  Analytics.initialize();
-}
-
 ( function() {
-  initialize();
-
   document.addEventListener( 'click', function( event ) {
     var el = event.target;
 
@@ -91,18 +63,18 @@ function initialize() {
 
     if (el && el.href) {
       if( el.href.startsWith( 'tel:' ) ) {
-        Analytics.fireEvent( 'Contact', 'Phone Number Click', href.substring( 4 ) );
+        Analytics.fireEvent( 'Contact', 'Phone Number Click', el.href.substring( 4 ) );
         Facebook.fireEvent( 'trackCustom', 'Contact', {
           content_category: 'Phone Number Click',
-          content_name: href.substring( 4 )
+          content_name: el.href.substring( 4 )
         } );
       }
 
       if( el.href.startsWith( 'mailto:' ) ) {
-        Analytics.fireEvent( 'Contact', 'Email Address Click', href.substring( 7 ) );
+        Analytics.fireEvent( 'Contact', 'Email Address Click', el.href.substring( 7 ) );
         Facebook.fireEvent( 'trackCustom', 'Contact', {
           content_category: 'Email Address Click',
-          content_name: href.substring( 7 )
+          content_name: el.href.substring( 7 )
         } );
       }
 
