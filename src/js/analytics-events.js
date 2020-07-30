@@ -12,7 +12,6 @@ var Analytics = function() {
 
     fireEvent: function( eventCategory, eventAction, eventLabel ) {
       if( initialized ) {
-        alert( eventCategory + ' - ' + eventAction + ' - ' + eventLabel );
         ga( 'send', {
           hitType: 'event',
           eventCategory: eventCategory,
