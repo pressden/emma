@@ -1,23 +1,132 @@
+var Analytics = function() {
+  var initialized = false;
+
+  return {
+    initialize: function() {
+      //checks if either already initialized or if ga function exists, indicating GA is present and loaded
+      if ( initialized || typeof ga !== 'function' ) {
+        return
+      }
+      initialized = true;
+    },
+
+    fireEvent: function( eventCategory, eventAction, eventLabel ) {
+      if( initialized ) {
+        alert( eventCategory + ' - ' + eventAction + ' - ' + eventLabel );
+        ga( 'send', {
+          hitType: 'event',
+          eventCategory: eventCategory,
+          eventAction: eventAction,
+          eventLabel: eventLabel,
+        } );
+      }
+    }
+  }
+}();
+
+var Facebook = function() {
+  var initialized = false;
+
+  return {
+    initialize: function() {
+      //checks if either already initialized or if fbq function exists, indicating Pixel is present and loaded
+      if ( initialized || typeof fbq !== 'function' ) {
+        return
+      }
+      initialized = true;
+    },
+
+    fireEvent: function( eventType, event, params ) {
+      if( initialized ) {
+        fbq( eventType, event, params );
+      }
+    }
+  }
+}();
+
+function getLinkExtension (link) {
+
+  // Remove anchor, query string and everything before last slash
+  link = link.substring(0, (link.indexOf("#") === -1) ? link.length : link.indexOf("#"));
+  link = link.substring(0, (link.indexOf("?") === -1) ? link.length : link.indexOf("?"));
+  link = link.substring(link.lastIndexOf("/") + 1, link.length);
+
+  // If there's a period left in the URL, then there's a extension
+  if (link.length > 0 && link.indexOf('.') !== -1) {
+      link = link.substring(link.indexOf(".") + 1); // Remove everything but what's after the first period
+      return link;
+  } else {
+      return "";
+  }
+}
+
+function getLinkFilename (link) {
+
+  // Remove anchor, query string and everything before last slash
+  link = link.substring(0, (link.indexOf("#") === -1) ? link.length : link.indexOf("#"));
+  link = link.substring(0, (link.indexOf("?") === -1) ? link.length : link.indexOf("?"));
+  link = link.substring(link.lastIndexOf("/") + 1, link.length);
+
+  // If there's a period left in the URL, then there's a extension
+  if (link.length > 0 && link.indexOf('.') !== -1) {
+      return link;
+  } else {
+      return "";
+  }
+}
+
+function initialize() {
+  Analytics.initialize();
+}
+
 ( function() {
+  initialize();
+
   document.addEventListener( 'click', function( event ) {
-    if(window.ga && ga.create) {
-      tracker = ga.getAll()[0];
-      if (tracker) {
-        var href = event.target.href;
-        if( href ) {
-          if( href.substring( 0, 4 ) == 'tel:' ) {
-            tracker.send( 'event', 'Contact', 'Phone Number Click', href.substring( 4 ) );
-          }
+    var el = event.target;
 
-          if( href.substring( 0, 7 ) == 'mailto:' ) {
-            tracker.send( 'event', 'Contact', 'Email Click', href.substring( 7 ) );
-          }
+    // loop through parent elements if clicked element is not an anchor tag (eg: an image inside a link)
+    while (el && (typeof el.tagName === 'undefined' || el.tagName.toLowerCase() !== 'a' || !el.href)) {
+      el = el.parentNode;
+    }
 
-          if( href.substring( href.length - 4 ) == '.pdf' ) {
-            tracker.send( 'event', 'File', 'Download', href.substring( href.lastIndexOf('/') + 1 ) );
-          }
-        }
+    if (el && el.href) {
+      if( el.href.startsWith( 'tel:' ) ) {
+        Analytics.fireEvent( 'Contact', 'Phone Number Click', href.substring( 4 ) );
+        Facebook.fireEvent( 'trackCustom', 'Contact', {
+          content_category: 'Phone Number Click',
+          content_name: href.substring( 4 )
+        } );
+      }
+
+      if( el.href.startsWith( 'mailto:' ) ) {
+        Analytics.fireEvent( 'Contact', 'Email Address Click', href.substring( 7 ) );
+        Facebook.fireEvent( 'trackCustom', 'Contact', {
+          content_category: 'Email Address Click',
+          content_name: href.substring( 7 )
+        } );
+      }
+
+      if( getLinkExtension( el.href ) == 'pdf' ) {
+        Analytics.fireEvent( 'File', 'Download', getLinkFilename( el.href ) );
+        Facebook.fireEvent( 'track', 'ViewContent', {
+          content_category: 'Download',
+          content_name: getLinkFilename( el.href ),
+        } );
       }
     }
   } );
 } ) ();
+
+window.onload = function() {
+  //handles analytics for jQuery-fired events that can't be captured with vanilla js
+  if( typeof jQuery === 'function' ) {
+    jQuery( document ).on( 'nfFormSubmitResponse', function( event, response, id ) {
+      Analytics.fireEvent( 'Contact', 'Form Submission', response.response.data.settings.title );
+      Facebook.fireEvent( 'trackCustom', 'Contact', {
+        content_category: 'Form Submission',
+        content_name: response.response.data.settings.title
+      } );
+    });
+  }
+}
