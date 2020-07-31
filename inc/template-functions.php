@@ -153,22 +153,23 @@ add_filter( 'body_class', 'emma_output_custom_body_classes' );
 /**
  * Layout options metabox content
  */
-function emma_layout_options_metabox_html( $post ) {
+function emma_layout_options_metabox_html( $post, $metabox ) {
 	// hide_title
 	$hide_title = get_post_meta( $post->ID, 'hide_title', true );
-	$hide_title_checked = $hide_title == 1 ? 'checked' : '';
 
 	// post_layout
 	$post_layout = get_post_meta( $post->ID, 'post_layout', true );
 
 	// feature_image_before_title
 	$featured_image_before_title = get_post_meta( $post->ID, 'featured_image_before_title', true );
+
+	wp_nonce_field( basename(__FILE__), 'layout_options_meta_box_nonce' );
 	?>
 
 	<div class="components-base-control">
 		<div class="components-base-control__field">
 			<span class="components-checkbox-control__input-container">
-				<input id="hide-title-checkbox-control" name="hide_title" type="checkbox" <?php echo $hide_title_checked; ?>>
+				<input id="hide-title-checkbox-control" name="hide_title" type="checkbox" <?php checked( $hide_title, 1 ); ?>>
 			</span>
 			<label class="components-checkbox-control__label" for="hide-title-checkbox-control">Hide Title</label>
 		</div>
@@ -205,6 +206,8 @@ add_action('add_meta_boxes', 'emma_add_layout_options_metabox');
  * Save layout options postdata
  */
 function emma_save_layout_options_postdata( $post_id ) {
+	if ( empty( $_POST['layout_options_meta_box_nonce'] ) || ! wp_verify_nonce( $_POST['layout_options_meta_box_nonce'], basename(__FILE__) ) ) return;
+
 	// hide_title
 	if( array_key_exists( 'hide_title', $_POST ) ) {
 		update_post_meta(	$post_id,	'hide_title',	1	);
