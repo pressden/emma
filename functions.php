@@ -289,7 +289,7 @@ function emma_register_jquery() {
   wp_deregister_script( 'jquery' );
 
   // register a newer version of jQuery
-  wp_register_script( 'jquery', get_template_directory_uri() . '/src/vendor/jquery/jquery.min.js', false, '3.4.1' );
+  wp_register_script( 'jquery', get_template_directory_uri() . '/src/vendor/jquery/jquery.min.js', false, '3.5.1' );
 }
 add_action( 'wp_enqueue_scripts', 'emma_register_jquery' );
 
