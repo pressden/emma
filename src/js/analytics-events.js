@@ -56,6 +56,20 @@ function getLinkFilename (link) {
   document.addEventListener( 'click', function( event ) {
     var el = event.target;
 
+    var extensions = [
+      "doc",
+      "docx",
+      "exe",
+      "js",
+      "pdf",
+      "ppt",
+      "pptx",
+      "tgz",
+      "zip",
+      "xls",
+      "xlsx"
+    ];
+
     // loop through parent elements if clicked element is not an anchor tag (eg: an image inside a link)
     while (el && (typeof el.tagName === 'undefined' || el.tagName.toLowerCase() !== 'a' || !el.href)) {
       el = el.parentNode;
@@ -64,7 +78,7 @@ function getLinkFilename (link) {
     if (el && el.href) {
       if( el.href.startsWith( 'tel:' ) ) {
         Analytics.fireEvent( 'Contact', 'Phone Number Click', el.href.substring( 4 ) );
-        Facebook.fireEvent( 'trackCustom', 'Contact', {
+        Facebook.fireEvent( 'track', 'Contact', {
           content_category: 'Phone Number Click',
           content_name: el.href.substring( 4 )
         } );
@@ -72,18 +86,23 @@ function getLinkFilename (link) {
 
       if( el.href.startsWith( 'mailto:' ) ) {
         Analytics.fireEvent( 'Contact', 'Email Address Click', el.href.substring( 7 ) );
-        Facebook.fireEvent( 'trackCustom', 'Contact', {
+        Facebook.fireEvent( 'track', 'Contact', {
           content_category: 'Email Address Click',
           content_name: el.href.substring( 7 )
         } );
       }
 
-      if( getLinkExtension( el.href ) == 'pdf' ) {
-        Analytics.fireEvent( 'File', 'Download', getLinkFilename( el.href ) );
-        Facebook.fireEvent( 'track', 'ViewContent', {
-          content_category: 'Download',
-          content_name: getLinkFilename( el.href ),
-        } );
+      var extension = getLinkExtension( el.href );
+      if( extension.length > 0 ) {
+        for ( i = 0; i < extensions.length; ++i ) {
+          if ( extensions[i] === extension) {
+            Analytics.fireEvent( 'File', 'Download', getLinkFilename( el.href ) );
+            Facebook.fireEvent( 'track', 'ViewContent', {
+              content_category: 'Download',
+              content_name: getLinkFilename( el.href ),
+            } );
+          }
+        }
       }
     }
   } );
@@ -94,7 +113,7 @@ window.onload = function() {
   if( typeof jQuery === 'function' ) {
     jQuery( document ).on( 'nfFormSubmitResponse', function( event, response, id ) {
       Analytics.fireEvent( 'Contact', 'Form Submission', response.response.data.settings.title );
-      Facebook.fireEvent( 'trackCustom', 'Contact', {
+      Facebook.fireEvent( 'track', 'Contact', {
         content_category: 'Form Submission',
         content_name: response.response.data.settings.title
       } );
