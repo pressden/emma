@@ -19,7 +19,7 @@
     title: 'Dialog',
     description: 'A block to create a popup modal/dialog box',
     icon: 'admin-comments',
-    category: 'layout',
+    category: 'widgets',
     keywords: ['emma modal dialog popup'],
 
     supports: {
@@ -48,7 +48,11 @@
       openLimitID: {
         type: 'string',
         default: null,
-      }
+      },
+      openLoggedIn: {
+        type: 'boolean',
+        default: true,
+      },
 		},
 
     edit: function( props ) {
@@ -76,7 +80,6 @@
         RadioControl,
         {
           label: 'Open Automatically',
-          help: 'Should this dialog box open automatically? If so, how?',
           selected: props.attributes.openAutomatically,
           options: [
             {
@@ -99,20 +102,17 @@
 			function onChangeOpenDelay( newValue ) {
 				props.setAttributes( { openDelay: newValue } );
       }
-      var openDelayControl = '';
-      if( props.attributes.openAutomatically === 'delay' ) {
-        var openDelayControl = el(
-          TextControl,
-          {
-            label: "Open Delay",
-            value: props.attributes.openDelay,
-            help: 'Define how many seconds after page load the dialog box should appear.',
-            type: 'number',
-            min: 0,
-            onChange: onChangeOpenDelay,
-          }
-        );
-      }
+      var openDelayControl = el(
+        TextControl,
+        {
+          label: "Open Delay",
+          value: props.attributes.openDelay,
+          help: 'Define how many seconds after page load the dialog box should appear.',
+          type: 'number',
+          min: 0,
+          onChange: onChangeOpenDelay,
+        }
+      );
 
 			function onChangeOpenLimit( newValue ) {
 				props.setAttributes( { openLimit: parseInt( newValue ) } );
@@ -142,6 +142,32 @@
         }
       );
 
+      function onChangeOpenLoggedIn( newValue ) {
+				props.setAttributes( { openLoggedIn: newValue } );
+      }
+      var openLoggedInControl = el(
+        ToggleControl,
+        {
+          label: 'Open for Logged In Users',
+          checked: props.attributes.openLoggedIn,
+          onChange: onChangeOpenLoggedIn,
+        }
+      );
+
+      var automaticOpenControls = '';
+      if( props.attributes.openAutomatically !== 'false' ) {
+        var automaticOpenControls = el(
+          PanelBody, {
+            title: 'Automatic Open Options',
+            initialOpen: true,
+          },
+            openDelayControl,
+            openLimitControl,
+            openLimitIDControl,
+            openLoggedInControl,
+        );
+      }
+
       return (
         el(
           Fragment,
@@ -154,10 +180,8 @@
               {},
               openAutomaticallyControl,
               openLinkAddressControl,
-              openDelayControl,
-              openLimitControl,
-              openLimitIDControl
             ),
+            automaticOpenControls,
           ),
           el(
             'div', {},
@@ -183,6 +207,7 @@
 
       if( props.attributes.openAutomatically === 'delay' ) {
         options.openDelay = returnZeroIfEmpty( props.attributes.openDelay );
+        options.openLoggedIn = props.attributes.openLoggedIn;
       }
       if( options.openLimit > 0 ) {
         options.openLimitID = props.attributes.openLimitID;
