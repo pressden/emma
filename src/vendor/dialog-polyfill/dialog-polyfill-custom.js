@@ -15,15 +15,17 @@ document.addEventListener( "DOMContentLoaded", function() {
       } );
     }
 
-    var openCount = localStorage.getItem( options.openLimitID ) || 0;
-    if( options.openLimit === 0 || openCount === undefined || openCount < options.openLimit ) {
-      if( options.openDelay ) {
-        setTimeout( function() {
-          dialog.showModal();
-          if( options.openLimitID ) {
-            localStorage.setItem( options.openLimitID, parseInt( openCount ) + 1 );
-          }
-        }, options.openDelay * 1000 );
+    if( options.openLoggedIn || !document.querySelector( 'body' ).classList.contains( 'logged-in' ) ) {
+      var openCount = localStorage.getItem( options.openLimitID ) || 0;
+      if( options.openLimit === 0 || openCount === undefined || openCount < options.openLimit ) {
+        if( options.openDelay ) {
+          setTimeout( function() {
+            dialog.showModal();
+            if( options.openLimitID ) {
+              localStorage.setItem( options.openLimitID, parseInt( openCount ) + 1 );
+            }
+          }, options.openDelay * 1000 );
+        }
       }
     }
   } );
