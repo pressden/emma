@@ -7,10 +7,11 @@ document.addEventListener( "DOMContentLoaded", function() {
 
     // attach dialog open event handlers to links with the appropriate hrefs
     if( options.openLinkAddress !== '' ) {
-      document.querySelectorAll( "[href='#" + options.openLinkAddress + "']" ).forEach( link => {
+      document.querySelectorAll( "[href='" + options.openLinkAddress + "']" ).forEach( link => {
         link.addEventListener( 'click', function( event ) {
           event.preventDefault();
           dialog.showModal();
+          dialog.dataset.opened = true;
         } );
       } );
     }
@@ -20,7 +21,9 @@ document.addEventListener( "DOMContentLoaded", function() {
       if( options.openLimit === 0 || openCount === undefined || openCount < options.openLimit ) {
         if( options.openDelay ) {
           setTimeout( function() {
-            dialog.showModal();
+            if( ! dialog.dataset.opened ) {
+              dialog.showModal();
+            }
             if( options.openLimitID ) {
               localStorage.setItem( options.openLimitID, parseInt( openCount ) + 1 );
             }

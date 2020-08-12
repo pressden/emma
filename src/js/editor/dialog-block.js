@@ -61,6 +61,9 @@
       }
 
 			function onChangeOpenLinkAddress( newValue ) {
+        if( newValue !== '' && ! newValue.startsWith( '#' ) ) {
+          newValue = '#' + newValue;
+        }
 				props.setAttributes( { openLinkAddress: newValue } );
       }
       var openLinkAddressControl = el(
@@ -201,7 +204,7 @@
       }
 
       var options = {
-        'openLinkAddress': props.attributes.openLinkAddress.replace(/^#+/, ''),
+        'openLinkAddress': props.attributes.openLinkAddress,
         'openLimit': returnZeroIfEmpty( props.attributes.openLimit ),
       };
 
