@@ -17,7 +17,15 @@ document.addEventListener( "DOMContentLoaded", function() {
     }
 
     if( options.openLoggedIn || !document.querySelector( 'body' ).classList.contains( 'logged-in' ) ) {
-      var openCount = localStorage.getItem( options.openLimitID ) || 0;
+      var lastOpenedID = options.openLimitID + '-lastopened';
+      var openCountID = options.openLimitID + '-opencount';
+
+      var lastOpened = localStorage.getItem( lastOpenedID ) || 0;
+      var openLimitExpiration = options.openLimitExpiration;
+      if( openLimitExpiration > 0 && Date.now() - ( openLimitExpiration * 86400 ) > lastOpened ) {
+        localStorage.setItem( openCountID, 0 );
+      }
+      var openCount = localStorage.getItem( openCountID ) || 0;
       if( options.openLimit === 0 || openCount === undefined || openCount < options.openLimit ) {
         if( options.openDelay ) {
           setTimeout( function() {
@@ -25,7 +33,8 @@ document.addEventListener( "DOMContentLoaded", function() {
               dialog.showModal();
             }
             if( options.openLimitID ) {
-              localStorage.setItem( options.openLimitID, parseInt( openCount ) + 1 );
+              localStorage.setItem( openCountID, parseInt( openCount ) + 1 );
+              localStorage.setItem( lastOpenedID, Date.now() );
             }
           }, options.openDelay * 1000 );
         }

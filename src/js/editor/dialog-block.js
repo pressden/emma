@@ -49,6 +49,10 @@
         type: 'string',
         default: null,
       },
+      openLimitExpiration: {
+        type: 'integer',
+        default: '0',
+      },
       openLoggedIn: {
         type: 'boolean',
         default: true,
@@ -132,6 +136,21 @@
         }
       );
 
+      function onChangeOpenLimitExpiration( newValue ) {
+				props.setAttributes( { openLimitExpiration: parseInt( newValue ) } );
+      }
+      var openLimitExpirationControl = el(
+        TextControl,
+        {
+          label: "Open Limit Expiration",
+          value: props.attributes.openLimitExpiration,
+          help: 'Define how many days before the open limit counter resets and the dialog is shown again. Use 0 for no limit.',
+          type: 'number',
+          min: 0,
+          onChange: onChangeOpenLimitExpiration,
+        }
+      );
+
       function onChangeOpenLimitID( newValue ) {
 				props.setAttributes( { openLimitID: newValue } );
       }
@@ -166,6 +185,7 @@
           },
             openDelayControl,
             openLimitControl,
+            openLimitExpirationControl,
             openLimitIDControl,
             openLoggedInControl,
         );
@@ -214,6 +234,7 @@
       }
       if( options.openLimit > 0 ) {
         options.openLimitID = props.attributes.openLimitID;
+        options.openLimitExpiration = props.attributes.openLimitExpiration;
       }
 
       return (
