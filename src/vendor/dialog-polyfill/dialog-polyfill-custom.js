@@ -9,6 +9,10 @@ document.addEventListener( "DOMContentLoaded", function() {
     if( options.openLinkAddress !== '' ) {
       document.querySelectorAll( "[href='" + options.openLinkAddress + "']" ).forEach( link => {
         link.addEventListener( 'click', function( event ) {
+          var vw = window.innerWidth;
+          if( ( options.openOn === 'desktop' && vw <= 600 ) || ( options.openOn === 'mobile' && vw > 600 ) ) {
+            return;
+          }
           event.preventDefault();
           dialog.showModal();
           dialog.dataset.opened = true;
@@ -16,7 +20,12 @@ document.addEventListener( "DOMContentLoaded", function() {
       } );
     }
 
-    if( options.openLoggedIn || !document.querySelector( 'body' ).classList.contains( 'logged-in' ) ) {
+    var vw = window.innerWidth;
+    if( ( options.openOn === 'desktop' && vw <= 600 ) || ( options.openOn === 'mobile' && vw > 600 ) ) {
+      return;
+    }
+    var loggedIn = document.querySelector( 'body' ).classList.contains( 'logged-in' );
+    if( options.openUsers === 'both' || ( loggedIn && options.openUsers === 'logged-in' ) || ( !loggedIn && options.openUsers === 'logged-out' ) ) {
       var lastOpenedID = options.openLimitID + '-lastopened';
       var openCountID = options.openLimitID + '-opencount';
 

@@ -14,6 +14,9 @@
   var ToggleControl = wp.components.ToggleControl;
   var RadioControl = wp.components.RadioControl;
   var TextControl = wp.components.TextControl;
+  var PanelColorSettings = wp.blockEditor.PanelColorSettings;
+  var getColorClassName = wp.blockEditor.getColorClassName;
+  var withColors = wp.blockEditor.withColors;
 
   registerBlockType( 'emma/dialog', {
     title: 'Dialog',
@@ -29,6 +32,16 @@
 		},
 
 		attributes: {
+      color: {
+        type: 'string',
+      },
+      backgroundColor: {
+        type: 'string',
+      },
+      openOn: {
+        type: 'string',
+        default: 'both',
+      },
       openLinkAddress: {
         type: 'string',
         default: '',
@@ -53,16 +66,62 @@
         type: 'integer',
         default: '0',
       },
-      openLoggedIn: {
-        type: 'boolean',
-        default: true,
+      openUsers: {
+        type: 'string',
+        default: 'both',
       },
 		},
 
-    edit: function( props ) {
+    edit: withColors( 'color', 'backgroundColor' )( function( props ) {
       if( props.attributes.openLimitID === null ) {
         props.setAttributes( { openLimitID: Math.random().toString(36).substring(2, 5) + Math.random().toString(36).substring(2, 5) } );
       }
+
+      var colorControls = el(
+        PanelColorSettings, {
+          title: 'Color settings',
+          disableCustomColors: true,
+          initialOpen: false,
+          colorSettings: [
+            {
+              label: 'Text Color',
+              value: props.color.color,
+              onChange: props.setColor,
+            },
+            {
+              label: 'Background Color',
+              value: props.backgroundColor.color,
+              onChange: props.setBackgroundColor,
+            },
+          ]
+        }
+      )
+
+      function onChangeOpenOn( newValue ) {
+        props.setAttributes( { openOn: newValue } );
+      }
+      var openOnControl =  el(
+        RadioControl,
+        {
+          label: 'Open On',
+          selected: props.attributes.openOn,
+          options: [
+            {
+              value: 'desktop',
+              label: 'Desktop Only',
+            },
+            {
+              value: 'mobile',
+              label: 'Mobile Only',
+            },
+            {
+              value: 'both',
+              label: 'Both',
+            },
+          ],
+          onChange: onChangeOpenOn,
+        }
+      );
 
 			function onChangeOpenLinkAddress( newValue ) {
         if( newValue !== '' && ! newValue.startsWith( '#' ) ) {
@@ -96,6 +155,10 @@
             {
               value: 'delay',
               label: 'Open Automatically After Delay',
+            },
+            {
+              value: 'exit',
+              label: 'Open Automatically on Exit Intent',
             },
             {
               value: 'scroll',
@@ -164,15 +227,29 @@
         }
       );
 
-      function onChangeOpenLoggedIn( newValue ) {
-				props.setAttributes( { openLoggedIn: newValue } );
+      function onChangeOpenUsers( newValue ) {
+				props.setAttributes( { openUsers: newValue } );
       }
-      var openLoggedInControl = el(
-        ToggleControl,
+      var openUsersControl = el(
+        RadioControl,
         {
-          label: 'Open for Logged In Users',
-          checked: props.attributes.openLoggedIn,
-          onChange: onChangeOpenLoggedIn,
+          label: 'Show dialog for',
+          selected: props.attributes.openUsers,
+          options: [
+            {
+              value: 'logged-in',
+              label: 'Logged-In Users'
+            },
+            {
+              value: 'logged-out',
+              label: 'Logged-Out Users'
+            },
+            {
+              value: 'both',
+              label: 'Both',
+            },
+          ],
+          onChange: onChangeOpenUsers,
         }
       );
 
@@ -187,7 +264,7 @@
             openLimitControl,
             openLimitExpirationControl,
             openLimitIDControl,
-            openLoggedInControl,
+            openUsersControl,
         );
       }
 
@@ -198,21 +275,28 @@
           el(
             InspectorControls,
             null,
+            colorControls,
             el(
               PanelBody,
-              {},
-              openAutomaticallyControl,
+              {
+                title: 'Open Options',
+                initialOpen: true,
+              },
+              openOnControl,
               openLinkAddressControl,
+              openAutomaticallyControl,
             ),
             automaticOpenControls,
           ),
           el(
-            'div', {},
+            'div', {
+              className: props.color.class + ' ' + props.backgroundColor.class,
+            },
             el( InnerBlocks ),
           ),
         )
       );
-    },
+    } ),
 
     save: function( props ) {
       function returnZeroIfEmpty( val ) {
@@ -223,22 +307,36 @@
         }
       }
 
+      var a = props.attributes;
+
+      var classes = '';
+      if( a.color ) {
+        classes += ' ' + getColorClassName( 'color', a.color );
+      }
+      if( a.backgroundColor ) {
+        classes += ' ' + getColorClassName( 'background-color', a.backgroundColor );
+      }
+
       var options = {
-        'openLinkAddress': props.attributes.openLinkAddress,
-        'openLimit': returnZeroIfEmpty( props.attributes.openLimit ),
+        'openOn': a.openOn,
+        'openLinkAddress': a.openLinkAddress,
+        'openLimit': returnZeroIfEmpty( a.openLimit ),
       };
 
-      if( props.attributes.openAutomatically === 'delay' ) {
-        options.openDelay = returnZeroIfEmpty( props.attributes.openDelay );
-        options.openLoggedIn = props.attributes.openLoggedIn;
+      if( a.openAutomatically === 'delay' ) {
+        options.openDelay = returnZeroIfEmpty( a.openDelay );
+        options.openUsers = a.openUsers;
       }
       if( options.openLimit > 0 ) {
-        options.openLimitID = props.attributes.openLimitID;
-        options.openLimitExpiration = props.attributes.openLimitExpiration;
+        options.openLimitID = a.openLimitID;
+        options.openLimitExpiration = a.openLimitExpiration;
       }
 
       return (
-        el('dialog', { 'data-options': JSON.stringify( options ) },
+        el('dialog', { 
+          'data-options': JSON.stringify( options ),
+          className: classes,
+        },
           el( InnerBlocks.Content, null )
         )
       );
