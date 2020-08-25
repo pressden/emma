@@ -160,10 +160,10 @@
               value: 'exit',
               label: 'Open Automatically on Exit Intent',
             },
-            {
-              value: 'scroll',
-              label: 'Open Automatically After Scrolling a Certain Distance',
-            }
+            // {
+            //   value: 'scroll',
+            //   label: 'Open Automatically After Scrolling a Certain Distance',
+            // }
           ],
           onChange: onChangeOpenAutomatically,
         }
@@ -320,20 +320,25 @@
       var options = {
         'openOn': a.openOn,
         'openLinkAddress': a.openLinkAddress,
-        'openLimit': returnZeroIfEmpty( a.openLimit ),
       };
 
-      if( a.openAutomatically === 'delay' ) {
-        options.openDelay = returnZeroIfEmpty( a.openDelay );
+      if( a.openAutomatically !== 'false' ) {
+        options.openAutomatically = a.openAutomatically;
         options.openUsers = a.openUsers;
-      }
-      if( options.openLimit > 0 ) {
         options.openLimitID = a.openLimitID;
-        options.openLimitExpiration = a.openLimitExpiration;
+
+        if( a.openAutomatically === 'delay' ) {
+          options.openDelay = returnZeroIfEmpty( a.openDelay );
+        }
+
+        if( returnZeroIfEmpty( a.openLimit ) > 0 ) {
+          options.openLimit = returnZeroIfEmpty( a.openLimit );
+          options.openLimitExpiration = a.openLimitExpiration;
+        }
       }
 
       return (
-        el('dialog', { 
+        el('dialog', {
           'data-options': JSON.stringify( options ),
           className: classes,
         },

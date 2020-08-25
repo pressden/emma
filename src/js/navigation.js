@@ -59,7 +59,7 @@ var toggle, closer, drawer, clones;
   } );
 
   document.querySelectorAll( '.menu-item-has-children > a' ).forEach( item => {
-    item.addEventListener( 'touchstart', function( event ) {
+    item.addEventListener( 'touchend', function( event ) {
       if( item !== document.activeElement ) {
         item.focus();
         event.preventDefault();
