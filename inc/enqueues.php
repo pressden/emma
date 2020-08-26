@@ -31,8 +31,8 @@ function emma_register_conditional_frontend_scripts() {
   $slider_core_css = get_template_directory_uri() . '/src/vendor/glide/glide.core.css';
   $slider_version = '3.4.1';
 
-  wp_register_script( 'slider', $slider_js, [], $slider_version ); //slider library
-  wp_register_script( 'slider-custom', $slider_custom_js, ['slider'], '1.0.0' ); //our custom slider implementaton code
+  wp_register_script( 'slider', $slider_js, [], $slider_version, true ); //slider library
+  wp_register_script( 'slider-custom', $slider_custom_js, ['slider'], '1.0.0', true ); //our custom slider implementaton code
   wp_register_style( 'slider-core', $slider_core_css, [], $slider_version ); //slider core CSS
 
   /**
