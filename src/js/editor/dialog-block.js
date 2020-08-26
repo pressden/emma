@@ -342,7 +342,19 @@
           'data-options': JSON.stringify( options ),
           className: classes,
         },
-          el( InnerBlocks.Content, null )
+          el( 'a', {
+            href: '#',
+            className: 'close-dialog corner-close-button',
+          },
+            el( 'span', {
+              className: 'screen-reader-text',
+            }, 'test' ),
+          ),
+          el( 'a', {
+            className: 'dialog-content',
+          },
+            el( InnerBlocks.Content, null )
+          )
         )
       );
     }

@@ -43,8 +43,8 @@ function emma_register_conditional_frontend_scripts() {
   $dialog_polyfill_css = get_template_directory_uri() . '/src/vendor/dialog-polyfill/dialog-polyfill.css';
   $dialog_polyfill_version = '0.5.2';
 
-  wp_register_script( 'dialog-polyfill', $dialog_polyfill_js, [], $dialog_polyfill_version );
-  wp_register_script( 'dialog-polyfill-custom', $dialog_polyfill_custom_js, ['dialog-polyfill'], '1.0.0' );
+  wp_register_script( 'dialog-polyfill', $dialog_polyfill_js, [], $dialog_polyfill_version, true );
+  wp_register_script( 'dialog-polyfill-custom', $dialog_polyfill_custom_js, ['dialog-polyfill'], '1.0.0', true );
   wp_register_style( 'dialog-polyfill', $dialog_polyfill_css, [], $dialog_polyfill_version );
 }
 add_action( 'wp_enqueue_scripts', 'emma_register_conditional_frontend_scripts' );
