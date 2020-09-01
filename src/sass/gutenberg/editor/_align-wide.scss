@@ -1,13 +1,13 @@
 // @TODO: BEGIN Convert to SASS variables
 .alignwide {
-  max-width: $content-max-alignwide-width;
+  max-width: $content-max-alignwide-width !important;
 }
 
 .alignfull {
   margin-left: 0;
   margin-right: 0;
   width: 100%;
-  max-width: 100%;
+  max-width: 100% !important;
 
   &.wp-block-image {
     padding-left: 0;

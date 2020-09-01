@@ -11,6 +11,9 @@
 /*--------------------------------------------------------------
 ## Blocks
 --------------------------------------------------------------*/
+@import "../../vendor/dialog-polyfill/dialog-polyfill";
+@import "../../vendor/glide/glide.core";
+@import "blocks/block-dialog-block.scss";
 @import "blocks/block-responsive-grid";
 @import "blocks/block-slider";
 @import "blocks/wp-block-button";

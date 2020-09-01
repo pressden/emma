@@ -1,0 +1,10 @@
+.wp-block-emma-dialog {
+    padding: 20px 30px;
+    box-shadow: 5px 5px 5px 0px rgba($black, 0.5);
+}
+
+:not( .is-selected ):not( .has-child-selected ) {
+    > .wp-block-emma-dialog {
+        @include d-none-overlay();
+    }
+}

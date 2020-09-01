@@ -3,7 +3,7 @@
 /**
  * Enqueue backend scripts for stuff that should always get loaded
  */
-function emma_load_block_editor_scripts() {
+function emma_enqueue_editor() {
   /**
    * Compiled JS
    */
@@ -17,38 +17,26 @@ function emma_load_block_editor_scripts() {
   wp_enqueue_style( 'emma-admin-css', $emma_admin_css );
 
 }
-add_action( 'enqueue_block_editor_assets', 'emma_load_block_editor_scripts' );
+add_action( 'enqueue_block_editor_assets', 'emma_enqueue_editor' );
 
 /**
  * Register frontend scripts for conditional enqueueing
  */
-function emma_register_conditional_frontend_scripts() {
+function emma_enqueue_frontend() {
   /**
    * Slider
    */
   $slider_js = get_template_directory_uri() . '/src/vendor/glide/glide.min.js';
-  $slider_custom_js = get_template_directory_uri() . '/src/vendor/glide/glide-custom.js';
-  $slider_core_css = get_template_directory_uri() . '/src/vendor/glide/glide.core.css';
+  $slider_version = '3.4.1';
 
-  wp_register_script( 'slider', $slider_js, [] ); //slider library
-  wp_register_script( 'slider-custom', $slider_custom_js, ['slider'] ); //our custom slider implementaton code
-  wp_register_style( 'slider-core', $slider_core_css ); //slider core CSS
-}
-add_action( 'wp_enqueue_scripts', 'emma_register_conditional_frontend_scripts' );
-
-/**
- * Conditionally enqueue frontend scripts for block based on whether the block is present
- */
-function emma_conditional_block_enqueues() {
-  global $post;
+  wp_enqueue_script( 'slider', $slider_js, [], $slider_version, true ); //slider library
 
   /**
-   * Slider Block
+   * Dialog Polyfill
    */
-  if( strpos( $post->post_content, 'emma/slider' ) ) {
-    wp_enqueue_script( 'slider' ); //slider library
-    wp_enqueue_script( 'slider-custom' ); //our custom slider implementaton code
-    wp_enqueue_style( 'slider-core' ); //our custom slider block frontend CSS
-  }
+  $dialog_polyfill_js = get_template_directory_uri() . '/src/vendor/dialog-polyfill/dialog-polyfill.js';
+  $dialog_polyfill_version = '0.5.2';
+
+  wp_enqueue_script( 'dialog-polyfill', $dialog_polyfill_js, [], $dialog_polyfill_version, true );
 }
-add_action( 'wp_head', 'emma_conditional_block_enqueues' );
+add_action( 'wp_enqueue_scripts', 'emma_enqueue_frontend' );

@@ -31,6 +31,9 @@ function emma_body_classes( $classes ) {
 	// Add a layout body class
 	$post_layout = emma_get_layout_option( get_the_ID() );
 
+	// default layout
+	$default_layout = 'no-sidebar';
+
 	// Check sidebar availability
 	switch( $post_layout ) {
 		case 'content-sidebar':
