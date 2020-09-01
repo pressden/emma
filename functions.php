@@ -197,6 +197,56 @@ function emma_editor_color_palette() {
 add_action( 'after_setup_theme', 'emma_editor_color_palette', 0 );
 
 /**
+ * Set the editor font sizes, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global array $editor_font_sizes
+ */
+function emma_editor_font_sizes() {
+  // This variable is intended to be overruled from themes.
+  $editor_font_sizes = array(
+    'small' => array(
+      'name'      => __( 'Small', 'emma' ),
+      'size'      => 14,
+      'slug'      => 'small',
+    ),
+    'normal' => array(
+      'name'      => __( 'Normal', 'emma' ),
+      'size'      => 16,
+      'slug'      => 'normal',
+    ),
+    'medium' => array(
+      'name'      => __( 'Medium', 'emma' ),
+      'size'      => 20,
+      'slug'      => 'medium',
+    ),
+    'large' => array(
+      'name'      => __( 'Large', 'emma' ),
+      'size'      => 36,
+      'slug'      => 'large',
+    ),
+    'huge' => array(
+      'name'      => __( 'Huge', 'emma' ),
+      'size'      => 48,
+      'slug'      => 'huge',
+    ),
+    'enormous' => array(
+      'name'      => __( 'Enormous', 'emma' ),
+      'size'      => 64,
+      'slug'      => 'enormous',
+    ),
+  );
+
+  // Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
+  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+  $GLOBALS['editor_font_sizes'] = apply_filters( 'emma_editor_font_sizes', $editor_font_sizes );
+
+  add_theme_support( 'editor-font-sizes', array_values( $GLOBALS['editor_font_sizes'] ) );
+}
+add_action( 'after_setup_theme', 'emma_editor_font_sizes', 0 );
+
+/**
  * Register the widget areas.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar

@@ -20,6 +20,9 @@ $spacer-sizes: (
   'xl': $spacer-xl
 );
 
+// Responsive Font Sizes
+$enable-responsive-font-sizes: true;
+
 // Font sizes
 $font-size-sm: $font-size-base * .875 !default;
 $font-size-md: $font-size-base * 1.25 !default;

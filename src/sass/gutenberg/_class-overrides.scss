@@ -22,6 +22,10 @@
   }
 }
 
+.has-enormous-font-size {
+  @include font-size( 4rem );
+}
+
 h1,
 h2,
 h3,
