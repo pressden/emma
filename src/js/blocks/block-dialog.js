@@ -22,7 +22,11 @@
 
     // return if the dialog does not have an automatic open setting
     if( ! options.openAutomatically ) {
-      return
+      return;
+    }
+
+    if( localStorage.getItem( options.openLimitID + '-preventautoopen' ) ) {
+      return;
     }
 
     // return if not the correct device
@@ -34,7 +38,7 @@
     // return if not the correct logged-in status
     var loggedIn = document.querySelector( 'body' ).classList.contains( 'logged-in' );
     if( ( loggedIn && options.openUsers === 'logged-out' ) || ( !loggedIn && options.openUsers === 'logged-in' ) ) {
-      return
+      return;
     }
 
     if( options.openLimit ) {
@@ -51,7 +55,7 @@
 
       // return if open limit is exceeded
       if( options.openCount >= options.openLimit ) {
-        return
+        return;
       }
     }
 
@@ -124,4 +128,8 @@ function openDialog( dialog, options ) {
       localStorage.setItem( options.lastOpenedID, Date.now() );
     }
   }
+}
+
+function preventDialogAutoOpen( openLimitID ) {
+  localStorage.setItem( openLimitID + '-preventautoopen', 1 );
 }
