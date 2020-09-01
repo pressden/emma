@@ -268,6 +268,14 @@
         );
       }
 
+      colorClasses = '';
+      if( props.color.class ) {
+        colorClasses += ' ' + props.color.class;
+      }
+      if( props.backgroundColor.class ) {
+        colorClasses += ' ' + props.backgroundColor.class + ' has-background';
+      }
+
       return (
         el(
           Fragment,
@@ -290,9 +298,11 @@
           ),
           el(
             'div', {
-              className: props.color.class + ' ' + props.backgroundColor.class,
+              className: 'wp-block-emma-dialog' + colorClasses,
             },
-            el( InnerBlocks ),
+            el( InnerBlocks, {
+              renderAppender: InnerBlocks.ButtonBlockAppender,
+            } ),
           ),
         )
       );
