@@ -1,15 +1,4 @@
 ( function() {
-  document.querySelectorAll( '.close-dialog' ).forEach( button => {
-    button.addEventListener( 'click', function( event ) {
-      button.closest( 'dialog' ).close();
-      if( button.href === '#' ) {
-        event.stopPropagation();
-      }
-    } );
-  } );
-} )();
-
-( function() {
   document.querySelectorAll( '.wp-block-emma-dialog' ).forEach( dialog => {
     document.body.appendChild( dialog );
     dialogPolyfill.registerDialog( dialog );
@@ -113,6 +102,15 @@
       };
       })();
     }
+  } );
+
+  document.querySelectorAll( '.close-dialog' ).forEach( button => {
+    button.addEventListener( 'click', function( event ) {
+      button.closest( 'dialog' ).close();
+      if( button.getAttribute( 'href' ) === '#' ) {
+        event.preventDefault();
+      }
+    } );
   } );
 } )();
 
