@@ -8,22 +8,13 @@
   font-size: $font-size-md;
 }
 .has-large-font-size {
-  font-size: $font-size-lg-mobile;
-
-  @media screen and ( min-width: $breakpoint-md ) {
-    font-size: $font-size-lg;
-  }
+  @include font-size( $font-size-lg );
 }
 .has-huge-font-size {
-  font-size: $font-size-xl-mobile;
-
-  @media screen and ( min-width: $breakpoint-md ) {
-    font-size: $font-size-xl;
-  }
+  @include font-size( $font-size-xl );
 }
-
-.has-enormous-font-size {
-  @include font-size( 4rem );
+.has-giant-font-size {
+  @include font-size( $font-size-2x );
 }
 
 h1,

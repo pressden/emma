@@ -231,10 +231,10 @@ function emma_editor_font_sizes() {
       'size'      => 48,
       'slug'      => 'huge',
     ),
-    'enormous' => array(
-      'name'      => __( 'Enormous', 'emma' ),
-      'size'      => 64,
-      'slug'      => 'enormous',
+    'giant' => array(
+      'name'      => __( 'Giant', 'emma' ),
+      'size'      => 72,
+      'slug'      => 'giant',
     ),
   );
 

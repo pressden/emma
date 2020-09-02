@@ -21,15 +21,17 @@ $spacer-sizes: (
 );
 
 // Responsive Font Sizes
-$enable-responsive-font-sizes: true;
+$enable-responsive-font-sizes: true !default;
+$rfs-breakpoint: $content-max-width !default;
+$rfs-base-font-size: $font-size-base !default;
+$rfs-factor: 20 !default;
 
 // Font sizes
 $font-size-sm: $font-size-base * .875 !default;
 $font-size-md: $font-size-base * 1.25 !default;
 $font-size-lg: $font-size-base * 2.25 !default;
-$font-size-lg-mobile: $font-size-base * 1.5 !default;
 $font-size-xl: $font-size-base * 3 !default;
-$font-size-xl-mobile: $font-size-base * 1.875 !default;
+$font-size-2x: $font-size-base * 4.5 !default;
 
 // Border widths
 $border-width-sm: 1px !default;
