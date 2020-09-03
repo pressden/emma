@@ -4,7 +4,11 @@ var Analytics = function() {
       if( typeof ga === 'function' ) {
         var tracker = ga.getAll()[0];
         if( tracker ) {
-          tracker.send( 'event', eventCategory, eventAction, eventLabel );
+          tracker.send( 'event', eventCategory, eventAction, eventLabel, {
+            // hitCallback: function() { // use this in the future to prevent the page from doing anything until the Analytics event has registered
+            //   alert( 'callback' );
+            // }
+          } );
         }
       }
     }
@@ -53,6 +57,17 @@ function getLinkFilename (link) {
 }
 
 ( function() {
+  document.addEventListener( 'submit', function( event ) {
+    var form = event.target;
+    if( form.action.includes( 'list-manage' ) ) { // for MailChimp
+      Analytics.fireEvent( 'Newsletter', 'Subscription', form.id );
+      Facebook.fireEvent( 'track', 'CompleteRegistration', {
+        content_category: 'Newsletter',
+        content_name: form.id
+      } );
+    }
+  } );
+
   document.addEventListener( 'click', function( event ) {
     var el = event.target;
 
