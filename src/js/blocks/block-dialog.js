@@ -108,10 +108,31 @@
     }
   } );
 
-  document.querySelectorAll( '.close-dialog' ).forEach( button => {
-    button.addEventListener( 'click', function( event ) {
-      button.closest( 'dialog' ).close();
-      if( button.getAttribute( 'href' ) === '#' ) {
+  document.querySelectorAll( '.close-dialog' ).forEach( el => {
+    var event = 'click';
+    if( el.tagName.toLowerCase() === 'form' ) { // change close event to submit if it's a form
+      event = 'submit';
+    }
+
+    el.addEventListener( event, function( event ) {
+      el.closest( 'dialog' ).close();
+      if( el.getAttribute( 'href' ) === '#' ) {
+        event.preventDefault();
+      }
+    } );
+  } );
+
+  document.querySelectorAll( '.prevent-dialog-auto-open' ).forEach( el => {
+    var event = 'click';
+    if( el.tagName.toLowerCase() === 'form' ) { // change close event to submit if it's a form
+      event = 'submit';
+    }
+
+    el.addEventListener( event, function( event ) {
+      var dialog = el.closest( 'dialog' );
+      var options = JSON.parse( dialog.dataset.options );
+      preventDialogAutoOpen( options.openLimitID );
+      if( el.getAttribute( 'href' ) === '#' ) {
         event.preventDefault();
       }
     } );
