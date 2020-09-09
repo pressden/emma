@@ -34,7 +34,7 @@
       .dashicons-dismiss {
         width: $menu-icon-size;
         height: $menu-icon-size;
-        @include font-size($menu-icon-size);
+        font-size: $menu-icon-size;
       }
     }
   }
@@ -141,7 +141,7 @@
       transform: translate( -50%, -50% );
       text-indent: 0;
       font-family: "dashicons";
-      @include font-size($menu-icon-size);
+      font-size: $menu-icon-size;
     }
 
     .cart-count {
@@ -152,7 +152,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      @include font-size(.7rem);
+      font-size: 0.7rem;
       font-weight: bold;
       padding: $spacer-sm;
       border-radius: 999px;
