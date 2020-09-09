@@ -22,9 +22,7 @@ $spacer-sizes: (
 
 // Responsive Font Sizes
 $enable-responsive-font-sizes: true !default;
-$rfs-breakpoint: $content-max-width !default;
-$rfs-base-font-size: $font-size-base !default;
-$rfs-factor: 20 !default;
+$rfs-breakpoint: $content-max-alignwide-width !default;
 
 // Font sizes
 $font-size-sm: $font-size-base * .875 !default;

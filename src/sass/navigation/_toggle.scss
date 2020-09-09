@@ -8,7 +8,7 @@
   .dashicons-before:before {
     width: $menu-icon-size;
     height: $menu-icon-size;
-    @include font-size($menu-icon-size);
+    font-size: $menu-icon-size;
   }
 }
 
