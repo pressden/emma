@@ -2,7 +2,6 @@
   position: fixed;
   height: 100%;
   width: 100%;
-  transform: translateX( -100% );
   z-index: 10;
   top: 0;
   left: 0;
@@ -25,7 +24,7 @@
   }
 
   &.toggled {
-    transform: translateX( 0 );
+    transform: translateX( 0 ) !important;
   }
 
   .menu-container {

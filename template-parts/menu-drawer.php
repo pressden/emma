@@ -1,4 +1,4 @@
-<nav id="menu-drawer" class="menu-drawer">
+<nav id="menu-drawer" class="menu-drawer" style="transform: translateX(-100%);">
   <div class="wrap">
     <div class="navigation-controls">
       <a href="javascript:void(0);" id="menu-closer" class="menu-toggle menu-closer" <?php /*aria-controls="menu-drawer" aria-expanded="false"*/?> title="<?php esc_html_e( 'Close Primary Menu', 'emma' ); ?>">
