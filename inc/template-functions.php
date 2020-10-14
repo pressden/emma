@@ -143,11 +143,13 @@ add_action('save_post', 'emma_save_custom_classes_postdata');
  */
 function emma_output_custom_body_classes( $classes ) {
 	global $post;
-	$custom_classes = get_post_meta( $post->ID, 'custom_body_classes', true );
+	if( isset( $post->ID ) ) {
+		$custom_classes = get_post_meta( $post->ID, 'custom_body_classes', true );
 
-	if( ! empty( $custom_classes ) && $custom_classes != '' ) {
-		$custom_classes_array = explode( " ", $custom_classes );
-		return array_merge( $classes, $custom_classes_array );
+		if( ! empty( $custom_classes ) && $custom_classes != '' ) {
+			$custom_classes_array = explode( " ", $custom_classes );
+			return array_merge( $classes, $custom_classes_array );
+		}
 	}
 	return $classes;
 }

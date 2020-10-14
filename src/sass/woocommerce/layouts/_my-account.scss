@@ -1,5 +1,13 @@
 .woocommerce-page {
   &.woocommerce-account {
+    &:not( .logged-in ) {
+      .entry-content {
+        > * {
+          max-width: $content-max-width;
+        }
+      }
+    }
+
     &.logged-in {
       .entry-content {
         .woocommerce {
