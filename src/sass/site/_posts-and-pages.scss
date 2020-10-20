@@ -184,6 +184,11 @@
   padding-bottom: $spacer-lg;
 }
 
+p.has-background,
+p.border {
+  padding: $spacer;
+}
+
 .entry-footer {
   margin-top: $spacer-lg;
   margin-bottom: $spacer-lg;
