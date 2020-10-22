@@ -10,3 +10,4 @@ import './utility';
 import './blocks/block-dialog';
 //import '../vendor/glide/glide.min.js';
 import './blocks/block-slider';
+import './lightgallery';
