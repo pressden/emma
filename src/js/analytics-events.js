@@ -4,11 +4,7 @@ var Analytics = function() {
       if( typeof ga === 'function' ) {
         var tracker = ga.getAll()[0];
         if( tracker ) {
-          tracker.send( 'event', eventCategory, eventAction, eventLabel, {
-            // hitCallback: function() { // use this in the future to prevent the page from doing anything until the Analytics event has registered
-            //   alert( 'callback' );
-            // }
-          } );
+          tracker.send( 'event', eventCategory, eventAction, eventLabel );
         }
       }
     }
