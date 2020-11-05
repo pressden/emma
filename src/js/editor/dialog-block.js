@@ -360,7 +360,7 @@
               className: 'screen-reader-text',
             }, 'test' ),
           ),
-          el( 'a', {
+          el( 'div', {
             className: 'dialog-content',
           },
             el( InnerBlocks.Content, null )
