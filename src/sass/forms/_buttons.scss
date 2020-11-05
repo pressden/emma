@@ -9,11 +9,6 @@ a.button,
 	@include button-color;
 }
 
-//stops bootstrap reboot's removal of proper text color from unlinked anchor tags from messing with button text color
-.wp-block-button__link:not([href]) {
-	@include button-color;
-}
-
 .wp-block-button__link {
 	padding: $button-block-padding;
 }
