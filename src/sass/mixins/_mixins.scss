@@ -29,7 +29,7 @@
 @mixin button() {
 	display: inline-block;
   padding: $button-padding;
-  border: 0px;
+  border: 2px solid;
   border-radius: $button-border-radius;
 
 	&:hover {
@@ -38,7 +38,6 @@
 	}
 
 	&:active, &:focus {
-		//box-shadow: $button-focus-box-shadow;
 		outline: 0;
 	}
 
@@ -79,7 +78,8 @@
 
 // Button colors
 @mixin button-color( $background-color: $action ) {
-  background-color: $background-color;
+	background-color: $background-color;
+	border-color: $background-color;
 	color: color-yiq( $background-color );
 	&.loading {
 		&:before {
@@ -88,6 +88,12 @@
 	}
 	&:active, &:focus {
 		box-shadow: 0 0 0 2px mix( $background-color, color-yiq( $background-color), 50% );
+	}
+}
+
+@mixin outline-button-color( $color: $black ) {
+	&:active, &:focus {
+		box-shadow: 0 0 0 2px mix( $color, color-yiq( $color), 50% );
 	}
 }
 
