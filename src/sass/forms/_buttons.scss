@@ -9,6 +9,12 @@ a.button,
 	@include button-color;
 }
 
+.wp-block-button.is-style-outline {
+	> .wp-block-button__link {
+		color: $primary;
+	}
+}
+
 .wp-block-button__link {
 	padding: $button-block-padding;
 }
@@ -27,5 +33,12 @@ a.button,
 	.wp-block-button__link.has-#{$name}-background-color,
 	.button-#{$name} {
 		@include button-color( $color );
+	}
+
+	.wp-block-button.is-style-outline {
+		> .has-#{$name}-color,
+		> .button-#{$name} {
+			@include outline-button-color( $color );
+		}
 	}
 }
