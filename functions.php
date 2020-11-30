@@ -122,22 +122,22 @@ function emma_editor_color_palette() {
     'primary-support' => array(
       'name'  => __( 'Primary support', 'emma' ),
       'slug'  => 'primary-support',
-      'color'	=> '#D4F9F8',
+      'color'	=> '#d4f9f8',
     ),
     'secondary' => array(
       'name'  => __( 'Secondary', 'emma' ),
       'slug'  => 'secondary',
-      'color' => '#663F46',
+      'color' => '#663f46',
     ),
     'secondary-support' => array(
       'name'  => __( 'Secondary support', 'emma' ),
       'slug'  => 'secondary-support',
-      'color' => '#B8D8D8',
+      'color' => '#b8d8d8',
     ),
     'accent' => array(
       'name'  => __( 'Accent', 'emma' ),
       'slug'  => 'accent',
-      'color'	=> '#D34E24',
+      'color'	=> '#d34e24',
     ),
     'white' => array(
       'name'  => __( 'White', 'emma' ),
