@@ -1,11 +1,19 @@
 var Analytics = function() {
   return {
     fireEvent: function( eventCategory, eventAction, eventLabel ) {
+      //fires events for universal analytics when UA is enqueued via analytics.js or GTM
       if( typeof ga === 'function' ) {
         var tracker = ga.getAll()[0];
         if( tracker ) {
           tracker.send( 'event', eventCategory, eventAction, eventLabel );
         }
+      }
+      //fires events for UA or GAv4 when using Global Site Tag
+      if( typeof gtag === 'function' ) {
+        gtag( 'event', eventAction, {
+          'event_category': eventCategory,
+          'event_label': eventLabel,
+        } );
       }
     }
   }
