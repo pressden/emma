@@ -4,8 +4,7 @@ input[type="reset"],
 input[type="submit"],
 a.button,
 .menu-container ul li.button > a,
-.wp-block-button__link,
-.wp-block-button__link:visited {
+.wp-block-button__link {
 	@include button;
 	@include button-color;
 }
@@ -13,16 +12,6 @@ a.button,
 .wp-block-button.is-style-outline {
 	> .wp-block-button__link {
 		color: $primary;
-	}
-}
-
-.wp-block-button__link {
-	padding: $button-block-padding;
-
-	&:active,
-	&:focus,
-	&:hover {
-		@include button-color(lighten($action, 15%));
 	}
 }
 
