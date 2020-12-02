@@ -28,11 +28,13 @@
 // Button format
 @mixin button() {
 	display: inline-block;
-  padding: $button-padding;
+  padding: $button-block-padding;
   border: 2px solid;
   border-radius: $button-border-radius;
 
-	&:hover {
+	&:hover,
+	&:active,
+	&:focus {
 		filter: $button-hover-filter-effect;
 		text-decoration: none;
 	}
