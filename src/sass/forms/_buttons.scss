@@ -27,6 +27,9 @@ a.button,
 
 @each $name, $color in $editor-palette {
 	.wp-block-button__link.has-#{$name}-background-color,
+	input[type="button"].button-#{$name},
+	input[type="reset"].button-#{$name},
+	input[type="submit"].button-#{$name},
 	.button-#{$name} {
 		@include button-color( $color );
 	}
