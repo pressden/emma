@@ -6,6 +6,13 @@ $h4-font-size: $font-size-base * 1.375 !default;
 $h5-font-size: $font-size-base * 1.25 !default;
 $h6-font-size: $font-size-base * 1.125 !default;
 
+// Sitewide Alert
+$sitewide-alert-wrap-max-width: $wrap-max-width !default;
+$sitewide-alert-wrap-padding-x: $spacer-md !default;
+$sitewide-alert-wrap-padding-y: $spacer-md !default;
+$sitewide-alert-text-align: center !default;
+$sitewide-alert-font-weight: bold !default;
+
 // Utility bar
 $utility-bar-wrap-max-width: $wrap-max-width !default;
 $utility-bar-wrap-padding-x: $spacer-md !default;

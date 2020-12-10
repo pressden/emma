@@ -21,6 +21,7 @@ add_action( 'emma_before_header', 'emma_skip_link_template' );
  * Gets the utility bar template part.
  */
 function emma_utility_bar_template() {
+  get_template_part( 'template-parts/sitewide', 'alert' );
   get_template_part( 'template-parts/utility', 'bar' );
 }
 add_action( 'emma_header_bar', 'emma_utility_bar_template' );
