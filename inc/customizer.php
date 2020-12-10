@@ -44,6 +44,31 @@ function emma_customize_register( $wp_customize ) {
 		'description' => 'Settings specific to Emma.',
 	) );
 
+	$wp_customize->add_section( 'sitewide_alert', array (
+		'priority' => 10,
+		'theme_supports' => '',
+		'title' => 'Sitewide Alert',
+		'description' => 'Add an alert at the top of every page',
+		'panel' => 'theme_settings',
+	) );
+
+	$wp_customize->add_setting( 'sitewide_alert_enable' );
+	$wp_customize->add_control( 'sitewide_alert_enable', array(
+		'type' => 'checkbox',
+		'priority' => 10,
+		'section' => 'sitewide_alert',
+		'label' => __( 'Enable Sitewide Alert' ),
+		'description' => 'alert text must also be entered below for alert to appear',
+	) );
+
+	$wp_customize->add_setting( 'sitewide_alert_text' );
+	$wp_customize->add_control( 'sitewide_alert_text', array(
+		'type' => 'textarea',
+		'priority' => 10,
+		'section' => 'sitewide_alert',
+		'label' => __( 'Alert Text' ),
+	) );
+
 	$wp_customize->add_section( 'analytics', array(
 		'priority' => 10,
 		'theme_supports' => '',

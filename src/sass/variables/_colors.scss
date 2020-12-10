@@ -50,6 +50,10 @@ $menu-sub-link-color: $menu-link-color !default;
 $menu-sub-link-hover-color: $menu-link-hover-color !default;
 $menu-sub-background-color: $white !default;
 
+$sitewide-alert-background-color: $danger !default;
+$sitewide-alert-color: $white !default;
+$sitewide-alert-link-color: $white !default;
+
 $utility-bar-background-color: $primary-support !default;
 $utility-bar-link-color: color-yiq($utility-bar-background-color);
 $utility-bar-link-hover-color: darken($utility-bar-link-color, 15);
