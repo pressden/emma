@@ -1,8 +1,8 @@
-<?php if ( get_theme_mod( 'sitewide_alert_enable' ) && get_theme_mod( 'sitewide_alert_text' ) ): ?>
+<?php if ( is_active_sidebar( 'sitewide-alert' ) ): ?>
 
 <div id="sitewide-alert" class="sitewide-alert">
   <div class="wrap">
-    <?php echo get_theme_mod( 'sitewide_alert_text' ); ?>
+    <?php dynamic_sidebar( 'sitewide-alert' ); ?>
   </div><!-- .wrap -->
 </div><!-- #sitewide-alert -->
 
