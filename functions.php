@@ -569,3 +569,15 @@ if ( class_exists( 'WooCommerce' ) ) {
 function emma_enqueue_woocommerce_scripts() {
   wp_enqueue_script( 'emma-woocommerce-scripts', get_template_directory_uri() . '/src/js/woocommerce.js', null, wp_get_theme()->get( 'Version' ), true );
 }
+
+/**
+ * Simulate non-empty content to enable Gutenberg editor on the main blog page (kind of hacky, but the only way I could find to do it)
+ */
+function emma_enable_gutenberg_editor_for_blog_page( $replace, $post ) {
+  if ( ! $replace && absint( get_option( 'page_for_posts' ) ) === $post->ID && empty( $post->post_content ) ) {
+    // This comment will be removed by Gutenberg since it won't parse into block.
+    $post->post_content = '<!--non-empty-content-->';
+  }
+  return $replace;
+}
+add_filter( 'replace_editor', 'emma_enable_gutenberg_editor_for_blog_page', 10, 2 );
