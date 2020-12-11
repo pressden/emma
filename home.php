@@ -16,31 +16,13 @@ get_header();
 		<main id="main" class="site-main">
 
       <?php
-      if ( ! is_front_page() ) :
-        ?>
+        $post = get_post( get_option( 'page_for_posts' ) );
+        setup_postdata( $post );
+        get_template_part( 'template-parts/content', get_post_format() );
+        wp_reset_postdata();
+      ?>
 
-        <header class="page-header">
-          <div class="wrap">
-
-            <h1 class="page-title"><?php single_post_title(); ?></h1>
-
-          </div><!-- .wrap -->
-        </header><!-- .page-header -->
-
-        <?php
-        if( has_post_thumbnail( get_option( 'page_for_posts', true ) ) ) :
-          ?>
-
-          <div class="page-thumbnail">
-            <?php echo get_the_post_thumbnail( get_option( 'page_for_posts', true ) ); ?>
-          </div><!-- .post-thumbnail .page-thumbnail -->
-
-          <?php
-        endif;
-        ?>
-
-        <?php
-      endif;
+      <?php
 
       if ( have_posts() ) :
         ?>
