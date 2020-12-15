@@ -125,6 +125,16 @@ function getLinkFilename (link) {
       }
     }
   } );
+
+  if( typeof mc4wp != "undefined" ) {
+    mc4wp.forms.on( 'subscribed', function( form ) {
+      Analytics.fireEvent( 'Newsletter', 'Subscription', form.id );
+      Facebook.fireEvent( 'track', 'CompleteRegistration', {
+        content_category: 'Newsletter',
+        content_name: form.id
+      } );
+    } );
+  }
 } ) ();
 
 window.onload = function() {
@@ -134,7 +144,7 @@ window.onload = function() {
       Analytics.fireEvent( 'Contact', 'Form Submission', response.response.data.settings.title );
       Facebook.fireEvent( 'track', 'Contact', {
         content_category: 'Form Submission',
-        content_name: response.response.data.settings.title
+        content_name: response.response.data.form_id
       } );
     });
   }
