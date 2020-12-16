@@ -141,7 +141,7 @@ window.onload = function() {
   //handles analytics for jQuery-fired events that can't be captured with vanilla js
   if( typeof jQuery === 'function' ) {
     jQuery( document ).on( 'nfFormSubmitResponse', function( event, response, id ) {
-      Analytics.fireEvent( 'Contact', 'Form Submission', response.response.data.settings.title );
+      Analytics.fireEvent( 'Contact', 'Form Submission', response.response.data.form_id );
       Facebook.fireEvent( 'track', 'Contact', {
         content_category: 'Form Submission',
         content_name: response.response.data.form_id
