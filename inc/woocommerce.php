@@ -8,22 +8,6 @@
  */
 
 /**
- * WooCommerce setup function.
- *
- * @link https://docs.woocommerce.com/document/third-party-custom-theme-compatibility/
- * @link https://github.com/woocommerce/woocommerce/wiki/Enabling-product-gallery-features-(zoom,-swipe,-lightbox)-in-3.0.0
- *
- * @return void
- */
-function emma_woocommerce_setup() {
-	add_theme_support( 'woocommerce' );
-	add_theme_support( 'wc-product-gallery-zoom' );
-	add_theme_support( 'wc-product-gallery-lightbox' );
-	add_theme_support( 'wc-product-gallery-slider' );
-}
-add_action( 'after_setup_theme', 'emma_woocommerce_setup' );
-
-/**
  * WooCommerce specific scripts & stylesheets.
  *
  * @return void
@@ -46,16 +30,6 @@ function emma_woocommerce_scripts() {
 add_action( 'wp_enqueue_scripts', 'emma_woocommerce_scripts' );
 
 /**
- * Disable the default WooCommerce stylesheet.
- *
- * Removing the default WooCommerce stylesheet and enqueing your own will
- * protect you during WooCommerce core updates.
- *
- * @link https://docs.woocommerce.com/document/disable-the-default-stylesheet/
- */
-add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
-
-/**
  * Add 'woocommerce-active' class to the body tag.
  *
  * @param  array $classes CSS classes applied to the body tag.
@@ -67,16 +41,6 @@ function emma_woocommerce_active_body_class( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'emma_woocommerce_active_body_class' );
-
-/**
- * Products per page.
- *
- * @return integer number of products.
- */
-function emma_woocommerce_products_per_page() {
-	return 12;
-}
-add_filter( 'loop_shop_per_page', 'emma_woocommerce_products_per_page' );
 
 /**
  * Product gallery thumnbail columns.
@@ -97,24 +61,6 @@ function emma_woocommerce_loop_columns() {
 	return 3;
 }
 add_filter( 'loop_shop_columns', 'emma_woocommerce_loop_columns' );
-
-/**
- * Related Products Args.
- *
- * @param array $args related products args.
- * @return array $args related products args.
- */
-function emma_woocommerce_related_products_args( $args ) {
-	$defaults = array(
-		'posts_per_page' => 3,
-		'columns'        => 3,
-	);
-
-	$args = wp_parse_args( $defaults, $args );
-
-	return $args;
-}
-add_filter( 'woocommerce_output_related_products_args', 'emma_woocommerce_related_products_args' );
 
 if ( ! function_exists( 'emma_woocommerce_product_columns_wrapper' ) ) {
 	/**

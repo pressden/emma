@@ -253,10 +253,10 @@ add_action( 'after_setup_theme', 'emma_editor_font_sizes', 0 );
  */
 function emma_widgets_init() {
   $widget_areas = array(
-    'status-widgets' => array(
-      'name'          => esc_html__( 'Status Widgets', 'emma' ),
-      'id'            => 'status-widgets',
-      'description'   => esc_html__( 'Status widgets appear at the top of every page in case of emergency.', 'emma' ),
+    'sitewide-alert' => array(
+      'name'          => esc_html__( 'Sitewide Alert', 'emma' ),
+      'id'            => 'sitewide-alert',
+      'description'   => esc_html__( 'These widgets appear at the top of every page in case of emergency. For best results, use only a single Text widget with a short message.', 'emma' ),
     ),
     'header-widgets' => array(
       'name'          => esc_html__( 'Header Widgets', 'emma' ),

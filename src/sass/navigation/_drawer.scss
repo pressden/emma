@@ -11,10 +11,10 @@
   transition: all 0.25s ease-in-out;
 
   .admin-bar & {
-    top: 46px;
+    top: $admin-bar-mobile-height;
 
-    @media screen and (min-width: $breakpoint-md) {
-      top: 32px;
+    @media screen and (min-width: $breakpoint-admin-bar) {
+      top: $admin-bar-desktop-height;
     }
   }
 
@@ -64,13 +64,5 @@
   .button {
     display: flex;
     justify-content: center;
-  }
-
-  .admin-bar & {
-    top: $admin-bar-mobile-height;
-
-    @media screen and (min-width: $breakpoint-admin-bar) {
-      top: $admin-bar-desktop-height;
-    }
   }
 }

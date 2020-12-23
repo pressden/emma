@@ -1,0 +1,20 @@
+.sitewide-alert {
+  background-color: $sitewide-alert-background-color;
+  color: $sitewide-alert-color;
+  text-align: $sitewide-alert-text-align;
+  font-weight: $sitewide-alert-font-weight;
+
+  > .wrap {
+    padding: $sitewide-alert-wrap-padding-y $sitewide-alert-wrap-padding-x;
+    @include center-wrap($sitewide-alert-wrap-max-width);
+
+    a {
+      color: $sitewide-alert-link-color;
+      text-decoration: underline;
+    }
+  }
+
+  p:last-of-type() {
+    margin-bottom: 0;
+  }
+}
