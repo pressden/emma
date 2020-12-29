@@ -28,7 +28,7 @@
 // Button format
 @mixin button() {
 	display: inline-block;
-  padding: $button-block-padding;
+  padding: $button-padding;
   border: 2px solid;
   border-radius: $button-border-radius;
 
