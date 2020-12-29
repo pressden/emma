@@ -561,6 +561,7 @@ if ( class_exists( 'WooCommerce' ) ) {
   add_filter( 'loop_shop_per_page', 'emma_products_per_page', 20 );
   add_filter( 'woocommerce_add_to_cart_fragments', 'emma_cart_anchor_fragment' );
   add_action( 'wp_enqueue_scripts', 'emma_enqueue_woocommerce_scripts' );
+  add_filter( 'woocommerce_show_page_title', 'emma_woocommerce_show_page_title' );
 }
 
 /**
@@ -568,4 +569,23 @@ if ( class_exists( 'WooCommerce' ) ) {
  */
 function emma_enqueue_woocommerce_scripts() {
   wp_enqueue_script( 'emma-woocommerce-scripts', get_template_directory_uri() . '/src/js/woocommerce.js', null, wp_get_theme()->get( 'Version' ), true );
+}
+
+/**
+ * Add support for the Emma title toggle on WooCommerce pages
+*/
+function emma_woocommerce_show_page_title( $show_title ) {
+	// exit early if not the main shop page
+	if( is_search() || is_tax() ) {
+		return $show_title;
+	}
+
+	// get the shop page as a post object
+	$post = get_post( get_option( 'woocommerce_shop_page_id' ) );
+
+	// get the `hide_title` attribute
+	$hide_title = get_post_meta( $post->ID, 'hide_title', true );
+
+	// WooCommerce expects `show_title` so reverse `hide_title`
+	return ! $hide_title;
 }
