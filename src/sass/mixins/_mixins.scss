@@ -28,9 +28,9 @@
 // Button format
 @mixin button() {
 	display: inline-block;
-  padding: $button-padding;
-  border: 2px solid;
-  border-radius: $button-border-radius;
+	padding: $button-padding;
+	border: $button-border;
+	border-radius: $button-border-radius;
 
 	&:hover,
 	&:active,
