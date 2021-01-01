@@ -108,7 +108,11 @@
 
       .quantity {
         align-self: center;
-        margin-right: $spacer-sm;
+		margin-right: $spacer-sm;
+
+		&.hidden {
+		  display: none;
+		}
       }
     }
 
