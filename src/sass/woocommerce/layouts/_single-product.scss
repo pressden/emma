@@ -94,6 +94,10 @@
         td, th {
           padding: $spacer-xs;
         }
+
+        .label {
+		  padding-left: 0;
+        }
       }
     }
 
