@@ -45,6 +45,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: $menu-justify-content;
+    align-items: $menu-align-items;
   }
 
   .sub-menu {
