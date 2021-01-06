@@ -1,10 +1,14 @@
 // Buttons
-$button-padding: $spacer-xs $spacer-sm !default;
-$button-block-padding: 12px 24px !default;
-$button-border-radius: 3px !default;
+$button-padding: $spacer-sm $spacer-md !default;
+$button-border: 2px solid !default;
+$button-border-radius: $border-radius !default;
 $button-hover-filter-effect: saturate( 0.7 ) !default;
 $button-focus-box-shadow: 0 0 0 2px rgba( $black, .4 );
 $button-disabled-filter-effect: opacity( 0.6 ) !default;
 
 // Alerts
-$alert-border-radius: 3px !default;
+$alert-border-radius: $border-radius !default;
+
+// Inputs
+$input-padding-x: $spacer-sm !default;
+$input-padding-y: $spacer-sm !default;

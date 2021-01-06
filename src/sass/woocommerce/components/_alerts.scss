@@ -14,10 +14,12 @@
     color: $white;
   }
 
-  div.product .onsale {
-    right: auto;
-    left: -$spacer-sm;
-    z-index: 100;
+  div.product {
+    .onsale {
+      right: auto;
+      left: $spacer-xs;
+      z-index: 1;
+    }
   }
 
   &.woocommerce-cart {
