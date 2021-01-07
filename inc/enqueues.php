@@ -24,14 +24,6 @@ add_action( 'enqueue_block_editor_assets', 'emma_enqueue_editor' );
  */
 function emma_enqueue_frontend() {
   /**
-   * Slider
-   */
-  $slider_js = get_template_directory_uri() . '/src/vendor/glide/glide.min.js';
-  $slider_version = '3.4.1';
-
-  wp_enqueue_script( 'slider', $slider_js, [], $slider_version, true ); //slider library
-
-  /**
    * Dialog Polyfill
    */
   $dialog_polyfill_js = get_template_directory_uri() . '/src/vendor/dialog-polyfill/dialog-polyfill.js';
