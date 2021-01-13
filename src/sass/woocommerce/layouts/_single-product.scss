@@ -166,7 +166,8 @@
       }
 
       .commentlist {
-        padding-left: 0;
+		padding-left: 0;
+		list-style: none;
 
         .comment_container {
           display: grid;
