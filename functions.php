@@ -572,7 +572,6 @@ function emma_enqueue_woocommerce_scripts() {
 }
 
 /**
-<<<<<<< HEAD
  * Add support for the Emma title toggle on WooCommerce pages
 */
 function emma_woocommerce_show_page_title( $show_title ) {
@@ -592,8 +591,6 @@ function emma_woocommerce_show_page_title( $show_title ) {
 }
 
 /*
-=======
->>>>>>> b405bcf7a8db63e9a7aecba61bc40704b6b8cc1b
  * Simulate non-empty content to enable Gutenberg editor on the main blog page (kind of hacky, but the only way I could find to do it)
  */
 function emma_enable_gutenberg_editor_for_blog_page( $replace, $post ) {
