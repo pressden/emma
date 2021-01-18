@@ -228,3 +228,8 @@ function emma_save_layout_options_postdata( $post_id ) {
 	}
 }
 add_action('save_post', 'emma_save_layout_options_postdata');
+
+function emma_excerpt_readmore() {
+	return '&hellip; <a href="'. esc_url( get_permalink() ) . '" class="more-link">' . 'Read More' . '</a>';
+}
+add_filter('excerpt_more', 'emma_excerpt_readmore');
