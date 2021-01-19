@@ -25,23 +25,55 @@
 }
 
 .pagination {
-  .page-numbers {
+  font-size: $font-size-base;
+  margin-top: $spacer-lg;
+  margin-bottom: $spacer-lg;
+
+  .next,
+  .prev {
+    position: relative;
+    height: 26px;
+    width: $spacer-lg;
+  }
+
+  .prev {
+    &::before {
+      content: "\f340";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate( -50%, -50% );
+      font-family: 'dashicons';
+    }
+  }
+
+  .next {
+    &::before {
+      content: "\f344";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate( -50%, -50% );
+      font-family: 'dashicons';
+    }
+  }
+
+  .nav-links {
     display: flex;
     justify-content: center;
-    padding-left: 0;
 
-    li {
-      display: block;
-      margin-left: $spacer-sm;
-      margin-right: $spacer-sm;
+    .page-numbers {
+      padding-left: $spacer-sm;
+      padding-right: $spacer-sm;
+    }
+  }
 
-      &:first-of-type {
-        margin-left: 0;
-      }
+  @media screen and ( min-width: $breakpoint-sm ) {
+    font-size: $font-size-md;
 
-      &:last-of-type {
-        margin-right: 0;
-      }
+    .next,
+    .prev {
+      height: $spacer-lg;
     }
   }
 }
