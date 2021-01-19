@@ -15,11 +15,11 @@ get_header();
 
 			<?php if ( have_posts() ) : ?>
 
-				<header class="page-header">
+				<header class="entry-header">
 					<div class="wrap">
 
 						<?php
-						the_archive_title( '<h1 class="page-title">', '</h1>' );
+						the_archive_title( '<h1 class="entry-title">', '</h1>' );
 						the_archive_description( '<div class="archive-description">', '</div>' );
 						?>
 
@@ -35,7 +35,7 @@ get_header();
 						get_template_part( 'template-parts/content', get_post_type() );
 					endwhile;
 
-					the_posts_navigation();
+					emma_pagination();
 					?>
 
 				</div><!-- .page-content -->
