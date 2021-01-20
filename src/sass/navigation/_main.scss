@@ -1,14 +1,12 @@
 .main-navigation {
+  display: none;
+
+  @media screen and (min-width: $menu-breakpoint) {
+    display: block;
+  }
+
   > .wrap {
     @include center-wrap($wrap-max-width);
     padding: $main-navigation-wrap-padding-y $main-navigation-wrap-padding-x;
-  }
-
-  .main-navigation {
-    display: none;
-
-    @media screen and (min-width: $menu-breakpoint) {
-      display: flex;
-    }
   }
 }
