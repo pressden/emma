@@ -2,9 +2,8 @@
 .posts-navigation,
 .post-navigation {
   > .nav-links {
-    @include center-wrap($nav-links-max-width);
-    padding-left: $content-padding-x;
-    padding-right: $content-padding-x;
+    @include center-wrap($entry-footer-wrap-max-width);
+    width: calc( 100% - #{$content-padding-x} * 2 );
   }
 
   .site-main & {
@@ -14,13 +13,18 @@
 
   .nav-previous {
     float: left;
-    width: 50%;
+    width: calc( 50% - #{$spacer-xs} );
   }
 
   .nav-next {
     float: right;
     text-align: right;
-    width: 50%;
+    width: calc( 50% - #{$spacer-xs} );
+  }
+
+  .nav-title {
+    font-size: $font-size-md;
+    font-weight: bold;
   }
 }
 
