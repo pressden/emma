@@ -62,6 +62,8 @@
     }
 
     .menu-item {
+      color: $menu-sub-link-color;
+
       &:hover,
       &:focus,
       &:focus-within,
