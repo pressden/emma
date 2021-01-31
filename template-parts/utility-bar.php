@@ -18,6 +18,6 @@
       ?>
 
     </div><!-- .wrap -->
-  </div><!-- #back-matter -->
+  </div><!-- #mastutils .utility-bar -->
 
 <?php endif; ?>
