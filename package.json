@@ -9,9 +9,9 @@
     "ie > 9"
   ],
   "scripts": {
-    "dev": "webpack --mode=development --watch --progress --colors --config webpack/dev.config.js",
-    "watch": "webpack --mode=production --watch --progress --colors --hide-modules --config webpack/dev.config.js",
-    "build": "webpack --mode=production --progress --hide-modules --config webpack/prod.config.js",
+    "dev": "webpack --mode=development --watch --progress --config webpack/dev.config.js",
+    "watch": "webpack --mode=production --watch --progress --config webpack/dev.config.js",
+    "build": "webpack --mode=production --progress --config webpack/prod.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "D.S. Webster | Eric Michel",
@@ -19,7 +19,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
-    "autoprefixer": "^10.2.4",
+    "autoprefixer": "^9.8.6",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
     "fibers": "^5.0.0",
