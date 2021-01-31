@@ -572,6 +572,46 @@ function emma_enqueue_woocommerce_scripts() {
 }
 
 /**
+ * Add a search field to the .toggle-search-form
+ */
+function emma_toggle_search_form_search_field() {
+	?>
+
+	<label>
+
+		<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ); ?></span>
+
+		<input
+			type="search"
+			class="search-field"
+			placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder' ); ?>"
+			value="<?php echo get_search_query(); ?>"
+			name="s"
+		/>
+
+	</label>
+
+	<?php
+}
+add_action( 'emma_toggle_search_form_fields', 'emma_toggle_search_form_search_field', 10 );
+
+/**
+ * Add a submit button to the .toggle-search-form
+ */
+function emma_toggle_search_form_submit_button() {
+	?>
+
+	<input
+		type="submit"
+		class="search-submit"
+		value="<?php echo esc_attr_x( 'Search', 'submit button' ); ?>"
+	/>
+
+	<?php
+}
+add_action( 'emma_toggle_search_form_fields', 'emma_toggle_search_form_submit_button', 15 );
+
+/**
  * Add support for the Emma title toggle on WooCommerce pages
 */
 function emma_woocommerce_show_page_title( $show_title ) {

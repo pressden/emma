@@ -13,6 +13,7 @@ input[type="time"],
 input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
+select,
 textarea {
 	color: $input-color;
 	border: 1px solid $input-border-color;
@@ -22,10 +23,6 @@ textarea {
 	&:focus {
 		color: $input-color-focus;
 	}
-}
-
-select {
-	border: 1px solid $input-border-color;
 }
 
 textarea {

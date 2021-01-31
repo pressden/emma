@@ -1,54 +1,61 @@
 .woocommerce-page {
-  &.woocommerce-account {
-    &:not( .logged-in ) {
-      .entry-content {
-        > * {
-          max-width: $content-max-width;
-        }
-      }
-    }
+	&.woocommerce-account {
+		&:not( .logged-in ) {
+			.entry-content {
+				> * {
+					max-width: $content-max-width;
+				}
+			}
+		}
 
-    &.logged-in {
-      .entry-content {
-        .woocommerce {
-          display: grid;
-          grid-row-gap: $spacer-xl;
+		&.logged-in {
+			.entry-content {
+				.woocommerce {
+					display: grid;
+					grid-row-gap: $spacer-xl;
 
-          @media screen and ( min-width: $breakpoint-sm ) {
-            grid-template-columns: auto 1fr;
-            grid-column-gap: $spacer-xl;
-          }
-        }
-      }
-    }
+					@media screen and ( min-width: $breakpoint-sm ) {
+						grid-template-columns: auto 1fr;
+						grid-column-gap: $spacer-xl;
+					}
+				}
+			}
+		}
 
-    .woocommerce-message, .woocommerce-info {
-      margin-top: 0;
-    }
+		.woocommerce-message, .woocommerce-info {
+			margin-top: 0;
+		}
 
-    label {
-      display: block;
-    }
+		.woocommerce-MyAccount-navigation {
+			ul {
+				padding-left: 0;
+				list-style: none;
+			}
+		}
 
-    input:not( [type='checkbox'] ) {
-      width: 100%;
-    }
+		label {
+			display: block;
+		}
 
-    .col2-set {
-      display: grid;
-      grid-row-gap: $spacer;
+		input:not( [type='checkbox'] ) {
+			width: 100%;
+		}
 
-      @media screen and ( min-width: $breakpoint-md ) {
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: $spacer-xl;
-      }
-    }
+		.col2-set {
+			display: grid;
+			grid-row-gap: $spacer;
 
-    fieldset {
-      padding: $spacer-lg;
-      border: 1px solid $input-border-color;
-      border-radius: $input-border-radius;
-      margin-bottom: $spacer;
-    }
-  }
+			@media screen and ( min-width: $breakpoint-md ) {
+				grid-template-columns: 1fr 1fr;
+				grid-column-gap: $spacer-xl;
+			}
+		}
+
+		fieldset {
+			padding: $spacer-lg;
+			border: 1px solid $input-border-color;
+			border-radius: $input-border-radius;
+			margin-bottom: $spacer;
+		}
+	}
 }
