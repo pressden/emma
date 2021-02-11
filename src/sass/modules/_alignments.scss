@@ -1,14 +1,14 @@
-.alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
-}
-
+.alignleft,
 .alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
-	text-align: right;
+	max-width: calc( 50% - #{$spacer} );
+	width: 100%;
+
+	@media screen and ( max-width: $align-breakpoint - 1px ) {
+		float: none !important;
+		max-width: 100%;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
 }
 
 .aligncenter {
