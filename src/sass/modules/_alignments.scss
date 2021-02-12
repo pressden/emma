@@ -1,14 +1,19 @@
-.alignleft {
-	display: inline;
-	float: left;
-	margin-right: 1.5em;
-}
-
+.alignleft,
 .alignright {
-	display: inline;
-	float: right;
-	margin-left: 1.5em;
-	text-align: right;
+	max-width: calc( 50% - #{$spacer} );
+
+	@media screen and ( max-width: $align-breakpoint - 1px ) {
+		float: none;
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+
+		.wp-block-image & {
+			float: none;
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
 }
 
 .aligncenter {
