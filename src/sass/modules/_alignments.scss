@@ -1,13 +1,18 @@
 .alignleft,
 .alignright {
 	max-width: calc( 50% - #{$spacer} );
-	width: 100%;
 
 	@media screen and ( max-width: $align-breakpoint - 1px ) {
-		float: none !important;
+		float: none;
 		max-width: 100%;
-		margin-left: auto !important;
-		margin-right: auto !important;
+		margin-left: auto;
+		margin-right: auto;
+
+		.wp-block-image & {
+			float: none;
+			margin-left: auto;
+			margin-right: auto;
+		}
 	}
 }
 
