@@ -71,7 +71,7 @@ $alignments: (
 }
 
 .wp-block-emma-grid-cell {
-  > :last-child() {
+  > :last-child {
     margin-bottom: 0;
   }
 
