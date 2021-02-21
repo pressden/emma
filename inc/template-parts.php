@@ -11,7 +11,7 @@
 function emma_skip_link_template() {
 	?>
 
-  <a class="skip-link screen-reader-shortcut" href="#content"><?php esc_html_e( 'Skip to content', 'emma' ); ?></a>
+	<a class="skip-link screen-reader-shortcut" href="#content"><?php esc_html_e( 'Skip to content', 'emma' ); ?></a>
 
 	<?php
 }
