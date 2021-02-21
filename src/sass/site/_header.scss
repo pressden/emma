@@ -55,7 +55,7 @@
   justify-content: $header-widgets-justify-content;
   flex-wrap: $header-widgets-flex-wrap;
   flex-grow: $header-widgets-flex-grow;
-  order: 5;
+  order: $header-widgets-order;
   width: 100%;
 
   @media screen and (min-width: $menu-breakpoint) {
