@@ -154,3 +154,26 @@ a {
     text-decoration: $link-hover-decoration;
   }
 }
+
+// Figures
+
+// Apply a consistent margin strategy (matches our type styles).
+
+figure {
+  margin: 0;
+}
+
+// Tables
+
+// Prevent double borders
+
+table {
+  border-collapse: collapse;
+}
+
+// Matches default `<td>` alignment by inheriting from the `<body>`, or the
+// closest parent with a set `text-align`.
+
+th {
+  text-align: inherit;
+}
