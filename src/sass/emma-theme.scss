@@ -18,7 +18,8 @@
 --------------------------------------------------------------*/
 @import "vendor/bootstrap/_variables.scss";
 @import "vendor/bootstrap/_mixins.scss";
-@import "vendor/bootstrap/_reboot.scss";
+@import "common/reset";
+//@import "vendor/bootstrap/_reboot.scss";
 
 /*--------------------------------------------------------------
 # Functions
