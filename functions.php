@@ -7,7 +7,7 @@
  * @package Emma
  */
 
-if ( ! function_exists( 'emma_setup' ) ) :
+if ( ! function_exists( 'emma_setup' ) ) {
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -42,13 +42,15 @@ if ( ! function_exists( 'emma_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
-    // This theme uses wp_nav_menu() in five locations.
-    register_nav_menus( array(
-      'primary'   => esc_html__( 'Primary Menu', 'emma' ),
-      'left'      => esc_html__( 'Left Menu', 'emma' ),
-      'right'     => esc_html__( 'Right Menu', 'emma' ),
-      'footer'    => esc_html__( 'Footer Menu', 'emma' ),
-    ) );
+		/*
+		 * Register navigation menus.
+		 */
+		register_nav_menus( array(
+			'primary' => esc_html__( 'Primary Menu', 'emma' ),
+			'left'    => esc_html__( 'Left Menu', 'emma' ),
+			'right'   => esc_html__( 'Right Menu', 'emma' ),
+			'footer'  => esc_html__( 'Footer Menu', 'emma' ),
+		) );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments
@@ -81,12 +83,13 @@ if ( ! function_exists( 'emma_setup' ) ) :
 			'width'       => 250,
 			'flex-width'  => true,
 			'flex-height' => true,
-    ) );
+		)
+	);
 
-    // Add support for full and wide align images.
+	// Add support for full and wide align images.
 		add_theme_support( 'align-wide' );
 	}
-endif;
+}
 add_action( 'after_setup_theme', 'emma_setup' );
 
 /**
