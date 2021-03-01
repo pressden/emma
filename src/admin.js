@@ -5,5 +5,5 @@
 // CSS
 import './sass/emma-admin.scss';
 
-// JS 
+// JS
 import './js/emma-admin';
