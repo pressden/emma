@@ -5,7 +5,7 @@
 /*--------------------------------------------------------------
 # Bootstrap Functions (vendor/bootstrap/bootstrap-reboot.scss)
 --------------------------------------------------------------*/
-@import "vendor/bootstrap/_functions.scss";
+@import "_functions";
 
 /*--------------------------------------------------------------
 # Variables
@@ -13,13 +13,16 @@
 $backend-only: true;
 
 @import "variables/variables";
+
+/*--------------------------------------------------------------
+# Mixins
+--------------------------------------------------------------*/
 @import "mixins/mixins";
 
 /*--------------------------------------------------------------
-# Bootstrap Reboot (vendor/bootstrap/bootstrap-reboot.scss)
+# Responsive Font Sizes
 --------------------------------------------------------------*/
-@import "vendor/bootstrap/_variables.scss";
-@import "vendor/bootstrap/_mixins.scss";
+@import "mixins/vendor/rfs";
 
 /*--------------------------------------------------------------
 # Gutenberg
