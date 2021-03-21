@@ -5,39 +5,86 @@ input[type="submit"],
 a.button,
 .menu-container ul li.button > a,
 .wp-block-button__link {
-	@include button;
-	@include button-color;
-}
-
-.wp-block-button.is-style-outline {
-	> .wp-block-button__link {
-		color: $primary;
+	--bg-color: #{$primary};
+	--color: #{color-yiq( $primary )};
+	--bg-color-shade-md: #{lighten( $primary, 20% )};
+	--bg-color-shade-sm: #{lighten( $primary, 6% )};
+	@if color-yiq( $primary ) == $yiq-text-dark {
+		--bg-color-shade-md: #{darken( $primary, 20% )};
+		--bg-color-shade-sm: #{darken( $primary, 6% )};
 	}
-}
+	color: var(--color);
+	display: inline-block;
+	padding: $button-padding;
+	border: 2px solid var(--bg-color);
+	border-radius: $button-border-radius;
 
-.menu-container {
-	ul {
-		li.button {
-			> a {
-				padding: $menu-sub-link-padding-y $menu-sub-link-padding-x;
+	background-color: var(--bg-color);
+	color: var(--color); 
+
+	&:visited {
+		color: var(--color); //needed to override styles from Gutenberg stylesheet on :active, :focus, :hover, and :visited
+	}
+
+	&:active, &:focus {
+		outline: 0;
+		box-shadow: 0 0 0 3px var(--bg-color-shade-md);
+	}
+
+	&:hover,
+	&:active,
+	&:focus {
+		background-color: var(--bg-color-shade-sm);
+		border-color: var(--bg-color-shade-sm);
+		text-decoration: none;
+		color: var(--color); //needed to override styles from Gutenberg stylesheet on :active, :focus, :hover, and :visited
+	}
+
+	&:disabled, &.disabled:not( :disabled ), &.loading {
+    filter: $button-disabled-filter-effect;
+		cursor: not-allowed;
+
+		&:active, &:focus {
+      box-shadow: none;
+    }
+	}
+
+	&.loading {
+		color: transparent !important;
+
+		&::before {
+			content: "\f463";
+			animation: loading-spin 1s infinite;
+   		animation-timing-function: linear;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate( -50%, -50% );
+			color: var(--color);
+			font-family: 'dashicons';
+			font-size: $base-unit * 1.5;
+		}
+
+		@keyframes loading-spin {
+			0% {
+				 transform: translate( -50%, -50% ) rotate( 0deg );
 			}
-		}
+			100% {
+				 transform: translate( -50%, -50% ) rotate( 360deg );
+			}
+	 	}
 	}
 }
 
-@each $name, $color in $editor-palette {
-	.wp-block-button__link.has-#{$name}-background-color,
-	input[type="button"].button-#{$name},
-	input[type="reset"].button-#{$name},
-	input[type="submit"].button-#{$name},
-	.button-#{$name} {
-		@include button-color( $color );
-	}
+.is-style-outline > .wp-block-button__link {
+	padding: $button-padding;
+	border-color: currentColor;
+	background-color: transparent;
 
-	.wp-block-button.is-style-outline {
-		> .has-#{$name}-color,
-		> .button-#{$name} {
-			@include outline-button-color( $color );
-		}
+	&:hover {
+		text-decoration: underline;
+	}
+	&:active, &:focus {
+		box-shadow: 0 0 0 3px var(--color-shade-md);
 	}
 }
