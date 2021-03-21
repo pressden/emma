@@ -1,10 +1,26 @@
 @each $name, $color in $editor-palette {
+
 	.has-#{$name}-color {
-		color: $color !important;
+		--color: #{$color} !important;
+
+		--color-shade-sm: #{tint( $color, 6% )};
+		--color-shade-md: #{tint( $color, 40% )};
+		@if color-yiq( $color ) == $yiq-text-dark {
+			--color-shade-sm: #{shade( $color, 6% )};
+			--color-shade-md: #{shade( $color, 25% )};
+		}
 	}
 
 	.has-#{$name}-background-color {
-		background-color: $color !important;
-		color: color-yiq( $color );
+		--bg-color: #{$color};
+		--color: #{color-yiq( $color )};
+
+		--bg-color-shade-sm: #{tint( $color, 6% )};
+		--bg-color-shade-md: #{tint( $color, 40% )};
+		@if color-yiq( $color ) == $yiq-text-dark {
+			--bg-color-shade-sm: #{shade( $color, 6% )};
+			--bg-color-shade-md: #{shade( $color, 25% )};
+		}
 	}
+
 }

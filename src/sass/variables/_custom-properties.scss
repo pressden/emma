@@ -1,5 +1,13 @@
 :root {
   --full-height: 100vh;
+  --bg-color: transparent;
+  --color: #{$body-color};
+  --color-shade-sm: #{tint( $body-color, 6% )};
+  --color-shade-md: #{tint( $body-color, 40% )};
+  @if color-yiq( $body-color ) == $yiq-text-dark {
+    --color-shade-sm: #{shade( $body-color, 6% )};
+    --color-shade-md: #{shade( $body-color, 25% )};
+  }
 }
 
 body.admin-bar {
@@ -16,4 +24,17 @@ body.admin-bar {
   @media screen and (min-width: $breakpoint-admin-bar) {
     --full-height: calc( 100vh - 81px );
   }
+}
+
+// * {
+//   background-color: var(--bg-color);
+//   color: var(--color);
+// }
+
+[class*="has-"][class*="background-color"] {
+  background-color: var(--bg-color);
+}
+
+[class*="has-"][class*="-color"] {
+  color: var(--color);
 }
