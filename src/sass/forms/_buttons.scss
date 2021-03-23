@@ -5,22 +5,13 @@ input[type="submit"],
 a.button,
 .menu-container ul li.button > a,
 .wp-block-button__link {
-	--bg-color: #{$primary};
-	--color: #{color-yiq( $primary )};
-	--bg-color-shade-md: #{lighten( $primary, 20% )};
-	--bg-color-shade-sm: #{lighten( $primary, 6% )};
-	@if color-yiq( $primary ) == $yiq-text-dark {
-		--bg-color-shade-md: #{darken( $primary, 20% )};
-		--bg-color-shade-sm: #{darken( $primary, 6% )};
-	}
+	@include background-color( $primary );
 	color: var(--color);
+	background-color: var(--bg-color);
 	display: inline-block;
 	padding: $button-padding;
 	border: 2px solid var(--bg-color);
 	border-radius: $button-border-radius;
-
-	background-color: var(--bg-color);
-	color: var(--color); 
 
 	&:visited {
 		color: var(--color); //needed to override styles from Gutenberg stylesheet on :active, :focus, :hover, and :visited
@@ -79,9 +70,10 @@ a.button,
 .is-style-outline > .wp-block-button__link {
 	padding: $button-padding;
 	border-color: currentColor;
-	background-color: transparent;
+	background-color: transparent !important;
 
 	&:hover {
+		color: currentColor;
 		text-decoration: underline;
 	}
 	&:active, &:focus {

@@ -1,5 +1,5 @@
 // display utilities
-@if $backend-only == false {
+@if $backend-stylesheet == false {
   .d-none {
     display: none !important;
   }

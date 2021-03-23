@@ -10,7 +10,7 @@
 /*--------------------------------------------------------------
 # Variables
 --------------------------------------------------------------*/
-$backend-only: true;
+$backend-stylesheet: true;
 
 @import "variables/variables";
 
@@ -23,6 +23,8 @@ $backend-only: true;
 # Responsive Font Sizes
 --------------------------------------------------------------*/
 @import "mixins/vendor/rfs";
+
+.editor-styles-wrapper {
 
 /*--------------------------------------------------------------
 # Forms
@@ -44,3 +46,5 @@ $backend-only: true;
 # Modules
 --------------------------------------------------------------*/
 @import "modules/utilities";
+
+}
