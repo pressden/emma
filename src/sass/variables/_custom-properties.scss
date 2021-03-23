@@ -25,16 +25,3 @@ body.admin-bar {
     --full-height: calc( 100vh - 81px );
   }
 }
-
-// * {
-//   background-color: var(--bg-color);
-//   color: var(--color);
-// }
-
-[class*="has-"][class*="background-color"] {
-  background-color: var(--bg-color);
-}
-
-[class*="has-"][class*="-color"] {
-  color: var(--color);
-}
