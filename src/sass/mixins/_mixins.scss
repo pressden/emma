@@ -79,46 +79,36 @@
 }
 
 @mixin color( $color ) {
-	--color: #{$color};
+	color: var(--color);
+	@include color-custom-properties( $color );
+}
 
-	--color-shade-sm: #{tint( $color, 6% )};
-	--color-shade-md: #{tint( $color, 40% )};
+@mixin color-custom-properties( $color ) {
+	--color: #{$color};
 	@if color-yiq( $color ) == $yiq-text-dark {
 		--color-shade-sm: #{shade( $color, 6% )};
 		--color-shade-md: #{shade( $color, 25% )};
+	} @else {
+		--color-shade-sm: #{tint( $color, 6% )};
+		--color-shade-md: #{tint( $color, 40% )};
 	}
 }
 
 @mixin background-color( $bg-color ) {
+	background-color: var(--bg-color);
+	color: var(--color);
+	@include background-color-custom-properties( $bg-color );
+}
+
+@mixin background-color-custom-properties( $bg-color ) {
 	--bg-color: #{$bg-color};
 	--color: #{color-yiq( $bg-color )};
-
-	--bg-color-shade-sm: #{tint( $bg-color, 6% )};
-	--bg-color-shade-md: #{tint( $bg-color, 40% )};
 	@if color-yiq( $bg-color ) == $yiq-text-dark {
 		--bg-color-shade-sm: #{shade( $bg-color, 6% )};
 		--bg-color-shade-md: #{shade( $bg-color, 25% )};
-	}
-}
-
-// Button colors
-@mixin button-color( $background-color: $action ) {
-	background-color: $background-color;
-	border-color: $background-color;
-	color: color-yiq( $background-color );
-	&.loading {
-		&:before {
-			color: color-yiq( $background-color );
-		}
-	}
-	&:active, &:focus {
-		box-shadow: 0 0 0 2px mix( $background-color, color-yiq( $background-color), 50% );
-	}
-}
-
-@mixin outline-button-color( $color: $black ) {
-	&:active, &:focus {
-		box-shadow: 0 0 0 2px mix( $color, color-yiq( $color), 50% );
+	} @else {
+		--bg-color-shade-sm: #{tint( $bg-color, 6% )};
+		--bg-color-shade-md: #{tint( $bg-color, 40% )};
 	}
 }
 

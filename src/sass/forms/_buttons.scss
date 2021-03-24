@@ -6,8 +6,6 @@ a.button,
 .menu-container ul li.button > a,
 .wp-block-button__link {
 	@include background-color( $primary );
-	color: var(--color);
-	background-color: var(--bg-color);
 	display: inline-block;
 	padding: $button-padding;
 	border: 2px solid var(--bg-color);
