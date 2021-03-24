@@ -9,12 +9,3 @@
 		@include color( $color );
 	}
 }
-
-.has-background {
-  background-color: var(--bg-color);
-  color: var(--color);
-}
-
-.has-text-color {
-  color: var(--color);
-}

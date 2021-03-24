@@ -108,7 +108,7 @@
       padding: $spacer-sm $spacer;
 
       &.checkout {
-        @include background-color( $accent );
+        @include background-color-custom-properties( $accent );
       }
     }
   }
