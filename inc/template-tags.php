@@ -101,7 +101,7 @@ if ( ! function_exists( 'emma_post_thumbnail' ) ) :
 	 * Wraps the post thumbnail in a div and adds an anchor element around the
    * thumbnail on index views.
 	 */
-	function emma_post_thumbnail() {
+	function emma_post_thumbnail( $size = 'post-thumbnail' ) {
 		if ( post_password_required()
 			|| is_attachment()
 			|| ! has_post_thumbnail()
@@ -128,7 +128,7 @@ if ( ! function_exists( 'emma_post_thumbnail' ) ) :
     if ( is_singular() ) :
       the_post_thumbnail();
     else :
-      the_post_thumbnail( 'post-thumbnail', array(
+      the_post_thumbnail( $size, array(
 				'alt' => the_title_attribute( array(
 					'echo' => false,
 				) ),

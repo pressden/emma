@@ -128,12 +128,42 @@
   .page-content {
     .entry-header {
       text-align: left;
+      margin-top: 0;
     }
   }
 
   article {
+    padding-top: $spacer-lg;
+    padding-bottom: $spacer-lg;
+
+    &::before,
+    &::after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+
     &:not( :last-child ) {
       border-bottom: $posts-border-bottom;
+    }
+
+    .entry-content {
+      > :last-child() {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .post-thumbnail {
+    display: none;
+    
+    @media screen and ( min-width: $breakpoint-xs ) {
+      display: block;
+      float: left;
+      max-width: 50%;
+      margin-bottom: $spacer-sm;
+      margin-right: $spacer;
+      margin-top: 0;
     }
   }
 }
