@@ -1,6 +1,6 @@
 // stylelint-disable at-rule-no-vendor-prefix, declaration-no-important, selector-no-qualifying-type, property-no-vendor-prefix
 
-// Reboot
+// Reset
 //
 // Normalization of HTML elements, manually forked from Normalize.css to remove
 // styles targeting irrelevant browsers while applying new styles.
@@ -16,7 +16,6 @@
 *::after {
   box-sizing: border-box;
 }
-
 
 // Body
 //
@@ -82,7 +81,6 @@ h6 {
   @include font-size($h6-font-size);
 }
 
-
 // Reset margins on paragraphs
 //
 // Similarly, the top margin on `<p>`s get reset. However, we also reset the
@@ -92,7 +90,6 @@ p {
   margin-top: 0;
   margin-bottom: $paragraph-margin-bottom;
 }
-
 
 ol,
 ul {
@@ -120,7 +117,6 @@ strong {
   font-weight: $font-weight-bolder;
 }
 
-
 // Add the correct font size in all browsers
 
 small {
@@ -140,7 +136,6 @@ sup {
 
 sub { bottom: -.25em; }
 sup { top: -.5em; }
-
 
 // Links
 
@@ -175,4 +170,23 @@ table {
 
 th {
   text-align: inherit;
+}
+
+// Normalizes User Agent input stuff
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  @include font-size(inherit);
+  line-height: inherit;
+}
+
+// Removes gap between image and its container
+
+img {
+  vertical-align: middle;
 }
