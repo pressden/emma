@@ -17,14 +17,14 @@ a.button,
 
 	&:active, &:focus {
 		outline: 0;
-		box-shadow: 0 0 0 3px var(--bg-color-shade-md);
+		box-shadow: 0 0 0 3px var(--bg-color-contrast-md);
 	}
 
 	&:hover,
 	&:active,
 	&:focus {
-		background-color: var(--bg-color-shade-sm);
-		border-color: var(--bg-color-shade-sm);
+		background-color: var(--bg-color-contrast-sm);
+		border-color: var(--bg-color-contrast-sm);
 		text-decoration: none;
 		color: var(--color); //needed to override styles from Gutenberg stylesheet on :active, :focus, :hover, and :visited
 	}
@@ -75,6 +75,6 @@ a.button,
 		text-decoration: underline;
 	}
 	&:active, &:focus {
-		box-shadow: 0 0 0 3px var(--color-shade-md);
+		box-shadow: 0 0 0 3px var(--color-contrast-md);
 	}
 }

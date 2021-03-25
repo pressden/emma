@@ -2,11 +2,11 @@
   --full-height: 100vh;
   --bg-color: transparent;
   --color: #{$body-color};
-  --color-shade-sm: #{tint( $body-color, 6% )};
-  --color-shade-md: #{tint( $body-color, 40% )};
+  --color-contrast-sm: #{tint( $body-color, 6% )};
+  --color-contrast-md: #{tint( $body-color, 40% )};
   @if color-yiq( $body-color ) == $yiq-text-dark {
-    --color-shade-sm: #{shade( $body-color, 6% )};
-    --color-shade-md: #{shade( $body-color, 25% )};
+    --color-contrast-sm: #{shade( $body-color, 6% )};
+    --color-contrast-md: #{shade( $body-color, 25% )};
   }
 }
 
