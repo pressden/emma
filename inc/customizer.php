@@ -122,6 +122,30 @@ function emma_customize_register( $wp_customize ) {
 		'section' => 'search',
 		'label' => 'Show Thumbnails',
 	) );
+
+	$wp_customize->add_section( 'posts_and_pages', array(
+		'priority' => 10,
+		'theme_supports' => '',
+		'title' => 'Posts & Pages',
+		'description' => '',
+		'panel' => 'theme_settings',
+	) );
+
+	$wp_customize->add_setting( 'post_show_thumbnails' );
+	$wp_customize->add_control( 'post_show_thumbnails', array(
+		'type' => 'checkbox',
+		'priority' => 10,
+		'section' => 'posts_and_pages',
+		'label' => 'Show Thumbnails on Blog Posts',
+	) );
+
+	$wp_customize->add_setting( 'page_show_thumbnails' );
+	$wp_customize->add_control( 'page_show_thumbnails', array(
+		'type' => 'checkbox',
+		'priority' => 10,
+		'section' => 'posts_and_pages',
+		'label' => 'Show Thumbnails on Pages',
+	) );
 }
 add_action( 'customize_register', 'emma_customize_register' );
 
