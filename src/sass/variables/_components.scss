@@ -10,8 +10,13 @@ $button-disabled-filter-effect: opacity( 0.6 ) !default;
 $alert-border-radius: $border-radius !default;
 
 // Inputs
+$input-border-radius: $border-radius !default;
 $input-padding-x: $spacer-sm !default;
 $input-padding-y: $spacer-sm !default;
 
 // Labels
 $label-margin-bottom: 0 !default;
+
+// Links
+$link-decoration: none !default;
+$link-hover-decoration: underline !default;

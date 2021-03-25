@@ -3,27 +3,29 @@
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# Bootstrap Functions (vendor/bootstrap/bootstrap-reboot.scss)
+# Functions
 --------------------------------------------------------------*/
-@import "vendor/bootstrap/_functions.scss";
+@import "_functions";
 
 /*--------------------------------------------------------------
 # Variables
 --------------------------------------------------------------*/
 @import "variables/variables";
+
+/*--------------------------------------------------------------
+# Mixins
+--------------------------------------------------------------*/
 @import "mixins/mixins";
 
 /*--------------------------------------------------------------
-# Bootstrap Reboot (vendor/bootstrap/bootstrap-reboot.scss)
+# Responsive Font Sizes
 --------------------------------------------------------------*/
-@import "vendor/bootstrap/_variables.scss";
-@import "vendor/bootstrap/_mixins.scss";
-@import "vendor/bootstrap/_reboot.scss";
+@import "mixins/vendor/rfs";
 
 /*--------------------------------------------------------------
-# Functions
+# Reset
 --------------------------------------------------------------*/
-@import "_functions";
+@import "common/reset";
 
 /*--------------------------------------------------------------
 # Elements (Common HTML tags)
