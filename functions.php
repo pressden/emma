@@ -465,6 +465,21 @@ function emma_show_post_thumbnail() {
 }
 
 /**
+ * Filter `post_class` output for `has-post-thumbnail` based on thumbnail visibility
+ */
+function emma_has_post_thumbnail_filter( $classes ) {
+	$key = array_search( 'has-post-thumbnail', $classes );
+
+	// remove `has-post-thumbnail` if the thumbnail is not visible
+	if( false !== $key && ! emma_show_post_thumbnail() ) {
+		unset( $classes[ $key ] );
+	}
+
+	return $classes;
+}
+add_filter( 'post_class', 'emma_has_post_thumbnail_filter' );
+
+/**
  * Declare WooCommerce theme support.
  */
 function emma_declare_woocommerce_support() {
