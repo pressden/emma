@@ -148,6 +148,12 @@
 	}
   }
 
+  .entry-footer {
+    @media screen and ( min-width: $breakpoint-xs ) {
+      grid-column: 1 / span 2;
+    }
+  }
+
   .has-post-thumbnail {
     @media screen and ( min-width: $breakpoint-xs ) {
       grid-template-columns: 125px 1fr;
