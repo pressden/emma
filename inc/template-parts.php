@@ -69,19 +69,11 @@ add_action( 'emma_after_header', 'emma_primary_navigation_template' );
 /**
  * Gets the post thumbnail template part.
  */
-function emma_post_thumbnail_template_singular() {
-	if( is_singular() ) {
-		emma_post_thumbnail();
-	}
+function emma_post_thumbnail_template() {
+	$size = ( is_singular() ) ? null : 'thumbnail';
+	emma_post_thumbnail( $size );
 }
-add_action( 'emma_after_entry_header', 'emma_post_thumbnail_template_singular' );
-
-function emma_post_thumbnail_template_archive() {
-	if( ! is_singular() ) {
-		emma_post_thumbnail( 'thumbnail' );
-	}
-}
-add_action( 'emma_before_entry_header', 'emma_post_thumbnail_template_archive' );
+add_action( 'emma_after_entry_header', 'emma_post_thumbnail_template' );
 
 /**
  * Gets the entry header template part.
