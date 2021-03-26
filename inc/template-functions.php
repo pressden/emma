@@ -165,9 +165,6 @@ function emma_layout_options_metabox_html( $post, $metabox ) {
 	// post_layout
 	$post_layout = get_post_meta( $post->ID, 'post_layout', true );
 
-	// feature_image_before_title
-	$featured_image_before_title = get_post_meta( $post->ID, 'featured_image_before_title', true );
-
 	wp_nonce_field( basename(__FILE__), 'layout_options_meta_box_nonce' );
 	?>
 

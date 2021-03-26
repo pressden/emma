@@ -446,6 +446,41 @@ function emma_get_layout_option( $post_id = null ) {
 }
 
 /**
+ * Check post thumbnail visibility within the loop
+ */
+function emma_show_post_thumbnail() {
+	if (
+		post_password_required()
+		|| is_attachment()
+		|| ! has_post_thumbnail()
+		|| ( is_search() && ! get_theme_mod( 'search_show_thumbnails', false ) )
+		|| ( ( is_home() || is_archive() ) && ! get_theme_mod( 'archive_show_thumbnails', false ) )
+		|| ( is_front_page() && ! get_theme_mod( 'homepage_show_thumbnails', false ) )
+		|| ( is_single() && ! get_theme_mod( 'post_show_thumbnails', false ) )
+		|| ( is_page() && ! get_theme_mod( 'page_show_thumbnails', false ) )
+	) {
+		return false;
+	}
+
+	return true;
+}
+
+/**
+ * Filter `post_class` output for `has-post-thumbnail` based on thumbnail visibility
+ */
+function emma_has_post_thumbnail_filter( $classes ) {
+	$key = array_search( 'has-post-thumbnail', $classes );
+
+	// remove `has-post-thumbnail` if the thumbnail is not visible
+	if( false !== $key && ! emma_show_post_thumbnail() ) {
+		unset( $classes[ $key ] );
+	}
+
+	return $classes;
+}
+add_filter( 'post_class', 'emma_has_post_thumbnail_filter' );
+
+/**
  * Declare WooCommerce theme support.
  */
 function emma_declare_woocommerce_support() {
