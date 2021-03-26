@@ -139,10 +139,10 @@ function emma_customize_register( $wp_customize ) {
 		'label' => 'Show Thumbnails',
 	) );
 
-	$wp_customize->add_section( 'posts_and_pages', array(
+	$wp_customize->add_section( 'posts', array(
 		'priority' => 10,
 		'theme_supports' => '',
-		'title' => 'Posts & Pages',
+		'title' => 'Posts',
 		'description' => '',
 		'panel' => 'theme_settings',
 	) );
@@ -151,16 +151,24 @@ function emma_customize_register( $wp_customize ) {
 	$wp_customize->add_control( 'post_show_thumbnails', array(
 		'type' => 'checkbox',
 		'priority' => 10,
-		'section' => 'posts_and_pages',
-		'label' => 'Show Featured Image on Posts',
+		'section' => 'posts',
+		'label' => 'Show Featured Image',
+	) );
+
+	$wp_customize->add_section( 'pages', array(
+		'priority' => 10,
+		'theme_supports' => '',
+		'title' => 'Pages',
+		'description' => '',
+		'panel' => 'theme_settings',
 	) );
 
 	$wp_customize->add_setting( 'page_show_thumbnails' );
 	$wp_customize->add_control( 'page_show_thumbnails', array(
 		'type' => 'checkbox',
 		'priority' => 10,
-		'section' => 'posts_and_pages',
-		'label' => 'Show Featured Image on Pages',
+		'section' => 'pages',
+		'label' => 'Show Featured Image',
 	) );
 }
 add_action( 'customize_register', 'emma_customize_register' );
