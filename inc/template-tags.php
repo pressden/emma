@@ -99,53 +99,47 @@ if ( ! function_exists( 'emma_post_thumbnail' ) ) :
 	 * Displays an optional post thumbnail.
 	 *
 	 * Wraps the post thumbnail in a div and adds an anchor element around the
-   * thumbnail on index views.
+	 * thumbnail on index views.
 	 */
 	function emma_post_thumbnail( $size = 'post-thumbnail' ) {
-		if ( post_password_required()
-			|| is_attachment()
-			|| ! has_post_thumbnail()
-			|| ( is_search() && ! get_theme_mod( 'search_show_thumbnails', false ) )
-			|| ( ( is_home() || is_archive() ) && ! get_theme_mod( 'archive_show_thumbnails', false ) )
-			|| ( is_single() && ! get_theme_mod( 'post_show_thumbnails', false ) )
-			|| ( is_page() && ! get_theme_mod( 'page_show_thumbnails', false ) )
-		) {
+		// exit early if the thumbnail should not be shown
+		if ( ! emma_show_post_thumbnail() ) {
 			return;
-    }
-    ?>
+		}
+		?>
 
-    <div class="post-thumbnail">
+		<div class="post-thumbnail">
 
-    <?php
-		if ( ! is_singular() ) :
-      ?>
+			<?php
+			if ( ! is_singular() ) :
+				?>
 
-      <a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+				<a href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 
-      <?php
-    endif; // End ! is_singular().
+				<?php
+			endif; // End ! is_singular().
 
-    if ( is_singular() ) :
-      the_post_thumbnail();
-    else :
-      the_post_thumbnail( $size, array(
-				'alt' => the_title_attribute( array(
-					'echo' => false,
-				) ),
-			) );
-    endif; // End is_singular().
+			if ( is_singular() ) :
+				the_post_thumbnail();
+			else :
+				the_post_thumbnail( $size, array(
+					'alt' => the_title_attribute( array(
+						'echo' => false,
+					) ),
+				) );
+			endif; // End is_singular().
 
-    if ( ! is_singular() ) :
-      ?>
+			if ( ! is_singular() ) :
+				?>
 
-      </a>
+				</a>
 
-      <?php
-    endif; // End ! is_singular().
-    ?>
+				<?php
+			endif; // End ! is_singular().
+			?>
 
-    </div><!-- .post-thumbnail -->
+		</div><!-- .post-thumbnail -->
 
-    <?php
-  }
+		<?php
+	}
 endif;
