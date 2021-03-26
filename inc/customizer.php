@@ -83,6 +83,22 @@ function emma_customize_register( $wp_customize ) {
 		],
 	) );
 
+	$wp_customize->add_section( 'homepage', array(
+		'priority' => 10,
+		'theme_supports' => '',
+		'title' => 'Homepage',
+		'description' => '',
+		'panel' => 'theme_settings',
+	) );
+
+	$wp_customize->add_setting( 'homepage_show_thumbnails' );
+	$wp_customize->add_control( 'homepage_show_thumbnails', array(
+		'type' => 'checkbox',
+		'priority' => 10,
+		'section' => 'homepage',
+		'label' => 'Show Featured Image',
+	) );
+
 	$wp_customize->add_section( 'archives', array(
 		'priority' => 10,
 		'theme_supports' => '',
@@ -136,7 +152,7 @@ function emma_customize_register( $wp_customize ) {
 		'type' => 'checkbox',
 		'priority' => 10,
 		'section' => 'posts_and_pages',
-		'label' => 'Show Thumbnails on Posts',
+		'label' => 'Show Featured Image on Posts',
 	) );
 
 	$wp_customize->add_setting( 'page_show_thumbnails' );
@@ -144,7 +160,7 @@ function emma_customize_register( $wp_customize ) {
 		'type' => 'checkbox',
 		'priority' => 10,
 		'section' => 'posts_and_pages',
-		'label' => 'Show Thumbnails on Pages',
+		'label' => 'Show Featured Image on Pages',
 	) );
 }
 add_action( 'customize_register', 'emma_customize_register' );

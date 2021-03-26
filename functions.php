@@ -455,6 +455,7 @@ function emma_show_post_thumbnail() {
 		|| ! has_post_thumbnail()
 		|| ( is_search() && ! get_theme_mod( 'search_show_thumbnails', false ) )
 		|| ( ( is_home() || is_archive() ) && ! get_theme_mod( 'archive_show_thumbnails', false ) )
+		|| ( is_front_page() && ! get_theme_mod( 'homepage_show_thumbnails', false ) )
 		|| ( is_single() && ! get_theme_mod( 'post_show_thumbnails', false ) )
 		|| ( is_page() && ! get_theme_mod( 'page_show_thumbnails', false ) )
 	) {
