@@ -11,22 +11,22 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class( 'search-result' ); ?>>
 
-	<?php emma_post_thumbnail( 'thumbnail' ); ?>
-
 	<header class="entry-header">
 		<div class="wrap">
 
-      <?php
-      	the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
-			?>
+			<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-      <small><a href="<?php echo get_permalink(); ?>"><?php echo get_permalink(); ?></a></small>
+			<small><a href="<?php echo get_permalink(); ?>"><?php echo get_permalink(); ?></a></small>
+
 		</div><!-- .wrap -->
 	</header><!-- .entry-header -->
+
+	<?php emma_post_thumbnail( 'thumbnail' ); ?>
 
 	<div class="entry-content">
 
 		<?php the_excerpt(); ?>
 
 	</div><!-- .entry-content -->
+
 </article><!-- #post-<?php the_ID(); ?> -->
