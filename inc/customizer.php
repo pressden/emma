@@ -136,7 +136,7 @@ function emma_customize_register( $wp_customize ) {
 		'type' => 'checkbox',
 		'priority' => 10,
 		'section' => 'posts_and_pages',
-		'label' => 'Show Thumbnails on Blog Posts',
+		'label' => 'Show Thumbnails on Posts',
 	) );
 
 	$wp_customize->add_setting( 'page_show_thumbnails' );
