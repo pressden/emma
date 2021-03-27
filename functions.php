@@ -398,7 +398,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
   require get_template_directory() . '/inc/jetpack.php';
 }
 
-
 /**
  * Enqueue scripts and styles.
  */
@@ -479,6 +478,14 @@ function emma_has_post_thumbnail_filter( $classes ) {
 	return $classes;
 }
 add_filter( 'post_class', 'emma_has_post_thumbnail_filter' );
+
+/**
+ * Add Reusable Blocks to the admin menu
+ */
+function emma_reusable_blocks_admin_menu() {
+	add_menu_page( 'Reusable Blocks', 'Reusable Blocks', 'edit_posts', 'edit.php?post_type=wp_block', '', 'dashicons-editor-table', 22 );
+}
+add_action( 'admin_menu', 'emma_reusable_blocks_admin_menu' );
 
 /**
  * Declare WooCommerce theme support.
