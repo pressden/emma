@@ -1,11 +1,14 @@
-const baseConfig = require('./base.config.js');
-const { merge } = require('webpack-merge');
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const baseConfig = require("./base.config.js");
+const { merge } = require("webpack-merge");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = merge(baseConfig, {
-    optimization: {
-        minimizer: [
-          new OptimizeCSSAssetsPlugin({})
-        ]
-    }
+	optimization: {
+		minimize: true,
+		minimizer: [
+			// For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+			// `...`,
+			new CssMinimizerPlugin(),
+		],
+	},
 });
