@@ -335,18 +335,6 @@ function emma_filter_nav_menu_args( $nav_menu_args ) {
 add_filter( 'widget_nav_menu_args', 'emma_filter_nav_menu_args' );
 
 /**
- * Register jQuery
- */
-function emma_register_jquery() {
-  // deregister the severely outdated version of jQuery that ships with WordPress
-  wp_deregister_script( 'jquery' );
-
-  // register a newer version of jQuery
-  wp_register_script( 'jquery', get_template_directory_uri() . '/src/vendor/jquery/jquery.min.js', false, '3.5.1' );
-}
-add_action( 'wp_enqueue_scripts', 'emma_register_jquery' );
-
-/**
  * Optimize WordPress by removing unused features.
  */
 require get_template_directory() . '/inc/optimize.php';
@@ -397,7 +385,6 @@ require get_template_directory() . '/inc/enqueues.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
   require get_template_directory() . '/inc/jetpack.php';
 }
-
 
 /**
  * Enqueue scripts and styles.
@@ -479,6 +466,14 @@ function emma_has_post_thumbnail_filter( $classes ) {
 	return $classes;
 }
 add_filter( 'post_class', 'emma_has_post_thumbnail_filter' );
+
+/**
+ * Add Reusable Blocks to the admin menu
+ */
+function emma_reusable_blocks_admin_menu() {
+	add_menu_page( 'Reusable Blocks', 'Reusable Blocks', 'edit_posts', 'edit.php?post_type=wp_block', '', 'dashicons-editor-table', 22 );
+}
+add_action( 'admin_menu', 'emma_reusable_blocks_admin_menu' );
 
 /**
  * Declare WooCommerce theme support.
