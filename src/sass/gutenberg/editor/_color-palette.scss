@@ -1,10 +1,11 @@
 @each $name, $color in $editor-palette {
-	.has-#{$name}-color {
-		color: $color !important;
-	}
-
 	.has-#{$name}-background-color {
-		background-color: $color !important;
-		color: color-yiq( $color );
+		@include background-color( $color );
+	}
+}
+
+@each $name, $color in $editor-palette { //loop repeated so that all color selectors come after bg-color and override them when necessary
+	.has-#{$name}-color {
+		@include color( $color );
 	}
 }

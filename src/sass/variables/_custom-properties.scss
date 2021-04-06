@@ -1,5 +1,13 @@
 :root {
   --full-height: 100vh;
+  --bg-color: transparent;
+  --color: #{$body-color};
+  --color-contrast-sm: #{tint( $body-color, 6% )};
+  --color-contrast-md: #{tint( $body-color, 40% )};
+  @if color-yiq( $body-color ) == $yiq-text-dark {
+    --color-contrast-sm: #{shade( $body-color, 6% )};
+    --color-contrast-md: #{shade( $body-color, 25% )};
+  }
 }
 
 body.admin-bar {
