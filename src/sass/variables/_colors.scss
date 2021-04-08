@@ -58,8 +58,8 @@ $sitewide-alert-color: color-yiq( $danger ) !default;
 $sitewide-alert-link-color: color-yiq( $danger ) !default;
 
 $utility-bar-background-color: $primary-support !default;
-$utility-bar-link-color: color-yiq($utility-bar-background-color);
-$utility-bar-link-hover-color: darken($utility-bar-link-color, 15);
+$utility-bar-link-color: color-yiq($utility-bar-background-color) !default;
+$utility-bar-link-hover-color: darken($utility-bar-link-color, 15) !default;
 
 $header-background-color: rgba(255, 255, 255, .95) !default;
 
