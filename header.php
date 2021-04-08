@@ -42,7 +42,7 @@ do_action( 'emma_before' );
   do_action( 'emma_before_header' );
   ?>
 
-	<header id="masthead" class="site-header">
+    <header id="masthead" class="site-header">
 
     <?php
     /**
@@ -57,7 +57,7 @@ do_action( 'emma_before' );
     do_action( 'emma_header_bar' );
     ?>
 
-  </header><!-- #masthead -->
+    </header><!-- #masthead -->
 
   <?php
   /**
