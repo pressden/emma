@@ -57,19 +57,6 @@ do_action( 'emma_before' );
     do_action( 'emma_header_bar' );
     ?>
 
-    <div class="wrap">
-
-      <?php
-      /**
-       * Fires inside the site-header and wrap markup.
-       *
-       * @since 1.0.0
-       */
-      do_action( 'emma_header' );
-      ?>
-
-    </div><!-- .wrap -->
-
   </header><!-- #masthead -->
 
   <?php

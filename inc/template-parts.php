@@ -24,7 +24,15 @@ function emma_utility_bar_template() {
 	get_template_part( 'template-parts/sitewide', 'alert' );
 	get_template_part( 'template-parts/utility', 'bar' );
 }
-add_action( 'emma_header_bar', 'emma_utility_bar_template' );
+add_action( 'emma_header_bar', 'emma_utility_bar_template', 8 );
+
+/**
+ * Gets the header bar template part.
+ */
+function emma_header_bar_template() {
+	get_template_part( 'template-parts/header', 'bar' );
+}
+add_action( 'emma_header_bar', 'emma_header_bar_template' );
 
 /**
  * Gets the header inner template parts.
