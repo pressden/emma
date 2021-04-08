@@ -24,7 +24,7 @@ function emma_utility_bar_template() {
 	get_template_part( 'template-parts/sitewide', 'alert' );
 	get_template_part( 'template-parts/utility', 'bar' );
 }
-add_action( 'emma_header_bar', 'emma_utility_bar_template', 8 );
+add_action( 'emma_header_bar', 'emma_utility_bar_template', 5 );
 
 /**
  * Gets the header bar template part.
