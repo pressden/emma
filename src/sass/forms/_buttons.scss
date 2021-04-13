@@ -1,17 +1,8 @@
 $button-selectors: ".wp-block-button__link";
 
 @if $backend-stylesheet == false {
-	$button-selectors: "
-			button,
-			input[type='button'],
-			input[type='reset'],
-			input[type='submit'],
-			a.button,
-			.menu-container ul li.button > a,
-			.wp-block-button__link
-		";
+	$button-selectors: "button, input[type='button'], input[type='reset'], input[type='submit'], a.button, .menu-container ul li.button > a, .wp-block-button__link";
 }
-
 
 #{$button-selectors} {
 	@include background-color( $primary );
