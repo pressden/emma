@@ -2,6 +2,8 @@
  * COLUMN SIZER FUNCTIONS
  */
 
+let $ = jQuery;
+
 $( function() {
   $productsList = $( 'ul.products' );
   $productsListClasses = $productsList.attr( 'class' );
