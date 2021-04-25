@@ -5,7 +5,7 @@
  * @package Emma
  */
 
- /**
+/**
  * Gets the skip link template part.
  */
 function emma_skip_link_template() {
@@ -126,7 +126,7 @@ function emma_entry_footer_inner_template() {
 }
 add_action( 'emma_entry_footer', 'emma_entry_footer_inner_template' );
 
- /**
+/**
  * Gets the footer widgets template part.
  */
 function emma_footer_widgets_template() {
