@@ -12,72 +12,71 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<div id="primary" class="content-area">
+	<main id="main" class="site-main">
 
-      <?php
-        $post = get_post( get_option( 'page_for_posts' ) );
-        setup_postdata( $post );
+		<?php
+		$posts_page = get_post( get_option( 'page_for_posts' ) );
+		setup_postdata( $posts_page );
 
-        /**
-         * Fires before the entry-content markup.
-         *
-         * @since 1.0.0
-        */
-        do_action( 'emma_before_entry_content' );
-        ?>
+		/**
+		 * Fires before the entry-content markup.
+		 *
+		 * @since 1.0.0
+		*/
+		do_action( 'emma_before_entry_content' );
+		?>
 
-        <div class="entry-content">
+		<div class="entry-content">
 
-          <?php
-          /**
-           * Fires inside the entry-content markup.
-           *
-           * @since 1.0.0
-          */
-          do_action( 'emma_entry_content' );
-          ?>
+			<?php
+			/**
+			 * Fires inside the entry-content markup.
+			 *
+			 * @since 1.0.0
+			 */
+			do_action( 'emma_entry_content' );
+			?>
 
-        </div><!-- .entry-content -->
+		</div><!-- .entry-content -->
 
-        <?php
-        /**
-         * Fires after the entry-content markup.
-         *
-         * @since 1.0.0
-        */
-        do_action( 'emma_after_entry_content' );
+		<?php
+		/**
+		 * Fires after the entry-content markup.
+		 *
+		 * @since 1.0.0
+		 */
+		do_action( 'emma_after_entry_content' );
 
-        wp_reset_postdata();
-      ?>
+		wp_reset_postdata();
+		?>
 
-      <?php
+		<?php
+		if ( have_posts() ) :
+			?>
 
-      if ( have_posts() ) :
-        ?>
+			<div class="page-content">
 
-        <div class="page-content">
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) :
+					the_post();
+					get_template_part( 'template-parts/content', get_post_type() );
+				endwhile;
 
-          <?php
-          /* Start the Loop */
-          while ( have_posts() ) :
-            the_post();
-            get_template_part( 'template-parts/content', get_post_type() );
-          endwhile;
+				emma_pagination();
+				?>
 
-          emma_pagination();
-          ?>
+			</div><!-- .page-content -->
 
-        </div><!-- .page-content -->
+			<?php
+		else :
+			get_template_part( 'template-parts/content', 'none' );
+		endif;
+		?>
 
-        <?php
-      else :
-        get_template_part( 'template-parts/content', 'none' );
-      endif;
-      ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	</main><!-- #main -->
+</div><!-- #primary -->
 
 <?php
 get_template_part( 'template-parts/sidebars' );

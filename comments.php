@@ -21,57 +21,64 @@ if ( post_password_required() ) {
 ?>
 
 <div id="comments" class="comments-area">
-  <div class="wrap">
+	<div class="wrap">
 
-    <?php
-    // You can start editing here -- including this comment!
-    if ( have_comments() ) :
-      ?>
-      <h2 class="comments-title">
-        <?php
-        $emma_comment_count = get_comments_number();
-        if ( '1' === $emma_comment_count ) {
-          printf(
-            /* translators: 1: title. */
-            esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'emma' ),
-            '<span>' . get_the_title() . '</span>'
-          );
-        } else {
-          printf( // WPCS: XSS OK.
-            /* translators: 1: comment count number, 2: title. */
-            esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $emma_comment_count, 'comments title', 'emma' ) ),
-            number_format_i18n( $emma_comment_count ),
-            '<span>' . get_the_title() . '</span>'
-          );
-        }
-        ?>
-      </h2><!-- .comments-title -->
+		<?php
+		if ( have_comments() ) {
+			?>
 
-      <?php the_comments_navigation(); ?>
+			<h2 class="comments-title">
 
-      <ol class="comment-list">
-        <?php
-        wp_list_comments( array(
-          'style'      => 'ol',
-          'short_ping' => true,
-        ) );
-        ?>
-      </ol><!-- .comment-list -->
+				<?php
+				$emma_comment_count = get_comments_number();
+				if ( '1' === $emma_comment_count ) {
+					printf(
+						/* translators: 1: title. */
+						esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'emma' ),
+						'<span>' . get_the_title() . '</span>'
+					);
+				} else {
+					printf(
+						/* translators: 1: comment count number, 2: title. */
+						esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $emma_comment_count, 'comments title', 'emma' ) ),
+						number_format_i18n( $emma_comment_count ),
+						'<span>' . get_the_title() . '</span>'
+					);
+				}
+				?>
 
-      <?php
-      the_comments_navigation();
+			</h2><!-- .comments-title -->
 
-      // If comments are closed and there are comments, let's leave a little note, shall we?
-      if ( ! comments_open() ) :
-        ?>
-        <p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'emma' ); ?></p>
-        <?php
-      endif;
+			<?php the_comments_navigation(); ?>
 
-    endif; // Check for have_comments().
+			<ol class="comment-list">
 
-    comment_form();
-    ?>
+				<?php
+				wp_list_comments(
+					array(
+						'style'      => 'ol',
+						'short_ping' => true,
+					)
+				);
+				?>
 
-  </div><!-- .wrap -->
+			</ol><!-- .comment-list -->
+
+			<?php
+			the_comments_navigation();
+
+			// If comments are closed and there are comments, let's leave a little note, shall we?
+			if ( ! comments_open() ) {
+				?>
+
+				<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'emma' ); ?></p>
+
+				<?php
+			}
+		} // Check for have_comments().
+
+		comment_form();
+		?>
+
+	</div><!-- .wrap -->
 </div><!-- #comments -->
