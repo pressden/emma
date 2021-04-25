@@ -16,7 +16,7 @@
 	 * Fires before the entry-content markup.
 	 *
 	 * @since 1.0.0
-	*/
+	 */
 	do_action( 'emma_before_entry_content' );
 	?>
 
@@ -27,7 +27,7 @@
 		 * Fires inside the entry-content markup.
 		 *
 		 * @since 1.0.0
-		*/
+		 */
 		do_action( 'emma_entry_content' );
 		?>
 
@@ -38,7 +38,7 @@
 	 * Fires after the entry-content markup.
 	 *
 	 * @since 1.0.0
-	*/
+	 */
 	do_action( 'emma_after_entry_content' );
 	?>
 
