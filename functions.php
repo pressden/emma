@@ -610,9 +610,7 @@ function emma_cart_anchor_fragment( $fragments ) {
 	?>
 
 	<a href="<?php echo esc_url( $woocommerce->cart->get_cart_url() ); ?>">
-		<span class='cart-count'>
-			<?php echo ( 0 === WC()->cart->get_cart_contents_count() ) ? '' : WC()->cart->get_cart_contents_count(); ?>
-		</span>
+		<span class='cart-count'><?php echo ( 0 === WC()->cart->get_cart_contents_count() ) ? '' : WC()->cart->get_cart_contents_count(); ?></span>
 		<?php echo ( 0 === WC()->cart->get_cart_contents_count() ) ? 'Cart Empty' : 'Item(s) in Cart'; ?>
 	</a>
 
