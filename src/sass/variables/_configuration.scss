@@ -13,8 +13,8 @@ $enable-sticky-header: false !default;
 $enable-responsive-toggle: true !default;
 
 /*--------------------------------------------------------------
-## Editor Stylesheet
+## Admin Stylesheet
 ## true: this will adjust certain backend-breaking classes for the admin CSS file
 ## false: classes will be compiled with normal frontend properties
 --------------------------------------------------------------*/
-$backend-stylesheet: false !default;
+$admin-stylesheet: false !default;

@@ -4,6 +4,10 @@ $button-border: 2px solid !default;
 $button-border-radius: $border-radius !default;
 $button-disabled-filter-effect: opacity( 0.6 ) !default;
 
+// Button Selectors
+$button-selectors-admin: ".wp-block-button__link" !default;
+$button-selectors-theme: "button, input[type='button'], input[type='reset'], input[type='submit'], a.button, .menu-container ul li.button > a" !default;
+
 // Alerts
 $alert-border-radius: $border-radius !default;
 

@@ -1,5 +1,5 @@
 // display utilities
-@if $backend-stylesheet == false {
+@if $admin-stylesheet == false {
   .d-none {
     display: none !important;
   }
