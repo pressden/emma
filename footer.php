@@ -11,40 +11,40 @@
 
 ?>
 
-  </div><!-- #content -->
+	</div><!-- #content -->
 
-  <?php
-  /**
-   * Fires before the footer element markup.
-   *
-   * @since 1.0.0
-   */
-  do_action( 'emma_before_footer' );
-  ?>
+	<?php
+	/**
+	 * Fires before the footer element markup.
+	 *
+	 * @since 1.0.0
+	 */
+	do_action( 'emma_before_footer' );
+	?>
 
 	<footer id="colophon" class="site-footer">
-    <div class="wrap">
+		<div class="wrap">
 
-      <?php
-      /**
-       * Fires inside the footer element and wrap markup.
-       *
-       * @since 1.0.0
-      */
-      do_action( 'emma_footer' );
-      ?>
+			<?php
+			/**
+			 * Fires inside the footer element and wrap markup.
+			 *
+			 * @since 1.0.0
+			 */
+			do_action( 'emma_footer' );
+			?>
 
-    </div><!-- .wrap -->
-  </footer><!-- #colophon -->
+		</div><!-- .wrap -->
+	</footer><!-- #colophon -->
 
-  <?php
-  /**
-   * Fires after the footer element markup.
-   *
-   * @since 1.0.0
-   */
-  do_action( 'emma_after_footer' );
-  ?>
+	<?php
+	/**
+	 * Fires after the footer element markup.
+	 *
+	 * @since 1.0.0
+	 */
+	do_action( 'emma_after_footer' );
+	?>
 
 </div><!-- #page -->
 

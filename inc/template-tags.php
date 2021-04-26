@@ -17,7 +17,8 @@ if ( ! function_exists( 'emma_posted_on' ) ) :
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
 		}
 
-		$time_string = sprintf( $time_string,
+		$time_string = sprintf(
+			$time_string,
 			esc_attr( get_the_date( DATE_W3C ) ),
 			esc_html( get_the_date() ),
 			esc_attr( get_the_modified_date( DATE_W3C ) ),
@@ -30,7 +31,7 @@ if ( ! function_exists( 'emma_posted_on' ) ) :
 			$time_string
 		);
 
-		echo '<span class="posted-on">' . $posted_on . '</span>'; // WPCS: XSS OK.
+		echo '<span class="posted-on">' . $posted_on . '</span>';
 
 	}
 endif;
@@ -46,7 +47,7 @@ if ( ! function_exists( 'emma_posted_by' ) ) :
 			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
 
-		echo '<span class="byline"> ' . $byline . '</span>'; // WPCS: XSS OK.
+		echo '<span class="byline"> ' . $byline . '</span>';
 
 	}
 endif;
@@ -62,14 +63,14 @@ if ( ! function_exists( 'emma_entry_footer' ) ) :
 			$categories_list = get_the_category_list( esc_html__( ', ', 'emma' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'emma' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'emma' ) . '</span>', $categories_list );
 			}
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'emma' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'emma' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'emma' ) . '</span>', $tags_list );
 			}
 		}
 
@@ -100,9 +101,11 @@ if ( ! function_exists( 'emma_post_thumbnail' ) ) :
 	 *
 	 * Wraps the post thumbnail in a div and adds an anchor element around the
 	 * thumbnail on index views.
+	 *
+	 * @param string $size Media size name.
 	 */
 	function emma_post_thumbnail( $size = 'post-thumbnail' ) {
-		// exit early if the thumbnail should not be shown
+		// Exit early if the thumbnail should not be shown.
 		if ( ! emma_show_post_thumbnail() ) {
 			return;
 		}
@@ -122,11 +125,16 @@ if ( ! function_exists( 'emma_post_thumbnail' ) ) :
 			if ( is_singular() ) :
 				the_post_thumbnail();
 			else :
-				the_post_thumbnail( $size, array(
-					'alt' => the_title_attribute( array(
-						'echo' => false,
-					) ),
-				) );
+				the_post_thumbnail(
+					$size,
+					array(
+						'alt' => the_title_attribute(
+							array(
+								'echo' => false,
+							)
+						),
+					)
+				);
 			endif; // End is_singular().
 
 			if ( ! is_singular() ) :

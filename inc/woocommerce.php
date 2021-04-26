@@ -103,8 +103,10 @@ if ( ! function_exists( 'emma_woocommerce_wrapper_before' ) ) {
 	 */
 	function emma_woocommerce_wrapper_before() {
 		?>
+
 		<div id="primary" class="content-area">
 			<main id="main" class="site-main" role="main">
+
 			<?php
 	}
 }
@@ -119,9 +121,11 @@ if ( ! function_exists( 'emma_woocommerce_wrapper_after' ) ) {
 	 * @return void
 	 */
 	function emma_woocommerce_wrapper_after() {
-			?>
+		?>
+
 			</main><!-- #main -->
 		</div><!-- #primary -->
+
 		<?php
 	}
 }
@@ -132,11 +136,11 @@ add_action( 'woocommerce_after_main_content', 'emma_woocommerce_wrapper_after' )
  *
  * You can add the WooCommerce Mini Cart to header.php like so ...
  *
-	<?php
-		if ( function_exists( 'emma_woocommerce_header_cart' ) ) {
-			emma_woocommerce_header_cart();
-		}
-	?>
+ * <?php
+ * if ( function_exists( 'emma_woocommerce_header_cart' ) ) {
+ *     emma_woocommerce_header_cart();
+ * }
+ * ?>
  */
 
 if ( ! function_exists( 'emma_woocommerce_cart_link_fragment' ) ) {
@@ -168,6 +172,7 @@ if ( ! function_exists( 'emma_woocommerce_cart_link' ) ) {
 	 */
 	function emma_woocommerce_cart_link() {
 		?>
+
 		<a class="cart-contents" href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_attr_e( 'View your shopping cart', 'emma' ); ?>">
 			<?php
 			$item_count_text = sprintf(
@@ -178,6 +183,7 @@ if ( ! function_exists( 'emma_woocommerce_cart_link' ) ) {
 			?>
 			<span class="amount"><?php echo wp_kses_data( WC()->cart->get_cart_subtotal() ); ?></span> <span class="count"><?php echo esc_html( $item_count_text ); ?></span>
 		</a>
+
 		<?php
 	}
 }
@@ -195,11 +201,13 @@ if ( ! function_exists( 'emma_woocommerce_header_cart' ) ) {
 			$class = '';
 		}
 		?>
+
 		<ul id="site-header-cart" class="site-header-cart">
 			<li class="<?php echo esc_attr( $class ); ?>">
 				<?php emma_woocommerce_cart_link(); ?>
 			</li>
 			<li>
+
 				<?php
 				$instance = array(
 					'title' => '',
@@ -207,6 +215,7 @@ if ( ! function_exists( 'emma_woocommerce_header_cart' ) ) {
 
 				the_widget( 'WC_Widget_Cart', $instance );
 				?>
+
 			</li>
 		</ul>
 		<?php

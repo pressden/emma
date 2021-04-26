@@ -78,8 +78,8 @@
     display: grid;
     column-gap: $wc-archive-column-gap;
     row-gap: $wc-archive-row-gap;
-    padding-left: $spacer;
-    padding-right: $spacer;
+    padding-left: $content-padding-x;
+    padding-right: $content-padding-x;
     clear: both;
 
     &.columns-1 { // Small

@@ -1,23 +1,25 @@
-<?php if ( is_active_sidebar( 'utility-widgets-1' ) || is_active_sidebar( 'utility-widgets-2' ) ): ?>
+<?php if ( is_active_sidebar( 'utility-widgets-1' ) || is_active_sidebar( 'utility-widgets-2' ) ) : ?>
 
-  <div id="mastutils" class="utility-bar">
-    <div class="wrap">
+	<div id="mastutils" class="utility-bar">
+		<div class="wrap">
 
-      <?php
-      for( $i = 1; $i <= 2; $i++ ) {
-        if ( is_active_sidebar( 'utility-widgets-' . $i ) ) {
-          ?>
+			<?php
+			for ( $i = 1; $i <= 2; $i++ ) {
+				if ( is_active_sidebar( 'utility-widgets-' . $i ) ) {
+					?>
 
-          <div class="utility-widgets-<?php echo $i; ?>">
-            <?php dynamic_sidebar( 'utility-widgets-' . $i ); ?>
-          </div>
+					<div class="utility-widgets-<?php echo $i; ?>">
 
-          <?php
-        }
-      }
-      ?>
+						<?php dynamic_sidebar( 'utility-widgets-' . $i ); ?>
 
-    </div><!-- .wrap -->
-  </div><!-- #mastutils .utility-bar -->
+					</div>
+
+					<?php
+				}
+			}
+			?>
+
+		</div><!-- .wrap -->
+	</div><!-- #mastutils .utility-bar -->
 
 <?php endif; ?>
