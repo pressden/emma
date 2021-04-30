@@ -16,8 +16,8 @@ get_header();
 	<main id="main" class="site-main">
 
 		<?php
-		$posts_page = get_post( get_option( 'page_for_posts' ) );
-		setup_postdata( $posts_page );
+		$post = get_post( get_option( 'page_for_posts' ) );
+		setup_postdata( $post );
 
 		/**
 		 * Fires before the entry-content markup.
