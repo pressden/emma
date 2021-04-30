@@ -138,14 +138,16 @@
     }
   }
 
-  .entry-header {
-    margin-top: 0;
-    margin-bottom: 0;
-	text-align: left;
+  .page-content {
+    .entry-header {
+      margin-top: 0;
+      margin-bottom: 0;
+      text-align: left;
 
-    @media screen and ( min-width: $breakpoint-xs ) {
-      grid-column: 1 / span 2;
-	}
+      @media screen and ( min-width: $breakpoint-xs ) {
+        grid-column: 1 / span 2;
+      }
+    }
   }
 
   .entry-footer {
