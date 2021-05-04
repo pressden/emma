@@ -18,6 +18,7 @@ var Analytics = function() {
     }
   }
 }();
+export default Analytics;
 
 var Facebook = function() {
   return {
@@ -28,6 +29,7 @@ var Facebook = function() {
     }
   }
 }();
+export default Facebook;
 
 function getLinkExtension (link) {
 
