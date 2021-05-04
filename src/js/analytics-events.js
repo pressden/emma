@@ -1,13 +1,6 @@
 var Analytics = function() {
   return {
     fireEvent: function( eventCategory, eventAction, eventLabel ) {
-      //fires events for universal analytics when UA is enqueued via analytics.js or GTM
-      if( typeof ga === 'function' ) {
-        var tracker = ga.getAll()[0];
-        if( tracker ) {
-          tracker.send( 'event', eventCategory, eventAction, eventLabel );
-        }
-      }
       //fires events for UA or GAv4 when using Global Site Tag
       if( typeof gtag === 'function' ) {
         gtag( 'event', eventAction, {
@@ -15,10 +8,17 @@ var Analytics = function() {
           'event_label': eventLabel,
         } );
       }
+      //fires events for universal analytics when UA is enqueued via analytics.js or GTM
+      else if( typeof ga === 'function' ) {
+        var tracker = ga.getAll()[0];
+        if( tracker ) {
+          tracker.send( 'event', eventCategory, eventAction, eventLabel );
+        }
+      }
     }
   }
 }();
-export default Analytics;
+export {Analytics};
 
 var Facebook = function() {
   return {
@@ -29,7 +29,7 @@ var Facebook = function() {
     }
   }
 }();
-export default Facebook;
+export {Facebook};
 
 function getLinkExtension (link) {
 
