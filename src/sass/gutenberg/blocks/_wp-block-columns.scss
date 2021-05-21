@@ -7,7 +7,7 @@ $full-columns-breakpoint: 782px;
   .wp-block-column {
     margin-bottom: $spacer;
 
-    &:last-of-type() {
+    &:last-child {
       margin-bottom: 0;
     }
 
