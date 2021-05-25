@@ -30,12 +30,12 @@ $button-selectors: $button-selectors-admin !default;
 	}
 
 	&:disabled, &.disabled:not( :disabled ), &.loading {
-    filter: $button-disabled-filter-effect;
+		filter: $button-disabled-filter-effect;
 		cursor: not-allowed;
 
 		&:active, &:focus {
-      box-shadow: none;
-    }
+			box-shadow: none;
+		}
 	}
 
 	&.loading {
@@ -44,7 +44,7 @@ $button-selectors: $button-selectors-admin !default;
 		&::before {
 			content: "\f463";
 			animation: loading-spin 1s infinite;
-   		animation-timing-function: linear;
+			animation-timing-function: linear;
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -61,7 +61,7 @@ $button-selectors: $button-selectors-admin !default;
 			100% {
 				 transform: translate( -50%, -50% ) rotate( 360deg );
 			}
-	 	}
+		}
 	}
 }
 
