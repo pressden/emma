@@ -5,7 +5,7 @@ $button-selectors: $button-selectors-admin !default;
 }
 
 #{$button-selectors} {
-	@include background-color( $primary );
+	@include background-color( $button-background-color );
 	display: inline-block;
 	padding: $button-padding;
 	border: 2px solid var(--bg-color);
