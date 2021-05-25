@@ -12,7 +12,8 @@ $button-selectors: $button-selectors-admin !default;
 	border-radius: $button-border-radius;
 
 	&:visited {
-		color: var(--color); //needed to override styles from Gutenberg stylesheet on :active, :focus, :hover, and :visited
+		// override styles from Gutenberg stylesheet on :visited
+		color: var(--color);
 	}
 
 	&:active, &:focus {
@@ -26,7 +27,8 @@ $button-selectors: $button-selectors-admin !default;
 		background-color: var(--bg-color-contrast-sm);
 		border-color: var(--bg-color-contrast-sm);
 		text-decoration: none;
-		color: var(--color); //needed to override styles from Gutenberg stylesheet on :active, :focus, :hover, and :visited
+		// override styles from Gutenberg stylesheet on :active, :focus and :hover
+		color: var(--color);
 	}
 
 	&:disabled, &.disabled:not( :disabled ), &.loading {
