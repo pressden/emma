@@ -8,7 +8,7 @@ $button-selectors: $button-selectors-admin !default;
 	@include background-color( $button-background-color );
 	display: inline-block;
 	padding: $button-padding;
-	border: 2px solid var(--bg-color);
+	border: $button-border var(--bg-color);
 	border-radius: $button-border-radius;
 
 	&:visited {
