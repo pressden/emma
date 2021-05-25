@@ -5,14 +5,15 @@ $button-selectors: $button-selectors-admin !default;
 }
 
 #{$button-selectors} {
-	@include background-color( $primary );
+	@include background-color( $button-background-color );
 	display: inline-block;
 	padding: $button-padding;
-	border: 2px solid var(--bg-color);
+	border: $button-border var(--bg-color);
 	border-radius: $button-border-radius;
 
 	&:visited {
-		color: var(--color); //needed to override styles from Gutenberg stylesheet on :active, :focus, :hover, and :visited
+		// override styles from Gutenberg stylesheet on :visited
+		color: var(--color);
 	}
 
 	&:active, &:focus {
@@ -26,16 +27,17 @@ $button-selectors: $button-selectors-admin !default;
 		background-color: var(--bg-color-contrast-sm);
 		border-color: var(--bg-color-contrast-sm);
 		text-decoration: none;
-		color: var(--color); //needed to override styles from Gutenberg stylesheet on :active, :focus, :hover, and :visited
+		// override styles from Gutenberg stylesheet on :active, :focus and :hover
+		color: var(--color);
 	}
 
 	&:disabled, &.disabled:not( :disabled ), &.loading {
-    filter: $button-disabled-filter-effect;
+		filter: $button-disabled-filter-effect;
 		cursor: not-allowed;
 
 		&:active, &:focus {
-      box-shadow: none;
-    }
+			box-shadow: none;
+		}
 	}
 
 	&.loading {
@@ -44,7 +46,7 @@ $button-selectors: $button-selectors-admin !default;
 		&::before {
 			content: "\f463";
 			animation: loading-spin 1s infinite;
-   		animation-timing-function: linear;
+			animation-timing-function: linear;
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -61,7 +63,7 @@ $button-selectors: $button-selectors-admin !default;
 			100% {
 				 transform: translate( -50%, -50% ) rotate( 360deg );
 			}
-	 	}
+		}
 	}
 }
 

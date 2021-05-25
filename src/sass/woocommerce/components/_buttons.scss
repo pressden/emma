@@ -4,5 +4,5 @@ a.button.checkout-button,
 button#place_order,
 a.button.product_type_grouped,
 .woocommerce-message a.button {
-  @include background-color-custom-properties( $accent );
+	@include background-color-custom-properties( $wc-button-background-color );
 }
