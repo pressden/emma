@@ -10,6 +10,7 @@ $button-selectors: $button-selectors-admin !default;
 	padding: $button-padding;
 	border: $button-border var(--bg-color);
 	border-radius: $button-border-radius;
+	cursor: pointer;
 
 	&:visited {
 		// override styles from Gutenberg stylesheet on :visited
