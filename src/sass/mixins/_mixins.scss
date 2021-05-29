@@ -33,11 +33,11 @@
 @mixin color-custom-properties( $color ) {
 	--color: #{$color};
 	@if color-yiq( $color ) == $yiq-text-dark {
-		--color-contrast-sm: #{shade( $color, 6% )};
-		--color-contrast-md: #{shade( $color, 25% )};
+		--color-contrast-sm: #{shade( $color, $shade-color-contrast-sm )};
+		--color-contrast-md: #{shade( $color, $shade-color-contrast-md )};
 	} @else {
-		--color-contrast-sm: #{tint( $color, 6% )};
-		--color-contrast-md: #{tint( $color, 40% )};
+		--color-contrast-sm: #{tint( $color, $tint-color-contrast-sm )};
+		--color-contrast-md: #{tint( $color, $tint-color-contrast-md )};
 	}
 }
 
@@ -51,11 +51,11 @@
 	--bg-color: #{$bg-color};
 	--color: #{color-yiq( $bg-color )};
 	@if color-yiq( $bg-color ) == $yiq-text-dark {
-		--bg-color-contrast-sm: #{shade( $bg-color, 6% )};
-		--bg-color-contrast-md: #{shade( $bg-color, 25% )};
+		--bg-color-contrast-sm: #{shade( $bg-color, $shade-color-contrast-sm )};
+		--bg-color-contrast-md: #{shade( $bg-color, $shade-color-contrast-md )};
 	} @else {
-		--bg-color-contrast-sm: #{tint( $bg-color, 6% )};
-		--bg-color-contrast-md: #{tint( $bg-color, 40% )};
+		--bg-color-contrast-sm: #{tint( $bg-color, $tint-color-contrast-sm )};
+		--bg-color-contrast-md: #{tint( $bg-color, $tint-color-contrast-md )};
 	}
 }
 

@@ -1,3 +1,4 @@
+// Greyscale
 $white: #fff !default;
 $gray-100: #f9f9f9 !default;
 $gray-200: #ebebeb !default;
@@ -15,6 +16,13 @@ $yiq-contrasted-threshold: 150 !default;
 $yiq-text-dark: $gray-900 !default;
 $yiq-text-light: $white !default;
 
+// Shades and Tints
+$shade-color-contrast-sm: 6% !default;
+$shade-color-contrast-md: 25% !default;
+$tint-color-contrast-sm: 6% !default;
+$tint-color-contrast-md: 40% !default;
+
+// Palette
 $editor-palette: () !default;
 $editor-palette: map-merge(
   (
@@ -38,38 +46,47 @@ $editor-palette: map-merge(
   $editor-palette
 );
 
+// Body
 $body-bg: $white !default;
 $body-color: $gray-900 !default;
 
+// Screen Readers
 $screen-color: #21759b !default;
 $screen-background-color: #f1f1f1 !default;
 
+// Links
 $link-color: $action !default;
 $link-hover-color: darken($link-color, 15%) !default;
 
+// Menus
 $menu-link-color: $link-color !default;
 $menu-link-hover-color: $link-hover-color !default;
 $menu-sub-link-color: $menu-link-color !default;
 $menu-sub-link-hover-color: $menu-link-hover-color !default;
 $menu-sub-background-color: $white !default;
 
+// Alerts
 $sitewide-alert-background-color: $danger !default;
 $sitewide-alert-color: color-yiq( $danger ) !default;
 $sitewide-alert-link-color: color-yiq( $danger ) !default;
 
+// Utility Bar
 $utility-bar-background-color: $primary-support !default;
 $utility-bar-link-color: color-yiq($utility-bar-background-color) !default;
 $utility-bar-link-hover-color: darken($utility-bar-link-color, 15) !default;
 
+// Header
 $header-background-color: rgba(255, 255, 255, .95) !default;
 
+// Footer
 $footer-widgets-background-color: $gray-100 !default;
-
 $footer-color: inherit !default;
 $footer-background-color: $primary-support !default;
 
+// Inputs
 $input-color: #666 !default;
 $input-color-focus: #111 !default;
 $input-border-color: #ccc !default;
 
+// Buttons
 $button-background-color: $primary !default;
