@@ -115,7 +115,7 @@ function getLinkFilename (link) {
 
       var extension = getLinkExtension( el.href );
       if( extension.length > 0 ) {
-        for ( i = 0; i < extensions.length; ++i ) {
+        for ( var i = 0; i < extensions.length; ++i ) {
           if ( extensions[i] === extension) {
             Analytics.fireEvent( 'File', 'Download', getLinkFilename( el.href ) );
             Facebook.fireEvent( 'track', 'ViewContent', {
