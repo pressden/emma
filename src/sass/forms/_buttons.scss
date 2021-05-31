@@ -34,7 +34,7 @@ $button-selectors: $button-selectors-admin !default;
 
 	&:disabled, &.disabled:not( :disabled ), &.loading {
 		filter: $button-disabled-filter-effect;
-		cursor: not-allowed;
+		cursor: $button-disabled-cursor;
 
 		&:active, &:focus {
 			box-shadow: none;
