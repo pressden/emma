@@ -23,7 +23,8 @@
   }
 
   &.woocommerce-cart {
-    .woocommerce-message {
+    .woocommerce-message,
+    .woocommerce-info {
       display: block;
     }
   }
