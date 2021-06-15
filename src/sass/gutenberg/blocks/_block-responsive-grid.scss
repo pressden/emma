@@ -13,80 +13,66 @@ $alignments: (
   stretch
 );
 
-.wp-block-emma-responsive-grid {
-
-  @each $name, $size in $spacer-sizes {
-    &.col-gap-#{$name} {
-      .responsive-grid__inner-container {
-        column-gap: $size;
-      }
-    }
-
-    &.row-gap-#{$name} {
-      .responsive-grid__inner-container {
-        row-gap: $size;
-      }
-    }
+@each $name, $size in $spacer-sizes {
+  .col-gap-#{$name} {
+    --grid-block-column-gap: #{$size};
   }
-
-  @each $name, $size in $column-sizes {
-    &.col-#{$name} {
-      .responsive-grid__inner-container {
-        @media screen and ( min-width: calc( #{$size} * 2 ) ) {
-          grid-template-columns: repeat( auto-fill, minmax( $size, 1fr ) );
-        }
-      }
-    }
-  }
-
-  @each $alignment in $alignments {
-    &.x-#{$alignment} {
-      .responsive-grid__inner-container {
-        justify-items: $alignment;
-      }
-    }
-
-    &.y-#{$alignment} {
-      .responsive-grid__inner-container {
-        align-items: $alignment;
-      }
-    }
-
-    .wp-block-emma-grid-cell {
-      &.x-#{$alignment} {
-        justify-self: $alignment;
-      }
-    }
-
-    .wp-block-emma-grid-cell {
-      &.y-#{$alignment} {
-        align-self: $alignment;
-      }
-    }
-  }
-
-  .responsive-grid__inner-container {
-    display: grid;
+  .row-gap-#{$name} {
+    --grid-block-row-gap: #{$size};
   }
 }
 
-.wp-block-emma-grid-cell {
-  > :last-child {
-    margin-bottom: 0;
+@each $name, $size in $column-sizes {
+  .wp-block-emma-responsive-grid {
+    &.col-#{$name} {
+      @media screen and ( min-width: calc( #{$size} * 2 ) ) {
+        --grid-block-column-size: #{$size};
+      }
+    }
+  }
+}
+
+@each $alignment in $alignments {
+  .x-#{$alignment} {
+    --grid-block-justify: #{$alignment};
   }
 
-  .image-fill & {
-    display: flex;
-    flex-direction: column;
+  .y-#{$alignment} {
+    --grid-block-align: #{$alignment};
+  }
+}
 
-    figure {
-      flex-grow: 1;
+@if $admin-stylesheet == false {
+  .wp-block-emma-responsive-grid {
+    display: grid;
+    column-gap: var(--grid-block-column-gap);
+    row-gap: var(--grid-block-row-gap);
+    grid-template-columns: repeat( auto-fill, minmax( var(--grid-block-column-size), 1fr ) );
+    justify-items: var(--grid-block-justify);
+    align-items: var(--grid-block-align);
+  }
 
-      img,
-      video {
-        height: 100%;
-        width: 100%;
-        object-fit: cover;
+  .wp-block-emma-grid-cell {
+    justify-self: var(--grid-block-justify);
+    align-self: var(--grid-block-align);
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+
+    .image-fill & {
+      display: flex;
+      flex-direction: column;
+
+      figure {
+        flex-grow: 1;
+
+        img,
+        video {
+          height: 100%;
+          width: 100%;
+          object-fit: cover;
+        }
       }
     }
   }
