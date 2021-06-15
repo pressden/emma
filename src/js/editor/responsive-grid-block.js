@@ -299,9 +299,7 @@
                   +	( props.attributes.imageFill && props.attributes.yAlignment == 'y-stretch' ? 'image-fill' : '' );
       return (
         el('div', { className: classes },
-          el('div', { className: 'responsive-grid__inner-container' },
-            el( InnerBlocks.Content, null )
-          )
+          el( InnerBlocks.Content, null )
         )
       );
     }
