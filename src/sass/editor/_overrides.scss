@@ -20,6 +20,13 @@
   font-family: $font-family-base;
 }
 
+.editor-styles-wrapper {
+  .dashicons,
+  .dashicons-before:before {
+    font-family: 'dashicons';
+  }
+}
+
 .media-menu-item {
   color: $black;
 }
