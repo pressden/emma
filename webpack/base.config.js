@@ -49,7 +49,7 @@ module.exports = {
 					MiniCssExtractPlugin.loader,
 					{
 						loader: "css-loader",
-						options: { url: false }
+						options: { url: false },
 					},
 					{
 						loader: "postcss-loader",
@@ -60,7 +60,8 @@ module.exports = {
 					},
 					{
 						/* for resolve-url-loader: source maps must be enabled on any preceding loader */
-						loader: "sass-loader?sourceMap",
+						loader: "sass-loader",
+						options: { sourceMap: true },
 					},
 				],
 			},
