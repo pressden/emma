@@ -1,3 +1,6 @@
+// Modules
+@use "sass:math";
+
 // Max widths
 $wrap-max-width: 1100px !default;
 $content-max-width-sm: 580px !default;
@@ -5,8 +8,8 @@ $content-max-width: $breakpoint-md !default;
 $content-max-alignwide-width: $wrap-max-width !default;
 
 // Spacers
-$spacer-xs: $base-unit / 4 !default;
-$spacer-sm: $base-unit / 2 !default;
+$spacer-xs: math.div( $base-unit, 4 ) !default;
+$spacer-sm: math.div( $base-unit, 2 ) !default;
 $spacer-md: $base-unit !default;
 $spacer-lg: $base-unit * 2 !default;
 $spacer-xl: $base-unit * 4 !default;

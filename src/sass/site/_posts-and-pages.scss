@@ -231,7 +231,7 @@
   > .wp-block-group {
     &.has-background,
     &.border {
-      &:only-child() {
+      &:only-child {
         height: 100%;
       }
     }
