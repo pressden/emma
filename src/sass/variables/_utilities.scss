@@ -11,8 +11,8 @@ $content-max-alignwide-width: $wrap-max-width !default;
 $spacer-xs: math.div( $base-unit, 4 ) !default;
 $spacer-sm: math.div( $base-unit, 2 ) !default;
 $spacer-md: $base-unit !default;
-$spacer-lg: math.div( $base-unit, 2 ) !default;
-$spacer-xl: math.div( $base-unit, 4 ) !default;
+$spacer-lg: $base-unit * 2 !default;
+$spacer-xl: $base-unit * 4 !default;
 
 $spacer-sizes: (
   '0': 0,
