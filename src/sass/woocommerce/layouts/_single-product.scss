@@ -7,8 +7,8 @@
   div.product {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 2rem;
-    row-gap: 2rem;
+    column-gap: $wc-product-column-gap;
+    row-gap: $wc-product-row-gap;
     position: relative;
 
     .woocommerce-product-gallery {
@@ -42,9 +42,10 @@
           align-items: center;
           justify-content: center;
           font-family: dashicons;
-          @include font-size(2rem);
           content: "\f179";
           text-indent: 0;
+
+          @include font-size(2rem);
         }
       }
 
