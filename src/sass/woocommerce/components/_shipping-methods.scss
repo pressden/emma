@@ -1,21 +1,20 @@
 .woocommerce {
+	.woocommerce-shipping-methods {
+		display: inline-block;
+		margin-bottom: 0;
+		padding-left: 0;
+		text-align: left;
 
-  .woocommerce-shipping-methods {
-    display: inline-block;
-    margin-bottom: 0;
-    padding-left: 0;
-    text-align: left;
+		li {
+			display: block;
 
-    li {
-      display: block;
+			input {
+				margin-right: $spacer-sm;
+			}
 
-      input {
-        margin-right: $spacer-sm;
-      }
-
-      label {
-        margin-bottom: 0;
-      }
-    }
-  }
+			label {
+				margin-bottom: 0;
+			}
+		}
+	}
 }

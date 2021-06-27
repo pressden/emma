@@ -1,9 +1,9 @@
 .content-sidebar {
-  .site-content {
-    @include center-wrap($wrap-max-width);
+	.site-content {
+		@include center-wrap($wrap-max-width);
 
-    @media screen and ( min-width: $layout-breakpoint-lg ) {
-      grid-template-columns: $layout-content-sidebar-columns;
-    }
-  }
+		@media screen and ( min-width: $layout-breakpoint-lg ) {
+			grid-template-columns: $layout-content-sidebar-columns;
+		}
+	}
 }

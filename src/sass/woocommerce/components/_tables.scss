@@ -1,15 +1,15 @@
 .shop_table {
-  width: 100%;
+	width: 100%;
 
-  td, th {
-    padding: $spacer-sm;
+ 	td, th {
+		padding: $spacer-sm;
 
-    @media screen and ( min-width: $wc-cart-breakpoint ) {
-      padding: $spacer;
-    }
+		@media screen and ( min-width: $wc-cart-breakpoint ) {
+			padding: $spacer;
+		}
 
-    > * {
-      margin-bottom: 0;
-    }
-  }
+		> * {
+			margin-bottom: 0;
+		}
+	}
 }

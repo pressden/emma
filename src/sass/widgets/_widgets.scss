@@ -1,14 +1,7 @@
-/*--------------------------------------------------------------
-# Widget (Global .widget container)
---------------------------------------------------------------*/
+// Widgets
 @import "widget";
-
-/*--------------------------------------------------------------
-# Native WordPress Widgets
---------------------------------------------------------------*/
 @import "navigation-menu";
 
-/*--------------------------------------------------------------
-# Third Party Widgets
---------------------------------------------------------------*/
+// @TODO: Consider removing third party plugin support in favor of the child theme handling this
+// Third Party Widgets
 @import "simple-social-icons";

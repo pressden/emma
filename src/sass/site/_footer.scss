@@ -1,19 +1,19 @@
 .site-footer {
-  color: $footer-color;
-  background-color: $footer-background-color;
+	color: $footer-color;
+	background-color: $footer-background-color;
 
-  > .wrap {
-    display: flex;
-    align-items: $footer-wrap-align-items;
-    justify-content: $footer-wrap-justify-content;
-    flex-wrap: $footer-wrap-flex-wrap;
-    padding: $footer-wrap-padding-y $footer-wrap-padding-x;
-    position: relative;
+	> .wrap {
+		display: flex;
+		align-items: $footer-wrap-align-items;
+		justify-content: $footer-wrap-justify-content;
+		flex-wrap: $footer-wrap-flex-wrap;
+		padding: $footer-wrap-padding-y $footer-wrap-padding-x;
+		position: relative;
 
-    @include center-wrap($footer-wrap-max-width);
-  }
+		@include center-wrap($footer-wrap-max-width);
+	}
 }
 
 .site-info {
-  text-align: $site-info-text-align;
+	text-align: $site-info-text-align;
 }
