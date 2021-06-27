@@ -575,7 +575,7 @@ function emma_product_columns( $columns ) {
 }
 
 /**
- * Set a column count for related products as well
+ * Set a column count for related products
  *
  * @param array $args Array of arguments.
  */
