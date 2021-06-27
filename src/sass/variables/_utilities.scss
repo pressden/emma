@@ -15,12 +15,12 @@ $spacer-lg: $base-unit * 2 !default;
 $spacer-xl: $base-unit * 4 !default;
 
 $spacer-sizes: (
-  '0': 0,
-  'xs': $spacer-xs,
-  'sm': $spacer-sm,
-  'md': $spacer-md,
-  'lg': $spacer-lg,
-  'xl': $spacer-xl
+	'0': 0,
+	'xs': $spacer-xs,
+	'sm': $spacer-sm,
+	'md': $spacer-md,
+	'lg': $spacer-lg,
+	'xl': $spacer-xl
 );
 
 // Responsive Font Sizes
