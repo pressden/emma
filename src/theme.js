@@ -3,7 +3,7 @@
 --------------------------------------------------------------*/
 
 // CSS
-import './sass/emma-theme.scss';
+import "./sass/emma-theme.scss";
 
 // JS
-import './js/emma-theme';
+import "./js/emma-theme";
