@@ -1,20 +1,20 @@
 /* Text meant only for screen readers. */
 .screen-reader-shortcut {
-  @include sr-only-focusable-fixed;
+	@include sr-only-focusable-fixed;
 }
 
 .screen-reader-text {
-  @include sr-only;
+	@include sr-only;
 }
 
 /* Do not show the outline on the skip link target. */
 #content[tabindex="-1"]:focus {
-  outline: 0;
+	outline: 0;
 }
 
 /* Override styles inherited from #wpadminbar */
 #wpadminbar {
-  .screen-reader-shortcut {
-    font-family: $font-family-base;
-  }
+	.screen-reader-shortcut {
+		font-family: $font-family-base;
+	}
 }
