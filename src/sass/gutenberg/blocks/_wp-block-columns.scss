@@ -2,56 +2,57 @@ $two-columns-breakpoint: 600px;
 $full-columns-breakpoint: 782px;
 
 .wp-block-columns {
-  justify-content: center;
+	justify-content: center;
 
-  .wp-block-column {
-    margin-bottom: $spacer;
+	.wp-block-column {
+		margin-bottom: $spacer;
 
-    &:last-child {
-      margin-bottom: 0;
-    }
+		&:last-child {
+			margin-bottom: 0;
+		}
 
-    @media screen and ( min-width: $two-columns-breakpoint ) {
-      &:nth-last-child( 2 ):nth-child( odd ) {
-        margin-bottom: 0;
-      }
-    }
+		@media screen and (min-width: $two-columns-breakpoint) {
+			&:nth-last-child(2):nth-child(odd) {
+				margin-bottom: 0;
+			}
+		}
 
-    @media screen and ( min-width: $full-columns-breakpoint ) {
-      margin-bottom: 0;
-    }
-  }
+		@media screen and (min-width: $full-columns-breakpoint) {
+			margin-bottom: 0;
+		}
+	}
 
-  &.rg-0 {
-    .wp-block-column {
-      margin-bottom: 0 !important;
-    }
-  }
+	&.rg-0 {
+		.wp-block-column {
+			margin-bottom: 0 !important;
+		}
+	}
 
-  &.cg-0 {
-    .wp-block-column {
-      margin-left: 0 !important;
+	&.cg-0 {
+		.wp-block-column {
+			margin-left: 0 !important;
 
-      @media screen and ( min-width: $two-columns-breakpoint ) and ( max-width: $full-columns-breakpoint - 1px ) { //max-width is required for inline flex-basis to work
-        flex-basis: 50% !important;
-      }
-    }
-  }
+			@media screen and (min-width: $two-columns-breakpoint) and (max-width: $full-columns-breakpoint - 1px) {
+				//max-width is required for inline flex-basis to work
+				flex-basis: 50% !important;
+			}
+		}
+	}
 
-  &.cg-sm {
-    @media screen and ( min-width: $two-columns-breakpoint ) and ( max-width: $full-columns-breakpoint - 1px ) {
-      .wp-block-column {
-        flex-basis: calc(50% - #{$spacer} / 2) !important;
+	&.cg-sm {
+		@media screen and (min-width: $two-columns-breakpoint) and (max-width: $full-columns-breakpoint - 1px) {
+			.wp-block-column {
+				flex-basis: calc(50% - #{$spacer} / 2) !important;
 
-        &:nth-child(2n) {
-          margin-left: $spacer;
-        }
-      }
-    }
-    @media screen and ( min-width: $full-columns-breakpoint ) {
-      .wp-block-column:not(:first-child) {
-        margin-left: $spacer;
-      }
-    }
-  }
+				&:nth-child(2n) {
+					margin-left: $spacer;
+				}
+			}
+		}
+		@media screen and (min-width: $full-columns-breakpoint) {
+			.wp-block-column:not(:first-child) {
+				margin-left: $spacer;
+			}
+		}
+	}
 }

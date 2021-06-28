@@ -1,20 +1,25 @@
 .has-small-font-size {
 	font-size: $font-size-sm;
 }
+
 .has-normal-font-size {
 	font-size: $font-size-base;
 }
+
 .has-medium-font-size {
 	font-size: $font-size-md;
 }
+
 .has-large-font-size {
-	@include font-size( $font-size-lg );
+	@include font-size($font-size-lg);
 }
+
 .has-huge-font-size {
-	@include font-size( $font-size-xl );
+	@include font-size($font-size-xl);
 }
+
 .has-giant-font-size {
-	@include font-size( $font-size-2x );
+	@include font-size($font-size-2x);
 }
 
 h1,
