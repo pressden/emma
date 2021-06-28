@@ -15,16 +15,19 @@ $breakpoint-lg: 960px !default;
 $breakpoint-xl: 1280px !default;
 
 $breakpoints: (
-	'xs': $breakpoint-xs,
-	'sm': $breakpoint-sm,
-	'md': $breakpoint-md,
-	'lg': $breakpoint-lg,
-	'xl': $breakpoint-xl
+	"xs": $breakpoint-xs,
+	"sm": $breakpoint-sm,
+	"md": $breakpoint-md,
+	"lg": $breakpoint-lg,
+	"xl": $breakpoint-xl,
 );
 
 // Fonts
-$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
-$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+	"Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+	"Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas,
+	"Liberation Mono", "Courier New", monospace !default;
 $font-family-base: $font-family-sans-serif !default;
 $font-weight-normal: 400 !default;
 $font-weight-bolder: bolder !default;
@@ -45,7 +48,7 @@ $warning: #f56e28 !default;
 $danger: #dc3232 !default;
 
 // Headings
-$headings-margin-bottom: math.div( $spacer, 2 ) !default;
+$headings-margin-bottom: math.div($spacer, 2) !default;
 $headings-font-family: null !default;
 $headings-font-style: null !default;
 $headings-font-weight: 500 !default;
@@ -62,7 +65,7 @@ $columns: (
 	6: 16.66%,
 	7: 14.28%,
 	8: 12.5%,
-	9: 11.11%
+	9: 11.11%,
 ) !default;
 
 $columns-margin: 3.8% !default;

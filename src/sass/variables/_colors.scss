@@ -26,22 +26,22 @@ $tint-color-contrast-md: 40% !default;
 $editor-palette: () !default;
 $editor-palette: map-merge(
 	(
-		'primary': $primary,
-		'primary-support': $primary-support,
-		'secondary': $secondary,
-		'secondary-support': $secondary-support,
-		'action': $action,
-		'accent': $accent,
-		'info': $info,
-		'success': $success,
-		'warning': $warning,
-		'danger': $danger,
-		'white': $white,
-		'gray-200': $gray-200,
-		'gray-400': $gray-400,
-		'gray-600': $gray-600,
-		'gray-800': $gray-800,
-		'black': $black,
+		"primary": $primary,
+		"primary-support": $primary-support,
+		"secondary": $secondary,
+		"secondary-support": $secondary-support,
+		"action": $action,
+		"accent": $accent,
+		"info": $info,
+		"success": $success,
+		"warning": $warning,
+		"danger": $danger,
+		"white": $white,
+		"gray-200": $gray-200,
+		"gray-400": $gray-400,
+		"gray-600": $gray-600,
+		"gray-800": $gray-800,
+		"black": $black,
 	),
 	$editor-palette
 );
@@ -67,8 +67,8 @@ $menu-sub-background-color: $white !default;
 
 // Alerts
 $sitewide-alert-background-color: $danger !default;
-$sitewide-alert-color: color-yiq( $danger ) !default;
-$sitewide-alert-link-color: color-yiq( $danger ) !default;
+$sitewide-alert-color: color-yiq($danger) !default;
+$sitewide-alert-link-color: color-yiq($danger) !default;
 
 // Utility Bar
 $utility-bar-background-color: $primary-support !default;
@@ -76,7 +76,7 @@ $utility-bar-link-color: color-yiq($utility-bar-background-color) !default;
 $utility-bar-link-hover-color: darken($utility-bar-link-color, 15) !default;
 
 // Header
-$header-background-color: rgba(255, 255, 255, .95) !default;
+$header-background-color: rgba(255, 255, 255, 0.95) !default;
 
 // Footer
 $footer-widgets-background-color: $gray-100 !default;
