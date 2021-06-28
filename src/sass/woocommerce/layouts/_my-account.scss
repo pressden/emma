@@ -1,6 +1,6 @@
 .woocommerce-page {
 	&.woocommerce-account {
-		&:not( .logged-in ) {
+		&:not(.logged-in) {
 			.entry-content {
 				> * {
 					max-width: $content-max-width;
@@ -14,7 +14,7 @@
 					display: grid;
 					grid-row-gap: $spacer-xl;
 
-					@media screen and ( min-width: $breakpoint-sm ) {
+					@media screen and (min-width: $breakpoint-sm) {
 						grid-template-columns: auto 1fr;
 						grid-column-gap: $spacer-xl;
 					}
@@ -22,7 +22,8 @@
 			}
 		}
 
-		.woocommerce-message, .woocommerce-info {
+		.woocommerce-message,
+		.woocommerce-info {
 			margin-top: 0;
 		}
 
@@ -37,7 +38,7 @@
 			display: block;
 		}
 
-		input:not( [type='checkbox'] ) {
+		input:not([type="checkbox"]) {
 			width: 100%;
 		}
 
@@ -45,7 +46,7 @@
 			display: grid;
 			grid-row-gap: $spacer;
 
-			@media screen and ( min-width: $breakpoint-md ) {
+			@media screen and (min-width: $breakpoint-md) {
 				grid-template-columns: 1fr 1fr;
 				grid-column-gap: $spacer-xl;
 			}

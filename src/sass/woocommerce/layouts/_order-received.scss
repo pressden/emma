@@ -24,7 +24,7 @@ table.woocommerce-table--order-details {
 		display: grid;
 		grid-row-gap: $spacer;
 
-		@media screen and ( min-width: $breakpoint-sm ) {
+		@media screen and (min-width: $breakpoint-sm) {
 			grid-template-columns: 1fr 1fr;
 			grid-column-gap: $spacer-xl;
 		}
