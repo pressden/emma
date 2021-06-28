@@ -21,25 +21,35 @@
 		}
 	}
 
-	&.woocommerce-cart {
-		.woocommerce-message,
-		.woocommerce-info {
-			display: block;
-		}
+	.woocommerce-message,
+	.woocommerce-info,
+	.woocommerce-error {
+		margin-bottom: $spacer-lg;
+		padding: $spacer $spacer-lg;
+		border-radius: $alert-border-radius;
 	}
 
 	.woocommerce-message,
 	.woocommerce-info {
+		background-color: $info;
+		color: color-yiq($info);
+
+		a:not(.button) {
+			color: color-yiq($info);
+			text-decoration: underline;
+
+			&:hover {
+				color: color-yiq($info);
+			}
+		}
+	}
+
+	.woocommerce-message,
+	.woocommerce-Message {
 		display: grid;
 		grid-row-gap: $spacer-sm;
 		align-items: center;
 		justify-content: center;
-		margin-top: $spacer-lg;
-		margin-bottom: $spacer-lg;
-		padding: $spacer $spacer-lg;
-		border-radius: $alert-border-radius;
-		background-color: $info;
-		color: color-yiq($info);
 
 		.button {
 			grid-row: 2;
@@ -60,37 +70,28 @@
 				grid-column: 2;
 			}
 		}
-
-		a:not(.button) {
-			color: color-yiq($info);
-			text-decoration: underline;
-
-			&:hover {
-				color: color-yiq($info);
-			}
-		}
 	}
 
 	.woocommerce-error {
-		padding: $spacer;
-		border-radius: $alert-border-radius;
 		background-color: $warning;
 		color: color-yiq($warning);
 
 		li {
 			display: block;
 		}
+
+		a:not(.button) {
+			color: color-yiq($warning);
+			text-decoration: underline;
+
+			&:hover {
+				color: color-yiq($warning);
+			}
+		}
 	}
 
 	.woocommerce-invalid input {
 		border-color: $warning;
-	}
-
-	.woocommerce-form-coupon-toggle,
-	.woocommerce-form-login-toggle {
-		.woocommerce-info {
-			display: block;
-		}
 	}
 }
 
