@@ -1,10 +1,11 @@
 .shop_table {
 	width: 100%;
 
- 	td, th {
+	td,
+	th {
 		padding: $spacer-sm;
 
-		@media screen and ( min-width: $wc-cart-breakpoint ) {
+		@media screen and (min-width: $wc-cart-breakpoint) {
 			padding: $spacer;
 		}
 
