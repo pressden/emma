@@ -1,11 +1,10 @@
 <?php
 /**
- * The template for displaying all pages
+ * The template for displaying all WooCommerce pages
  *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
+ * This is the template that displays all WC pages. The main purpose of
+ * the template is to ensure all WC pages are wrapped in markup that is
+ * consistent with the rest of the theme.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *

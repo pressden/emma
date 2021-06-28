@@ -203,7 +203,7 @@ function emma_editor_color_palette() {
 	);
 
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 	$GLOBALS['editor_color_palette'] = apply_filters( 'emma_editor_color_palette', $editor_color_palette );
 
 	add_theme_support( 'editor-color-palette', array_values( $GLOBALS['editor_color_palette'] ) );
@@ -297,21 +297,21 @@ function emma_widgets_init() {
 	// Add the utility widgets areas.
 	for ( $i = 1; $i <= $GLOBALS['emma_utility_widget_areas']; $i++ ) {
 		$widget_areas[ 'utility-widgets-' . $i ] = array(
-			'name'        => esc_html__( "Utility Widgets $i", 'emma' ),
+			'name'        => esc_html__( 'Utility Widgets', 'emma' ) . "  $i",
 			'id'          => 'utility-widgets-' . $i,
-			'description' => esc_html__( 'Add widgets to the utility bar at the top of the page (column ' . $i . ').', 'emma' ),
+			'description' => esc_html__( 'Add widgets to the utility bar at the top of the page', 'emma' ) . ' (' . esc_html__( 'column', 'emma' ) . " $i).",
 		);
 	}
 
 	// Filter 'emma_footer_widget_areas' in the global scope for use in templates.
 	$GLOBALS['emma_footer_widget_areas'] = apply_filters( 'emma_footer_widget_areas', 3 );
 
-	// Add the footer widgets areas
+	// Add the footer widgets areas.
 	for ( $i = 1; $i <= $GLOBALS['emma_footer_widget_areas']; $i++ ) {
 		$widget_areas[ 'footer-widgets-' . $i ] = array(
-			'name'        => esc_html__( "Footer Widgets $i", 'emma' ),
+			'name'        => esc_html__( 'Footer Widgets', 'emma' ) . " $i",
 			'id'          => 'footer-widgets-' . $i,
-			'description' => esc_html__( 'Add widgets above the site footer (column ' . $i . ').', 'emma' ),
+			'description' => esc_html__( 'Add widgets above the site footer', 'emma' ) . ' (' . esc_html__( 'column', 'emma' ) . " $i).",
 		);
 	}
 
@@ -349,50 +349,35 @@ function emma_filter_nav_menu_args( $nav_menu_args ) {
 }
 add_filter( 'widget_nav_menu_args', 'emma_filter_nav_menu_args' );
 
-/**
- * Optimize WordPress by removing unused features.
- */
+// Optimize WordPress by removing unused features.
 require get_template_directory() . '/inc/optimize.php';
 
-/**
- * Implement the Custom Header feature.
- */
+// Implement the Custom Header feature.
 require get_template_directory() . '/inc/custom-header.php';
 
-/**
- * Custom template tags for this theme.
- */
+// Custom template tags for this theme.
 require get_template_directory() . '/inc/template-tags.php';
 
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
+// Functions which enhance the theme by hooking into WordPress.
 require get_template_directory() . '/inc/template-functions.php';
 
-/**
- * Functions which load template parts by hooking into Emma actions.
- */
+// Functions which load template parts by hooking into Emma actions.
 require get_template_directory() . '/inc/template-parts.php';
 
-/**
- * Customizer additions.
- */
+// Customizer additions.
 require get_template_directory() . '/inc/customizer.php';
 
-/**
- * Menu additions.
- */
+// Menu additions.
 require get_template_directory() . '/inc/menu-functions.php';
 
-/**
- * Pagination.
- */
+// Pagination.
 require get_template_directory() . '/inc/pagination.php';
 
-/**
- * Custom blocks.
- */
+// Custom blocks.
 require get_template_directory() . '/inc/enqueues.php';
+
+// WooCommerce customizations.
+require get_template_directory() . '/inc/woocommerce.php';
 
 /**
  * Enqueue scripts and styles.
@@ -496,182 +481,6 @@ function emma_reusable_blocks_admin_menu() {
 add_action( 'admin_menu', 'emma_reusable_blocks_admin_menu' );
 
 /**
- * Declare WooCommerce theme support.
- */
-function emma_declare_woocommerce_support() {
-	add_theme_support( 'woocommerce' );
-	add_theme_support( 'wc-product-gallery-zoom' );
-	add_theme_support( 'wc-product-gallery-lightbox' );
-	add_theme_support( 'wc-product-gallery-slider' );
-}
-
-/**
- * Add the chosen featured image to the top of the product page
- *
- * @param array   $array Array (view WooCommerce source code for context).
- * @param integer $int Integer (view WooCommerce source code for context).
- */
-function emma_add_product_page_featured_image( $array, $int ) {
-	if ( is_shop() ) {
-		echo "<div class='shop-featured-image'>" . get_the_post_thumbnail( get_option( 'woocommerce_shop_page_id' ) ) . '</div>';
-	}
-}
-
-/**
- * Add an opening div before the product sorting on the shop page
- */
-function emma_add_product_sorting_open_div() {
-	echo "<div class='woocommerce-product-sorting'>";
-}
-
-/**
- * Add a closing div (initially for use after the product sorting on the shop page, but could be used elsewhere)
- */
-function emma_add_close_div() {
-	echo '</div> <!-- .woocommerce-product-sorting -->';
-}
-
-/**
- * Adds column sizer buttons on shop page
- */
-function emma_add_product_sorting_column_sizer() {
-	$columns = (int) apply_filters( 'loop_shop_columns', 2 );
-	?>
-
-	<ul class='woocommerce-columns-sizers'>
-		<li class='woocommerce-columns-sizer columns-1 <?php echo ( 1 === $columns ) ? 'active' : ''; ?>'>
-			<a href='#' data-size="columns-1">
-				<span class="screen-reader-text">Make Columns Small Size</span>
-				<svg xmlns="http://www.w3.org/2000/svg" tabindex=-1 preserveAspectRatio="xMidYMin meet" viewBox="0 0 24 24"><rect tabindex=-1 x="18" y="9" width="6" height="6"/><rect tabindex=-1 x="18" y="18" width="6" height="6"/><rect tabindex=-1 x="9" y="18" width="6" height="6"/><rect tabindex=-1 y="18" width="6" height="6"/><rect tabindex=-1 x="9" y="9" width="6" height="6"/><rect tabindex=-1 y="9" width="6" height="6"/><rect tabindex=-1 x="9" width="6" height="6"/><rect tabindex=-1 width="6" height="6"/><rect tabindex=-1 x="18" width="6" height="6"/></svg>
-			</a>
-		</li>
-		<li class='woocommerce-columns-sizer columns-2 <?php echo ( 2 === $columns ) ? 'active' : ''; ?>'>
-			<a href='#' data-size="columns-2">
-				<span class="screen-reader-text">Make Columns Medium Size</span>
-				<svg xmlns="http://www.w3.org/2000/svg" tabindex=-1 preserveAspectRatio="xMidYMin meet" viewBox="0 0 24 24"><rect tabindex=-1 width="10" height="10"/><rect tabindex=-1 x="14" width="10" height="10"/><rect tabindex=-1 x="14" y="14" width="10" height="10"/><rect tabindex=-1 y="14" width="10" height="10"/></svg>
-			</a>
-		</li>
-		<li class='woocommerce-columns-sizer columns-3 <?php echo ( 3 === $columns ) ? 'active' : ''; ?>'>
-			<a href='#' data-size="columns-3">
-				<span class="screen-reader-text">Make Columns Large Size</span>
-				<svg xmlns="http://www.w3.org/2000/svg" tabindex=-1 preserveAspectRatio="xMidYMin meet" viewBox="0 0 24 24"><rect tabindex=-1 width="24" height="24"/></svg>
-			</a>
-		</li>
-	</ul>
-
-	<?php
-}
-
-/**
- * Hijack the old column count hook in WooCommerce to insert our custom column definition class (sm, md, lg)
- *
- * @param integer $columns Number of columns.
- */
-function emma_product_columns( $columns ) {
-	// Change to adjust default (1 = SM, 2 = MD, 3 = LG).
-	$columns = 2;
-
-	return $columns;
-}
-
-/**
- * Set a column count for related products
- *
- * @param array $args Array of arguments.
- */
-function emma_related_product_columns( $args ) {
-	// Change to adjust default (1 = SM, 2 = MD, 3 = LG).
-	$args['columns'] = 2;
-
-	return $args;
-}
-
-/**
- * Hard set the number of items shown on the shop page so that the product_columns number doesn't mess with it
- *
- * @param integer $products Number of products to display.
- */
-function emma_products_per_page( $products ) {
-	// Twelve products maximizes the column layout options (see factors of 12).
-	$products = 12;
-	return $products;
-}
-
-/**
- * Adds the cart anchor markup to WC's cart fragments
- *
- * @param array $fragments Array of markup fragments.
- */
-function emma_cart_anchor_fragment( $fragments ) {
-	global $woocommerce;
-
-	ob_start();
-
-	?>
-
-	<a href="<?php echo esc_url( $woocommerce->cart->get_cart_url() ); ?>">
-		<span class='cart-count'><?php echo ( 0 === WC()->cart->get_cart_contents_count() ) ? '' : WC()->cart->get_cart_contents_count(); ?></span>
-		<?php echo ( 0 === WC()->cart->get_cart_contents_count() ) ? 'Cart Empty' : 'Item(s) in Cart'; ?>
-	</a>
-
-	<?php
-	$fragments['.mini-cart-toggle > a'] = ob_get_clean();
-
-	return $fragments;
-}
-
-/**
- * Hooks to run if WooCommerce is installed and active
- */
-if ( class_exists( 'WooCommerce' ) ) {
-	// Dequeue default woocommerce styles.
-	add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
-
-	// Declare theme and product-gallery support.
-	add_action( 'after_setup_theme', 'emma_declare_woocommerce_support' );
-
-	add_action( 'woocommerce_before_main_content', 'emma_add_product_page_featured_image', 10, 2 );
-
-	// This happens right before the note of how many products are shown on the shop page.
-	add_action( 'woocommerce_before_shop_loop', 'emma_add_product_sorting_open_div', 19 );
-
-	// This happens between the results count and the sorting method.
-	add_action( 'woocommerce_before_shop_loop', 'emma_add_product_sorting_column_sizer', 25 );
-
-	// This happens right after the sorting form on the shop page.
-	add_action( 'woocommerce_before_shop_loop', 'emma_add_close_div', 31 );
-
-	// Enqueue custom WooCommerce scripts.
-	add_action( 'wp_enqueue_scripts', 'emma_enqueue_woocommerce_scripts' );
-
-	// Filter shop columns.
-	add_filter( 'loop_shop_columns', 'emma_product_columns' );
-
-	// Move related products outside of single product details wrapper.
-	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
-	add_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 20 );
-
-	// Filter the related products columns argument.
-	add_filter( 'woocommerce_output_related_products_args', 'emma_related_product_columns', 20 );
-
-	// Filter products per page.
-	add_filter( 'loop_shop_per_page', 'emma_products_per_page', 20 );
-
-	// Add custom markup to the add to cart fragments.
-	add_filter( 'woocommerce_add_to_cart_fragments', 'emma_cart_anchor_fragment' );
-
-	// Filter title visibility on Woocommerce pages.
-	add_filter( 'woocommerce_show_page_title', 'emma_woocommerce_show_page_title' );
-}
-
-/**
- * Enqueue Woocommerce scripts.
- */
-function emma_enqueue_woocommerce_scripts() {
-	wp_enqueue_script( 'emma-woocommerce-scripts', get_template_directory_uri() . '/src/js/woocommerce.js', null, wp_get_theme()->get( 'Version' ), true );
-}
-
-/**
  * Add a search field to the .toggle-search-form.
  */
 function emma_toggle_search_form_search_field() {
@@ -679,7 +488,7 @@ function emma_toggle_search_form_search_field() {
 
 	<label>
 
-		<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label', 'emma' ); ?></span>
+		<span class="screen-reader-text"><?php echo esc_html_x( 'Search for:', 'label', 'emma' ); ?></span>
 
 		<input
 			type="search"
@@ -710,27 +519,6 @@ function emma_toggle_search_form_submit_button() {
 	<?php
 }
 add_action( 'emma_toggle_search_form_fields', 'emma_toggle_search_form_submit_button', 15 );
-
-/**
- * Add support for the Emma title toggle on WooCommerce pages
- *
- * @param bool $show_title Boolean flag to indicate title visibility.
- */
-function emma_woocommerce_show_page_title( $show_title ) {
-	// Exit early if not the main shop page.
-	if ( is_search() || is_tax() ) {
-		return $show_title;
-	}
-
-	// Get the shop page as a post object.
-	$post = get_post( get_option( 'woocommerce_shop_page_id' ) );
-
-	// Get the `hide_title` attribute.
-	$hide_title = get_post_meta( $post->ID, 'hide_title', true );
-
-	// WooCommerce expects `show_title` so reverse `hide_title`.
-	return ! $hide_title;
-}
 
 /**
  * Simulate non-empty content to enable Gutenberg editor on the main blog page
