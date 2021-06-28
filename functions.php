@@ -647,6 +647,10 @@ if ( class_exists( 'WooCommerce' ) ) {
 	// Filter shop columns.
 	add_filter( 'loop_shop_columns', 'emma_product_columns' );
 
+	// Move related products outside of single product details wrapper.
+	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+	add_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 20 );
+
 	// Filter the related products columns argument.
 	add_filter( 'woocommerce_output_related_products_args', 'emma_related_product_columns', 20 );
 
