@@ -1,31 +1,5 @@
-/* Make sure embeds and iframes fit their containers. */
-embed,
-iframe,
-object {
-	max-width: 100%;
-}
-
-/* Make sure logo link wraps around logo image. */
-.custom-logo-link {
-	display: inline-block;
-}
-
-.custom-logo {
-  max-height: $logo-max-height;
-  width: auto;
-}
-
-/*--------------------------------------------------------------
-## Captions
---------------------------------------------------------------*/
+// Media
+@import "embeds";
+@import "custom-logo";
 @import "captions";
-
-/*--------------------------------------------------------------
-## Galleries
---------------------------------------------------------------*/
 @import "galleries";
-
-/*--------------------------------------------------------------
-## Emojis
---------------------------------------------------------------*/
-//@import "emojis";

@@ -1,79 +1,77 @@
 $column-sizes: (
-  'xs': 150px,
-  'sm': 220px,
-  'md': 300px,
-  'lg': 400px,
-  'xl': 500px
+	"xs": 150px,
+	"sm": 220px,
+	"md": 300px,
+	"lg": 400px,
+	"xl": 500px,
 );
 
-$alignments: (
-  start,
-  center,
-  end,
-  stretch
-);
+$alignments: (start, center, end, stretch);
 
 @each $name, $size in $spacer-sizes {
-  .col-gap-#{$name} {
-    --grid-block-column-gap: #{$size};
-  }
-  .row-gap-#{$name} {
-    --grid-block-row-gap: #{$size};
-  }
+	.col-gap-#{$name} {
+		--grid-block-column-gap: #{$size};
+	}
+	.row-gap-#{$name} {
+		--grid-block-row-gap: #{$size};
+	}
 }
 
 @each $name, $size in $column-sizes {
-  .wp-block-emma-responsive-grid {
-    &.col-#{$name} {
-      @media screen and ( min-width: calc( #{$size} * 2 ) ) {
-        --grid-block-column-size: #{$size};
-      }
-    }
-  }
+	.wp-block-emma-responsive-grid {
+		&.col-#{$name} {
+			@media screen and ( min-width: calc( #{$size} * 2 ) ) {
+				--grid-block-column-size: #{$size};
+			}
+		}
+	}
 }
 
 @each $alignment in $alignments {
-  .x-#{$alignment} {
-    --grid-block-justify: #{$alignment};
-  }
+	.x-#{$alignment} {
+		--grid-block-justify: #{$alignment};
+	}
 
-  .y-#{$alignment} {
-    --grid-block-align: #{$alignment};
-  }
+	.y-#{$alignment} {
+		--grid-block-align: #{$alignment};
+	}
 }
 
 @if $admin-stylesheet == false {
-  .wp-block-emma-responsive-grid {
-    display: grid;
-    column-gap: var(--grid-block-column-gap);
-    row-gap: var(--grid-block-row-gap);
-    grid-template-columns: repeat( auto-fill, minmax( var(--grid-block-column-size), 1fr ) );
-    justify-items: var(--grid-block-justify);
-    align-items: var(--grid-block-align);
-  }
+	.wp-block-emma-responsive-grid {
+		display: grid;
+		column-gap: var(--grid-block-column-gap);
+		row-gap: var(--grid-block-row-gap);
+		grid-template-columns: repeat(
+			auto-fill,
+			minmax(var(--grid-block-column-size), 1fr)
+		);
+		justify-items: var(--grid-block-justify);
+		align-items: var(--grid-block-align);
+	}
 
-  .wp-block-emma-grid-cell {
-    justify-self: var(--grid-block-justify);
-    align-self: var(--grid-block-align);
+	.wp-block-emma-grid-cell {
+		justify-self: var(--grid-block-justify);
+		align-self: var(--grid-block-align);
 
-    > :last-child {
-      margin-bottom: 0;
-    }
+		> :last-child {
+			margin-bottom: 0;
+		}
 
-    .image-fill & {
-      display: flex;
-      flex-direction: column;
+		.image-fill & {
+			display: flex;
+			flex-direction: column;
 
-      figure {
-        flex-grow: 1;
+			figure {
+				flex-grow: 1;
 
-        img,
-        video {
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-        }
-      }
-    }
-  }
+				img,
+				video {
+					height: 100%;
+					width: 100%;
+					object-fit: cover;
+				}
+			}
+		}
+	}
 }

@@ -4,17 +4,17 @@ img {
 }
 
 a {
-  // Global a:hover is handled by Reboot, no need to repeat it here
-  &:focus,
-  &:active {
-    color: $link-hover-color;
-  }
+	// Global a:hover is handled by Reboot, no need to repeat it here
+	&:focus,
+	&:active {
+		color: $link-hover-color;
+	}
 
-  &:focus {
-    outline: thin dotted;
-  }
+	&:focus {
+		outline: thin dotted;
+	}
 }
 
 p:empty {
-  display: none;
+	display: none;
 }

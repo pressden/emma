@@ -8,19 +8,19 @@ $content-max-width: $breakpoint-md !default;
 $content-max-alignwide-width: $wrap-max-width !default;
 
 // Spacers
-$spacer-xs: math.div( $base-unit, 4 ) !default;
-$spacer-sm: math.div( $base-unit, 2 ) !default;
+$spacer-xs: math.div($base-unit, 4) !default;
+$spacer-sm: math.div($base-unit, 2) !default;
 $spacer-md: $base-unit !default;
 $spacer-lg: $base-unit * 2 !default;
 $spacer-xl: $base-unit * 4 !default;
 
 $spacer-sizes: (
-  '0': 0,
-  'xs': $spacer-xs,
-  'sm': $spacer-sm,
-  'md': $spacer-md,
-  'lg': $spacer-lg,
-  'xl': $spacer-xl
+	"0": 0,
+	"xs": $spacer-xs,
+	"sm": $spacer-sm,
+	"md": $spacer-md,
+	"lg": $spacer-lg,
+	"xl": $spacer-xl,
 );
 
 // Responsive Font Sizes
@@ -28,7 +28,7 @@ $enable-responsive-font-sizes: true !default;
 $rfs-breakpoint: $content-max-alignwide-width !default;
 
 // Font sizes
-$font-size-sm: $font-size-base * .875 !default;
+$font-size-sm: $font-size-base * 0.875 !default;
 $font-size-md: $font-size-base * 1.25 !default;
 $font-size-lg: $font-size-base * 2.25 !default;
 $font-size-xl: $font-size-base * 3 !default;
@@ -40,7 +40,7 @@ $border-width-md: 3px !default;
 $border-width-lg: 5px !default;
 
 // Border radius
-$border-radius: .25rem !default;
+$border-radius: 0.25rem !default;
 
 // hr tag settings
 $hr-opacity: 1 !default;

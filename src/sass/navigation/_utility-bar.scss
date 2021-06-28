@@ -1,13 +1,13 @@
 .utility-bar {
-  .menu-container {
-    .menu {
-      li {
-        color: $utility-bar-link-color;
+	.menu-container {
+		.menu {
+			li {
+				color: $utility-bar-link-color;
 
-        &:hover {
-          color: $utility-bar-link-hover-color;
-        }
-      }
-    }
-  }
+				&:hover {
+					color: $utility-bar-link-hover-color;
+				}
+			}
+		}
+	}
 }

@@ -1,13 +1,14 @@
+// @TODO: Consider removing this plugin specific feature in favor of a native WordPress solution for social icons
 .utility-bar,
 .site-header,
 .site-footer,
 .footer-widgets {
-  .simple-social-icons {
-    ul {
-      li {
-        margin: 0 !important;
-        padding: .25rem !important;
-      }
-    }
-  }
+	.simple-social-icons {
+		ul {
+			li {
+				margin: 0 !important;
+				padding: 0.25rem !important;
+			}
+		}
+	}
 }

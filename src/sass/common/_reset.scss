@@ -7,14 +7,13 @@
 //
 // Normalize is licensed MIT. https://github.com/necolas/normalize.css
 
-
 // Document
 //
 // Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 // Body
@@ -24,15 +23,15 @@
 // 3. Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.
 // 4. Change the default tap highlight to be completely transparent in iOS.
 body {
-  margin: 0; // 1
-  font-family: $font-family-base;
-  @include font-size($font-size-base);
-  font-weight: $font-weight-base;
-  line-height: $line-height-base;
-  color: $body-color;
-  background-color: $body-bg; // 2
-  -webkit-text-size-adjust: 100%; // 3
-  -webkit-tap-highlight-color: rgba($black, 0); // 4
+	margin: 0; // 1
+	font-family: $font-family-base;
+	@include font-size($font-size-base);
+	font-weight: $font-weight-base;
+	line-height: $line-height-base;
+	color: $body-color;
+	background-color: $body-bg; // 2
+	-webkit-text-size-adjust: 100%; // 3
+	-webkit-tap-highlight-color: rgba($black, 0); // 4
 }
 
 // Typography
@@ -42,43 +41,43 @@ body {
 //    margin for easier control within type scales as it avoids margin collapsing.
 
 %heading {
-  margin-top: 0; // 1
-  margin-bottom: $headings-margin-bottom;
-  font-family: $headings-font-family;
-  font-style: $headings-font-style;
-  font-weight: $headings-font-weight;
-  line-height: $headings-line-height;
-  color: $headings-color;
+	margin-top: 0; // 1
+	margin-bottom: $headings-margin-bottom;
+	font-family: $headings-font-family;
+	font-style: $headings-font-style;
+	font-weight: $headings-font-weight;
+	line-height: $headings-line-height;
+	color: $headings-color;
 }
 
 h1 {
-  @extend %heading;
-  @include font-size($h1-font-size);
+	@extend %heading;
+	@include font-size($h1-font-size);
 }
 
 h2 {
-  @extend %heading;
-  @include font-size($h2-font-size);
+	@extend %heading;
+	@include font-size($h2-font-size);
 }
 
 h3 {
-  @extend %heading;
-  @include font-size($h3-font-size);
+	@extend %heading;
+	@include font-size($h3-font-size);
 }
 
 h4 {
-  @extend %heading;
-  @include font-size($h4-font-size);
+	@extend %heading;
+	@include font-size($h4-font-size);
 }
 
 h5 {
-  @extend %heading;
-  @include font-size($h5-font-size);
+	@extend %heading;
+	@include font-size($h5-font-size);
 }
 
 h6 {
-  @extend %heading;
-  @include font-size($h6-font-size);
+	@extend %heading;
+	@include font-size($h6-font-size);
 }
 
 // Reset margins on paragraphs
@@ -87,40 +86,40 @@ h6 {
 // bottom margin to use `rem` units instead of `em`.
 
 p {
-  margin-top: 0;
-  margin-bottom: $paragraph-margin-bottom;
+	margin-top: 0;
+	margin-bottom: $paragraph-margin-bottom;
 }
 
 ol,
 ul {
-  padding-left: $spacer-lg;
+	padding-left: $spacer-lg;
 }
 
 ol,
 ul,
 dl {
-  margin-top: 0;
-  margin-bottom: $paragraph-margin-bottom;
+	margin-top: 0;
+	margin-bottom: $paragraph-margin-bottom;
 }
 
 ol ol,
 ul ul,
 ol ul,
 ul ol {
-  margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 // Add the correct font weight in Chrome, Edge, and Safari
 
 b,
 strong {
-  font-weight: $font-weight-bolder;
+	font-weight: $font-weight-bolder;
 }
 
 // Add the correct font size in all browsers
 
 small {
-  @include font-size($font-size-sm);
+	@include font-size($font-size-sm);
 }
 
 // Prevent `sub` and `sup` elements from affecting the line height in
@@ -128,25 +127,29 @@ small {
 
 sub,
 sup {
-  position: relative;
-  @include font-size(75%);
-  line-height: 0;
-  vertical-align: baseline;
+	position: relative;
+	@include font-size(75%);
+	line-height: 0;
+	vertical-align: baseline;
 }
 
-sub { bottom: -.25em; }
-sup { top: -.5em; }
+sub {
+	bottom: -0.25em;
+}
+sup {
+	top: -0.5em;
+}
 
 // Links
 
 a {
-  color: $link-color;
-  text-decoration: $link-decoration;
+	color: $link-color;
+	text-decoration: $link-decoration;
 
-  &:hover {
-    color: $link-hover-color;
-    text-decoration: $link-hover-decoration;
-  }
+	&:hover {
+		color: $link-hover-color;
+		text-decoration: $link-hover-decoration;
+	}
 }
 
 // Figures
@@ -154,7 +157,7 @@ a {
 // Apply a consistent margin strategy (matches our type styles).
 
 figure {
-  margin: 0;
+	margin: 0;
 }
 
 // Tables
@@ -162,14 +165,14 @@ figure {
 // Prevent double borders
 
 table {
-  border-collapse: collapse;
+	border-collapse: collapse;
 }
 
 // Matches default `<td>` alignment by inheriting from the `<body>`, or the
 // closest parent with a set `text-align`.
 
 th {
-  text-align: inherit;
+	text-align: inherit;
 }
 
 // Normalizes User Agent input stuff
@@ -179,14 +182,14 @@ button,
 select,
 optgroup,
 textarea {
-  margin: 0;
-  font-family: inherit;
-  @include font-size(inherit);
-  line-height: inherit;
+	margin: 0;
+	font-family: inherit;
+	@include font-size(inherit);
+	line-height: inherit;
 }
 
 // Removes gap between image and its container
 
 img {
-  vertical-align: middle;
+	vertical-align: middle;
 }

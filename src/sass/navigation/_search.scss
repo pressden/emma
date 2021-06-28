@@ -1,74 +1,75 @@
 .search-form-toggle {
-  justify-content: center;
-  position: relative;
-  padding: 0;
-  margin: 0;
+	justify-content: center;
+	position: relative;
+	padding: 0;
+	margin: 0;
 
-  > a {
-    display: block;
-    position: relative;
-    width: 100%;
-    min-height: 40px;
-    text-indent: -999rem;
-    white-space: nowrap;
-    overflow: hidden;
-    min-width: 2.5rem;
+	> a {
+		display: block;
+		position: relative;
+		width: 100%;
+		min-height: 40px;
+		text-indent: -999rem;
+		white-space: nowrap;
+		overflow: hidden;
+		min-width: 2.5rem;
 
-    &::before {
-      content: "\f179";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate( -50%, -50% );
-      text-indent: 0;
-      font-family: "dashicons";
-      font-size: $menu-icon-size;
-    }
+		&::before {
+			content: "\f179";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			text-indent: 0;
+			font-family: "dashicons";
+			font-size: $menu-icon-size;
+		}
 
-    &:hover, &:focus {
-      .cart-count {
-        background-color: $link-hover-color;
-      }
-    }
-  }
+		&:hover,
+		&:focus {
+			.cart-count {
+				background-color: $link-hover-color;
+			}
+		}
+	}
 
-  .search-form {
-    position: absolute;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    padding: $spacer;
-    background-color: $white;
-    border-top: 3px solid $action;
-    box-shadow: 2px 2px 10px 0 rgba($black, 0.3);
+	.search-form {
+		position: absolute;
+		z-index: 100;
+		display: flex;
+		align-items: center;
+		padding: $spacer;
+		background-color: $white;
+		border-top: 3px solid $action;
+		box-shadow: 2px 2px 10px 0 rgba($black, 0.3);
 
-    label {
-      margin-bottom: 0;
-      margin-right: $spacer-sm;
-    }
+		label {
+			margin-bottom: 0;
+			margin-right: $spacer-sm;
+		}
 
-    .search-field {
-      padding: $button-padding;
-      width: 300px;
-    }
+		.search-field {
+			padding: $button-padding;
+			width: 300px;
+		}
 
-    .search-submit {
-      border: 1px solid $action;
-    }
+		.search-submit {
+			border: 1px solid $action;
+		}
 
-    #menu-clones & {
-      position: static;
-      display: flex;
-      box-shadow: 0 0 0 0;
-      border-bottom: 1px solid $input-border-color;
+		#menu-clones & {
+			position: static;
+			display: flex;
+			box-shadow: 0 0 0 0;
+			border-bottom: 1px solid $input-border-color;
 
-      label {
-        flex-grow: 1;
+			label {
+				flex-grow: 1;
 
-        .search-field {
-          width: 100%;
-        }
-      }
-    }
-  }
+				.search-field {
+					width: 100%;
+				}
+			}
+		}
+	}
 }

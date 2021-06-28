@@ -1,25 +1,26 @@
 .utility-bar {
-  background-color: $utility-bar-background-color;
+	background-color: $utility-bar-background-color;
 
-  > .wrap {
-    padding: $utility-bar-wrap-padding-y $utility-bar-wrap-padding-x;
-    @include center-wrap($utility-bar-wrap-max-width);
+	> .wrap {
+		padding: $utility-bar-wrap-padding-y $utility-bar-wrap-padding-x;
 
-    display: flex;
-    flex-wrap: wrap;
-    align-items: $utility-bar-wrap-align-items;
-    justify-content: $utility-bar-wrap-justify-content;
+		@include center-wrap($utility-bar-wrap-max-width);
 
-    & > div {
-      &.utility-widgets-1 {
-        display: flex;
-        justify-content: flex-start;
-      }
+		display: flex;
+		flex-wrap: wrap;
+		align-items: $utility-bar-wrap-align-items;
+		justify-content: $utility-bar-wrap-justify-content;
 
-      &.utility-widgets-2 {
-        display: flex;
-        justify-content: flex-end;
-      }
-    }
-  }
+		& > div {
+			&.utility-widgets-1 {
+				display: flex;
+				justify-content: flex-start;
+			}
+
+			&.utility-widgets-2 {
+				display: flex;
+				justify-content: flex-end;
+			}
+		}
+	}
 }

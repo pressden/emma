@@ -1,37 +1,38 @@
 .woocommerce {
-  .star-rating {
-    position: relative;
-    height: $wc-review-star-size;
-    width: $wc-review-star-size * 5;
-    min-width: $wc-review-star-size * 5;
+	.star-rating {
+		position: relative;
+		height: $wc-review-star-size;
+		width: $wc-review-star-size * 5;
+		min-width: $wc-review-star-size * 5;
 
-    &::before, span::before {
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: $wc-review-star-size;
-      line-height: 1;
-      font-family: 'dashicons';
-      font-size: $wc-review-star-size;
-      content: '\f155\f155\f155\f155\f155';
-      color: $gray-600;
-      text-indent: 0;
-      opacity: .25;
-    }
+		&::before,
+		span::before {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: $wc-review-star-size;
+			line-height: 1;
+			font-family: "dashicons";
+			font-size: $wc-review-star-size;
+			content: "\f155\f155\f155\f155\f155";
+			color: $gray-600;
+			text-indent: 0;
+			opacity: 0.25;
+		}
 
-    span {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: $spacer;
-      padding-top: $spacer-lg;
-      overflow: hidden;
+		span {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: $spacer;
+			padding-top: $spacer-lg;
+			overflow: hidden;
 
-      &:before {
-        color: $accent !important;
-        opacity: 1;
-      }
-    }
-  }
+			&:before {
+				color: $accent !important;
+				opacity: 1;
+			}
+		}
+	}
 }

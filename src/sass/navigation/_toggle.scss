@@ -1,21 +1,21 @@
 .menu-toggle {
-  margin: 0;
-  padding: $menu-toggle-padding-y $menu-toggle-padding-x;
-  display: $menu-toggle-display;
-  text-decoration: none !important;
+	margin: 0;
+	padding: $menu-toggle-padding-y $menu-toggle-padding-x;
+	display: $menu-toggle-display;
+	text-decoration: none !important;
 
-  .dashicons,
-  .dashicons-before:before {
-    width: $menu-icon-size;
-    height: $menu-icon-size;
-    font-size: $menu-icon-size;
-  }
+	.dashicons,
+	.dashicons-before:before {
+		width: $menu-icon-size;
+		height: $menu-icon-size;
+		font-size: $menu-icon-size;
+	}
 }
 
 .menu-opener {
-  @if $enable-responsive-toggle {
-    @media screen and (min-width: $menu-breakpoint) {
-      display: none;
-    }
-  }
+	@if $enable-responsive-toggle {
+		@media screen and (min-width: $menu-breakpoint) {
+			display: none;
+		}
+	}
 }

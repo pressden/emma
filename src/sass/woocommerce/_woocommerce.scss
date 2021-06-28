@@ -1,11 +1,7 @@
-/*--------------------------------------------------------------
-## Woocommerce
---------------------------------------------------------------*/
+// Woocommerce
 @import "base";
 
-/*--------------------------------------------------------------
-## Components
---------------------------------------------------------------*/
+// Components
 @import "components/alerts";
 @import "components/buttons";
 @import "components/forms";
@@ -16,9 +12,7 @@
 @import "components/star-ratings";
 @import "components/tables";
 
-/*--------------------------------------------------------------
-## Layouts
---------------------------------------------------------------*/
+// Layouts
 @import "layouts/cart";
 @import "layouts/checkout";
 @import "layouts/my-account";

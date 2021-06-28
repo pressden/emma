@@ -1,83 +1,83 @@
 .comment-navigation,
 .posts-navigation,
 .post-navigation {
-  > .nav-links {
-    @include center-wrap($entry-footer-wrap-max-width);
-    width: calc( 100% - #{$content-padding-x} * 2 );
-  }
+	> .nav-links {
+		@include center-wrap($entry-footer-wrap-max-width);
+		width: calc(100% - #{$content-padding-x} * 2);
+	}
 
-  .site-main & {
-    margin: 1.5em auto;
-    overflow: hidden;
-  }
+	.site-main & {
+		margin: 1.5em auto;
+		overflow: hidden;
+	}
 
-  .nav-previous {
-    float: left;
-    width: calc( 50% - #{$spacer-xs} );
-  }
+	.nav-previous {
+		float: left;
+		width: calc(50% - #{$spacer-xs});
+	}
 
-  .nav-next {
-    float: right;
-    text-align: right;
-    width: calc( 50% - #{$spacer-xs} );
-  }
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: calc(50% - #{$spacer-xs});
+	}
 
-  .nav-title {
-    font-size: $font-size-md;
-    font-weight: bold;
-  }
+	.nav-title {
+		font-size: $font-size-md;
+		font-weight: bold;
+	}
 }
 
 .pagination {
-  font-size: $font-size-base;
-  margin-top: $spacer-lg;
-  margin-bottom: $spacer-lg;
+	font-size: $font-size-base;
+	margin-top: $spacer-lg;
+	margin-bottom: $spacer-lg;
 
-  .next,
-  .prev {
-    position: relative;
-    height: 26px;
-    width: $spacer-lg;
-  }
+	.next,
+	.prev {
+		position: relative;
+		height: 26px;
+		width: $spacer-lg;
+	}
 
-  .prev {
-    &::before {
-      content: "\f340";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate( -50%, -50% );
-      font-family: 'dashicons';
-    }
-  }
+	.prev {
+		&::before {
+			content: "\f340";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-family: "dashicons";
+		}
+	}
 
-  .next {
-    &::before {
-      content: "\f344";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate( -50%, -50% );
-      font-family: 'dashicons';
-    }
-  }
+	.next {
+		&::before {
+			content: "\f344";
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			font-family: "dashicons";
+		}
+	}
 
-  .nav-links {
-    display: flex;
-    justify-content: center;
+	.nav-links {
+		display: flex;
+		justify-content: center;
 
-    .page-numbers {
-      padding-left: $spacer-sm;
-      padding-right: $spacer-sm;
-    }
-  }
+		.page-numbers {
+			padding-left: $spacer-sm;
+			padding-right: $spacer-sm;
+		}
+	}
 
-  @media screen and ( min-width: $breakpoint-sm ) {
-    font-size: $font-size-md;
+	@media screen and (min-width: $breakpoint-sm) {
+		font-size: $font-size-md;
 
-    .next,
-    .prev {
-      height: $spacer-lg;
-    }
-  }
+		.next,
+		.prev {
+			height: $spacer-lg;
+		}
+	}
 }
