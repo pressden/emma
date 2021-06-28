@@ -1,42 +1,42 @@
 #page {
-  display: flex;
-  flex-direction: column;
-  min-height: var( --full-height );
+	display: flex;
+	flex-direction: column;
+	min-height: var(--full-height);
 
-  .site-content {
-    flex-grow: 1;
-  }
+	.site-content {
+		flex-grow: 1;
+	}
 }
 
 .site-content {
-  display: grid;
-  grid-template-columns: $layout-content-columns;
-  column-gap: $layout-column-gap;
-  padding: $site-content-padding-y $site-content-padding-x;
+	display: grid;
+	grid-template-columns: $layout-content-columns;
+	column-gap: $layout-column-gap;
+	padding: $site-content-padding-y $site-content-padding-x;
 }
 
 .content-area {
-  grid-row: 1;
-  min-width: 0;
+	grid-row: 1;
+	min-width: 0;
 }
 
 .primary-widget-area {
-  grid-row: 2;
+	grid-row: 2;
 }
 
 .secondary-widget-area {
-  grid-row: 3;
+	grid-row: 3;
 }
 
 .primary-widget-area,
 .secondary-widget-area {
-  @media screen and ( min-width: $layout-breakpoint-lg ) {
-    grid-row: 1;
-  }
+	@media screen and (min-width: $layout-breakpoint-lg) {
+		grid-row: 1;
+	}
 
-  .widget {
-    padding: $sidebar-widget-padding-y $sidebar-widget-padding-x;
-  }
+	.widget {
+		padding: $sidebar-widget-padding-y $sidebar-widget-padding-x;
+	}
 }
 
 .sticky {
@@ -54,37 +54,37 @@
 
 .page-thumbnail,
 .post-thumbnail {
-  margin-bottom: $spacer-lg;
-  text-align: center;
+	margin-bottom: $spacer-lg;
+	text-align: center;
 
-  img {
-    max-width: 100%;
-  }
+	img {
+		max-width: 100%;
+	}
 }
 
 .entry-header,
 .page-header {
-  text-align: center;
-  margin-top: $spacer-lg;
-  margin-bottom: $spacer-lg;
+	text-align: center;
+	margin-top: $spacer-lg;
+	margin-bottom: $spacer-lg;
 
-  > .wrap {
-    @include center-wrap($entry-header-wrap-max-width);
-    width: calc( 100% - #{$content-padding-x} * 2 );
-  }
+	> .wrap {
+		@include center-wrap($entry-header-wrap-max-width);
+		width: calc(100% - #{$content-padding-x} * 2);
+	}
 }
 
 .page-title,
 .entry-title {
-  margin-bottom: $spacer-xs;
-  //text-align: center;
-  //margin-top: $spacer-lg;
-  //margin-bottom: $spacer-lg;
+	margin-bottom: $spacer-xs;
+	//text-align: center;
+	//margin-top: $spacer-lg;
+	//margin-bottom: $spacer-lg;
 }
 
 .entry-meta {
-  //margin: 1.5rem 0;
-  //text-align: center;
+	//margin: 1.5rem 0;
+	//text-align: center;
 }
 
 .entry-content,
@@ -92,199 +92,199 @@
 .wp-block-cover__inner-container,
 .wp-block-group__inner-container,
 .wp-block-column {
-  > * {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: $content-max-width;
-  }
+	> * {
+		margin-left: auto;
+		margin-right: auto;
+		max-width: $content-max-width;
+	}
 }
 
 .entry-content,
 .page-content,
 .wp-block-cover__inner-container {
-  > * {
-    width: calc( 100% - #{$content-padding-x} * 2 );
-  }
+	> * {
+		width: calc(100% - #{$content-padding-x} * 2);
+	}
 }
 
 .page-content {
-  .entry-header,
-  .entry-footer {
-    > .wrap {
-      width: 100%;
-    }
-  }
+	.entry-header,
+	.entry-footer {
+		> .wrap {
+			width: 100%;
+		}
+	}
 
-  .entry-content {
-    > * {
-      width: 100%;
-    }
-  }
+	.entry-content {
+		> * {
+			width: 100%;
+		}
+	}
 }
 
 .archive,
 .blog,
 .search {
-  .post,
-  .search-result {
-    display: grid;
-    row-gap: $spacer-sm;
-    column-gap: $spacer;
-    margin-top: $spacer-lg;
-    margin-bottom: $spacer-lg;
+	.post,
+	.search-result {
+		display: grid;
+		row-gap: $spacer-sm;
+		column-gap: $spacer;
+		margin-top: $spacer-lg;
+		margin-bottom: $spacer-lg;
 
-    &:not( :last-child ) {
-      border-bottom: $posts-border-bottom;
-    }
-  }
-
-  .page-content {
-    .entry-header {
-      margin-top: 0;
-      margin-bottom: 0;
-      text-align: left;
-
-      @media screen and ( min-width: $breakpoint-xs ) {
-        grid-column: 1 / span 2;
-      }
-    }
-  }
-
-  .entry-footer {
-    @media screen and ( min-width: $breakpoint-xs ) {
-      grid-column: 1 / span 2;
-    }
-  }
-
-  .has-post-thumbnail {
-    @media screen and ( min-width: $breakpoint-xs ) {
-      grid-template-columns: 125px 1fr;
-
-      .entry-content {
-        grid-column: 2;
-      }
+		&:not(:last-child) {
+			border-bottom: $posts-border-bottom;
+		}
 	}
-  }
 
-  .post-thumbnail {
-    display: none;
+	.page-content {
+		.entry-header {
+			margin-top: 0;
+			margin-bottom: 0;
+			text-align: left;
 
-    @media screen and ( min-width: $breakpoint-xs ) {
-      display: block;
-    }
-  }
+			@media screen and (min-width: $breakpoint-xs) {
+				grid-column: 1 / span 2;
+			}
+		}
+	}
+
+	.entry-footer {
+		@media screen and (min-width: $breakpoint-xs) {
+			grid-column: 1 / span 2;
+		}
+	}
+
+	.has-post-thumbnail {
+		@media screen and (min-width: $breakpoint-xs) {
+			grid-template-columns: 125px 1fr;
+
+			.entry-content {
+				grid-column: 2;
+			}
+		}
+	}
+
+	.post-thumbnail {
+		display: none;
+
+		@media screen and (min-width: $breakpoint-xs) {
+			display: block;
+		}
+	}
 }
 
 .search {
-  .search-form {
-    display: flex;
-    margin-top: $spacer;
-    margin-bottom: $spacer;
-    align-items: center;
+	.search-form {
+		display: flex;
+		margin-top: $spacer;
+		margin-bottom: $spacer;
+		align-items: center;
 
-    label {
-      flex-grow: 1;
-      margin-bottom: 0;
-      margin-right: $spacer-sm;
-    }
+		label {
+			flex-grow: 1;
+			margin-bottom: 0;
+			margin-right: $spacer-sm;
+		}
 
-    .search-field {
-      width: 100%;
-    }
-  }
+		.search-field {
+			width: 100%;
+		}
+	}
 }
 
 .wp-block-group.has-background,
 .wp-block-group.border {
-  > .wp-block-group__inner-container {
-    > * {
-      width: calc( 100% - #{$content-padding-x} * 2 );
+	> .wp-block-group__inner-container {
+		> * {
+			width: calc(100% - #{$content-padding-x} * 2);
 
-      &.alignfull {
-        width: 100%; //needed because width declaration above this one supercedes normal .alignwide class unless the !important flag is used
-      }
-    }
-  }
+			&.alignfull {
+				width: 100%; //needed because width declaration above this one supercedes normal .alignwide class unless the !important flag is used
+			}
+		}
+	}
 }
 
 .wp-block-column,
 .wp-block-emma-grid-cell {
-  > * {
-    margin-bottom: $spacer;
-  }
+	> * {
+		margin-bottom: $spacer;
+	}
 
-  .wp-block-group {
-    &.has-background,
-    &.border {
-      padding-top: $content-padding-x;
-      padding-bottom: $content-padding-x;
-    }
-  }
+	.wp-block-group {
+		&.has-background,
+		&.border {
+			padding-top: $content-padding-x;
+			padding-bottom: $content-padding-x;
+		}
+	}
 
-  .wp-block-cover__inner-container,
-  .wp-block-group__inner-container {
-    > * {
-      margin-bottom: $spacer;
-    }
-  }
+	.wp-block-cover__inner-container,
+	.wp-block-group__inner-container {
+		> * {
+			margin-bottom: $spacer;
+		}
+	}
 
-  > .wp-block-group {
-    &.has-background,
-    &.border {
-      &:only-child {
-        height: 100%;
-      }
-    }
-  }
+	> .wp-block-group {
+		&.has-background,
+		&.border {
+			&:only-child {
+				height: 100%;
+			}
+		}
+	}
 }
 
 // @TODO: BEGIN Convert to SASS variables
 .entry-content,
 .wp-block-cover__inner-container,
 .wp-block-group__inner-container {
-  > * {
-    margin-bottom: $spacer-lg;
-  }
+	> * {
+		margin-bottom: $spacer-lg;
+	}
 }
 
 .wp-block-cover__inner-container,
 .wp-block-group__inner-container,
 .wp-block-column,
 .wp-block-emma-grid-cell {
-  >:last-child {
-    margin-bottom: 0;
-  }
+	> :last-child {
+		margin-bottom: 0;
+	}
 }
 
 .wp-block-group.has-background,
 .wp-block-group.border,
 .wp-block-cover {
-  padding-top: $spacer-lg;
-  padding-bottom: $spacer-lg;
+	padding-top: $spacer-lg;
+	padding-bottom: $spacer-lg;
 }
 
 p.has-background {
-  padding: $spacer;
+	padding: $spacer;
 }
 
 .entry-footer {
-  margin-top: $spacer-lg;
-  margin-bottom: $spacer-lg;
+	margin-top: $spacer-lg;
+	margin-bottom: $spacer-lg;
 
-  > .wrap {
-    @include center-wrap($entry-footer-wrap-max-width);
-    width: calc( 100% - #{$content-padding-x} * 2 );
-    display: flex;
-    flex-wrap: wrap;
-    align-items: $entry-footer-wrap-align-items;
-    justify-content: $entry-footer-wrap-justify-content;
-  }
+	> .wrap {
+		@include center-wrap($entry-footer-wrap-max-width);
+		width: calc(100% - #{$content-padding-x} * 2);
+		display: flex;
+		flex-wrap: wrap;
+		align-items: $entry-footer-wrap-align-items;
+		justify-content: $entry-footer-wrap-justify-content;
+	}
 
-  .edit-link {
-    padding: 1.5rem 0;
-    width: 100%;
-    display: block;
-    text-align: center;
-  }
+	.edit-link {
+		padding: 1.5rem 0;
+		width: 100%;
+		display: block;
+		text-align: center;
+	}
 }
 // @TODO: END Convert to SASS variables

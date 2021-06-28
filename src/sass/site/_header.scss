@@ -12,7 +12,7 @@
 
 		@include center-wrap($header-wrap-max-width);
 
-		@media screen and ( min-width: $menu-breakpoint ) {
+		@media screen and (min-width: $menu-breakpoint) {
 			justify-content: $header-wrap-justify-content;
 			grid-template-columns: $header-wrap-no-navigation-columns;
 
@@ -45,7 +45,7 @@
 	}
 
 	.site-description {
-		margin-top: .25rem;
+		margin-top: 0.25rem;
 		margin-bottom: 0;
 	}
 }
