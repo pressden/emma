@@ -15,47 +15,49 @@
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get( $columns, $numberColumns ) - ( ( $columns-margin * ( $numberColumns - 1 ) ) / $numberColumns );
+	width: map-get($columns, $numberColumns) -
+		(($columns-margin * ($numberColumns - 1)) / $numberColumns);
 }
 
 // Remove a:hover underline {
 @mixin remove-hover-underline {
-	&:hover, &:focus {
+	&:hover,
+	&:focus {
 		text-decoration: none;
 	}
 }
 
-@mixin color( $color ) {
+@mixin color($color) {
 	color: var(--color);
-	@include color-custom-properties( $color );
+	@include color-custom-properties($color);
 }
 
-@mixin color-custom-properties( $color ) {
+@mixin color-custom-properties($color) {
 	--color: #{$color};
-	@if color-yiq( $color ) == $yiq-text-dark {
-		--color-contrast-sm: #{shade( $color, $shade-color-contrast-sm )};
-		--color-contrast-md: #{shade( $color, $shade-color-contrast-md )};
+	@if color-yiq($color) == $yiq-text-dark {
+		--color-contrast-sm: #{shade($color, $shade-color-contrast-sm)};
+		--color-contrast-md: #{shade($color, $shade-color-contrast-md)};
 	} @else {
-		--color-contrast-sm: #{tint( $color, $tint-color-contrast-sm )};
-		--color-contrast-md: #{tint( $color, $tint-color-contrast-md )};
+		--color-contrast-sm: #{tint($color, $tint-color-contrast-sm)};
+		--color-contrast-md: #{tint($color, $tint-color-contrast-md)};
 	}
 }
 
-@mixin background-color( $bg-color ) {
+@mixin background-color($bg-color) {
 	background-color: var(--bg-color);
 	color: var(--color);
-	@include background-color-custom-properties( $bg-color );
+	@include background-color-custom-properties($bg-color);
 }
 
-@mixin background-color-custom-properties( $bg-color ) {
+@mixin background-color-custom-properties($bg-color) {
 	--bg-color: #{$bg-color};
-	--color: #{color-yiq( $bg-color )};
-	@if color-yiq( $bg-color ) == $yiq-text-dark {
-		--bg-color-contrast-sm: #{shade( $bg-color, $shade-color-contrast-sm )};
-		--bg-color-contrast-md: #{shade( $bg-color, $shade-color-contrast-md )};
+	--color: #{color-yiq($bg-color)};
+	@if color-yiq($bg-color) == $yiq-text-dark {
+		--bg-color-contrast-sm: #{shade($bg-color, $shade-color-contrast-sm)};
+		--bg-color-contrast-md: #{shade($bg-color, $shade-color-contrast-md)};
 	} @else {
-		--bg-color-contrast-sm: #{tint( $bg-color, $tint-color-contrast-sm )};
-		--bg-color-contrast-md: #{tint( $bg-color, $tint-color-contrast-md )};
+		--bg-color-contrast-sm: #{tint($bg-color, $tint-color-contrast-sm)};
+		--bg-color-contrast-md: #{tint($bg-color, $tint-color-contrast-md)};
 	}
 }
 
@@ -78,15 +80,15 @@
 		z-index: 100000;
 		line-height: normal;
 		text-decoration: none;
-		box-shadow: 0 0 2px 2px rgba(0,0,0,.6);
+		box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 		box-sizing: content-box;
 		outline-offset: -1px;
 	}
 }
 
-@mixin grid-template-columns-responsive( $min-width ) {
+@mixin grid-template-columns-responsive($min-width) {
 	@media screen and ( min-width: calc( #{$min-width} * 2 ) ) {
-		grid-template-columns: repeat( auto-fill, minmax( $min-width, 1fr ) );
+		grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));
 	}
 }
 
@@ -94,7 +96,7 @@
 	position: relative;
 
 	&::after {
-		content: '';
+		content: "";
 		pointer-events: none;
 		position: absolute;
 		top: 0;
@@ -103,10 +105,10 @@
 		height: 100%;
 		background: repeating-linear-gradient(
 			-55deg,
-			rgba( $white, 0.2 ),
-			rgba( $white, 0.2 ) 10px,
-			rgba( $black, 0.15 ) 10px,
-			rgba( $black, 0.15 ) 20px
+			rgba($white, 0.2),
+			rgba($white, 0.2) 10px,
+			rgba($black, 0.15) 10px,
+			rgba($black, 0.15) 20px
 		);
 		z-index: 10000;
 	}
