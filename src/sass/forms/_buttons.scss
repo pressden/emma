@@ -5,7 +5,7 @@ $button-selectors: $button-selectors-admin !default;
 }
 
 #{$button-selectors} {
-	@include background-color( $button-background-color );
+	@include background-color($button-background-color);
 	display: inline-block;
 	padding: $button-padding;
 	border: $button-border var(--bg-color);
@@ -17,7 +17,8 @@ $button-selectors: $button-selectors-admin !default;
 		color: var(--color);
 	}
 
-	&:active, &:focus {
+	&:active,
+	&:focus {
 		outline: 0;
 		box-shadow: 0 0 0 3px var(--bg-color-contrast-md);
 	}
@@ -32,11 +33,14 @@ $button-selectors: $button-selectors-admin !default;
 		color: var(--color);
 	}
 
-	&:disabled, &.disabled:not( :disabled ), &.loading {
+	&:disabled,
+	&.disabled:not(:disabled),
+	&.loading {
 		filter: $button-disabled-filter-effect;
 		cursor: $button-disabled-cursor;
 
-		&:active, &:focus {
+		&:active,
+		&:focus {
 			box-shadow: none;
 		}
 	}
@@ -51,18 +55,18 @@ $button-selectors: $button-selectors-admin !default;
 			position: absolute;
 			top: 50%;
 			left: 50%;
-			transform: translate( -50%, -50% );
+			transform: translate(-50%, -50%);
 			color: var(--color);
-			font-family: 'dashicons';
+			font-family: "dashicons";
 			font-size: $base-unit * 1.5;
 		}
 
 		@keyframes loading-spin {
 			0% {
-				 transform: translate( -50%, -50% ) rotate( 0deg );
+				transform: translate(-50%, -50%) rotate(0deg);
 			}
 			100% {
-				 transform: translate( -50%, -50% ) rotate( 360deg );
+				transform: translate(-50%, -50%) rotate(360deg);
 			}
 		}
 	}
@@ -77,7 +81,8 @@ $button-selectors: $button-selectors-admin !default;
 		color: currentColor;
 		text-decoration: underline;
 	}
-	&:active, &:focus {
+	&:active,
+	&:focus {
 		box-shadow: 0 0 0 3px var(--color-contrast-md);
 	}
 }
