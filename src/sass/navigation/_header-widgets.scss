@@ -1,11 +1,11 @@
 .header-widgets {
-  .menu-container {
-    .menu {
-      display: none;
+	.menu-container {
+		.menu {
+			display: none;
 
-      @media screen and (min-width: $menu-breakpoint) {
-        display: flex;
-      }
-    }
-  }
+			@media screen and (min-width: $menu-breakpoint) {
+				display: flex;
+			}
+		}
+	}
 }
