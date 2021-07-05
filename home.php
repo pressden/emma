@@ -16,42 +16,47 @@ get_header();
 	<main id="main" class="site-main">
 
 		<?php
-		$post = get_post( get_option( 'page_for_posts' ) );
-		setup_postdata( $post );
+		// Get the page for posts (pfp).
+		$pfp_option = get_option( 'page_for_posts' );
+		$pfp = ( $pfp_option ) ? get_post( $pfp ) : null;
 
-		/**
-		 * Fires before the entry-content markup.
-		 *
-		 * @since 1.0.0
-		*/
-		do_action( 'emma_before_entry_content' );
-		?>
+		// If there is a pfp, render it.
+		if ( $pfp ) {
+			setup_postdata( $page_for_posts );
 
-		<div class="entry-content">
+			/**
+			 * Fires before the entry-content markup.
+			 *
+			 * @since 1.0.0
+			*/
+			do_action( 'emma_before_entry_content' );
+			?>
+
+			<div class="entry-content">
+
+				<?php
+				/**
+				 * Fires inside the entry-content markup.
+				 *
+				 * @since 1.0.0
+				 */
+				do_action( 'emma_entry_content' );
+				?>
+
+			</div><!-- .entry-content -->
 
 			<?php
 			/**
-			 * Fires inside the entry-content markup.
+			 * Fires after the entry-content markup.
 			 *
 			 * @since 1.0.0
 			 */
-			do_action( 'emma_entry_content' );
-			?>
+			do_action( 'emma_after_entry_content' );
 
-		</div><!-- .entry-content -->
+			wp_reset_postdata();
+		}
 
-		<?php
-		/**
-		 * Fires after the entry-content markup.
-		 *
-		 * @since 1.0.0
-		 */
-		do_action( 'emma_after_entry_content' );
-
-		wp_reset_postdata();
-		?>
-
-		<?php
+		// If there are posts to display, render them.
 		if ( have_posts() ) :
 			?>
 
