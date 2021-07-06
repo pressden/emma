@@ -95,13 +95,17 @@ $entry-header-wrap-max-width: $wrap-max-width !default;
 // Content - nav links (pagination)
 $nav-links-max-width: $wrap-max-width !default;
 
-// Content - comments
-$comments-area-wrap-max-width: $content-max-width !default;
-
 // Content - entry footer
 $entry-footer-wrap-max-width: $content-max-width !default;
 $entry-footer-wrap-align-items: center !default;
 $entry-footer-wrap-justify-content: space-between !default;
+
+// Content - comments (comments area)
+$comments-area-wrap-max-width: $content-max-width !default;
+
+// Content - comment (individual comment)
+$comment-border: 0 solid $gray-300 !default;
+$comment-border-width: 0 0 0 5px !default;
 
 // Sidebar - widget
 $sidebar-widget-padding: $spacer-md !default;
