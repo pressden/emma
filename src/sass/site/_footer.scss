@@ -12,6 +12,10 @@
 
 		@include center-wrap($footer-wrap-max-width);
 	}
+
+	a {
+		color: $footer-link-color;
+	}
 }
 
 .site-info {

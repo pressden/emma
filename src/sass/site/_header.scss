@@ -3,7 +3,7 @@
 
 	> .wrap {
 		display: $header-wrap-display;
-		grid-column-gap: $header-wrap-grid-column-gap;
+		column-gap: $header-wrap-column-gap;
 		padding: $header-wrap-padding-y $header-wrap-padding-x;
 		position: relative;
 		align-items: $header-wrap-align-items;

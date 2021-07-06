@@ -1,3 +1,7 @@
+// Layout
+$layout-spacer-x: $spacer-lg !default;
+$layout-spacer-y: $spacer-md !default;
+
 // Paragraph
 $paragraph-margin-bottom: $spacer !default;
 
@@ -18,18 +22,17 @@ $sitewide-alert-font-weight: bold !default;
 
 // Utility bar
 $utility-bar-wrap-max-width: $wrap-max-width !default;
-$utility-bar-wrap-padding-x: $spacer-md !default;
+$utility-bar-wrap-padding-x: $layout-spacer-x !default;
 $utility-bar-wrap-padding-y: $spacer-xs !default;
 $utility-bar-wrap-align-items: center !default;
 $utility-bar-wrap-justify-content: space-between !default;
 
 // Header
 $header-wrap-display: grid !default;
-$header-wrap-grid-column-gap: $spacer-md !default;
+$header-wrap-column-gap: $spacer-lg !default;
 $header-wrap-max-width: $wrap-max-width !default;
-$header-wrap-padding: $spacer-md !default;
-$header-wrap-padding-x: $header-wrap-padding !default;
-$header-wrap-padding-y: $header-wrap-padding !default;
+$header-wrap-padding-x: $layout-spacer-x !default;
+$header-wrap-padding-y: $layout-spacer-y !default;
 $header-wrap-align-items: center !default;
 $header-wrap-justify-content: space-between !default;
 
@@ -53,7 +56,7 @@ $branding-text-align: center !default;
 $logo-max-height: 8rem !default;
 
 // Header - widgets
-$header-widgets-padding-x: $spacer-md !default;
+$header-widgets-padding-x: $layout-spacer-x !default;
 $header-widgets-padding-y: 0 !default;
 $header-widgets-display: flex !default;
 $header-widgets-justify-content: flex-end !default;
@@ -62,7 +65,7 @@ $header-widgets-flex-grow: 1 !default;
 $header-widgets-order: 5 !default;
 
 // Main Navigation
-$main-navigation-wrap-padding-x: $spacer-md !default;
+$main-navigation-wrap-padding-x: $layout-spacer-x !default;
 $main-navigation-wrap-padding-y: 0 !default;
 
 // Layout
@@ -79,7 +82,7 @@ $layout-sidebar-content-columns: $layout-sidebar-width $layout-content-width !de
 $layout-sidebar-content-sidebar-columns: $layout-sidebar-width $layout-content-width $layout-sidebar-width !default;
 
 // Content
-$content-padding-x: $spacer-md !default;
+$content-padding-x: $layout-spacer-x !default;
 
 // Content - site content
 $site-content-padding: 0 !default;
@@ -106,20 +109,20 @@ $sidebar-widget-padding-x: $sidebar-widget-padding !default;
 $sidebar-widget-padding-y: $sidebar-widget-padding !default;
 
 // Footer widgets
+$footer-widgets-wrap-column-gap: $spacer-lg !default;
 $footer-widgets-wrap-max-width: $wrap-max-width !default;
-$footer-widgets-wrap-padding: $spacer-md !default;
-$footer-widgets-wrap-padding-x: $footer-widgets-wrap-padding !default;
-$footer-widgets-wrap-padding-y: $footer-widgets-wrap-padding !default;
+$footer-widgets-wrap-padding-x: $layout-spacer-x !default;
+$footer-widgets-wrap-padding-y: $spacer-lg !default;
 $footer-widgets-wrap-align-items: flex-start !default;
 $footer-widgets-wrap-justify-content: space-between !default;
 $footer-widgets-widget-area-flex-basis: 0 !default;
 $footer-widgets-widget-area-flex-grow: 1 !default;
+$footer-widgets-widget-margin: 0 0 $spacer-md 0 !default;
 
 // Footer
 $footer-wrap-max-width: $wrap-max-width !default;
-$footer-wrap-padding: $spacer-md !default;
-$footer-wrap-padding-x: $footer-wrap-padding !default;
-$footer-wrap-padding-y: $footer-wrap-padding !default;
+$footer-wrap-padding-x: $layout-spacer-x !default;
+$footer-wrap-padding-y: $layout-spacer-y !default;
 $footer-wrap-align-items: flex-start !default;
 $footer-wrap-justify-content: center !default;
 $footer-wrap-flex-wrap: wrap !default;

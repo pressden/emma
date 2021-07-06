@@ -16,7 +16,7 @@
 
 					@media screen and (min-width: $breakpoint-sm) {
 						grid-template-columns: auto 1fr;
-						grid-column-gap: $spacer-xl;
+						column-gap: $spacer-xl;
 					}
 				}
 			}
@@ -48,7 +48,7 @@
 
 			@media screen and (min-width: $breakpoint-md) {
 				grid-template-columns: 1fr 1fr;
-				grid-column-gap: $spacer-xl;
+				column-gap: $spacer-xl;
 			}
 		}
 

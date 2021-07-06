@@ -5,6 +5,16 @@
 	}
 }
 
+.comment-list {
+	padding-left: 0;
+	list-style-type: none;
+
+	.comment {
+		padding-left: 1rem;
+		border-left: 5px solid $gray-200;
+	}
+}
+
 .comment-content a {
 	word-wrap: break-word;
 }
