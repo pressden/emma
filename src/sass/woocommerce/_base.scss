@@ -3,8 +3,8 @@
 		> * {
 			margin: $spacer-lg auto;
 			max-width: $wc-max-width;
-			padding-left: $content-padding-x;
-			padding-right: $content-padding-x;
+			padding-left: $layout-spacer-x;
+			padding-right: $layout-spacer-x;
 		}
 	}
 }

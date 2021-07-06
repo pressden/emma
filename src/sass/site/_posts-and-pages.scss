@@ -12,7 +12,6 @@
 	display: grid;
 	grid-template-columns: $layout-content-columns;
 	column-gap: $layout-column-gap;
-	padding: $site-content-padding-y $site-content-padding-x;
 }
 
 .content-area {
@@ -70,7 +69,7 @@
 
 	> .wrap {
 		@include center-wrap($entry-header-wrap-max-width);
-		width: calc(100% - #{$content-padding-x} * 2);
+		@include layout-wrap($layout-spacer-x);
 	}
 }
 
@@ -103,7 +102,7 @@
 .page-content,
 .wp-block-cover__inner-container {
 	> * {
-		width: calc(100% - #{$content-padding-x} * 2);
+		@include layout-wrap($layout-spacer-x);
 	}
 }
 
@@ -198,7 +197,7 @@
 .wp-block-group.border {
 	> .wp-block-group__inner-container {
 		> * {
-			width: calc(100% - #{$content-padding-x} * 2);
+			@include layout-wrap($layout-spacer-x);
 
 			&.alignfull {
 				width: 100%; //needed because width declaration above this one supercedes normal .alignwide class unless the !important flag is used
@@ -216,8 +215,8 @@
 	.wp-block-group {
 		&.has-background,
 		&.border {
-			padding-top: $content-padding-x;
-			padding-bottom: $content-padding-x;
+			padding-top: $layout-spacer-y;
+			padding-bottom: $layout-spacer-y;
 		}
 	}
 
@@ -273,7 +272,7 @@ p.has-background {
 
 	> .wrap {
 		@include center-wrap($entry-footer-wrap-max-width);
-		width: calc(100% - #{$content-padding-x} * 2);
+		@include layout-wrap($layout-spacer-x);
 		display: flex;
 		flex-wrap: wrap;
 		align-items: $entry-footer-wrap-align-items;

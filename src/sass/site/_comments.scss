@@ -1,7 +1,7 @@
 .comments-area {
 	> .wrap {
 		@include center-wrap($comments-area-wrap-max-width);
-		width: calc(100% - #{$content-padding-x} * 2);
+		@include layout-wrap($layout-spacer-x);
 	}
 }
 

@@ -2,10 +2,9 @@
 	background-color: $utility-bar-background-color;
 
 	> .wrap {
-		padding: $utility-bar-wrap-padding-y $utility-bar-wrap-padding-x;
-
 		@include center-wrap($utility-bar-wrap-max-width);
-
+		@include layout-wrap($layout-spacer-x);
+		padding: $utility-bar-wrap-padding;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: $utility-bar-wrap-align-items;

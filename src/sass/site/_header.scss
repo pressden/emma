@@ -2,15 +2,15 @@
 	background-color: $header-background-color;
 
 	> .wrap {
+		@include center-wrap($header-wrap-max-width);
+		@include layout-wrap($layout-spacer-x);
 		display: $header-wrap-display;
 		column-gap: $header-wrap-column-gap;
-		padding: $header-wrap-padding-y $header-wrap-padding-x;
+		padding: $header-wrap-padding;
 		position: relative;
 		align-items: $header-wrap-align-items;
 		justify-content: start;
 		grid-template-columns: $header-wrap-right-navigation-columns;
-
-		@include center-wrap($header-wrap-max-width);
 
 		@media screen and (min-width: $menu-breakpoint) {
 			justify-content: $header-wrap-justify-content;

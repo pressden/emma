@@ -5,6 +5,10 @@
 	max-width: $maxWidth;
 }
 
+@mixin layout-wrap($spacer) {
+	width: calc(100% - #{$spacer} * 2);
+}
+
 // Center block
 @mixin center-block {
 	display: block;
