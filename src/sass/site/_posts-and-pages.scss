@@ -76,14 +76,6 @@
 .page-title,
 .entry-title {
 	margin-bottom: $spacer-xs;
-	//text-align: center;
-	//margin-top: $spacer-lg;
-	//margin-bottom: $spacer-lg;
-}
-
-.entry-meta {
-	//margin: 1.5rem 0;
-	//text-align: center;
 }
 
 .entry-content,
@@ -237,7 +229,6 @@
 	}
 }
 
-// @TODO: BEGIN Convert to SASS variables
 .entry-content,
 .wp-block-cover__inner-container,
 .wp-block-group__inner-container {
@@ -286,4 +277,3 @@ p.has-background {
 		text-align: center;
 	}
 }
-// @TODO: END Convert to SASS variables
