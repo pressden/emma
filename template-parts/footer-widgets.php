@@ -1,15 +1,23 @@
 <?php
-if (
-	is_active_sidebar( 'footer-widgets-1' ) ||
-	is_active_sidebar( 'footer-widgets-2' ) ||
-	is_active_sidebar( 'footer-widgets-3' ) ) {
+// Disable footer widgets by default.
+$show_footer_widgets = false;
+
+// Enable footer widgets if any of the widget areas are active.
+for ( $i = 1; $i <= $GLOBALS['emma_footer_widget_areas']; $i++ ) {
+	if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
+		$show_footer_widgets = true;
+	}
+}
+
+// Conditionally render the footer widgets.
+if ( $show_footer_widgets ) {
 	?>
 
 	<aside id="back-matter" class="footer-widgets">
 		<div class="wrap">
 
 			<?php
-			for ( $i = 1; $i <= 3; $i++ ) {
+			for ( $i = 1; $i <= $GLOBALS['emma_footer_widget_areas']; $i++ ) {
 				if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
 					?>
 
