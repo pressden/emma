@@ -8,6 +8,11 @@
 		--color-contrast-sm: #{shade($body-color, 6%)};
 		--color-contrast-md: #{shade($body-color, 25%)};
 	}
+
+	--layout-spacer-x: #{ $spacer };
+	@media screen and ( min-width: $breakpoint-xs ) {
+		--layout-spacer-x: #{ $spacer-lg };
+	}
 }
 
 body.admin-bar {

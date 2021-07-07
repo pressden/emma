@@ -4,7 +4,7 @@
 
 	> .wrap {
 		@include center-wrap($footer-widgets-wrap-max-width);
-		@include layout-wrap($layout-spacer-x);
+		@include layout-wrap();
 		padding: $footer-widgets-wrap-padding;
 		position: relative;
 		column-gap: $footer-widgets-wrap-column-gap;

@@ -3,7 +3,7 @@
 
 	> .wrap {
 		@include center-wrap($header-wrap-max-width);
-		@include layout-wrap($layout-spacer-x);
+		@include layout-wrap();
 		display: $header-wrap-display;
 		column-gap: $header-wrap-column-gap;
 		padding: $header-wrap-padding;

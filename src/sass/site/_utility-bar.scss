@@ -3,7 +3,7 @@
 
 	> .wrap {
 		@include center-wrap($utility-bar-wrap-max-width);
-		@include layout-wrap($layout-spacer-x);
+		@include layout-wrap();
 		padding: $utility-bar-wrap-padding;
 		display: flex;
 		flex-wrap: wrap;

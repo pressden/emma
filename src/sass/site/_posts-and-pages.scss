@@ -69,7 +69,7 @@
 
 	> .wrap {
 		@include center-wrap($entry-header-wrap-max-width);
-		@include layout-wrap($layout-spacer-x);
+		@include layout-wrap();
 	}
 }
 
@@ -94,7 +94,7 @@
 .page-content,
 .wp-block-cover__inner-container {
 	> * {
-		@include layout-wrap($layout-spacer-x);
+		@include layout-wrap();
 	}
 }
 
@@ -189,7 +189,7 @@
 .wp-block-group.border {
 	> .wp-block-group__inner-container {
 		> * {
-			@include layout-wrap($layout-spacer-x);
+			@include layout-wrap();
 
 			&.alignfull {
 				width: 100%; //needed because width declaration above this one supercedes normal .alignwide class unless the !important flag is used
@@ -263,7 +263,7 @@ p.has-background {
 
 	> .wrap {
 		@include center-wrap($entry-footer-wrap-max-width);
-		@include layout-wrap($layout-spacer-x);
+		@include layout-wrap();
 		display: flex;
 		flex-wrap: wrap;
 		align-items: $entry-footer-wrap-align-items;
