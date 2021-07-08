@@ -1,33 +1,31 @@
-// Menu Breakpoint
+// Menu - breakpoint
 $menu-breakpoint: $breakpoint-md !default;
 
-// Menu - Global
+// Menu - global
 $menu-font-size: $font-size-base !default;
 $menu-icon-size: $menu-font-size * 1.75 !default;
 $menu-container-max-width: $wrap-max-width !default;
-$menu-container-padding-x: 0 !default;
-$menu-container-padding-y: $spacer-sm !default;
 $menu-link-padding: $spacer-sm !default;
 $menu-link-padding-x: $menu-link-padding !default;
 $menu-link-padding-y: $menu-link-padding !default;
 $menu-justify-content: space-between !default;
 $menu-align-items: center !default;
 
-// Submenu - Global
+// Menu - submenu
 $menu-sub-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2) !default;
 $menu-sub-link-padding-x: $menu-link-padding-x !default;
 $menu-sub-link-padding-y: $menu-link-padding-y !default;
 $menu-sub-link-width: 200px !default;
 
-// Menu - Footer
+// Menu - footer
 $menu-footer-justify-content: center !default;
 
-// Menu - Toggle
+// Menu - toggle
 $menu-toggle-padding-x: $menu-link-padding-x !default;
 $menu-toggle-padding-y: $menu-link-padding-y !default;
 $menu-toggle-display: inline-block !default;
 
-// Menu - Drawer
+// Menu - drawer
 $menu-drawer-padding: $spacer-md !default;
 $menu-drawer-padding-x: $menu-drawer-padding !default;
 $menu-drawer-padding-y: $menu-drawer-padding !default;

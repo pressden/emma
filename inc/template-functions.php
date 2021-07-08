@@ -125,9 +125,24 @@ function emma_custom_classes_metabox_html( $post ) {
 }
 
 /**
- * Add metabox for custom classes in all post types
+ * Add metabox for custom classes in supported post types
  */
 function emma_add_custom_classes_metabox() {
+	$context = 'custom_classes';
+
+	$supported_post_types = array(
+		'page',
+		'post',
+		'product',
+	);
+
+	$supported_post_types = apply_filters( 'emma_supported_post_types', $supported_post_types, $context );
+
+	// Exit early if not a supported post type.
+	if ( ! in_array( get_post_type(), $supported_post_types, true ) ) {
+		return;
+	}
+
 	add_meta_box( 'custom_classes', 'Custom Classes', 'emma_custom_classes_metabox_html', null, 'side' );
 }
 add_action( 'add_meta_boxes', 'emma_add_custom_classes_metabox' );
@@ -209,9 +224,24 @@ function emma_layout_options_metabox_html( $post, $metabox ) {
 }
 
 /**
- * Add metabox for layout options in all post types
+ * Add metabox for layout options in supported post types
  */
 function emma_add_layout_options_metabox() {
+	$context = 'layout_options';
+
+	$supported_post_types = array(
+		'page',
+		'post',
+		'product',
+	);
+
+	$supported_post_types = apply_filters( 'emma_supported_post_types', $supported_post_types, $context );
+
+	// Exit early if not a supported post type.
+	if ( ! in_array( get_post_type(), $supported_post_types, true ) ) {
+		return;
+	}
+
 	add_meta_box( 'layout_options', 'Layout Options', 'emma_layout_options_metabox_html', null, 'side' );
 }
 add_action( 'add_meta_boxes', 'emma_add_layout_options_metabox' );

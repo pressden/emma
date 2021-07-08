@@ -1,11 +1,13 @@
 .footer-widgets {
+	color: $footer-widgets-color;
 	background-color: $footer-widgets-background-color;
 
 	> .wrap {
-		padding: $footer-widgets-wrap-padding-y $footer-widgets-wrap-padding-x;
-		position: relative;
-
 		@include center-wrap($footer-widgets-wrap-max-width);
+		@include layout-wrap();
+		padding: $footer-widgets-wrap-padding;
+		position: relative;
+		column-gap: $footer-widgets-wrap-column-gap;
 
 		@media screen and (min-width: $menu-breakpoint) {
 			display: flex;
@@ -17,5 +19,17 @@
 	.widget-area {
 		flex-basis: $footer-widgets-widget-area-flex-basis;
 		flex-grow: $footer-widgets-widget-area-flex-grow;
+
+		a {
+			color: $footer-widgets-link-color;
+		}
+	}
+
+	.widget {
+		margin: $footer-widgets-widget-margin;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }

@@ -59,7 +59,7 @@
 
 		@media screen and (min-width: $breakpoint-sm) {
 			grid-template-columns: 1fr auto;
-			grid-column-gap: $spacer-sm;
+			column-gap: $spacer-sm;
 
 			*,
 			.button {

@@ -58,7 +58,7 @@
 
 			@media screen and (min-width: $breakpoint-md) {
 				grid-template-columns: 1fr 1fr;
-				grid-column-gap: $spacer-lg;
+				column-gap: $spacer-lg;
 			}
 		}
 
@@ -76,7 +76,7 @@
 
 			@media screen and (min-width: $breakpoint-sm) {
 				grid-template-columns: 1fr 1fr;
-				grid-column-gap: $spacer;
+				column-gap: $spacer;
 
 				.form-row {
 					grid-column: 1 / 3;

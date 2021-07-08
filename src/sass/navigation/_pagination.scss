@@ -3,7 +3,7 @@
 .post-navigation {
 	> .nav-links {
 		@include center-wrap($entry-footer-wrap-max-width);
-		width: calc(100% - #{$content-padding-x} * 2);
+		@include layout-wrap();
 	}
 
 	.site-main & {

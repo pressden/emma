@@ -7,6 +7,7 @@
 
 	> .wrap {
 		@include center-wrap($wrap-max-width);
-		padding: $main-navigation-wrap-padding-y $main-navigation-wrap-padding-x;
+		@include layout-wrap();
+		padding: $main-navigation-wrap-padding;
 	}
 }

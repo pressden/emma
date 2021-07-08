@@ -78,10 +78,15 @@ $utility-bar-link-hover-color: darken($utility-bar-link-color, 15) !default;
 // Header
 $header-background-color: rgba(255, 255, 255, 0.95) !default;
 
-// Footer
+// Footer Widgets
+$footer-widgets-color: inherit !default;
+$footer-widgets-link-color: inherit !default;
 $footer-widgets-background-color: $gray-100 !default;
-$footer-color: inherit !default;
-$footer-background-color: $primary-support !default;
+
+// Footer
+$footer-color: $white !default;
+$footer-link-color: inherit !default;
+$footer-background-color: $gray-800 !default;
 
 // Inputs
 $input-color: #666 !default;

@@ -1,7 +1,18 @@
 .comments-area {
 	> .wrap {
 		@include center-wrap($comments-area-wrap-max-width);
-		width: calc(100% - #{$content-padding-x} * 2);
+		@include layout-wrap();
+	}
+}
+
+.comment-list {
+	padding-left: 0;
+	list-style-type: none;
+
+	.comment {
+		padding-left: 1rem;
+		border: $comment-border;
+		border-width: $comment-border-width;
 	}
 }
 
