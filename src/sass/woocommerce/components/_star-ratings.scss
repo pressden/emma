@@ -7,31 +7,24 @@
 
 		&::before,
 		span::before {
-			display: block;
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: $wc-review-star-size;
-			line-height: 1;
-			font-family: "dashicons";
-			font-size: $wc-review-star-size;
-			content: "\f155\f155\f155\f155\f155";
-			color: $gray-600;
-			text-indent: 0;
+			@include icon-mask( 'star-filled' );
+			mask-repeat: repeat-x;
 			opacity: 0.25;
+			width: 120px;
 		}
 
 		span {
 			position: absolute;
 			top: 0;
 			left: 0;
-			height: $spacer;
-			padding-top: $spacer-lg;
+			height: 100%;
+			padding-top: $wc-review-star-size;
 			overflow: hidden;
 
 			&:before {
 				color: $accent !important;
 				opacity: 1;
+				padding: 0;
 			}
 		}
 	}

@@ -1,21 +1,27 @@
 .menu-toggle {
+	position: relative;
 	margin: 0;
+	height: 3rem;
+	width: 3rem;
 	padding: $menu-toggle-padding-y $menu-toggle-padding-x;
 	display: $menu-toggle-display;
 	text-decoration: none !important;
-
-	.dashicons,
-	.dashicons-before:before {
-		width: $menu-icon-size;
-		height: $menu-icon-size;
-		font-size: $menu-icon-size;
-	}
 }
 
 .menu-opener {
+	&::before {
+		@include icon-mask( 'menu-alt' );
+	}
+
 	@if $enable-responsive-toggle {
 		@media screen and (min-width: $menu-breakpoint) {
 			display: none;
 		}
+	}
+}
+
+.menu-closer {
+	&::before {
+		@include icon-mask( 'no-alt' );
 	}
 }

@@ -100,24 +100,16 @@
 			}
 
 			.product-remove a {
+				display: block;
 				position: relative;
+				height: $spacer-lg;
+				width: $spacer-lg;
 				text-indent: -999rem;
 				overflow: hidden;
 				@include remove-hover-underline;
 
 				&::before {
-					display: flex;
-					position: absolute;
-					top: 0;
-					bottom: 0;
-					left: 0;
-					right: 0;
-					align-items: center;
-					justify-content: center;
-					font-family: dashicons;
-					@include font-size(2rem);
-					content: "\f158";
-					text-indent: 0;
+					@include icon-mask( 'no' );
 				}
 			}
 

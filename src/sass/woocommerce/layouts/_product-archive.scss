@@ -48,6 +48,10 @@
 				margin-left: $spacer-sm;
 				margin-right: $spacer-sm;
 
+				a {
+					display: flex;
+				}
+
 				svg {
 					width: 24px;
 					height: 24px;
