@@ -383,9 +383,6 @@ require get_template_directory() . '/inc/woocommerce.php';
  * Enqueue scripts and styles.
  */
 function emma_scripts() {
-	// Enqueue dashicons for use on the frontend.
-	wp_enqueue_style( 'dashicons' );
-
 	wp_enqueue_style( 'emma-style', get_stylesheet_directory_uri() . '/dist/theme.css', null, wp_get_theme()->get( 'Version' ) );
 
 	wp_enqueue_script( 'emma-scripts', get_stylesheet_directory_uri() . '/dist/theme.js', null, wp_get_theme()->get( 'Version' ), true );

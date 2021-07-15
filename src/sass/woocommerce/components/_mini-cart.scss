@@ -26,16 +26,16 @@
 			display: flex;
 			position: relative;
 			align-items: center;
+			width: $menu-icon-size;
+			height: $menu-icon-size;
+
+			&::before {
+				@include icon-mask( 'dismiss' );
+			}
 
 			&:hover,
 			&:focus {
 				text-decoration: none;
-			}
-
-			.dashicons-dismiss {
-				width: $menu-icon-size;
-				height: $menu-icon-size;
-				font-size: $menu-icon-size;
 			}
 		}
 	}
@@ -70,13 +70,7 @@
 					overflow: hidden;
 
 					&::before {
-						content: "\f158";
-						position: absolute;
-						top: 0;
-						left: 0;
-						font-family: "dashicons";
-						text-indent: 0;
-						@include font-size($menu-font-size);
+						@include icon-mask( 'no' );
 					}
 				}
 
@@ -136,14 +130,7 @@
 		min-width: 3rem;
 
 		&::before {
-			content: "\f174";
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			text-indent: 0;
-			font-family: "dashicons";
-			font-size: $menu-icon-size;
+			@include icon-mask( 'cart' );
 		}
 
 		.cart-count {

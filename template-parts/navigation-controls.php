@@ -7,7 +7,6 @@
 		aria-expanded="false"
 		title="<?php esc_html_e( 'Primary Menu', 'emma' ); ?>"
 	>
-		<span class="dashicons dashicons-menu-alt"></span>
 		<span class="screen-reader-text">Open Menu</span>
 	</a>
 </div><!-- .navigation-controls -->

@@ -118,6 +118,22 @@
 	}
 }
 
+@mixin icon-mask( $icon ) {
+	content: '';
+	mask-image: url( "/wp-content/themes/emma/assets/icons/#{ $icon }.svg" );
+	mask-repeat: no-repeat;
+	mask-position: center;
+	mask-origin: content-box;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	padding: inherit;
+	text-indent: 0;
+	background-color: currentColor;
+}
+
 /*--------------------------------------------------------------
 # BEGIN BOOTSTRAP MIXINS
 --------------------------------------------------------------*/

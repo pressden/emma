@@ -33,19 +33,8 @@
 				border-radius: 100%;
 
 				&::before {
-					display: flex;
-					position: absolute;
-					top: 0;
-					bottom: 0;
-					left: 0;
-					right: 0;
-					align-items: center;
-					justify-content: center;
-					font-family: dashicons;
-					content: "\f179";
-					text-indent: 0;
-
-					@include font-size(2rem);
+					@include icon-mask( 'search' );
+					padding: $spacer-xs;
 				}
 			}
 
@@ -74,7 +63,8 @@
 
 		.woocommerce-product-rating {
 			display: flex;
-			align-content: center;
+			align-items: center;
+			margin-bottom: $spacer-xs;
 
 			.star-rating {
 				margin-right: $spacer-sm;
@@ -232,17 +222,7 @@
 						font-weight: 400;
 
 						&::before {
-							display: block;
-							position: absolute;
-							top: 0;
-							left: 0;
-							line-height: 1;
-							font-family: "dashicons";
-							font-size: 1.5rem;
-							content: "\f155";
-							color: $gray-600;
-							text-indent: 0;
-							opacity: 0.25;
+							@include icon-mask( 'star-filled' );
 						}
 					}
 

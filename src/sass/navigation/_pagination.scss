@@ -36,29 +36,18 @@
 	.next,
 	.prev {
 		position: relative;
-		height: 26px;
-		width: $spacer-lg;
+		width: 3rem;
 	}
 
 	.prev {
 		&::before {
-			content: "\f340";
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			font-family: "dashicons";
+			@include icon-mask( 'arrow-left-alt' );
 		}
 	}
 
 	.next {
 		&::before {
-			content: "\f344";
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			font-family: "dashicons";
+			@include icon-mask( 'arrow-right-alt' );
 		}
 	}
 
@@ -74,10 +63,5 @@
 
 	@media screen and (min-width: $breakpoint-sm) {
 		font-size: $font-size-md;
-
-		.next,
-		.prev {
-			height: $spacer-lg;
-		}
 	}
 }

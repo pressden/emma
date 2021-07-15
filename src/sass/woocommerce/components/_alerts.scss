@@ -109,22 +109,21 @@
 	bottom: 0;
 	width: 100%;
 	margin-bottom: 0;
-	padding: $spacer $spacer-lg $spacer $spacer-xl;
+	padding: $spacer $spacer-lg $spacer 5rem;
+	z-index: 1000;
 	background-color: $primary;
 	color: color-yiq($primary);
 
 	&::before {
-		content: "\f348";
-		position: absolute;
+		@include icon-mask( 'info' );
 		left: $spacer-lg;
-		top: 50%;
-		transform: translateY(-50%);
-		font-family: "dashicons";
-		font-size: 1.4rem;
+		width: 3rem;
+		padding: $spacer-sm;
 	}
 
-	a:not(.button) {
-		display: inline-block;
+	.woocommerce-store-notice__dismiss-link {
+		display: inline-flex;
+		align-items: center;
 		background-color: $accent;
 		padding: $spacer $spacer-lg;
 		margin-right: -$spacer-lg;

@@ -49,24 +49,18 @@ $button-selectors: $button-selectors-admin !default;
 		color: transparent !important;
 
 		&::before {
-			content: "\f463";
+			@include icon-mask( 'update' );
 			animation: loading-spin 1s infinite;
 			animation-timing-function: linear;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
 			color: var(--color);
-			font-family: "dashicons";
-			font-size: $base-unit * 1.5;
 		}
 
 		@keyframes loading-spin {
 			0% {
-				transform: translate(-50%, -50%) rotate(0deg);
+				transform: rotate(0deg);
 			}
 			100% {
-				transform: translate(-50%, -50%) rotate(360deg);
+				transform: rotate(360deg);
 			}
 		}
 	}
