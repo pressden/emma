@@ -120,7 +120,7 @@
 
 @mixin icon-mask( $icon ) {
 	content: '';
-	mask-image: url( "/wp-content/themes/emma/assets/icons/#{ $icon }.svg" );
+	mask-image: url( "#{ $icons-path }#{ $icon }.svg" );
 	mask-repeat: no-repeat;
 	mask-position: center;
 	mask-origin: content-box;
