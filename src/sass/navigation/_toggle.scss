@@ -9,7 +9,9 @@
 }
 
 .menu-opener {
-	@include icon-mask( 'menu-alt' );
+	&::before {
+		@include icon-mask( 'menu-alt' );
+	}
 
 	@if $enable-responsive-toggle {
 		@media screen and (min-width: $menu-breakpoint) {
