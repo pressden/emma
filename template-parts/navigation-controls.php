@@ -5,7 +5,7 @@
 		class="menu-toggle menu-opener"
 		aria-controls="menu-drawer"
 		aria-expanded="false"
-		title="<?php esc_html_e( 'Primary Menu', 'emma' ); ?>"
+		title="<?php esc_attr_e( 'Primary Menu', 'emma' ); ?>"
 	>
 		<span class="screen-reader-text">Open Menu</span>
 	</a>
