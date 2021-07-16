@@ -1,6 +1,8 @@
 /* Text meant only for screen readers. */
 .screen-reader-shortcut {
 	@include sr-only-focusable-fixed;
+
+	font-family: $font-family-base;
 }
 
 .screen-reader-text {
@@ -10,11 +12,4 @@
 /* Do not show the outline on the skip link target. */
 #content[tabindex="-1"]:focus {
 	outline: 0;
-}
-
-/* Override styles inherited from #wpadminbar */
-#wpadminbar {
-	.screen-reader-shortcut {
-		font-family: $font-family-base;
-	}
 }

@@ -5,7 +5,7 @@
 				href="javascript:void(0);"
 				id="menu-closer"
 				class="menu-toggle menu-closer"
-				title="<?php esc_html_e( 'Close Primary Menu', 'emma' ); ?>"
+				title="<?php esc_attr_e( 'Close Primary Menu', 'emma' ); ?>"
 			>
 				<span class="screen-reader-text">Close Menu</span>
 			</a>

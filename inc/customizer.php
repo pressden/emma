@@ -33,7 +33,7 @@ function emma_customize_register( $wp_customize ) {
 	}
 
 	// Add "Alternate Logo" to Site Identity options in customizer.
-	$wp_customize->add_setting( 'alternate_logo' );
+	$wp_customize->add_setting( 'alternate_logo', array( 'sanitize_callback' => 'sanitize_text_field' ) );
 	$wp_customize->add_control(
 		new WP_Customize_Media_Control(
 			$wp_customize,
@@ -70,7 +70,7 @@ function emma_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'gtm_id' );
+	$wp_customize->add_setting( 'gtm_id', array( 'sanitize_callback' => 'sanitize_text_field' ) );
 	$wp_customize->add_control(
 		'gtm_id',
 		array(
@@ -93,7 +93,7 @@ function emma_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'site_layout' );
+	$wp_customize->add_setting( 'site_layout', array( 'sanitize_callback' => 'sanitize_html_class' ) );
 	$wp_customize->add_control(
 		'site_layout',
 		array(
@@ -121,7 +121,7 @@ function emma_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'homepage_show_thumbnails' );
+	$wp_customize->add_setting( 'homepage_show_thumbnails', array( 'sanitize_callback' => 'sanitize_key' ) );
 	$wp_customize->add_control(
 		'homepage_show_thumbnails',
 		array(
@@ -143,7 +143,7 @@ function emma_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'archive_show_thumbnails' );
+	$wp_customize->add_setting( 'archive_show_thumbnails', array( 'sanitize_callback' => 'sanitize_key' ) );
 	$wp_customize->add_control(
 		'archive_show_thumbnails',
 		array(
@@ -154,7 +154,7 @@ function emma_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'archive_use_excerpts' );
+	$wp_customize->add_setting( 'archive_use_excerpts', array( 'sanitize_callback' => 'sanitize_key' ) );
 	$wp_customize->add_control(
 		'archive_use_excerpts',
 		array(
@@ -176,7 +176,7 @@ function emma_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'search_show_thumbnails' );
+	$wp_customize->add_setting( 'search_show_thumbnails', array( 'sanitize_callback' => 'sanitize_key' ) );
 	$wp_customize->add_control(
 		'search_show_thumbnails',
 		array(
@@ -198,7 +198,7 @@ function emma_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'post_show_thumbnails' );
+	$wp_customize->add_setting( 'post_show_thumbnails', array( 'sanitize_callback' => 'sanitize_key' ) );
 	$wp_customize->add_control(
 		'post_show_thumbnails',
 		array(
@@ -220,7 +220,7 @@ function emma_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'page_show_thumbnails' );
+	$wp_customize->add_setting( 'page_show_thumbnails', array( 'sanitize_callback' => 'sanitize_key' ) );
 	$wp_customize->add_control(
 		'page_show_thumbnails',
 		array(
