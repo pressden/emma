@@ -53,6 +53,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 
 	// Filter title visibility on Woocommerce pages.
 	add_filter( 'woocommerce_show_page_title', 'emma_woocommerce_show_page_title' );
+
+	remove_action('woocommerce_after_shop_loop', 'woocommerce_pagination', 10);
+	add_action( 'woocommerce_after_shop_loop', 'emma_pagination', 10);
 }
 
 /**

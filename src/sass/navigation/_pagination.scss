@@ -36,18 +36,16 @@
 	.next,
 	.prev {
 		position: relative;
-		width: 3rem;
-	}
+		width: 2.5rem;
 
-	.prev {
 		&::before {
-			@include icon-mask( 'arrow-left-alt' );
+			@include icon-mask( 'arrow-left-alt2' );
 		}
 	}
 
 	.next {
 		&::before {
-			@include icon-mask( 'arrow-right-alt' );
+			transform: rotate( 180deg );
 		}
 	}
 
