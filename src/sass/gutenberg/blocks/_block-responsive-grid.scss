@@ -1,10 +1,11 @@
+// Responsive Grid - column size
 $column-sizes: (
 	"xs": 150px,
 	"sm": 220px,
 	"md": 300px,
 	"lg": 400px,
 	"xl": 500px,
-);
+) !default;
 
 $alignments: (start, center, end, stretch);
 
