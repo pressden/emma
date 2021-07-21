@@ -18,7 +18,7 @@
 
 			tr {
 				display: block;
-				padding-bottom: $spacer;
+				padding-bottom: $spacer-sm;
 
 				&:not(:first-of-type) {
 					padding-top: $spacer;
@@ -74,6 +74,7 @@
 						display: grid;
 						grid-template-columns: 1fr 1fr;
 						width: 100%;
+						align-items: center;
 						text-align: right;
 
 						&[data-title]::before {
@@ -124,6 +125,12 @@
 					display: flex;
 					align-items: center;
 					flex-wrap: wrap;
+					column-gap: $spacer-sm;
+					margin-bottom: 1.5rem;
+
+					@media screen and (min-width: $wc-cart-breakpoint) {
+						margin-bottom: 0;
+					}
 				}
 
 				.coupon,
@@ -138,10 +145,6 @@
 
 				label {
 					display: none;
-				}
-
-				.input-text {
-					margin-right: $spacer-sm;
 				}
 
 				.button[name="update_cart"] {

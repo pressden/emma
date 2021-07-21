@@ -26,7 +26,6 @@ $full-columns-breakpoint: 782px;
 		column-gap: 0;
 	
 		.wp-block-column {
-
 			@media screen and (min-width: $two-columns-breakpoint) and (max-width: $full-columns-breakpoint - 1px) {
 				//max-width is required for inline flex-basis to work
 				flex-basis: 50% !important;

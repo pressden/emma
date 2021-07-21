@@ -32,13 +32,13 @@
 		display: flex;
 		align-items: center;
 		padding: $spacer;
+		column-gap: $spacer-sm;
 		background-color: $white;
 		border-top: 3px solid $action;
 		box-shadow: 2px 2px 10px 0 rgba($black, 0.3);
 
 		label {
 			margin-bottom: 0;
-			margin-right: $spacer-sm;
 		}
 
 		.search-field {

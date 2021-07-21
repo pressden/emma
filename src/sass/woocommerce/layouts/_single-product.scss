@@ -64,11 +64,8 @@
 		.woocommerce-product-rating {
 			display: flex;
 			align-items: center;
+			column-gap: $spacer-sm;
 			margin-bottom: $spacer-xs;
-
-			.star-rating {
-				margin-right: $spacer-sm;
-			}
 		}
 
 		.summary {
@@ -104,11 +101,11 @@
 		&.product-type-simple form.cart {
 			display: flex;
 			justify-content: flex-start;
+			column-gap: $spacer-sm;
 			margin-bottom: $wc-cart-form-margin-bottom;
 
 			.quantity {
 				align-self: center;
-				margin-right: $spacer-sm;
 
 				&.hidden {
 					display: none;
