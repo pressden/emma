@@ -5,6 +5,7 @@
 		margin: $spacer-lg 0;
 		padding: $spacer;
 		align-items: center;
+		column-gap: $spacer-sm;
 		border-radius: $alert-border-radius;
 		border: 1px solid $input-border-color;
 
@@ -23,10 +24,6 @@
 				&:not(:first-of-type) {
 					width: auto;
 					margin-bottom: 0;
-				}
-
-				&.form-row-first {
-					margin-right: $spacer-sm;
 				}
 			}
 		}

@@ -41,12 +41,11 @@
 		.woocommerce-columns-sizers {
 			display: flex;
 			justify-content: center;
+			column-gap: $spacer;
 			padding-left: 0;
 
 			.woocommerce-columns-sizer {
 				display: block;
-				margin-left: $spacer-sm;
-				margin-right: $spacer-sm;
 
 				a {
 					display: flex;

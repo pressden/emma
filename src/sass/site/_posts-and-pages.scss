@@ -169,6 +169,7 @@
 .search {
 	.search-form {
 		display: flex;
+		column-gap: $spacer-sm;
 		margin-top: $spacer;
 		margin-bottom: $spacer;
 		align-items: center;
@@ -176,7 +177,6 @@
 		label {
 			flex-grow: 1;
 			margin-bottom: 0;
-			margin-right: $spacer-sm;
 		}
 
 		.search-field {
