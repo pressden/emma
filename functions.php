@@ -478,46 +478,6 @@ function emma_reusable_blocks_admin_menu() {
 add_action( 'admin_menu', 'emma_reusable_blocks_admin_menu' );
 
 /**
- * Add a search field to the .toggle-search-form.
- */
-function emma_toggle_search_form_search_field() {
-	?>
-
-	<label>
-
-		<span class="screen-reader-text"><?php echo esc_html_x( 'Search for:', 'label', 'emma' ); ?></span>
-
-		<input
-			type="search"
-			class="search-field"
-			placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'emma' ); ?>"
-			value="<?php echo get_search_query(); ?>"
-			name="s"
-		/>
-
-	</label>
-
-	<?php
-}
-add_action( 'emma_toggle_search_form_fields', 'emma_toggle_search_form_search_field', 10 );
-
-/**
- * Add a submit button to the .toggle-search-form
- */
-function emma_toggle_search_form_submit_button() {
-	?>
-
-	<input
-		type="submit"
-		class="search-submit"
-		value="<?php echo esc_attr_x( 'Search', 'submit button', 'emma' ); ?>"
-	/>
-
-	<?php
-}
-add_action( 'emma_toggle_search_form_fields', 'emma_toggle_search_form_submit_button', 15 );
-
-/**
  * Simulate non-empty content to enable Gutenberg editor on the main blog page
  *
  * A bit hacky, but it's the only available solution for now.
@@ -533,3 +493,27 @@ function emma_enable_gutenberg_editor_for_blog_page( $replace, $post ) {
 	return $replace;
 }
 add_filter( 'replace_editor', 'emma_enable_gutenberg_editor_for_blog_page', 10, 2 );
+
+/**
+ * Output search form with custom classes
+ */
+function emma_search_form() {
+	// Add the custom class filter to the search form
+	add_filter( 'get_search_form', 'emma_search_form_class_filter', 10, 2 );
+
+	get_search_form();
+
+	// Remove the custom class filter to avoid affecting other search forms
+	remove_filter( 'get_search_form', 'emma_search_form_class_filter', 10, 2 );
+}
+add_action( 'emma_after', 'emma_search_form' );
+
+/**
+ * Filter the search form to apply custom classes to the markup
+ *
+ * @param string $form Search form markup.
+ * @param array  $args Arguments.
+ */
+function emma_search_form_class_filter( $form, $args ) {
+	return str_replace( 'search-form', 'search-form toggle-search-form d-none', $form );
+}

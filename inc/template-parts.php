@@ -167,11 +167,3 @@ function emma_mini_cart_template() {
 if ( class_exists( 'WooCommerce' ) ) {
 	add_action( 'emma_after', 'emma_mini_cart_template' );
 }
-
-/**
- * Output search form on all pages with a class that hides it
- */
-function emma_search_form() {
-	get_template_part( 'template-parts/toggle-search-form' );
-}
-add_action( 'emma_after', 'emma_search_form' );
