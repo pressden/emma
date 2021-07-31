@@ -498,12 +498,12 @@ add_filter( 'replace_editor', 'emma_enable_gutenberg_editor_for_blog_page', 10, 
  * Output search form with custom classes
  */
 function emma_get_search_form() {
-	// Add the custom class filter to the search form
+	// Add the custom class filter to the search form.
 	add_filter( 'get_search_form', 'emma_search_form_class_filter', 10, 2 );
 
 	get_search_form();
 
-	// Remove the custom class filter to avoid affecting other search forms
+	// Remove the custom class filter to avoid affecting other search forms.
 	remove_filter( 'get_search_form', 'emma_search_form_class_filter', 10, 2 );
 }
 add_action( 'emma_after', 'emma_get_search_form' );
