@@ -515,5 +515,7 @@ add_action( 'emma_after', 'emma_get_search_form' );
  * @param array  $args Arguments.
  */
 function emma_search_form_class_filter( $form, $args ) {
-	return str_replace( 'search-form', 'search-form toggle-search-form d-none', $form );
+	// Get the position of the native "search-form" class plus offset (custom after native).
+	$string_position = strpos( $form, 'search-form' ) + 11;
+	return substr_replace( $form, ' toggle-search-form d-none', $string_position, 0 );
 }
