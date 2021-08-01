@@ -2,9 +2,7 @@
 	display: grid;
 	grid-template-rows: auto minmax(0, 1fr);
 	position: absolute;
-	height: $wc-mini-cart-height;
 	max-height: $wc-mini-cart-max-height;
-	min-height: $wc-mini-cart-min-height;
 	width: $wc-mini-cart-width;
 	z-index: 99999;
 	background-color: $wc-mini-cart-background-color;
