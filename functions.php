@@ -304,15 +304,23 @@ function emma_widgets_init() {
 	}
 
 	// Filter 'emma_footer_widget_areas' in the global scope for use in templates.
-	$GLOBALS['emma_footer_widget_areas'] = apply_filters( 'emma_footer_widget_areas', 3 );
+	$GLOBALS['emma_footer_widget_areas'] = apply_filters( 'emma_footer_widget_areas', 1 );
 
 	// Add the footer widgets areas.
-	for ( $i = 1; $i <= $GLOBALS['emma_footer_widget_areas']; $i++ ) {
-		$widget_areas[ 'footer-widgets-' . $i ] = array(
-			'name'        => esc_html__( 'Footer Widgets', 'emma' ) . " $i",
-			'id'          => 'footer-widgets-' . $i,
-			'description' => esc_html__( 'Add widgets above the site footer', 'emma' ) . ' (' . esc_html__( 'column', 'emma' ) . " $i).",
+	if( $GLOBALS['emma_footer_widget_areas'] == 1 ) {
+		$widget_areas[ 'footer-widgets' ] = array(
+			'name'        => esc_html__( 'Footer Widgets', 'emma' ),
+			'id'          => 'footer-widgets',
+			'description' => esc_html__( 'Add widgets above the site footer', 'emma' ),
 		);
+	} else {
+		for ( $i = 1; $i <= $GLOBALS['emma_footer_widget_areas']; $i++ ) {
+			$widget_areas[ 'footer-widgets-' . $i ] = array(
+				'name'        => esc_html__( 'Footer Widgets', 'emma' ) . " $i",
+				'id'          => 'footer-widgets-' . $i,
+				'description' => esc_html__( 'Add widgets above the site footer', 'emma' ) . ' (' . esc_html__( 'column', 'emma' ) . " $i).",
+			);
+		}
 	}
 
 	// Filter $widget_areas.
