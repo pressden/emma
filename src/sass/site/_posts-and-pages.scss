@@ -80,6 +80,7 @@
 
 .entry-content,
 .page-content,
+.widget_block,
 .wp-block-cover__inner-container,
 .wp-block-group__inner-container,
 .wp-block-column {
@@ -92,6 +93,7 @@
 
 .entry-content,
 .page-content,
+.widget_block,
 .wp-block-cover__inner-container {
 	> * {
 		@include layout-wrap();
@@ -230,6 +232,7 @@
 }
 
 .entry-content,
+.widget_block,
 .wp-block-cover__inner-container,
 .wp-block-group__inner-container {
 	> * {
