@@ -18,11 +18,11 @@ get_header();
 		<?php
 		// Get the page for posts (pfp).
 		$pfp_option = get_option( 'page_for_posts' );
+		$pfp = ( $pfp_option ) ? get_post( $pfp ) : null;
 
 		// If there is a pfp, render it.
-		if ( $pfp_option ) {
-			$post = get_post( $pfp_option );
-			setup_postdata( $post );
+		if ( $pfp ) {
+			setup_postdata( $pfp );
 
 			/**
 			 * Fires before the entry-content markup.
