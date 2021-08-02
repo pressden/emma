@@ -18,7 +18,7 @@ get_header();
 		<?php
 		// Get the page for posts (pfp).
 		$pfp_option = get_option( 'page_for_posts' );
-		$pfp = ( $pfp_option ) ? get_post( $pfp ) : null;
+		$pfp = ( $pfp_option ) ? get_post( $pfp_option ) : null;
 
 		// If there is a pfp, render it.
 		if ( $pfp ) {
