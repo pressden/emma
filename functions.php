@@ -523,12 +523,12 @@ function emma_search_form_class_filter( $form, $args ) {
 }
 
 /**
- * Render the PFP (page_for_posts) content
+ * Render the page_for_posts (pfp) content
  *
  * @param object $post Global post passed by reference.
  */
 function emma_render_page_for_posts( &$post ) {
-	// Get the page for posts (pfp).
+	// Get the pfp.
 	$pfp_option = get_option( 'page_for_posts' );
 	$pfp        = ( $pfp_option ) ? get_post( $pfp_option ) : null;
 
@@ -537,7 +537,7 @@ function emma_render_page_for_posts( &$post ) {
 		return;
 	}
 
-	// BEGIN: Override the global $post so our templates and hooks render the pfp properly.
+	// Override the global $post so our templates and hooks render the pfp properly.
 	$post = $pfp;
 	setup_postdata( $post );
 
@@ -570,6 +570,6 @@ function emma_render_page_for_posts( &$post ) {
 	 */
 	do_action( 'emma_after_entry_content' );
 
-	// END: Override the global $post so our templates and hooks render the pfp properly.
+	// Reset the global $post so the rest of the content renders properly.
 	wp_reset_postdata();
 }
