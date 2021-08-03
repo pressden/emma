@@ -16,45 +16,8 @@ get_header();
 	<main id="main" class="site-main">
 
 		<?php
-		// Get the page for posts (pfp).
-		$pfp_option = get_option( 'page_for_posts' );
-		$pfp = ( $pfp_option ) ? get_post( $pfp_option ) : null;
-
-		// If there is a pfp, render it.
-		if ( $pfp ) {
-			setup_postdata( $pfp );
-
-			/**
-			 * Fires before the entry-content markup.
-			 *
-			 * @since 1.0.0
-			*/
-			do_action( 'emma_before_entry_content' );
-			?>
-
-			<div class="entry-content">
-
-				<?php
-				/**
-				 * Fires inside the entry-content markup.
-				 *
-				 * @since 1.0.0
-				 */
-				do_action( 'emma_entry_content' );
-				?>
-
-			</div><!-- .entry-content -->
-
-			<?php
-			/**
-			 * Fires after the entry-content markup.
-			 *
-			 * @since 1.0.0
-			 */
-			do_action( 'emma_after_entry_content' );
-
-			wp_reset_postdata();
-		}
+		// Render the pfp if one exists.
+		emma_render_page_for_posts( $post );
 
 		// If there are posts to display, render them.
 		if ( have_posts() ) :
