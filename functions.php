@@ -521,3 +521,55 @@ function emma_search_form_class_filter( $form, $args ) {
 	// Return $form with custom classes injected into the markup.
 	return substr_replace( $form, ' toggle-search-form d-none', $string_position, 0 );
 }
+
+/**
+ * Render the page_for_posts (pfp) content
+ *
+ * @param object $post Global post passed by reference.
+ */
+function emma_render_page_for_posts( &$post ) {
+	// Get the pfp.
+	$pfp_option = get_option( 'page_for_posts' );
+	$pfp        = ( $pfp_option ) ? get_post( $pfp_option ) : null;
+
+	// Exit early if there is no pfp.
+	if ( ! $pfp ) {
+		return;
+	}
+
+	// Override the global $post so our templates and hooks render the pfp properly.
+	$post = $pfp;
+	setup_postdata( $post );
+
+	/**
+	 * Fires before the entry-content markup.
+	 *
+	 * @since 1.0.0
+	*/
+	do_action( 'emma_before_entry_content' );
+	?>
+
+	<div class="entry-content">
+
+		<?php
+		/**
+		 * Fires inside the entry-content markup.
+		 *
+		 * @since 1.0.0
+		 */
+		do_action( 'emma_entry_content' );
+		?>
+
+	</div><!-- .entry-content -->
+
+	<?php
+	/**
+	 * Fires after the entry-content markup.
+	 *
+	 * @since 1.0.0
+	 */
+	do_action( 'emma_after_entry_content' );
+
+	// Reset the global $post so the rest of the content renders properly.
+	wp_reset_postdata();
+}
