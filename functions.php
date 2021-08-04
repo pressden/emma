@@ -255,7 +255,7 @@ function emma_editor_font_sizes() {
 	);
 
 	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-  // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 	$GLOBALS['editor_font_sizes'] = apply_filters( 'emma_editor_font_sizes', $editor_font_sizes );
 
 	add_theme_support( 'editor-font-sizes', array_values( $GLOBALS['editor_font_sizes'] ) );
