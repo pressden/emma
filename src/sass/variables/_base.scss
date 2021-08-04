@@ -6,7 +6,6 @@ $base-unit: 1rem !default;
 $font-size-base: 1rem !default;
 $spacer: 1rem !default;
 $line-height-base: 1.5 !default;
-$icons-path: "/wp-content/themes/emma/assets/icons/";
 
 // Breakpoints (commonly used breakpoints in WordPress core: https://github.com/WordPress/gutenberg/issues/13775)
 $breakpoint-xs: 480px !default;
@@ -33,6 +32,9 @@ $font-family-base: $font-family-sans-serif !default;
 $font-weight-normal: 400 !default;
 $font-weight-bolder: bolder !default;
 $font-weight-base: $font-weight-normal !default;
+
+// Icons
+$icons-path: "/wp-content/themes/emma/assets/icons/" !default;
 
 // Colors
 $primary: #0073aa !default;
