@@ -1,4 +1,4 @@
-// display utilities
+// Display utilities
 @if $admin-stylesheet == false {
 	.d-none {
 		display: none !important;
@@ -25,26 +25,13 @@
 	}
 }
 
-// 100vh min-height utilities
-.valignfull {
-	min-height: var(--full-height);
-}
-
-@each $name, $breakpoint in $breakpoints {
-	@media screen and (min-width: $breakpoint) {
-		.valignfull-#{$name} {
-			min-height: var(--full-height);
-		}
-	}
-}
-
-// separator utilities
+// Separator utilities
 .sep {
 	padding-left: $spacer-sm;
 	padding-right: $spacer-sm;
 }
 
-// text transform utilities
+// Text transform utilities
 .uppercase {
 	text-transform: uppercase;
 }
@@ -53,12 +40,12 @@
 	text-transform: lowercase;
 }
 
-// link utilities
+// Link utilities
 .link-extend {
 	cursor: pointer;
 }
 
-// spacing utilities
+// Spacing utilities
 @each $name, $size in $spacer-sizes {
 	.p-#{$name} {
 		padding: #{$size} !important;
@@ -109,7 +96,7 @@
 	}
 }
 
-//width utilities
+// Width utilities
 .w-100 {
 	width: 100% !important;
 }
@@ -118,17 +105,31 @@
 	width: fit-content !important; //makes block elements reduce width to fit content (good for making borders not way wider than small amounts of content)
 }
 
+// Height utilities
 .h-100 {
 	height: 100% !important;
 }
 
+.valignfull {
+	min-height: var(--full-height);
+}
+
+@each $name, $breakpoint in $breakpoints {
+	@media screen and (min-width: $breakpoint) {
+		.valignfull-#{$name} {
+			min-height: var(--full-height);
+		}
+	}
+}
+
+// Align utilities
 .alignnarrow {
 	max-width: $content-max-width-sm;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-//border utilities
+// Border utilities
 $border-widths: (
 	"sm": $border-width-sm,
 	"md": $border-width-md,
