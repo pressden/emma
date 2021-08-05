@@ -101,6 +101,10 @@
 	width: 100% !important;
 }
 
+.mw-100 {
+	max-width: 100% !important;
+}
+
 .w-fit-content {
 	width: fit-content !important; //makes block elements reduce width to fit content (good for making borders not way wider than small amounts of content)
 }
