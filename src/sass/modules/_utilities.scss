@@ -179,3 +179,16 @@ $border-locations: (
 		border-color: $color;
 	}
 }
+
+// Gap utilities (based on spacer sizes)
+@each $name, $gap in $spacer-sizes {
+	.cg-#{$name} {
+		column-gap: $gap;
+	}
+}
+
+@each $name, $gap in $spacer-sizes {
+	.rg-#{$name} {
+		row-gap: $gap;
+	}
+}
