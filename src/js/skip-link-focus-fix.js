@@ -6,7 +6,7 @@
  * Learn more: https://git.io/vWdr2
  */
 (function () {
-	var isIe = /(trident|msie)/i.test(navigator.userAgent);
+	var isIe = /(trident|msie)/i.test(navigator.userAgentData);
 
 	if (isIe && document.getElementById && window.addEventListener) {
 		window.addEventListener(
