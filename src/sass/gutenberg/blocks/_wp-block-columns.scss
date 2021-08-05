@@ -24,7 +24,7 @@ $full-columns-breakpoint: 782px;
 
 	&.cg-0 {
 		column-gap: 0;
-	
+
 		.wp-block-column {
 			@media screen and (min-width: $two-columns-breakpoint) and (max-width: $full-columns-breakpoint - 1px) {
 				//max-width is required for inline flex-basis to work
@@ -35,7 +35,7 @@ $full-columns-breakpoint: 782px;
 
 	&.cg-sm {
 		column-gap: $spacer;
-	
+
 		@media screen and (min-width: $two-columns-breakpoint) and (max-width: $full-columns-breakpoint - 1px) {
 			.wp-block-column {
 				flex-basis: calc(50% - #{$spacer} / 2) !important;

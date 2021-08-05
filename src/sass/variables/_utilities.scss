@@ -21,7 +21,7 @@ $spacer-sizes: (
 	"md": $spacer-md,
 	"lg": $spacer-lg,
 	"xl": $spacer-xl,
-);
+) !default;
 
 // Responsive Font Sizes
 $enable-responsive-font-sizes: true !default;
