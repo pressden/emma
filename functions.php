@@ -307,8 +307,8 @@ function emma_widgets_init() {
 	$GLOBALS['emma_footer_widget_areas'] = apply_filters( 'emma_footer_widget_areas', 1 );
 
 	// Add the footer widgets areas.
-	if( $GLOBALS['emma_footer_widget_areas'] == 1 ) {
-		$widget_areas[ 'footer-widgets' ] = array(
+	if ( 1 === $GLOBALS['emma_footer_widget_areas'] ) {
+		$widget_areas['footer-widgets'] = array(
 			'name'        => esc_html__( 'Footer Widgets', 'emma' ),
 			'id'          => 'footer-widgets',
 			'description' => esc_html__( 'Add widgets above the site footer', 'emma' ),

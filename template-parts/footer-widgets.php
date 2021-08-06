@@ -2,13 +2,15 @@
 // Disable footer widgets by default.
 $show_footer_widgets = false;
 
-if( $GLOBALS['emma_footer_widget_areas'] == 1 ) {
-	if( is_active_sidebar( 'footer-widgets' ) ) {
-	?>
+if ( 1 === $GLOBALS['emma_footer_widget_areas'] ) {
+	if ( is_active_sidebar( 'footer-widgets' ) ) {
+		?>
+
 		<aside id="back-matter" class="footer-widgets">
 			<?php dynamic_sidebar( 'footer-widgets' ); ?>
 		</aside>
-	<?php
+
+		<?php
 	}
 } else {
 	// Enable footer widgets if any of the widget areas are active.
@@ -30,7 +32,7 @@ if( $GLOBALS['emma_footer_widget_areas'] == 1 ) {
 					if ( is_active_sidebar( 'footer-widgets-' . $i ) ) {
 						?>
 
-						<section class="footer-widgets-<?php echo $i; ?> widget-area">
+						<section class="footer-widgets-<?php echo esc_attr( $i ); ?> widget-area">
 							<?php dynamic_sidebar( 'footer-widgets-' . $i ); ?>
 						</section>
 
