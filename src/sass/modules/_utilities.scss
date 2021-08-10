@@ -5,8 +5,16 @@
 	}
 
 	@each $name, $breakpoint in $breakpoints {
-		@media screen and (max-width: $breakpoint - 1) {
+		@media screen and (min-width: $breakpoint) {
 			.d-none-#{$name} {
+				display: none;
+			}
+		}
+	}
+
+	@each $name, $breakpoint in $breakpoints {
+		@media screen and (max-width: $breakpoint - 1) {
+			.d-none-#{$name}-down {
 				display: none;
 			}
 		}
@@ -17,8 +25,16 @@
 	}
 
 	@each $name, $breakpoint in $breakpoints {
-		@media screen and (max-width: $breakpoint - 1) {
+		@media screen and (min-width: $breakpoint) {
 			.d-none-#{$name} {
+				@include d-none-overlay();
+			}
+		}
+	}
+
+	@each $name, $breakpoint in $breakpoints {
+		@media screen and (max-width: $breakpoint - 1) {
+			.d-none-#{$name}-down {
 				@include d-none-overlay();
 			}
 		}
