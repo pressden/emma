@@ -102,9 +102,10 @@ $sidebar-widget-padding-x: $sidebar-widget-padding !default;
 $sidebar-widget-padding-y: $sidebar-widget-padding !default;
 
 // Footer widgets
+$footer-widgets-padding: $layout-spacer-y 0 !default;
 $footer-widgets-wrap-column-gap: $spacer-lg !default;
 $footer-widgets-wrap-max-width: $wrap-max-width !default;
-$footer-widgets-wrap-padding: $spacer-lg 0 !default;
+$footer-widgets-wrap-padding: 0 !default;
 $footer-widgets-wrap-align-items: flex-start !default;
 $footer-widgets-wrap-justify-content: space-between !default;
 $footer-widgets-widget-area-flex-basis: 0 !default;
