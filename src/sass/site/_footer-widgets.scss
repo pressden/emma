@@ -23,6 +23,13 @@
 
 		a {
 			color: $footer-widgets-link-color;
+
+			&:hover,
+			&:focus,
+			&:focus-within,
+			&:active {
+				color: $footer-widgets-link-hover-color;
+			}
 		}
 	}
 

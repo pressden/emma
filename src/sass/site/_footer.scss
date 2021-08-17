@@ -18,6 +18,13 @@
 
 	a {
 		color: $footer-link-color;
+
+		&:hover,
+		&:focus,
+		&:focus-within,
+		&:active {
+			color: $footer-link-hover-color;
+		}
 	}
 }
 
