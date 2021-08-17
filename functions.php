@@ -357,6 +357,9 @@ function emma_filter_nav_menu_args( $nav_menu_args ) {
 }
 add_filter( 'widget_nav_menu_args', 'emma_filter_nav_menu_args' );
 
+// Helpers.
+require get_template_directory() . '/inc/helpers.php';
+
 // Optimize WordPress by removing unused features.
 require get_template_directory() . '/inc/optimize.php';
 
