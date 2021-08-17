@@ -17,13 +17,6 @@
 		&::before {
 			@include icon-mask( 'search' );
 		}
-
-		&:hover,
-		&:focus {
-			.cart-count {
-				background-color: $link-hover-color;
-			}
-		}
 	}
 
 	.search-form {
