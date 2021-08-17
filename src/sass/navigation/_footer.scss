@@ -3,5 +3,10 @@
 		.menu {
 			justify-content: $menu-footer-justify-content;
 		}
+
+		// Ensure footer link color takes precedence
+		a {
+			color: $footer-link-color;
+		}
 	}
 }
