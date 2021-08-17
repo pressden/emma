@@ -113,9 +113,11 @@ $footer-widgets-widget-area-flex-grow: 1 !default;
 $footer-widgets-widget-margin: 0 0 $spacer-md 0 !default;
 
 // Footer
+$footer-padding: $layout-spacer-y 0 !default;
+$footer-wrap-column-gap: $spacer-lg !default;
+$footer-wrap-row-gap: $spacer-md !default;
 $footer-wrap-max-width: $wrap-max-width !default;
-$footer-wrap-padding-x: $layout-spacer-x !default;
-$footer-wrap-padding-y: $layout-spacer-y !default;
+$footer-wrap-padding: 0 !default;
 $footer-wrap-align-items: flex-start !default;
 $footer-wrap-justify-content: center !default;
 $footer-wrap-flex-wrap: wrap !default;
