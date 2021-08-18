@@ -14,6 +14,23 @@
 		list-style: none;
 	}
 
+	@if $enable-dropdown-icon {
+		& > ul {
+			& > .menu-item-has-children {
+				padding-right: $menu-dropdown-padding-right;
+
+				& > a {
+					&::after {
+						@include icon-mask( $menu-dropdown-icon );
+						width: $menu-dropdown-icon-width;
+						left: auto;
+						right: 0;
+					}
+				}
+			}
+		}
+	}
+
 	li {
 		position: relative;
 		color: $menu-link-color;

@@ -13,6 +13,13 @@ $enable-sticky-header: false !default;
 $enable-responsive-toggle: true !default;
 
 /*--------------------------------------------------------------
+## Dropdown Icon
+## true: top level menu items with children will show an arrow icon
+## false: the dropdown icon will be suppressed on all menu items
+--------------------------------------------------------------*/
+$enable-dropdown-icon: true !default;
+
+/*--------------------------------------------------------------
 ## Admin Stylesheet
 ## true: this will adjust certain backend-breaking classes for the admin CSS file
 ## false: classes will be compiled with normal frontend properties

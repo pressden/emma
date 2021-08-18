@@ -11,6 +11,11 @@ $menu-link-padding-y: $menu-link-padding !default;
 $menu-justify-content: space-between !default;
 $menu-align-items: center !default;
 
+// Menu - dropdown
+$menu-dropdown-padding-right: $spacer !default;
+$menu-dropdown-icon: arrow-down !default;
+$menu-dropdown-icon-width: $spacer-lg !default;
+
 // Menu - submenu
 $menu-sub-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2) !default;
 $menu-sub-link-padding-x: $menu-link-padding-x !default;
