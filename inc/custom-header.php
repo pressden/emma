@@ -17,20 +17,18 @@
  * @imports emma_header_style()
  */
 function emma_custom_header_setup() {
-	add_theme_support(
-		'custom-header',
-		apply_filters(
-			'emma_custom_header_args',
-			array(
-				'default-image'      => '',
-				'default-text-color' => '000000',
-				'width'              => 1000,
-				'height'             => 250,
-				'flex-height'        => true,
-				'wp-head-callback'   => 'emma_header_style',
-			)
-		)
+	$args = array(
+		'default-image'      => '',
+		'default-text-color' => '000000',
+		'width'              => 1000,
+		'height'             => 250,
+		'flex-height'        => true,
+		'wp-head-callback'   => 'emma_header_style',
 	);
+
+	$args = apply_filters( 'emma_custom_header_args', $args );
+
+	add_theme_support( 'custom-header', $args );
 }
 add_action( 'after_setup_theme', 'emma_custom_header_setup' );
 

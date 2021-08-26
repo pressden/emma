@@ -58,28 +58,25 @@ if ( ! function_exists( 'emma_setup' ) ) {
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
-		add_theme_support(
-			'html5',
-			array(
-				'search-form',
-				'comment-form',
-				'comment-list',
-				'gallery',
-				'caption',
-			)
+		$args = array(
+			'search-form',
+			'comment-form',
+			'comment-list',
+			'gallery',
+			'caption',
 		);
 
+		add_theme_support( 'html5', $args );
+
 		// Set up the WordPress core custom background feature.
-		add_theme_support(
-			'custom-background',
-			apply_filters(
-				'emma_custom_background_args',
-				array(
-					'default-color' => 'ffffff',
-					'default-image' => '',
-				)
-			)
+		$args = array(
+			'default-color' => 'ffffff',
+			'default-image' => '',
 		);
+
+		$args = apply_filters( 'emma_custom_background_args', $args );
+
+		add_theme_support( 'custom-background', $args );
 
 		// Add theme support for selective refresh for widgets.
 		add_theme_support( 'customize-selective-refresh-widgets' );
@@ -89,15 +86,14 @@ if ( ! function_exists( 'emma_setup' ) ) {
 		 *
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
-		add_theme_support(
-			'custom-logo',
-			array(
-				'height'      => 250,
-				'width'       => 250,
-				'flex-width'  => true,
-				'flex-height' => true,
-			)
+		$args = array (
+			'height'      => 250,
+			'width'       => 250,
+			'flex-width'  => true,
+			'flex-height' => true,
 		);
+
+		add_theme_support( 'custom-logo', $args );
 
 		// Add support for full and wide align images.
 		add_theme_support( 'align-wide' );
