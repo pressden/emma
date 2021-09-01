@@ -3,16 +3,8 @@
 		@media screen and (min-width: $breakpoint-sm) {
 			width: 100%;
 			position: fixed;
-			top: 0;
+			top: var( --admin-bar-height );
 			z-index: 5;
-		}
-
-		.admin-bar & {
-			top: $admin-bar-mobile-height;
-
-			@media screen and (min-width: $breakpoint-admin-bar) {
-				top: $admin-bar-desktop-height;
-			}
 		}
 
 		.shrink & {

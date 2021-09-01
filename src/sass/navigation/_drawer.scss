@@ -1,22 +1,14 @@
 .menu-drawer {
 	position: fixed;
-	height: 100%;
+	height: var( --full-height );
 	width: 100%;
 	transform: translateX(-100%);
 	z-index: 10;
-	top: 0;
+	top: var( --admin-bar-height );
 	left: 0;
 	background: $menu-drawer-background;
 	overflow-x: hidden;
 	transition: all 0.25s ease-in-out;
-
-	.admin-bar & {
-		top: $admin-bar-mobile-height;
-
-		@media screen and (min-width: $breakpoint-admin-bar) {
-			top: $admin-bar-desktop-height;
-		}
-	}
 
 	> .wrap {
 		@include center-wrap($wrap-max-width);
