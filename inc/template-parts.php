@@ -72,7 +72,7 @@ add_action( 'emma_after_header', 'emma_sticky_saver_template' );
 function emma_primary_navigation_template() {
 	get_template_part( 'template-parts/navigation', 'primary' );
 }
-add_action( 'emma_after_header', 'emma_primary_navigation_template' );
+add_action( 'emma_header_bar', 'emma_primary_navigation_template' );
 
 /**
  * Gets the post thumbnail template part.
