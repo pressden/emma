@@ -114,7 +114,6 @@ function copyMenuItems( menus, defaultLocation ) {
 			
 			if(link.dataset.menuDrawerLocation) {
 				copyLocation = link.dataset.menuDrawerLocation;
-				alert( copyLocation );
 			}
 
 			let clone = link.closest("li").cloneNode(true);
