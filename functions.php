@@ -223,17 +223,17 @@ function emma_editor_font_sizes() {
 	$editor_font_sizes = array(
 		'small'  => array(
 			'name' => __( 'Small', 'emma' ),
-			'size' => 14,
+			'size' => 16,
 			'slug' => 'small',
 		),
 		'normal' => array(
 			'name' => __( 'Normal', 'emma' ),
-			'size' => 16,
+			'size' => 20,
 			'slug' => 'normal',
 		),
 		'medium' => array(
 			'name' => __( 'Medium', 'emma' ),
-			'size' => 20,
+			'size' => 28,
 			'slug' => 'medium',
 		),
 		'large'  => array(
