@@ -14,7 +14,8 @@ $menu-align-items: center !default;
 // Menu - dropdown
 $menu-dropdown-padding-right: $spacer !default;
 $menu-dropdown-icon: arrow-down !default;
-$menu-dropdown-icon-width: $spacer-lg !default;
+$menu-dropdown-icon-width: $spacer !default;
+$menu-dropdown-icon-height: $spacer !default;
 
 // Menu - submenu
 $menu-sub-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2) !default;
@@ -35,3 +36,5 @@ $menu-drawer-padding: $spacer-md !default;
 $menu-drawer-padding-x: $menu-drawer-padding !default;
 $menu-drawer-padding-y: $menu-drawer-padding !default;
 $menu-drawer-background: rgba(255, 255, 255, 1) !default;
+$menu-drawer-border: 1px solid $black !default;
+$menu-drawer-max-width: 450px !default;

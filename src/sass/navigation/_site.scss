@@ -22,9 +22,11 @@
 				& > a {
 					&::after {
 						@include icon-mask( $menu-dropdown-icon );
+						display: inline-block;
+						position: static;
 						width: $menu-dropdown-icon-width;
-						left: auto;
-						right: 0;
+						height: $menu-dropdown-icon-width;
+						padding: 0;
 					}
 				}
 			}

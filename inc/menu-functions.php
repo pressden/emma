@@ -110,3 +110,73 @@ function emma_change_menu_hidden_metaboxes( $user_id ) {
 	update_user_option( $user_id, 'metaboxhidden_nav-menus', $hidden_metaboxes );
 }
 add_action( 'user_register', 'emma_change_menu_hidden_metaboxes', 10, 1 );
+
+function emma_menu_item_custom_fields( $item_id, $item ) {	
+	$menu_drawer_location = get_post_meta( $item_id, '_menu_drawer_location', true );
+	wp_nonce_field( 'menu_item_nonce', '_menu_item_nonce_name' );
+
+	if( $item->menu_item_parent == 0 ) {
+	?>
+	<div class="field-custom_menu_meta description-wide" style="margin: 5px 0;">
+			<span class="description">Where should this link appear in the slide-out menu?</span>
+			<input type="hidden" class="nav-menu-id" value="<?php echo $item_id ;?>" />
+			<div class="logged-input-holder">
+				<?php echo $menu_drawer_location; ?>
+				<input type="radio" name="menu_drawer_location[<?php echo $item_id; ?>]" value="" <?php echo( $menu_drawer_location == "" ? "checked" : "" ); ?> /> Default for Menu Location<br/>
+				<input type="radio" name="menu_drawer_location[<?php echo $item_id; ?>]" value="primary" <?php echo( $menu_drawer_location == "primary" ? "checked" : "" ); ?> /> As a primary link<br/>
+				<input type="radio" name="menu_drawer_location[<?php echo $item_id; ?>]" value="secondary" <?php echo( $menu_drawer_location == "secondary" ? "checked" : "" ); ?> /> As a secondary link<br/>
+				<input type="radio" name="menu_drawer_location[<?php echo $item_id; ?>]" value="none" <?php echo( $menu_drawer_location == "none" ? "checked" : "" ); ?> /> Don't Show
+			</div>
+	</div>
+
+	<div style="clear:both"><?php //var_dump( $item ); ?></div>
+	<?php
+	}
+}
+add_action( 'wp_nav_menu_item_custom_fields', 'emma_menu_item_custom_fields', 10, 2 );
+
+function emma_menu_item_custom_fields_save( $menu_id, $menu_item_db_id ) {
+
+	// Verify this came from our screen and with proper authorization.
+	if ( ! isset( $_POST['_menu_item_nonce_name'] ) || ! wp_verify_nonce( $_POST['_menu_item_nonce_name'], 'menu_item_nonce' ) ) {
+    return $menu_id;
+	}
+
+	$menu_drawer_location = $_POST['menu_drawer_location'][$menu_item_db_id];
+	if ( isset( $menu_drawer_location) && "" != $menu_drawer_location ) {
+		$sanitized_data = sanitize_text_field( $_POST['menu_drawer_location'][$menu_item_db_id] );
+		update_post_meta( $menu_item_db_id, '_menu_drawer_location', $sanitized_data );
+	} else {
+		delete_post_meta( $menu_item_db_id, '_menu_drawer_location' );
+	}
+}
+add_action( 'wp_update_nav_menu_item', 'emma_menu_item_custom_fields_save', 10, 2 );
+
+function emma_menu_item_class_output( $classes, $item ) {
+	if( is_object( $item ) && isset( $item->ID ) ) {
+
+		$feature_link_class = get_post_meta( $item->ID, '_feature_link', true );
+
+		if ( ! empty( $feature_link_class ) ) {
+			$classes[] = $feature_link_class;
+		}
+	}
+	return $classes;
+}
+add_filter( 'nav_menu_css_class', 'emma_menu_item_class_output', 10, 2 );
+
+function emma_menu_item_attributes_output( $attrs, $item, $args ) {
+	if( is_object( $item ) && isset( $item->ID ) ) {
+
+		//var_dump( $item );
+		//die();
+		$menu_drawer_location = get_post_meta( $item->ID, '_menu_drawer_location', true );
+
+		if ( ! empty( $menu_drawer_location ) ) {
+			$attrs['data-menu-drawer-location'] = $menu_drawer_location;
+		}
+		
+	}
+	return $attrs;
+}
+add_filter( 'nav_menu_link_attributes', 'emma_menu_item_attributes_output', 10, 3 );
