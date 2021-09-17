@@ -16,12 +16,6 @@ if ( ! function_exists( 'emma_setup' ) ) {
 	 * as indicating support for post thumbnails.
 	 */
 	function emma_setup() {
-		/*
-		 * Make theme available for translation.
-		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on Emma, use a find and replace
-		 * to change 'emma' to the name of your theme in all the template files.
-		 */
 		load_theme_textdomain( 'emma', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
