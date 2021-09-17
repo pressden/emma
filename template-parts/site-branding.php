@@ -1,3 +1,12 @@
+<?php
+/**
+ * Site branding template part
+ *
+ * @package Emma
+ */
+
+?>
+
 <div class="site-branding">
 
 	<?php
@@ -5,7 +14,6 @@
 	 * Fires inside the site-branding markup.
 	 *
 	 * @since 1.0.0
-	 * @package Emma
 	 */
 
 	do_action( 'emma_site_branding' );
