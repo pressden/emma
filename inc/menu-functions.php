@@ -118,15 +118,17 @@ function emma_menu_item_custom_fields( $item_id, $item ) {
 	if( $item->menu_item_parent == 0 ) {
 	?>
 	<div class="field-custom_menu_meta description-wide" style="margin: 5px 0;">
-			<span class="description">Where should this link appear in the slide-out menu?</span>
-			<input type="hidden" class="nav-menu-id" value="<?php echo $item_id ;?>" />
-			<div class="logged-input-holder">
-				<?php echo $menu_drawer_location; ?>
-				<input type="radio" name="menu_drawer_location[<?php echo $item_id; ?>]" value="" <?php echo( $menu_drawer_location == "" ? "checked" : "" ); ?> /> Default for Menu Location<br/>
-				<input type="radio" name="menu_drawer_location[<?php echo $item_id; ?>]" value="primary" <?php echo( $menu_drawer_location == "primary" ? "checked" : "" ); ?> /> As a primary link<br/>
-				<input type="radio" name="menu_drawer_location[<?php echo $item_id; ?>]" value="secondary" <?php echo( $menu_drawer_location == "secondary" ? "checked" : "" ); ?> /> As a secondary link<br/>
-				<input type="radio" name="menu_drawer_location[<?php echo $item_id; ?>]" value="none" <?php echo( $menu_drawer_location == "none" ? "checked" : "" ); ?> /> Don't Show
-			</div>
+		<span class="description">Link placement in sliding menu</span>
+		<input type="hidden" class="nav-menu-id" value="<?php echo $item_id ;?>" />
+		<div class="logged-input-holder">
+			<?php echo $menu_drawer_location; ?>
+			<select id="menu_drawer_location[<?php echo $item_id; ?>]" name="menu_drawer_location[<?php echo $item_id; ?>]">
+				<option value="" <?php echo( $menu_drawer_location == "" ? "selected" : "" ); ?> />Default</option>
+				<option value="tier-1" <?php echo( $menu_drawer_location == "tier-1" ? "selected" : "" ); ?> />Tier 1</option>
+				<option value="tier-2" <?php echo( $menu_drawer_location == "tier-2" ? "selected" : "" ); ?> />Tier 2</option>
+				<option value="hide" <?php echo( $menu_drawer_location == "hide" ? "selected" : "" ); ?> /> Hide</option>
+			</select>
+		</div>
 	</div>
 
 	<div style="clear:both"><?php //var_dump( $item ); ?></div>
@@ -167,9 +169,6 @@ add_filter( 'nav_menu_css_class', 'emma_menu_item_class_output', 10, 2 );
 
 function emma_menu_item_attributes_output( $attrs, $item, $args ) {
 	if( is_object( $item ) && isset( $item->ID ) ) {
-
-		//var_dump( $item );
-		//die();
 		$menu_drawer_location = get_post_meta( $item->ID, '_menu_drawer_location', true );
 
 		if ( ! empty( $menu_drawer_location ) ) {

@@ -35,7 +35,6 @@
 
 	li {
 		position: relative;
-		color: $menu-link-color;
 
 		&:hover,
 		&:focus,
@@ -43,13 +42,22 @@
 		&:active {
 			color: $menu-link-hover-color;
 		}
+
+		:where( a:not(.inactive) ) {
+			color: $menu-link-color;
+		}
+
+		&:where( .inactive ) {
+			a {
+				color: inherit;
+			}
+		}
 	}
 
 	a {
 		display: block;
 		padding: $menu-link-padding-y $menu-link-padding-x;
 		text-decoration: none;
-		color: inherit;
 
 		&:focus {
 			outline-offset: -1px;

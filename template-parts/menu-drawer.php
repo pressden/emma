@@ -13,11 +13,11 @@
 	<div class="menu-clones-container">
 		<div id="menu-clones" class="menu-clones">
 			<ul class="menu">
-				<li class="menu-item menu-title main-menu-title">Main Menu</li>
+				<li class="menu-item menu-title main-menu-title"><a href="#" class="inactive" tab-index="-1" >Main Menu</a></li>
 			</ul>
 
-			<ul class="menu primary-drawer-menu"></ul>
-			<ul class="menu secondary-drawer-menu"></ul>
+			<ul class="menu tier-1"></ul>
+			<ul class="menu tier-2"></ul>
 
 			<?php // Menus placed here via Javascript (see: src/js/navigation.js). ?>
 

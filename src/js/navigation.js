@@ -9,13 +9,13 @@ var toggle, closer, drawer, clones;
 drawer = document.getElementById("menu-drawer");
 
 (function () {
-	var primaryMenus, utilityMenus, container, menu, links, i, len;
+	var mainMenus, utilityMenus, container, menu, links, i, len;
 
 	toggle = document.getElementById("menu-opener");
 	closer = document.getElementById("menu-closer");
 	clones = document.getElementById("menu-clones");
 
-	primaryMenus = document.querySelectorAll(
+	mainMenus = document.querySelectorAll(
 		"#masthead .site-navigation, #main-navigation"
 	);
 
@@ -24,7 +24,7 @@ drawer = document.getElementById("menu-drawer");
 	);
 
 	// Exit early if collection is empty or the toggle button is undefined
-	if ((primaryMenus.length === 0 && utilityMenus.length === 0) || "undefined" === typeof toggle) {
+	if ((mainMenus.length === 0 && utilityMenus.length === 0) || "undefined" === typeof toggle) {
 		return;
 	}
 
@@ -40,8 +40,8 @@ drawer = document.getElementById("menu-drawer");
 		closeMenuDrawer();
 	};
 
-	copyMenuItems(primaryMenus, "primary");
-	copyMenuItems(utilityMenus, "secondary");
+	copyMenuItems(mainMenus, "tier-1");
+	copyMenuItems(utilityMenus, "tier-2");
 
 	drawer.querySelectorAll(".menu-item-has-children > a").forEach((item) => {
 		item.addEventListener("click", function (event) {
@@ -53,6 +53,10 @@ drawer = document.getElementById("menu-drawer");
 
 	drawer.querySelectorAll(".sub-menu").forEach((item) => {
 		let subMenuTitleLink = item.previousElementSibling.cloneNode(true);
+		if(subMenuTitleLink.attributes['href'].value === "#") {
+			subMenuTitleLink.classList.add("inactive");
+			subMenuTitleLink.tabIndex = -1;
+		}
 		let subMenuTitleListItem = document.createElement("li");
 		subMenuTitleListItem.classList.add("menu-item", "menu-title");
 		subMenuTitleListItem.appendChild(subMenuTitleLink);
@@ -110,7 +114,7 @@ function copyMenuItems( menus, defaultLocation ) {
 		let links = menu.querySelectorAll("a");
 
 		links.forEach((link) => {
-			copyLocation = defaultLocation;
+			let copyLocation = defaultLocation;
 			
 			if(link.dataset.menuDrawerLocation) {
 				copyLocation = link.dataset.menuDrawerLocation;
@@ -120,7 +124,10 @@ function copyMenuItems( menus, defaultLocation ) {
 			if( clone.id ) {
 				clone.id = clone.id + "-drawer";
 			}
-			drawer.querySelector("." + copyLocation + "-drawer-menu").appendChild(clone);
+			let copyLocationEl = drawer.querySelector("." + copyLocation);
+			if( copyLocationEl ) {
+				copyLocationEl.appendChild(clone);
+			}
 		});
 	});
 }
