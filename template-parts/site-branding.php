@@ -5,19 +5,21 @@
 	 * Fires inside the site-branding markup.
 	 *
 	 * @since 1.0.0
+	 * @package Emma
 	 */
+
 	do_action( 'emma_site_branding' );
 	?>
 
 	<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
 
 	<?php
-	$emma_description = get_bloginfo( 'description', 'display' );
+	$description = get_bloginfo( 'description', 'display' );
 
-	if ( $emma_description || is_customize_preview() ) {
+	if ( $description || is_customize_preview() ) {
 		?>
 
-		<p class="site-description"><?php echo $emma_description; ?></p>
+		<p class="site-description"><?php echo wp_kses_post( $description ); ?></p>
 
 		<?php
 	}
