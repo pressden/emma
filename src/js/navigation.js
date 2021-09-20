@@ -64,7 +64,7 @@ drawer = document.getElementById("menu-drawer");
 		subMenuTitleListItem.classList.add("menu-item", "menu-title");
 		subMenuTitleListItem.appendChild(subMenuTitleLink);
 
-		item.insertAdjacentHTML('afterbegin', '<li class="menu-item sub-menu-back"><a href="#">Back</a></li>');
+		item.insertAdjacentHTML('afterbegin', '<li class="menu-item sub-menu-back"><a href="#">Previous Menu</a></li>');
 		item.prepend(subMenuTitleListItem);
 	});
 
