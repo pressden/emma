@@ -12,7 +12,7 @@ As a parent theme, Emma is easily extended through the use of modern web develop
 - and more!
 
 Emma adheres to WordPress Coding Standards and implements new features `the WordPress way`! This
-ensures the source code is familiar to any WordPress develoepr. All of the latest WordPress
+ensures the source code is familiar to any WordPress developer. All of the latest WordPress
 features are natively supported:
 
 - Gutenberg
