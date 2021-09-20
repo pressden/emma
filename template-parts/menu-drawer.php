@@ -16,10 +16,29 @@
 				<li class="menu-item menu-title main-menu-title"><a href="#" class="inactive" tab-index="-1" >Main Menu</a></li>
 			</ul>
 
-			<ul class="menu tier-1"></ul>
-			<ul class="menu tier-2"></ul>
+			<?php
+				$manual_menus = false;
 
-			<?php // Menus placed here via Javascript (see: src/js/navigation.js). ?>
+				for( $tier = 1 ; $tier <= $GLOBALS['menu_drawer_tiers']; $tier++ ) {
+					if ( has_nav_menu( 'menu_drawer_tier_' . $tier ) ) {	
+						$manual_menus = true;				
+						wp_nav_menu(
+							array(
+								'theme_location'  => 'menu_drawer_tier_' . $tier,
+								'container' => false,
+								'menu_class' => 'menu tier-' . $tier,
+							)
+						);				
+					}				
+				}
+			?>
+
+			<?php if( ! $manual_menus ) { ?>
+				<?php // Menus placed here via Javascript (see: src/js/navigation.js). ?>
+				<?php	for( $tier = 1 ; $tier <= $GLOBALS['menu_drawer_tiers']; $tier++ ) { ?>
+					<ul class="menu auto-populate tier-<?php echo $tier; ?>"></ul>
+				<?php }	?>
+			<?php } ?>
 
 		</div><!-- #menu-clones -->
 	</div>

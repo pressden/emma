@@ -111,7 +111,7 @@ function emma_change_menu_hidden_metaboxes( $user_id ) {
 }
 add_action( 'user_register', 'emma_change_menu_hidden_metaboxes', 10, 1 );
 
-function emma_menu_item_custom_fields( $item_id, $item ) {	
+function emma_menu_item_custom_fields( $item_id, $item ) {
 	$menu_drawer_location = get_post_meta( $item_id, '_menu_drawer_location', true );
 	wp_nonce_field( 'menu_item_nonce', '_menu_item_nonce_name' );
 
@@ -124,8 +124,9 @@ function emma_menu_item_custom_fields( $item_id, $item ) {
 			<?php echo $menu_drawer_location; ?>
 			<select id="menu_drawer_location[<?php echo $item_id; ?>]" name="menu_drawer_location[<?php echo $item_id; ?>]">
 				<option value="" <?php echo( $menu_drawer_location == "" ? "selected" : "" ); ?> />Default</option>
-				<option value="tier-1" <?php echo( $menu_drawer_location == "tier-1" ? "selected" : "" ); ?> />Tier 1</option>
-				<option value="tier-2" <?php echo( $menu_drawer_location == "tier-2" ? "selected" : "" ); ?> />Tier 2</option>
+				<?php	for( $tier = 1 ; $tier <= $GLOBALS['menu_drawer_tiers']; $tier++ ) { ?>
+					<option value="tier-<?php echo $tier; ?>" <?php echo( $menu_drawer_location == "tier-" . $tier ? "selected" : "" ); ?> />Tier <?php echo $tier; ?></option>
+				<?php }	?>
 				<option value="hide" <?php echo( $menu_drawer_location == "hide" ? "selected" : "" ); ?> /> Hide</option>
 			</select>
 		</div>

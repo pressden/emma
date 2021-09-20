@@ -45,14 +45,20 @@ if ( ! function_exists( 'emma_setup' ) ) {
 		/*
 		 * Register navigation menus.
 		 */
-		register_nav_menus(
-			array(
-				'primary' => esc_html__( 'Primary Menu', 'emma' ),
-				'left'    => esc_html__( 'Left Menu', 'emma' ),
-				'right'   => esc_html__( 'Right Menu', 'emma' ),
-				'footer'  => esc_html__( 'Footer Menu', 'emma' ),
-			)
+		$emma_nav_menus = array(
+			'primary' => esc_html__( 'Primary Menu', 'emma' ),
+			'left'    => esc_html__( 'Left Menu', 'emma' ),
+			'right'   => esc_html__( 'Right Menu', 'emma' ),
+			'footer'  => esc_html__( 'Footer Menu', 'emma' ),
 		);
+
+		$GLOBALS['menu_drawer_tiers'] = apply_filters( 'emma_menu_drawer_tiers', 2 );
+
+		for( $tier = 1 ; $tier <= $GLOBALS['menu_drawer_tiers']; $tier++ ) {
+			$emma_nav_menus['menu_drawer_tier_' . $tier] = esc_html__( 'Menu Drawer Tier ' . $tier, 'emma' );
+		}
+
+		register_nav_menus( $emma_nav_menus );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments

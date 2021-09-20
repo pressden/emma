@@ -40,8 +40,11 @@ drawer = document.getElementById("menu-drawer");
 		closeMenuDrawer();
 	};
 
-	copyMenuItems(mainMenus, "tier-1");
-	copyMenuItems(utilityMenus, "tier-2");
+	let autoMenus = drawer.querySelector( '.auto-populate' );
+	if( autoMenus ) {
+		copyMenuItems(mainMenus, "tier-1");
+		copyMenuItems(utilityMenus, "tier-2");
+	}
 
 	drawer.querySelectorAll(".menu-item-has-children > a").forEach((item) => {
 		item.addEventListener("click", function (event) {
