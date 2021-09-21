@@ -3,7 +3,7 @@
 		<a
 			href="javascript:void(0);"
 			id="menu-closer"
-			class="menu-toggle menu-closer"
+			class="menu-toggle drawer-closer menu-closer"
 			title="<?php esc_attr_e( 'Close Primary Menu', 'emma' ); ?>"
 		>
 			<span class="screen-reader-text">Close Menu</span>
@@ -13,7 +13,7 @@
 	<div class="menu-clones-container">
 		<div id="menu-clones" class="menu-clones">
 			<ul class="menu">
-				<li class="menu-item menu-title main-menu-title"><a href="#" class="inactive" tab-index="-1" >Main Menu</a></li>
+				<li class="menu-item menu-back"><a class="drawer-closer" href="#">Close Menu</a></li>
 			</ul>
 
 			<?php

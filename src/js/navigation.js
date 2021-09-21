@@ -5,7 +5,7 @@
  * navigation support for dropdown menus.
  */
 
-var toggle, closer, drawer, clones;
+var toggle, closer, closers, drawer, clones;
 drawer = document.getElementById("menu-drawer");
 
 (function () {
@@ -13,6 +13,7 @@ drawer = document.getElementById("menu-drawer");
 
 	toggle = document.getElementById("menu-opener");
 	closer = document.getElementById("menu-closer");
+	closers = document.querySelectorAll(".drawer-closer");
 	clones = document.getElementById("menu-clones");
 
 	mainMenus = document.querySelectorAll(
@@ -36,9 +37,12 @@ drawer = document.getElementById("menu-drawer");
 		}
 	};
 
-	closer.onclick = function () {
-		closeMenuDrawer();
-	};
+	closers.forEach((closer) => {
+		closer.addEventListener("click", function (event) {
+			event.preventDefault();
+			closeMenuDrawer();
+		})
+	});
 
 	let autoMenus = drawer.querySelector( '.auto-populate' );
 	if( autoMenus ) {
@@ -64,7 +68,7 @@ drawer = document.getElementById("menu-drawer");
 		subMenuTitleListItem.classList.add("menu-item", "menu-title");
 		subMenuTitleListItem.appendChild(subMenuTitleLink);
 
-		item.insertAdjacentHTML('afterbegin', '<li class="menu-item sub-menu-back"><a href="#">Previous Menu</a></li>');
+		item.insertAdjacentHTML('afterbegin', '<li class="menu-item sub-menu-back menu-back"><a href="#">Previous Menu</a></li>');
 		item.prepend(subMenuTitleListItem);
 	});
 
@@ -100,12 +104,12 @@ drawer = document.getElementById("menu-drawer");
 })();
 
 function openMenuDrawer() {
-	drawer.classList.add("toggled");
+	document.body.classList.add("menu-drawer-open");
 	closer.focus();
 }
 
 function closeMenuDrawer() {
-	drawer.classList.remove("toggled");
+	document.body.classList.remove("menu-drawer-open");
 	drawer.querySelectorAll(".sub-menu.active").forEach((item) => {
 		item.classList.remove("active");
 	});

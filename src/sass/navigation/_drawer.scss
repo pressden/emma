@@ -1,3 +1,9 @@
+body {
+	&.menu-drawer-open {
+		overflow-y: hidden;
+	}
+}
+
 .menu-drawer {
 	visibility: hidden;
 	position: fixed;
@@ -14,7 +20,7 @@
 	border: $menu-drawer-border;
 	transition: all 0.25s ease-in-out;
 
-	&.toggled {
+	.menu-drawer-open & {
 		visibility: visible;
 		transform: translateX(0);
 	}
@@ -57,7 +63,7 @@
 		font-size: $font-size-md;
 	}
 
-	.sub-menu-back {
+	.menu-back {
 		background-color: $gray-200;
 
 		> a {
@@ -107,6 +113,7 @@
 		}
 	}
 
+	.menu-back,
 	.tier-1,
 	.menu-title,
 	.sub-menu {
