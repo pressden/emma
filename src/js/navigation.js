@@ -54,8 +54,8 @@ drawer = document.getElementById("menu-drawer");
 		item.addEventListener("click", function (event) {
 			event.preventDefault();
 			item.setAttribute("aria-expanded", "true");
-			let sibling = item.nextElementSibling;
-			sibling.classList.add("active");
+			let subMenu = item.nextElementSibling;
+			subMenu.classList.add("active");
 		});
 	});
 
@@ -77,7 +77,9 @@ drawer = document.getElementById("menu-drawer");
 		item.addEventListener("click", function (event) {
 			event.preventDefault();
 			let subMenu = item.closest(".sub-menu");
+			let subMenuToggle = subMenu.previousElementSibling;
 			subMenu.classList.remove("active");
+			subMenuToggle.setAttribute("aria-expanded", "false");
 		});
 	});
 
