@@ -53,6 +53,7 @@ drawer = document.getElementById("menu-drawer");
 	drawer.querySelectorAll(".menu-item-has-children > a").forEach((item) => {
 		item.addEventListener("click", function (event) {
 			event.preventDefault();
+			item.setAttribute("aria-expanded", "true");
 			let sibling = item.nextElementSibling;
 			sibling.classList.add("active");
 		});
@@ -112,6 +113,9 @@ function closeMenuDrawer() {
 	document.body.classList.remove("menu-drawer-open");
 	drawer.querySelectorAll(".sub-menu.active").forEach((item) => {
 		item.classList.remove("active");
+	});
+	drawer.querySelectorAll(".menu-item-has-children > a").forEach((item) => {
+		item.setAttribute("aria-expanded", "false");
 	});
 	toggle.focus();
 }

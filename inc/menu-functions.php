@@ -177,6 +177,13 @@ function emma_menu_item_attributes_output( $attrs, $item, $args ) {
 		}
 		
 	}
+
+	$item_has_children = in_array( 'menu-item-has-children', $item->classes );
+	if ( $item_has_children ) {
+			$attrs['aria-haspopup'] = "true";
+			$attrs['aria-expanded'] = "false";
+	}
+
 	return $attrs;
 }
 add_filter( 'nav_menu_link_attributes', 'emma_menu_item_attributes_output', 10, 3 );
