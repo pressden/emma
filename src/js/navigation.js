@@ -99,19 +99,21 @@ drawer = document.getElementById("menu-drawer");
 		});
 	});
 
-	drawer.addEventListener("focusout", function (event) {
-		if (!drawer.contains(event.relatedTarget)) {
-			closer.focus();
-		}
-	});
+	// drawer.addEventListener("focusout", function (event) {
+	// 	if (!drawer.contains(event.relatedTarget)) {
+	// 		closer.focus();
+	// 	}
+	// });
 })();
 
 function openMenuDrawer() {
 	document.body.classList.add("menu-drawer-open");
 	closer.focus();
+	trapFocus(drawer);
 }
 
 function closeMenuDrawer() {
+	releaseFocus(drawer);
 	document.body.classList.remove("menu-drawer-open");
 	drawer.querySelectorAll(".sub-menu.active").forEach((item) => {
 		item.classList.remove("active");
@@ -143,4 +145,49 @@ function copyMenuItems( menus, defaultLocation ) {
 			}
 		});
 	});
+}
+
+function trapFocus(element) {
+  let allFocusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+	var focusableEls = Array();
+	allFocusableEls.forEach((el) => {
+		var style = window.getComputedStyle(el, null);
+
+		if( style.visibility == "visible" ) {
+			focusableEls.push( el );
+		}
+	});
+  var firstFocusableEl = focusableEls[0];  
+  var lastFocusableEl = focusableEls[focusableEls.length - 1];
+
+  element.addEventListener('keydown', checkFocusChange, false);
+	element.firstFocusableEl = firstFocusableEl;
+	element.lastFocusableEl = lastFocusableEl;
+}
+
+function checkFocusChange(e) {
+	let firstFocusableEl = e.currentTarget.firstFocusableEl;
+	let lastFocusableEl = e.currentTarget.lastFocusableEl;
+	var KEYCODE_TAB = 9;
+	var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
+
+	if (!isTabPressed) { 
+		return; 
+	}
+
+	if ( e.shiftKey ) /* shift + tab */ {
+		if (document.activeElement === firstFocusableEl) {
+			lastFocusableEl.focus();
+				e.preventDefault();
+			}
+	} else /* tab */ {
+	if (document.activeElement === lastFocusableEl) {
+		firstFocusableEl.focus();
+			e.preventDefault();
+		}
+	}
+}
+
+function releaseFocus(element) {
+	element.removeEventListener('keydown', checkFocusChange);
 }
