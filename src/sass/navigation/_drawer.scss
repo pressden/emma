@@ -5,7 +5,7 @@ body {
 }
 
 .menu-drawer {
-	//visibility: hidden;
+	visibility: hidden;
 	position: fixed;
 	display: flex;
 	flex-direction: column;
@@ -18,11 +18,12 @@ body {
 	right: 0;
 	background: $menu-drawer-background;
 	border: $menu-drawer-border;
-	transition: all 0.25s ease-in-out;
+	transition: visibility 0.25s, transform 0.25s ease-in-out;
 
 	.menu-drawer-open & {
 		visibility: visible;
 		transform: translateX(0);
+		transition: visibility 0s, transform 0.25s ease-in-out;
 	}
 
 	.navigation-controls {
@@ -41,7 +42,7 @@ body {
 		padding-left: 0;
 		transform: translateX(100%);
 		z-index: 1;
-		transition: all 0.25s ease-in-out;
+		transition: visibility 0.25s, transform 0.25s ease-in-out;
 		background: $menu-drawer-background;
 		list-style: none;
 		overflow-y: auto;
@@ -54,6 +55,11 @@ body {
 		&.active {
 			visibility: visible;
 			transform: translateX(0);
+			transition: visibility 0s, transform 0.25s ease-in-out;
+		}
+
+		&.sub-menu-open {
+			overflow-y: hidden;
 		}
 	}
 
@@ -94,6 +100,7 @@ body {
 		max-width: none;
 		width: 100%;
 		height: 100%;
+		transition: transform 0.25s ease-in-out;
 		overflow-y: auto;
 
 		a {

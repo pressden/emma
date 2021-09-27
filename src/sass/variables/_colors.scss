@@ -56,7 +56,7 @@ $screen-background-color: #f1f1f1 !default;
 
 // Links
 $link-color: $action !default;
-$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-color: shade($link-color, 25%) !default;
 
 // Menus
 $menu-link-color: $link-color !default;

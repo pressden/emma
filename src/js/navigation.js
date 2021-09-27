@@ -9,7 +9,7 @@ var toggle, closer, closers, drawer, clones;
 drawer = document.getElementById("menu-drawer");
 
 (function () {
-	var mainMenus, utilityMenus, container, menu, links, i, len;
+	var mainMenus, utilityMenus, previousMenu, container, menu, links, i, len;
 
 	toggle = document.getElementById("menu-opener");
 	closer = document.getElementById("menu-closer");
@@ -53,14 +53,20 @@ drawer = document.getElementById("menu-drawer");
 	drawer.querySelectorAll(".menu-item-has-children > a").forEach((item) => {
 		item.addEventListener("click", function (event) {
 			event.preventDefault();
+			previousMenu = item.closest(".sub-menu, .menu");
+			previousMenu.scrollTop = 0;
+			previousMenu.classList.add("sub-menu-open");
 			item.setAttribute("aria-expanded", "true");
 			let subMenu = item.nextElementSibling;
 			subMenu.classList.add("active");
+			trapFocus(subMenu, 250);
 		});
 	});
 
 	drawer.querySelectorAll(".sub-menu").forEach((item) => {
 		let subMenuTitleLink = item.previousElementSibling.cloneNode(true);
+		subMenuTitleLink.removeAttribute("aria-haspopup");
+		subMenuTitleLink.removeAttribute("aria-expanded");
 		if(subMenuTitleLink.attributes['href'].value === "#") {
 			subMenuTitleLink.classList.add("inactive");
 			subMenuTitleLink.tabIndex = -1;
@@ -78,38 +84,19 @@ drawer = document.getElementById("menu-drawer");
 			event.preventDefault();
 			let subMenu = item.closest(".sub-menu");
 			let subMenuToggle = subMenu.previousElementSibling;
+			let parentMenu = item.closest(".sub-menu-open");
 			subMenu.classList.remove("active");
+			parentMenu.classList.remove("sub-menu-open");
+			trapFocus(parentMenu, false);
 			subMenuToggle.setAttribute("aria-expanded", "false");
+			subMenuToggle.focus();
 		});
 	});
-
-	// Get all the link elements within the menu.
-	drawer.querySelectorAll(".menu-item-has-children > a").forEach((item) => {
-		//stops focus from being given (and thus menu from appearing) before click event is registered
-		item.addEventListener("mousedown", function (event) {
-			event.preventDefault();
-		});
-		item.addEventListener("click", function (event) {
-			if (
-				!this.closest(".menu-item-has-children").classList.contains("focus")
-			) {
-				event.preventDefault();
-				this.focus();
-			}
-		});
-	});
-
-	// drawer.addEventListener("focusout", function (event) {
-	// 	if (!drawer.contains(event.relatedTarget)) {
-	// 		closer.focus();
-	// 	}
-	// });
 })();
 
 function openMenuDrawer() {
 	document.body.classList.add("menu-drawer-open");
-	closer.focus();
-	trapFocus(drawer);
+	trapFocus(drawer, 250);
 }
 
 function closeMenuDrawer() {
@@ -147,8 +134,10 @@ function copyMenuItems( menus, defaultLocation ) {
 	});
 }
 
-function trapFocus(element) {
-  let allFocusableEls = element.querySelectorAll('a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+function trapFocus(element, focusDelay = 0) {
+	releaseFocus();
+	element.classList.add("focus-trapped");
+  let allFocusableEls = element.querySelectorAll('a[href]:not([disabled]):not(.inactive), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
 	var focusableEls = Array();
 	allFocusableEls.forEach((el) => {
 		var style = window.getComputedStyle(el, null);
@@ -159,10 +148,17 @@ function trapFocus(element) {
 	});
   var firstFocusableEl = focusableEls[0];  
   var lastFocusableEl = focusableEls[focusableEls.length - 1];
-
+	
   element.addEventListener('keydown', checkFocusChange, false);
 	element.firstFocusableEl = firstFocusableEl;
 	element.lastFocusableEl = lastFocusableEl;
+
+	if(focusDelay !== false) {
+		setTimeout(function() {
+			firstFocusableEl.focus();
+		}, focusDelay);
+	}
+	
 }
 
 function checkFocusChange(e) {
@@ -188,6 +184,10 @@ function checkFocusChange(e) {
 	}
 }
 
-function releaseFocus(element) {
-	element.removeEventListener('keydown', checkFocusChange);
+function releaseFocus() {
+	focusTrappedEl = document.querySelector(".focus-trapped");
+	if(focusTrappedEl) {
+		focusTrappedEl.classList.remove("focus-trapped");
+		focusTrappedEl.removeEventListener('keydown', checkFocusChange);
+	}
 }
