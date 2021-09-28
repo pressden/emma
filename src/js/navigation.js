@@ -71,6 +71,19 @@ drawer = document.getElementById("menu-drawer");
 		let subMenu = subMenuLink.nextElementSibling;
 		let parentMenu = menuItem.closest(".sub-menu, .top-level-menus");
 
+
+		let subMenuLinkClone = subMenuLink.cloneNode(true);
+		subMenuLinkClone.removeAttribute("aria-haspopup");
+		subMenuLinkClone.removeAttribute("aria-expanded");
+		if(subMenuLinkClone.attributes['href'].value === "#") {
+			subMenuLinkClone.classList.add("inactive");
+			subMenuLinkClone.tabIndex = -1;
+		}
+		let subMenuLinkCloneListItem = document.createElement("li");
+		subMenuLinkCloneListItem.classList.add("menu-title");
+		subMenuLinkCloneListItem.appendChild(subMenuLinkClone);
+		subMenu.prepend(subMenuLinkCloneListItem);
+
 		subMenu.id = "sub-menu-" + subMenuId;
 		subMenu.dataset.parentMenuId = parentMenu.id;
 		clones.appendChild(subMenu);
