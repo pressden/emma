@@ -180,8 +180,9 @@ function emma_menu_item_attributes_output( $attrs, $item, $args ) {
 
 	$item_has_children = in_array( 'menu-item-has-children', $item->classes );
 	if ( $item_has_children ) {
-			$attrs['aria-haspopup'] = "true";
-			$attrs['aria-expanded'] = "false";
+		$attrs['aria-haspopup'] = "true";
+		$attrs['aria-expanded'] = "false";
+		$attrs['data-sub-menu-id'] = $item->ID;
 	}
 
 	return $attrs;

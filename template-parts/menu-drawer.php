@@ -1,20 +1,14 @@
 <nav id="menu-drawer" class="menu-drawer">
-	<div class="navigation-controls">
-		<a
-			href="javascript:void(0);"
-			id="menu-closer"
-			class="menu-toggle drawer-closer menu-closer"
-			title="<?php esc_attr_e( 'Close Primary Menu', 'emma' ); ?>"
-		>
-			<span class="screen-reader-text">Close Menu</span>
-		</a>
-	</div><!-- .navigation-controls -->
+	<div class="top-bar">
+		<a href="#" id="menu-closer" class="menu-toggle drawer-closer menu-closer"><span class="screen-reader-text">Close Menu</span></a>
+	</div>
 
-	<div class="menu-clones-container">
-		<div id="menu-clones" class="menu-clones">
-			<ul class="menu">
-				<li class="menu-item menu-back"><a class="drawer-closer" href="#">Close Menu</a></li>
-			</ul>
+	<div class="menu-back">
+		<a href="#">Close Menu</a>
+	</div>
+
+	<div class="menu-clones">
+		<div id="top-level-menus" class="top-level-menus">
 
 			<?php
 				$manual_menus = false;
@@ -42,4 +36,18 @@
 
 		</div><!-- #menu-clones -->
 	</div>
+
+	<?php
+		for ( $i = 1; $i <= $GLOBALS['emma_menu_drawer_widget_areas']; $i++ ) {
+			if ( is_active_sidebar( 'menu-drawer-widgets-' . $i ) ) {
+				?>
+
+				<section class="menu-drawer-widgets-<?php echo esc_attr( $i ); ?> widget-area">
+					<?php dynamic_sidebar( 'menu-drawer-widgets-' . $i ); ?>
+				</section>
+
+				<?php
+			}
+		}
+	?>
 </nav><!-- #menu-drawer -->
