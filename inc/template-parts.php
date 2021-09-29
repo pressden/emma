@@ -153,10 +153,10 @@ add_action( 'emma_footer', 'emma_site_info_template' );
 /**
  * Gets the menu drawer template part.
  */
-function emma_menu_drawer_template() {
+function emma_flyout_menu_template() {
 	get_template_part( 'template-parts/menu', 'drawer' );
 }
-add_action( 'emma_after', 'emma_menu_drawer_template' );
+add_action( 'emma_after', 'emma_flyout_menu_template' );
 
 /**
  * Gets the mini cart template part.

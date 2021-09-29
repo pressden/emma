@@ -1,53 +1,80 @@
-<nav id="menu-drawer" class="menu-drawer">
-	<div class="top-bar">
-		<a href="#" id="menu-closer" class="menu-toggle drawer-closer menu-closer"><span class="screen-reader-text">Close Menu</span></a>
-	</div>
+<nav id="flyout-menu" class="flyout-menu">
+	<div class="flyout-menu-wrap">
+		<div class="top-bar">
+			<a href="#" id="menu-closer" class="menu-toggle drawer-closer menu-closer"><span class="screen-reader-text">Close Menu</span></a>
+		</div>
 
-	<div class="menu-back">
-		<a href="#">Close Menu</a>
-	</div>
-
-	<div class="menu-clones">
-		<div id="top-level-menus" class="top-level-menus">
-
+		<div class="flyout-menu-left">
 			<?php
-				$manual_menus = false;
+				if ( is_active_sidebar( 'flyout-menu-before' ) ) {
+					?>
 
-				for( $tier = 1 ; $tier <= $GLOBALS['menu_drawer_tiers']; $tier++ ) {
-					if ( has_nav_menu( 'menu_drawer_tier_' . $tier ) ) {	
-						$manual_menus = true;				
-						wp_nav_menu(
-							array(
-								'theme_location'  => 'menu_drawer_tier_' . $tier,
-								'container' => false,
-								'menu_class' => 'menu tier-' . $tier,
-							)
-						);				
-					}				
+					<section class="flyout-menu-before widget-area">
+						<?php dynamic_sidebar( 'flyout-menu-before' ); ?>
+					</section>
+
+					<?php
 				}
 			?>
 
-			<?php if( ! $manual_menus ) { ?>
-				<?php // Menus placed here via Javascript (see: src/js/navigation.js). ?>
-				<?php	for( $tier = 1 ; $tier <= $GLOBALS['menu_drawer_tiers']; $tier++ ) { ?>
-					<ul class="menu auto-populate tier-<?php echo $tier; ?>"></ul>
-				<?php }	?>
-			<?php } ?>
+			<div class="flyout-menu-menus">
+				<div class="menu-back">
+					<a href="#">Close Menu</a>
+				</div>
 
-		</div><!-- #menu-clones -->
-	</div>
+				<div class="menu-clones">
+					<div id="top-level-menus" class="top-level-menus">
 
-	<?php
-		for ( $i = 1; $i <= $GLOBALS['emma_menu_drawer_widget_areas']; $i++ ) {
-			if ( is_active_sidebar( 'menu-drawer-widgets-' . $i ) ) {
+						<?php
+							$manual_menus = false;
+
+							for( $tier = 1 ; $tier <= $GLOBALS['flyout_menu_tiers']; $tier++ ) {
+								if ( has_nav_menu( 'flyout_menu_tier_' . $tier ) ) {	
+									$manual_menus = true;				
+									wp_nav_menu(
+										array(
+											'theme_location'  => 'flyout_menu_tier_' . $tier,
+											'container' => false,
+											'menu_class' => 'menu tier-' . $tier,
+										)
+									);				
+								}				
+							}
+						?>
+
+						<?php if( ! $manual_menus ) { ?>
+							<?php // Menus placed here via Javascript (see: src/js/navigation.js). ?>
+							<?php	for( $tier = 1 ; $tier <= $GLOBALS['flyout_menu_tiers']; $tier++ ) { ?>
+								<ul class="menu auto-populate tier-<?php echo $tier; ?>"></ul>
+							<?php }	?>
+						<?php } ?>
+
+					</div><!-- #menu-clones -->
+				</div>
+			</div>
+
+			<?php
+				if ( is_active_sidebar( 'flyout-menu-after' ) ) {
+					?>
+
+					<section class="flyout-menu-after widget-area">
+						<?php dynamic_sidebar( 'flyout-menu-after' ); ?>
+					</section>
+
+					<?php
+				}
+			?>
+		</div>
+		<?php
+			if ( is_active_sidebar( 'flyout-menu-content' ) ) {
 				?>
 
-				<section class="menu-drawer-widgets-<?php echo esc_attr( $i ); ?> widget-area">
-					<?php dynamic_sidebar( 'menu-drawer-widgets-' . $i ); ?>
+				<section class="flyout-menu-content widget-area">
+					<?php dynamic_sidebar( 'flyout-menu-content' ); ?>
 				</section>
 
 				<?php
 			}
-		}
-	?>
-</nav><!-- #menu-drawer -->
+		?>
+	</div>
+</nav><!-- #flyout-menu -->

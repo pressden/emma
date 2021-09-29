@@ -3,7 +3,7 @@
 		href="javascript:void(0);"
 		id="menu-opener"
 		class="menu-toggle menu-opener"
-		aria-controls="menu-drawer"
+		aria-controls="flyout-menu"
 		aria-expanded="false"
 		title="<?php esc_attr_e( 'Primary Menu', 'emma' ); ?>"
 	>

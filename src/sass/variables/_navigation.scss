@@ -32,9 +32,9 @@ $menu-toggle-padding-y: $menu-link-padding-y !default;
 $menu-toggle-display: inline-block !default;
 
 // Menu - drawer
-$menu-drawer-padding: $spacer-md !default;
-$menu-drawer-padding-x: $menu-drawer-padding !default;
-$menu-drawer-padding-y: $menu-drawer-padding !default;
-$menu-drawer-background: rgba(255, 255, 255, 1) !default;
-$menu-drawer-border: 1px solid $black !default;
-$menu-drawer-max-width: 450px !default;
+$flyout-menu-padding: $spacer-md !default;
+$flyout-menu-padding-x: $flyout-menu-padding !default;
+$flyout-menu-padding-y: $flyout-menu-padding !default;
+$flyout-menu-background: rgba(255, 255, 255, 1) !default;
+$flyout-menu-border: 1px solid $black !default;
+$flyout-menu-max-width: 400px !default;

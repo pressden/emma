@@ -112,7 +112,7 @@ function emma_change_menu_hidden_metaboxes( $user_id ) {
 add_action( 'user_register', 'emma_change_menu_hidden_metaboxes', 10, 1 );
 
 function emma_menu_item_custom_fields( $item_id, $item ) {
-	$menu_drawer_location = get_post_meta( $item_id, '_menu_drawer_location', true );
+	$flyout_menu_location = get_post_meta( $item_id, '_flyout_menu_location', true );
 	wp_nonce_field( 'menu_item_nonce', '_menu_item_nonce_name' );
 
 	if( $item->menu_item_parent == 0 ) {
@@ -121,13 +121,13 @@ function emma_menu_item_custom_fields( $item_id, $item ) {
 		<span class="description">Link placement in sliding menu</span>
 		<input type="hidden" class="nav-menu-id" value="<?php echo $item_id ;?>" />
 		<div class="logged-input-holder">
-			<?php echo $menu_drawer_location; ?>
-			<select id="menu_drawer_location[<?php echo $item_id; ?>]" name="menu_drawer_location[<?php echo $item_id; ?>]">
-				<option value="" <?php echo( $menu_drawer_location == "" ? "selected" : "" ); ?> />Default</option>
-				<?php	for( $tier = 1 ; $tier <= $GLOBALS['menu_drawer_tiers']; $tier++ ) { ?>
-					<option value="tier-<?php echo $tier; ?>" <?php echo( $menu_drawer_location == "tier-" . $tier ? "selected" : "" ); ?> />Tier <?php echo $tier; ?></option>
+			<?php echo $flyout_menu_location; ?>
+			<select id="flyout_menu_location[<?php echo $item_id; ?>]" name="flyout_menu_location[<?php echo $item_id; ?>]">
+				<option value="" <?php echo( $flyout_menu_location == "" ? "selected" : "" ); ?> />Default</option>
+				<?php	for( $tier = 1 ; $tier <= $GLOBALS['flyout_menu_tiers']; $tier++ ) { ?>
+					<option value="tier-<?php echo $tier; ?>" <?php echo( $flyout_menu_location == "tier-" . $tier ? "selected" : "" ); ?> />Tier <?php echo $tier; ?></option>
 				<?php }	?>
-				<option value="hide" <?php echo( $menu_drawer_location == "hide" ? "selected" : "" ); ?> /> Hide</option>
+				<option value="hide" <?php echo( $flyout_menu_location == "hide" ? "selected" : "" ); ?> /> Hide</option>
 			</select>
 		</div>
 	</div>
@@ -145,12 +145,12 @@ function emma_menu_item_custom_fields_save( $menu_id, $menu_item_db_id ) {
     return $menu_id;
 	}
 
-	$menu_drawer_location = $_POST['menu_drawer_location'][$menu_item_db_id];
-	if ( isset( $menu_drawer_location) && "" != $menu_drawer_location ) {
-		$sanitized_data = sanitize_text_field( $_POST['menu_drawer_location'][$menu_item_db_id] );
-		update_post_meta( $menu_item_db_id, '_menu_drawer_location', $sanitized_data );
+	$flyout_menu_location = $_POST['flyout_menu_location'][$menu_item_db_id];
+	if ( isset( $flyout_menu_location) && "" != $flyout_menu_location ) {
+		$sanitized_data = sanitize_text_field( $_POST['flyout_menu_location'][$menu_item_db_id] );
+		update_post_meta( $menu_item_db_id, '_flyout_menu_location', $sanitized_data );
 	} else {
-		delete_post_meta( $menu_item_db_id, '_menu_drawer_location' );
+		delete_post_meta( $menu_item_db_id, '_flyout_menu_location' );
 	}
 }
 add_action( 'wp_update_nav_menu_item', 'emma_menu_item_custom_fields_save', 10, 2 );
@@ -170,10 +170,10 @@ add_filter( 'nav_menu_css_class', 'emma_menu_item_class_output', 10, 2 );
 
 function emma_menu_item_attributes_output( $attrs, $item, $args ) {
 	if( is_object( $item ) && isset( $item->ID ) ) {
-		$menu_drawer_location = get_post_meta( $item->ID, '_menu_drawer_location', true );
+		$flyout_menu_location = get_post_meta( $item->ID, '_flyout_menu_location', true );
 
-		if ( ! empty( $menu_drawer_location ) ) {
-			$attrs['data-menu-drawer-location'] = $menu_drawer_location;
+		if ( ! empty( $flyout_menu_location ) ) {
+			$attrs['data-flyout-menu-location'] = $flyout_menu_location;
 		}
 		
 	}

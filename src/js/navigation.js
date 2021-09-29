@@ -6,7 +6,7 @@
  */
 
 var toggle, closer, drawer, topLevelMenus, menuBack, currentMenu;
-drawer = document.getElementById("menu-drawer");
+drawer = document.getElementById("flyout-menu");
 
 (function () {
 	var mainMenus, utilityMenus, container, menu, links, i, len;
@@ -30,6 +30,8 @@ drawer = document.getElementById("menu-drawer");
 	if ((mainMenus.length === 0 && utilityMenus.length === 0) || "undefined" === typeof toggle) {
 		return;
 	}
+
+	clones.style.height = topLevelMenus.offsetHeight + "px";
 
 	toggle.onclick = function () {
 		if (!drawer.classList.contains("toggled")) {
@@ -55,7 +57,8 @@ drawer = document.getElementById("menu-drawer");
 			parentMenu.classList.remove("sub-menu-open");
 			currentMenu = parentMenu;
 			updateMenuBack();
-			trapFocus(drawer, 0, 1);
+			trapFocus(drawer, 0, menuBack);
+			clones.style.height = parentMenu.offsetHeight + "px";
 		}
 	});
 
@@ -92,9 +95,10 @@ drawer = document.getElementById("menu-drawer");
 			event.preventDefault();
 			subMenu.classList.add("active");
 			parentMenu.classList.add("sub-menu-open");
+			clones.style.height = subMenu.offsetHeight + "px";
 			currentMenu = subMenu;
 			updateMenuBack();
-			trapFocus(drawer, 0, 1);
+			trapFocus(drawer, 0, menuBack);
 			// previousMenu = subMenuLink.closest(".sub-menu, .menu");
 			// previousMenu.scrollTop = 0;
 			// previousMenu.classList.add("sub-menu-open");
@@ -137,13 +141,13 @@ drawer = document.getElementById("menu-drawer");
 })();
 
 function openMenuDrawer() {
-	document.body.classList.add("menu-drawer-open");
-	trapFocus(drawer, 250, 1);
+	document.body.classList.add("flyout-menu-open");
+	trapFocus(drawer, 250);
 }
 
 function closeMenuDrawer() {
 	releaseFocus(drawer);
-	document.body.classList.remove("menu-drawer-open");
+	document.body.classList.remove("flyout-menu-open");
 	drawer.querySelectorAll(".sub-menu.active").forEach((item) => {
 		item.classList.remove("active");
 	});
@@ -184,7 +188,7 @@ function copyMenuItems( menus, defaultLocation ) {
 	});
 }
 
-function trapFocus(element, focusDelay = 0, setFocus = 0) {
+function trapFocus(element, focusDelay = 0, setFocus = false) {
 	releaseFocus();
 	element.classList.add("focus-trapped");
   let allFocusableEls = element.querySelectorAll('a[href]:not([disabled]):not(.inactive), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
@@ -196,8 +200,10 @@ function trapFocus(element, focusDelay = 0, setFocus = 0) {
 			focusableEls.push( el );
 		}
 	});
-	var setFocusEl = focusableEls[setFocus];
   var firstFocusableEl = focusableEls[0];  
+	if( !setFocus ) {
+		setFocus = firstFocusableEl;
+	}
 	console.log(focusableEls);
   var lastFocusableEl = focusableEls[focusableEls.length - 1];
 	
@@ -207,7 +213,7 @@ function trapFocus(element, focusDelay = 0, setFocus = 0) {
 
 	if(focusDelay !== false) {
 		setTimeout(function() {
-			setFocusEl.focus();
+			setFocus.focus();
 		}, focusDelay);
 	}
 	

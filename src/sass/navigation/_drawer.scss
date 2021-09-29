@@ -1,26 +1,93 @@
 body {
-	&.menu-drawer-open {
+	&.flyout-menu-open {
 		overflow-y: hidden;
 	}
 }
 
-.menu-drawer {
+.flyout-menu {
 	visibility: hidden;
 	position: fixed;
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	align-items: center;
+	justify-content: center;
 	height: var( --full-height );
 	width: 100%;
-	max-width: $menu-drawer-max-width;
+	padding-bottom: $spacer-lg;
 	transform: translateX(100%);
 	z-index: 10;
 	top: var( --admin-bar-height );
 	right: 0;
-	background: $menu-drawer-background;
-	border: $menu-drawer-border;
+	background: $flyout-menu-background;
+	border: $flyout-menu-border;
 	transition: visibility 0.25s, transform 0.25s ease-in-out;
+	overflow-y: auto;
 
-	.menu-drawer-open & {
+	@media screen and ( min-width: $menu-breakpoint ) {
+		padding-left: $spacer-lg;
+		padding-right: $spacer-lg;
+		padding-bottom: 0;
+	}
+
+	.flyout-menu-wrap {
+		display: grid;
+		grid-template-columns: 1fr;
+		row-gap: $spacer;
+		align-items: center;
+		justify-content: center;
+
+		@media screen and ( min-width: $menu-breakpoint ) {
+			height: 100%;
+			grid-template-columns: auto 1fr;
+			overflow: hidden;
+		}
+	}
+	
+	.flyout-menu-left {
+		display: flex;
+		flex-direction: column;
+		row-gap: $spacer;
+		
+		@media screen and ( min-width: $menu-breakpoint ) {
+			max-height: 100%;
+			max-width: $flyout-menu-max-width;
+			width: $flyout-menu-max-width;
+			overflow-y: auto;
+			padding-right: $spacer;
+		}
+	}
+
+	.flyout-menu-right {
+		flex-grow: 1;
+	}
+
+	.flyout-menu-content {
+		@media screen and ( min-width: $menu-breakpoint ) {
+			max-height: 100%;
+			overflow-y: auto;
+			padding-top: $spacer;
+			padding-bottom: $spacer;
+		}
+	}
+
+	.flyout-menu-left,
+	.flyout-menu-right {
+		@media screen and ( min-width: $menu-breakpoint ) {
+			padding-top: $spacer;
+			padding-bottom: $spacer;
+		}
+	}
+
+	.flyout-menu-menus {
+		border-top: 1px solid $gray-400;
+		border-bottom: 1px solid $gray-400;
+
+		@media screen and ( min-width: $menu-breakpoint ) {
+			border-left: 1px solid $gray-400;
+			border-right: 1px solid $gray-400;
+		}
+	}
+
+	.flyout-menu-open & {
 		visibility: visible;
 		transform: translateX(0);
 		transition: transform 0.25s ease-in-out;
@@ -29,13 +96,18 @@ body {
 	.top-bar {
 		display: flex;
 		justify-content: flex-end;
-		border-bottom: 1px solid $black;
+		margin-bottom: -$spacer;
+		
+		@media screen and ( min-width: $menu-breakpoint ) {
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
 	}
 
 	.sub-menu {
 		visibility: hidden;
 		position: absolute;
-		height: 100%;
 		width: 100%;
 		top: 0;
 		left: 0 !important;
@@ -43,10 +115,8 @@ body {
 		transform: translateX(100%);
 		z-index: 1;
 		transition: visibility 0.25s, transform 0.25s ease-in-out;
-		background: $menu-drawer-background;
+		background: $flyout-menu-background;
 		list-style: none;
-		overflow-y: auto;
-		overflow-x: hidden;
 
 		.menu-item {
 			a {
@@ -61,14 +131,13 @@ body {
 		&.active {
 			visibility: visible;
 			transform: translateX(0);
-			transition: transform 0.25s ease-in-out;
 		}
 	}
 
 	.sub-menu-open {
 		visibility: hidden !important;
 		transform: translateX(-100%) !important;
-		transition: visibility 0.25s, transform 0.25s ease-in-out;
+		transition: visibility 0.25s, transform 0.25s ease-in-out !important;
 	}
 
 	.menu-title {
@@ -117,18 +186,18 @@ body {
 
 	.menu-clones {
 		position: relative;
-		min-height: 0;
-		flex-grow: 1;
 		overflow: hidden;
+		flex-shrink: 0;
+		transition: height 0.25s ease-in-out;
 	}
 
 	.top-level-menus {
-		position: static;
+		position: absolute;
+		top: 0;
+		left: 0;
 		max-width: none;
 		width: 100%;
-		height: 100%;
 		transition: transform 0.25s ease-in-out;
-		overflow-y: auto;
 	}
 
 	.menu-back,
@@ -165,6 +234,12 @@ body {
 				width: $spacer-lg;
 				padding: 0;
 			}
+		}
+	}
+
+	.widget_block {
+		> :last-child {
+			margin-bottom: 0;
 		}
 	}
 }

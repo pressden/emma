@@ -52,10 +52,10 @@ if ( ! function_exists( 'emma_setup' ) ) {
 			'footer'  => esc_html__( 'Footer Menu', 'emma' ),
 		);
 
-		$GLOBALS['menu_drawer_tiers'] = apply_filters( 'emma_menu_drawer_tiers', 2 );
+		$GLOBALS['flyout_menu_tiers'] = apply_filters( 'emma_flyout_menu_tiers', 2 );
 
-		for( $tier = 1 ; $tier <= $GLOBALS['menu_drawer_tiers']; $tier++ ) {
-			$emma_nav_menus['menu_drawer_tier_' . $tier] = esc_html__( 'Menu Drawer Tier ' . $tier, 'emma' );
+		for( $tier = 1 ; $tier <= $GLOBALS['flyout_menu_tiers']; $tier++ ) {
+			$emma_nav_menus['flyout_menu_tier_' . $tier] = esc_html__( 'Flyout Menu Tier ' . $tier, 'emma' );
 		}
 
 		register_nav_menus( $emma_nav_menus );
@@ -294,6 +294,21 @@ function emma_widgets_init() {
 			'id'          => 'secondary-sidebar',
 			'description' => esc_html__( 'Add widgets to pages that support a secondary sidebar.', 'emma' ),
 		),
+		'flyout-menu-before' => array(
+			'name'        => esc_html__( 'Flyout Menu (Before)', 'emma' ),
+			'id'          => 'flyout-menu-before',
+			'description' => esc_html__( 'Add widgets above the flyout menu links', 'emma' ),
+		),
+		'flyout-menu-after' => array(
+			'name'        => esc_html__( 'Flyout Menu (After)', 'emma' ),
+			'id'          => 'flyout-menu-after',
+			'description' => esc_html__( 'Add widgets below the flyout menu links', 'emma' ),
+		),
+		'flyout-menu-content' => array(
+			'name'        => esc_html__( 'Flyout Menu (Content)', 'emma' ),
+			'id'          => 'flyout-menu-content',
+			'description' => esc_html__( 'Add widgets to the main content section of the flyout menu', 'emma' ),
+		),
 	);
 
 	// Filter 'emma_utility_widget_areas' in the global scope for use in templates.
@@ -308,14 +323,11 @@ function emma_widgets_init() {
 		);
 	}
 
-		// Filter 'emma_menu_drawer_widget_areas' in the global scope for use in templates.
-		$GLOBALS['emma_menu_drawer_widget_areas'] = apply_filters( 'emma_menu_drawer_widget_areas', 1 );
-
 		// Add the utility widgets areas.
-		for ( $i = 1; $i <= $GLOBALS['emma_menu_drawer_widget_areas']; $i++ ) {
-			$widget_areas[ 'menu-drawer-widgets-' . $i ] = array(
-				'name'        => esc_html__( 'Menu Drawer Widgets', 'emma' ) . "  $i",
-				'id'          => 'menu-drawer-widgets-' . $i,
+		for ( $i = 1; $i <= $GLOBALS['emma_flyout_menu_widget_areas']; $i++ ) {
+			$widget_areas[ 'flyout-menu-widgets-' . $i ] = array(
+				'name'        => esc_html__( 'Flyout Menu Widgets', 'emma' ) . "  $i",
+				'id'          => 'flyout-menu-widgets-' . $i,
 				'description' => esc_html__( 'Add widgets to the slide-out menu', 'emma' ) . ' (' . esc_html__( 'column', 'emma' ) . " $i).",
 			);
 		}
