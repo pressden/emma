@@ -31,8 +31,6 @@ drawer = document.getElementById("flyout-menu");
 		return;
 	}
 
-	clones.style.height = topLevelMenus.offsetHeight + "px";
-
 	toggle.onclick = function () {
 		if (!drawer.classList.contains("toggled")) {
 			openMenuDrawer();
@@ -138,6 +136,8 @@ drawer = document.getElementById("flyout-menu");
 	// 		subMenuToggle.focus();
 	// 	});
 	// });
+
+	clones.style.height = topLevelMenus.offsetHeight + "px";
 })();
 
 function openMenuDrawer() {

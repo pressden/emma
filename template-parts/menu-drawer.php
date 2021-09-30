@@ -1,4 +1,4 @@
-<nav id="flyout-menu" class="flyout-menu">
+<nav id="flyout-menu" class="flyout-menu <?php if ( is_active_sidebar( 'flyout-menu-content' ) ) { echo "two-column"; } ?>">
 	<div class="flyout-menu-wrap">
 		<div class="top-bar">
 			<a href="#" id="menu-closer" class="menu-toggle drawer-closer menu-closer"><span class="screen-reader-text">Close Menu</span></a>
