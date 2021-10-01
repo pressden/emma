@@ -6,11 +6,11 @@
 $enable-sticky-header: false !default;
 
 /*--------------------------------------------------------------
-## Responsive Toggle
-## true: the menu toggle will display based on a $menu-breakpoint media query
+## Contextual Toggle
+## true: the menu toggle will display based on a $menu-breakpoint media query, or if the flyout menus has menus but the desktop menu areas do not
 ## false: the menu toggle will display based on $menu-toggle-display
 --------------------------------------------------------------*/
-$enable-responsive-toggle: true !default;
+$enable-contextual-toggle: false !default;
 
 /*--------------------------------------------------------------
 ## Dropdown Icon

@@ -42,7 +42,6 @@ function emma_header_inner_template() {
 	get_template_part( 'template-parts/site', 'branding' );
 	get_template_part( 'template-parts/navigation', 'right' );
 	get_template_part( 'template-parts/header', 'widgets' );
-	get_template_part( 'template-parts/navigation', 'controls' );
 }
 add_action( 'emma_header', 'emma_header_inner_template' );
 

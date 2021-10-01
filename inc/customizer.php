@@ -110,6 +110,17 @@ function emma_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting( 'desktop_show_flyout_menu_toggle', array( 'sanitize_callback' => 'sanitize_key' ) );
+	$wp_customize->add_control(
+		'desktop_show_flyout_menu_toggle',
+		array(
+			'type'     => 'checkbox',
+			'priority' => 10,
+			'section'  => 'layout',
+			'label'    => 'Show Flyout Menu Toggle on Desktop',
+		)
+	);
+
 	$wp_customize->add_section(
 		'homepage',
 		array(

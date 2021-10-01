@@ -44,7 +44,7 @@ $header-wrap-split-navigation-columns: 1fr fit-content(50%) 1fr !default;
 $sticky-header-offset: 72px !default;
 
 // Header - branding
-$branding-min-width: none !default;
+$branding-min-width: auto !default;
 $branding-padding: 0 !default;
 $branding-padding-x: $branding-padding !default;
 $branding-padding-y: $branding-padding !default;

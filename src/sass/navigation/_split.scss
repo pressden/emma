@@ -1,8 +1,17 @@
-.left-navigation,
-.right-navigation {
+.left-navigation {
 	display: none;
 
 	@media screen and (min-width: $menu-breakpoint) {
 		display: block;
+	}
+}
+
+.right-navigation {
+	.menu-item {
+		display: none;
+
+		@media screen and (min-width: $menu-breakpoint) {
+			display: block;
+		}
 	}
 }

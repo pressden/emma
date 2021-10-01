@@ -16,14 +16,20 @@ function emma_body_classes( $classes ) {
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
 	}
-
+	
 	// Adds a class based on whether left, right or both (split) navigation menus exist.
-	if ( has_nav_menu( 'left' ) && has_nav_menu( 'right' ) ) {
+	$desktop_show_flyout_menu_toggle = get_theme_mod( 'desktop_show_flyout_menu_toggle', false );
+
+	if ( has_nav_menu( 'left' ) && ( has_nav_menu( 'right' ) || $desktop_show_flyout_menu_toggle ) ) {
 		$classes[] = 'has-split-navigation';
 	} elseif ( has_nav_menu( 'left' ) ) {
 		$classes[] = 'has-left-navigation';
 	} elseif ( has_nav_menu( 'right' ) ) {
 		$classes[] = 'has-right-navigation';
+	} elseif ( $desktop_show_flyout_menu_toggle ) {
+		$classes[] = 'has-desktop-flyout-menu-toggle';
+	}elseif ( has_nav_menu( 'primary' ) ) {
+		$classes[] = 'has-primary-navigation';
 	}
 
 	// Add a layout body class.

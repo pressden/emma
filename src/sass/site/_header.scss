@@ -13,8 +13,16 @@
 		grid-template-columns: $header-wrap-right-navigation-columns;
 
 		@media screen and (min-width: $menu-breakpoint) {
-			justify-content: $header-wrap-justify-content;
 			grid-template-columns: $header-wrap-no-navigation-columns;
+			justify-content: $header-wrap-justify-content;
+
+			.has-desktop-flyout-menu-toggle & {
+				grid-template-columns: $header-wrap-split-navigation-columns;
+
+				.site-branding {
+					grid-column: 2;
+				}
+			}
 
 			.has-left-navigation & {
 				grid-template-columns: $header-wrap-left-navigation-columns;
@@ -27,10 +35,6 @@
 			.has-split-navigation & {
 				grid-template-columns: $header-wrap-split-navigation-columns;
 			}
-		}
-
-		.navigation-controls {
-			justify-self: end;
 		}
 	}
 }

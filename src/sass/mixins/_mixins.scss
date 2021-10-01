@@ -129,7 +129,10 @@
 	left: 0;
 	height: 100%;
 	width: 100%;
-	padding: inherit;
+	padding-top: inherit;
+	padding-bottom: inherit;
+	padding-left: 0;
+	padding-right: 0;
 	text-indent: 0;
 	background-color: currentColor;
 }
