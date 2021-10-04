@@ -121,6 +121,17 @@ function emma_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting( 'display_logo_left_of_menus', array( 'sanitize_callback' => 'sanitize_key' ) );
+	$wp_customize->add_control(
+		'display_logo_left_of_menus',
+		array(
+			'type'     => 'checkbox',
+			'priority' => 10,
+			'section'  => 'layout',
+			'label'    => 'Display the Logo to the left of both menus',
+		)
+	);
+
 	$wp_customize->add_section(
 		'homepage',
 		array(

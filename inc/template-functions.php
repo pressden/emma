@@ -16,14 +16,28 @@ function emma_body_classes( $classes ) {
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
 	}
+
+	// Adds a class if the option is selected to place logo left of both menus
+	$display_logo_left_of_menus = get_theme_mod( 'display_logo_left_of_menus', false );
+	if( $display_logo_left_of_menus ) {
+		$classes[] = "logo-left";
+	}
 	
 	// Adds a class based on whether left, right or both (split) navigation menus exist.
 	$desktop_show_flyout_menu_toggle = get_theme_mod( 'desktop_show_flyout_menu_toggle', false );
 
 	if ( has_nav_menu( 'left' ) && ( has_nav_menu( 'right' ) || $desktop_show_flyout_menu_toggle ) ) {
-		$classes[] = 'has-split-navigation';
+		if( $display_logo_left_of_menus ) {
+			$classes[] = 'has-double-right-navigation';
+		} else {
+			$classes[] = 'has-split-navigation';
+		}
 	} elseif ( has_nav_menu( 'left' ) ) {
-		$classes[] = 'has-left-navigation';
+		if( $display_logo_left_of_menus ) {
+			$classes[] = 'has-right-navigation';
+		} else {
+			$classes[] = 'has-left-navigation';
+		}
 	} elseif ( has_nav_menu( 'right' ) ) {
 		$classes[] = 'has-right-navigation';
 	} elseif ( $desktop_show_flyout_menu_toggle ) {

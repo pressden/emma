@@ -67,8 +67,19 @@
 	.menu {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: $menu-justify-content;
 		align-items: $menu-align-items;
+	}
+
+	#left-menu {
+		justify-content: var(--justify-content-left-menu);
+	}
+
+	#right-menu {
+		justify-content: var(--justify-content-right-menu);
+	}
+
+	#primary-menu {
+		justify-content: var(--justify-content-primary-menu);
 	}
 
 	.sub-menu {

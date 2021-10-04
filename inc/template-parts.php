@@ -38,8 +38,14 @@ add_action( 'emma_header_bar', 'emma_header_bar_template' );
  * Gets the header inner template parts.
  */
 function emma_header_inner_template() {
-	get_template_part( 'template-parts/navigation', 'left' );
-	get_template_part( 'template-parts/site', 'branding' );
+	$display_logo_left_of_menus = get_theme_mod( 'display_logo_left_of_menus', false );
+	if( $display_logo_left_of_menus ) {
+		get_template_part( 'template-parts/site', 'branding' );
+		get_template_part( 'template-parts/navigation', 'left' );
+	} else {
+		get_template_part( 'template-parts/navigation', 'left' );
+		get_template_part( 'template-parts/site', 'branding' );
+	}
 	get_template_part( 'template-parts/navigation', 'right' );
 	get_template_part( 'template-parts/header', 'widgets' );
 }
