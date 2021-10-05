@@ -1,4 +1,5 @@
-<nav id="flyout-menu" class="flyout-menu <?php if ( is_active_sidebar( 'flyout-menu-content' ) ) { echo "two-column"; } ?>">
+<div class="flyout-menu-background"></div>
+<div id="flyout-menu" class="flyout-menu <?php if ( is_active_sidebar( 'flyout-menu-content' ) ) { echo "two-column"; } ?>">
 	<div class="flyout-menu-wrap">
 		<div class="top-bar">
 			<a href="#" id="menu-closer" class="menu-toggle drawer-closer menu-closer"><span class="screen-reader-text">Close Menu</span></a>
@@ -17,7 +18,7 @@
 				}
 			?>
 
-			<div class="flyout-menu-menus">
+			<nav class="flyout-menu-menus">
 				<div class="menu-back">
 					<a href="#">Close Menu</a>
 				</div>
@@ -51,7 +52,7 @@
 
 					</div><!-- #menu-clones -->
 				</div>
-			</div>
+			</nav>
 
 			<?php
 				if ( is_active_sidebar( 'flyout-menu-after' ) ) {
@@ -77,4 +78,4 @@
 			}
 		?>
 	</div>
-</nav><!-- #flyout-menu -->
+</div><!-- #flyout-menu -->

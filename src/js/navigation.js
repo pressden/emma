@@ -14,6 +14,7 @@ drawer = document.getElementById("flyout-menu");
 	clones = document.querySelector(".menu-clones");
 	toggle = document.getElementById("menu-opener");
 	closer = document.getElementById("menu-closer");
+	background = document.querySelector(".flyout-menu-background");
 	topLevelMenus = document.querySelector("#top-level-menus");
 	menuBack = drawer.querySelector(".menu-back a");
 	currentMenu = topLevelMenus;
@@ -41,6 +42,10 @@ drawer = document.getElementById("flyout-menu");
 
 	closer.addEventListener("click", function (event) {
 		event.preventDefault();
+		closeMenuDrawer();
+	});
+
+	background.addEventListener("click", function (event) {
 		closeMenuDrawer();
 	});
 
@@ -97,45 +102,8 @@ drawer = document.getElementById("flyout-menu");
 			currentMenu = subMenu;
 			updateMenuBack();
 			trapFocus(drawer, 0, menuBack);
-			// previousMenu = subMenuLink.closest(".sub-menu, .menu");
-			// previousMenu.scrollTop = 0;
-			// previousMenu.classList.add("sub-menu-open");
-			// subMenuLink.setAttribute("aria-expanded", "true");
-			// let subMenu = subMenuLink.nextElementSibling;
-			// subMenu.classList.add("active");
-			// trapFocus(subMenu, 250);
 		});
 	});
-
-	// drawer.querySelectorAll(".sub-menu").forEach((item) => {
-	// 	let subMenuTitleLink = item.previousElementSibling.cloneNode(true);
-	// 	subMenuTitleLink.removeAttribute("aria-haspopup");
-	// 	subMenuTitleLink.removeAttribute("aria-expanded");
-	// 	if(subMenuTitleLink.attributes['href'].value === "#") {
-	// 		subMenuTitleLink.classList.add("inactive");
-	// 		subMenuTitleLink.tabIndex = -1;
-	// 	}
-	// 	let subMenuTitleListItem = document.createElement("li");
-	// 	subMenuTitleListItem.classList.add("menu-item", "menu-title");
-	// 	subMenuTitleListItem.appendChild(subMenuTitleLink);
-
-	// 	item.insertAdjacentHTML('afterbegin', '<li class="menu-item sub-menu-back menu-back"><a href="#">Previous Menu</a></li>');
-	// 	item.prepend(subMenuTitleListItem);
-	// });
-
-	// drawer.querySelectorAll(".sub-menu-back a").forEach((item) => {
-	// 	item.addEventListener("click", function (event) {
-	// 		event.preventDefault();
-	// 		let subMenu = item.closest(".sub-menu");
-	// 		let subMenuToggle = subMenu.previousElementSibling;
-	// 		let parentMenu = item.closest(".sub-menu-open");
-	// 		subMenu.classList.remove("active");
-	// 		parentMenu.classList.remove("sub-menu-open");
-	// 		trapFocus(parentMenu, false);
-	// 		subMenuToggle.setAttribute("aria-expanded", "false");
-	// 		subMenuToggle.focus();
-	// 	});
-	// });
 
 	clones.style.height = topLevelMenus.offsetHeight + "px";
 })();
