@@ -16,9 +16,20 @@ body {
 	top: var( --admin-bar-height );
 	right: 0;
 	background: $flyout-menu-background;
+	color: color-yiq( $flyout-menu-background );
 	border: $flyout-menu-border;
 	transition: visibility 0.25s, transform 0.25s ease-in-out;
 	overflow-y: auto;
+
+	a {
+		color: $flyout-menu-link-color;
+	}
+
+	.flyout-menu-open & {
+		visibility: visible;
+		transform: translateX(0);
+		transition: transform 0.25s ease-in-out;
+	}
 
 	&.two-column {
 		display: grid;
@@ -81,13 +92,12 @@ body {
 
 		.flyout-menu-menus {
 			@media screen and ( min-width: $flyout-menu-breakpoint ) {
-				border-left: 1px solid $gray-400;
-				border-right: 1px solid $gray-400;
+				border-left: 1px solid $flyout-menu-menus-link-border-color;
+				border-right: 1px solid $flyout-menu-menus-link-border-color;
 			}
 		}
 	}
 
-	
 	.flyout-menu-left {
 		display: flex;
 		flex-direction: column;
@@ -99,14 +109,17 @@ body {
 	}
 
 	.flyout-menu-menus {
-		border-top: 1px solid $gray-400;
-		border-bottom: 1px solid $gray-400;
-	}
+		border-top: 1px solid $flyout-menu-menus-link-border-color;
+		border-bottom: 1px solid $flyout-menu-menus-link-border-color;
+		background-color: $flyout-menu-menus-background;
+		color: color-yiq( $flyout-menu-menus-background );
 
-	.flyout-menu-open & {
-		visibility: visible;
-		transform: translateX(0);
-		transition: transform 0.25s ease-in-out;
+		a {
+			display: block;
+			padding-left: $spacer;
+			padding-right: $spacer;
+			color: $flyout-menu-menus-link-color;
+		}
 	}
 
 	.top-bar {
@@ -114,18 +127,27 @@ body {
 		justify-content: flex-end;
 	}
 
+	.menu,
+	.sub-menu {
+		margin: 0;
+		padding-left: 0;
+		list-style: none;
+	}
+
+	.top-level-menus,
+	.sub-menu {
+		position: absolute;
+		top: 0;
+		left: 0;
+		max-width: none;
+		width: 100%;
+		transition: visibility 0.25s, transform 0.25s ease-in-out;
+	}
+
 	.sub-menu {
 		visibility: hidden;
-		position: absolute;
-		width: 100%;
-		top: 0;
-		left: 0 !important;
-		padding-left: 0;
 		transform: translateX(100%);
 		z-index: 1;
-		transition: visibility 0.25s, transform 0.25s ease-in-out;
-		background: $flyout-menu-background;
-		list-style: none;
 
 		.menu-item {
 			a {
@@ -146,7 +168,6 @@ body {
 	.sub-menu-open {
 		visibility: hidden !important;
 		transform: translateX(-100%) !important;
-		transition: visibility 0.25s, transform 0.25s ease-in-out !important;
 	}
 
 	.menu-title {
@@ -155,7 +176,7 @@ body {
 	}
 
 	.menu-back {
-		background-color: $gray-200;
+		background-color: $flyout-menu-back-button-background;
 
 		> a {
 			position: relative;
@@ -173,40 +194,11 @@ body {
 		}
 	}
 
-	.menu-clones,
-	.menu-back {
-		a {
-			display: block;
-			padding-left: $spacer;
-			padding-right: $spacer;
-		}
-
-		.menu {
-			display: block;
-			margin: 0;
-			padding-left: 0;
-			list-style: none;
-
-			.menu-item {
-				position: static;
-			}
-		}
-	}
-
 	.menu-clones {
 		position: relative;
 		overflow: hidden;
 		flex-shrink: 0;
 		transition: height 0.25s ease-in-out;
-	}
-
-	.top-level-menus {
-		position: absolute;
-		top: 0;
-		left: 0;
-		max-width: none;
-		width: 100%;
-		transition: transform 0.25s ease-in-out;
 	}
 
 	.menu-back,
@@ -216,7 +208,7 @@ body {
 		a {
 			padding-top: $spacer-sm;
 			padding-bottom: $spacer-sm;
-			border-bottom: 1px solid $gray-400;
+			border-bottom: 1px solid $flyout-menu-menus-link-border-color;
 		}
 	}
 
