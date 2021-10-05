@@ -5,50 +5,49 @@
  * navigation support for dropdown menus.
  */
 
-var toggle, closer, drawer, topLevelMenus, menuBack, currentMenu;
-drawer = document.getElementById("flyout-menu");
+import { trapFocus, releaseFocus } from './utility';
+
+let drawer, currentMenu, topLevelMenus, menuBack, opener, clones;
+drawer = document.querySelector("#flyout-menu");
 
 (function () {
-	var mainMenus, utilityMenus, container, menu, links, i, len;
+	let mainMenus, utilityMenus, closers, autoMenus, background;
 
 	clones = document.querySelector(".menu-clones");
-	toggle = document.getElementById("menu-opener");
-	closer = document.getElementById("menu-closer");
+	opener = document.querySelector("#menu-opener");
+	closers = document.querySelectorAll(".menu-closer");
 	background = document.querySelector(".flyout-menu-background");
 	topLevelMenus = document.querySelector("#top-level-menus");
 	menuBack = drawer.querySelector(".menu-back a");
 	currentMenu = topLevelMenus;
+	autoMenus = drawer.querySelector( '.auto-populate' );
 
-	mainMenus = document.querySelectorAll(
-		"#masthead .site-navigation, #main-navigation"
-	);
+	// automatically populate menus if appropriate
+	if( autoMenus ) {
+		mainMenus = document.querySelectorAll(
+			"#masthead .site-navigation, #main-navigation"
+		);
+	
+		utilityMenus = document.querySelectorAll(
+			"#masthead .widget_nav_menu"
+		);
 
-	utilityMenus = document.querySelectorAll(
-		"#masthead .widget_nav_menu"
-	);
-
-	// Exit early if collection is empty or the toggle button is undefined
-	if ((mainMenus.length === 0 && utilityMenus.length === 0) || "undefined" === typeof toggle) {
-		return;
+		copyMenuItems(mainMenus, "tier-1");
+		copyMenuItems(utilityMenus, "tier-2");
 	}
 
-	toggle.onclick = function () {
-		if (!drawer.classList.contains("toggled")) {
+	// set opener and closer event listeners
+	opener.onclick = function () {
 			openMenuDrawer();
-		} else {
-			closeMenuDrawer();
-		}
 	};
-
-	closer.addEventListener("click", function (event) {
-		event.preventDefault();
-		closeMenuDrawer();
+	closers.forEach((closer) => {
+		closer.addEventListener("click", function (event) {
+			event.preventDefault();
+			closeMenuDrawer();
+		});
 	});
 
-	background.addEventListener("click", function (event) {
-		closeMenuDrawer();
-	});
-
+	// configure click handler for menu back button (close or previous menu depending on context)
 	menuBack.addEventListener("click", function(event) {
 		event.preventDefault();
 		if(currentMenu == topLevelMenus) {
@@ -65,19 +64,14 @@ drawer = document.getElementById("flyout-menu");
 		}
 	});
 
-	let autoMenus = drawer.querySelector( '.auto-populate' );
-	if( autoMenus ) {
-		copyMenuItems(mainMenus, "tier-1");
-		copyMenuItems(utilityMenus, "tier-2");
-	}
-
+	// submenu reformatting
 	drawer.querySelectorAll(".menu-item-has-children").forEach((menuItem) => {
 		let subMenuLink = menuItem.querySelector("a");
 		let subMenuId = subMenuLink.dataset.subMenuId;
 		let subMenu = subMenuLink.nextElementSibling;
 		let parentMenu = menuItem.closest(".sub-menu, .top-level-menus");
 
-
+		// clone submenu parent link and add as submenu title
 		let subMenuLinkClone = subMenuLink.cloneNode(true);
 		subMenuLinkClone.removeAttribute("aria-haspopup");
 		subMenuLinkClone.removeAttribute("aria-expanded");
@@ -90,10 +84,12 @@ drawer = document.getElementById("flyout-menu");
 		subMenuLinkCloneListItem.appendChild(subMenuLinkClone);
 		subMenu.prepend(subMenuLinkCloneListItem);
 
+		// update submenu id and add parent menu data attribute, then move to menu clones container
 		subMenu.id = "sub-menu-" + subMenuId;
 		subMenu.dataset.parentMenuId = parentMenu.id;
 		clones.appendChild(subMenu);
 
+		// add event listener to submenu links to open submenus
 		subMenuLink.addEventListener("click", function (event) {
 			event.preventDefault();
 			subMenu.classList.add("active");
@@ -105,7 +101,8 @@ drawer = document.getElementById("flyout-menu");
 		});
 	});
 
-	clones.style.height = topLevelMenus.offsetHeight + "px";
+	// set initial height of top menus container
+	setInitialMenuClonesHeight();
 })();
 
 function openMenuDrawer() {
@@ -119,10 +116,16 @@ function closeMenuDrawer() {
 	drawer.querySelectorAll(".sub-menu.active").forEach((item) => {
 		item.classList.remove("active");
 	});
+	drawer.querySelectorAll(".sub-menu-open").forEach((item) => {
+		item.classList.remove("sub-menu-open");
+	});
 	drawer.querySelectorAll(".menu-item-has-children > a").forEach((item) => {
 		item.setAttribute("aria-expanded", "false");
 	});
-	toggle.focus();
+	currentMenu = topLevelMenus;
+	updateMenuBack();
+	setInitialMenuClonesHeight();
+	opener.focus();
 }
 
 function updateMenuBack() {
@@ -156,65 +159,6 @@ function copyMenuItems( menus, defaultLocation ) {
 	});
 }
 
-function trapFocus(element, focusDelay = 0, setFocus = false) {
-	releaseFocus();
-	element.classList.add("focus-trapped");
-  let allFocusableEls = element.querySelectorAll('a[href]:not([disabled]):not(.inactive), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
-	var focusableEls = Array();
-	allFocusableEls.forEach((el) => {
-		var style = window.getComputedStyle(el, null);
-
-		if( style.visibility == "visible" ) {
-			focusableEls.push( el );
-		}
-	});
-  var firstFocusableEl = focusableEls[0];  
-	if( !setFocus ) {
-		setFocus = firstFocusableEl;
-	}
-	console.log(focusableEls);
-  var lastFocusableEl = focusableEls[focusableEls.length - 1];
-	
-  element.addEventListener('keydown', checkFocusChange, false);
-	element.firstFocusableEl = firstFocusableEl;
-	element.lastFocusableEl = lastFocusableEl;
-
-	if(focusDelay !== false) {
-		setTimeout(function() {
-			setFocus.focus();
-		}, focusDelay);
-	}
-	
-}
-
-function checkFocusChange(e) {
-	let firstFocusableEl = e.currentTarget.firstFocusableEl;
-	let lastFocusableEl = e.currentTarget.lastFocusableEl;
-	var KEYCODE_TAB = 9;
-	var isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
-
-	if (!isTabPressed) { 
-		return; 
-	}
-	console.log("tab pressed");
-
-	if ( e.shiftKey ) /* shift + tab */ {
-		if (document.activeElement === firstFocusableEl) {
-			lastFocusableEl.focus();
-			e.preventDefault();
-		}
-	} else /* tab */ {
-		if (document.activeElement === lastFocusableEl) {
-			firstFocusableEl.focus();
-			e.preventDefault();
-		}
-	}
-}
-
-function releaseFocus() {
-	focusTrappedEl = document.querySelector(".focus-trapped");
-	if(focusTrappedEl) {
-		focusTrappedEl.classList.remove("focus-trapped");
-		focusTrappedEl.removeEventListener('keydown', checkFocusChange);
-	}
+function setInitialMenuClonesHeight() {
+	clones.style.height = topLevelMenus.offsetHeight + "px";
 }
