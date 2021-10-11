@@ -1,24 +1,28 @@
-.search-form-toggle {
-	justify-content: center;
-	position: relative;
-	padding: 0;
-	margin: 0;
-
-	> a {
-		display: block;
+.site {
+	.search-form-toggle {
+		justify-content: center;
 		position: relative;
-		width: 100%;
-		min-height: 40px;
-		text-indent: -999rem;
-		white-space: nowrap;
-		overflow: hidden;
-		min-width: 3rem;
+		padding: 0;
+		margin: 0;
 
-		&::before {
-			@include icon-mask( 'search' );
+		> a {
+			display: block;
+			position: relative;
+			width: 100%;
+			min-height: 40px;
+			text-indent: -999rem;
+			white-space: nowrap;
+			overflow: hidden;
+			min-width: 3rem;
+
+			&::before {
+				@include icon-mask( 'search' );
+			}
 		}
 	}
+}
 
+.search-form-toggle {
 	.search-form {
 		position: absolute;
 		z-index: 100;

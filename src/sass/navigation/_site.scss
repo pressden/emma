@@ -22,9 +22,11 @@
 				& > a {
 					&::after {
 						@include icon-mask( $menu-dropdown-icon );
+						display: inline-block;
+						position: static;
 						width: $menu-dropdown-icon-width;
-						left: auto;
-						right: 0;
+						height: $menu-dropdown-icon-width;
+						padding: 0;
 					}
 				}
 			}
@@ -33,7 +35,6 @@
 
 	li {
 		position: relative;
-		color: $menu-link-color;
 
 		&:hover,
 		&:focus,
@@ -41,13 +42,22 @@
 		&:active {
 			color: $menu-link-hover-color;
 		}
+
+		:where( a:not(.inactive) ) {
+			color: $menu-link-color;
+		}
+
+		&:where( .inactive ) {
+			a {
+				color: inherit;
+			}
+		}
 	}
 
 	a {
 		display: block;
 		padding: $menu-link-padding-y $menu-link-padding-x;
 		text-decoration: none;
-		color: inherit;
 
 		&:focus {
 			outline-offset: -1px;
@@ -57,8 +67,19 @@
 	.menu {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: $menu-justify-content;
 		align-items: $menu-align-items;
+	}
+
+	#left-menu {
+		justify-content: var(--justify-content-left-menu);
+	}
+
+	#right-menu {
+		justify-content: var(--justify-content-right-menu);
+	}
+
+	#primary-menu {
+		justify-content: var(--justify-content-primary-menu);
 	}
 
 	.sub-menu {

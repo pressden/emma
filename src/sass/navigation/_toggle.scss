@@ -12,16 +12,18 @@
 	&::before {
 		@include icon-mask( 'menu-alt' );
 	}
-
-	@if $enable-responsive-toggle {
-		@media screen and (min-width: $menu-breakpoint) {
-			display: none;
-		}
-	}
 }
 
 .menu-closer {
 	&::before {
 		@include icon-mask( 'no-alt' );
+	}
+}
+
+.menu-opener-container {
+	&.hide-on-desktop {
+		@media screen and (min-width: $menu-breakpoint) {
+			display: none !important;
+		}
 	}
 }

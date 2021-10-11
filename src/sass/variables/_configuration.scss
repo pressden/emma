@@ -6,13 +6,6 @@
 $enable-sticky-header: false !default;
 
 /*--------------------------------------------------------------
-## Responsive Toggle
-## true: the menu toggle will display based on a $menu-breakpoint media query
-## false: the menu toggle will display based on $menu-toggle-display
---------------------------------------------------------------*/
-$enable-responsive-toggle: true !default;
-
-/*--------------------------------------------------------------
 ## Dropdown Icon
 ## true: top level menu items with children will show an arrow icon
 ## false: the dropdown icon will be suppressed on all menu items

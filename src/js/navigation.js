@@ -5,129 +5,160 @@
  * navigation support for dropdown menus.
  */
 
-var toggle, closer, drawer, clones;
+import { trapFocus, releaseFocus } from './utility';
+
+let drawer, currentMenu, topLevelMenus, menuBack, opener, clones;
+drawer = document.querySelector("#flyout-menu");
 
 (function () {
-	var collection, container, menu, links, i, len;
+	let mainMenus, utilityMenus, closers, autoMenus, background;
 
-	toggle = document.getElementById("menu-opener");
-	closer = document.getElementById("menu-closer");
-	drawer = document.getElementById("menu-drawer");
-	clones = document.getElementById("menu-clones");
+	clones = document.querySelector(".menu-clones");
+	opener = document.querySelector("#menu-opener");
+	closers = document.querySelectorAll(".menu-closer");
+	background = document.querySelector(".flyout-menu-background");
+	topLevelMenus = document.querySelector("#top-level-menus");
+	menuBack = drawer.querySelector(".menu-back a");
+	currentMenu = topLevelMenus;
+	autoMenus = drawer.querySelector( '.auto-populate' );
 
-	collection = document.querySelectorAll(
-		"#masthead .site-navigation, #masthead .widget_nav_menu, #main-navigation"
-	);
+	// automatically populate menus if appropriate
+	if( autoMenus ) {
+		mainMenus = document.querySelectorAll(
+			"#masthead .site-navigation, #main-navigation"
+		);
+	
+		utilityMenus = document.querySelectorAll(
+			"#masthead .widget_nav_menu"
+		);
 
-	// Exit early if collection is empty or the toggle button is undefined
-	if (collection.length === 0 || "undefined" === typeof toggle) {
-		return;
+		copyMenuItems(mainMenus, "tier-1");
+		copyMenuItems(utilityMenus, "tier-2");
 	}
 
-	toggle.onclick = function () {
-		if (!drawer.classList.contains("toggled")) {
+	// set opener and closer event listeners
+	opener.onclick = function () {
 			openMenuDrawer();
-		} else {
-			closeMenuDrawer();
-		}
 	};
-
-	closer.onclick = function () {
-		closeMenuDrawer();
-	};
-
-	closer.addEventListener("blur", function (event) {
-		if (!drawer.contains(event.relatedTarget)) {
-			closeMenuDrawer();
-		}
-	});
-
-	collection.forEach((container) => {
-		menu = container.querySelector("ul");
-
-		// put a clone of the menu in the menu clones container
-		let clone = menu.cloneNode(true);
-		clones.appendChild(clone);
-
-		if (-1 === menu.className.indexOf("nav-menu")) {
-			menu.className += " nav-menu";
-		}
-	});
-
-	clones.querySelectorAll("*").forEach((item) => {
-		if (item.id) {
-			item.id = item.id + "-drawer";
-		}
-	});
-
-	document.querySelectorAll(".menu-item-has-children > a").forEach((item) => {
-		item.addEventListener("touchend", function (event) {
-			if (item !== document.activeElement) {
-				item.focus();
-				event.preventDefault();
-			}
-		});
-	});
-
-	// Get all the link elements within the menu.
-	drawer.querySelectorAll(".menu-item-has-children > a").forEach((item) => {
-		item.addEventListener("focus", function (event) {
-			toggleFocus(this);
-		});
-		//stops focus from being given (and thus menu from appearing) before click event is registered
-		item.addEventListener("mousedown", function (event) {
+	closers.forEach((closer) => {
+		closer.addEventListener("click", function (event) {
 			event.preventDefault();
-		});
-		item.addEventListener("click", function (event) {
-			if (
-				!this.closest(".menu-item-has-children").classList.contains("focus")
-			) {
-				event.preventDefault();
-				this.focus();
-			}
+			closeMenuDrawer();
 		});
 	});
 
-	drawer.addEventListener("focusout", function (event) {
-		var target = event.target;
-		var menuParent = target.closest(".menu-item-has-children");
-		if (menuParent) {
-			if (!menuParent.contains(event.relatedTarget)) {
-				menuParent.classList.remove("focus");
-			}
-		}
-
-		if (!drawer.contains(event.relatedTarget)) {
-			closer.focus();
+	// configure click handler for menu back button (close or previous menu depending on context)
+	menuBack.addEventListener("click", function(event) {
+		event.preventDefault();
+		if(currentMenu == topLevelMenus) {
+			closeMenuDrawer();
+		} else {
+			let parentMenuId = currentMenu.dataset.parentMenuId;
+			let parentMenu = drawer.querySelector("#" + parentMenuId);
+			currentMenu.classList.remove("active");
+			parentMenu.classList.remove("sub-menu-open");
+			currentMenu = parentMenu;
+			updateMenuBack();
+			trapFocus(drawer, 0, menuBack);
+			clones.style.height = parentMenu.offsetHeight + "px";
 		}
 	});
+
+	// submenu reformatting
+	drawer.querySelectorAll(".menu-item-has-children").forEach((menuItem) => {
+		let subMenuLink = menuItem.querySelector("a");
+		let subMenuId = subMenuLink.dataset.subMenuId;
+		let subMenu = subMenuLink.nextElementSibling;
+		let parentMenu = menuItem.closest(".sub-menu, .top-level-menus");
+
+		// clone submenu parent link and add as submenu title
+		let subMenuLinkClone = subMenuLink.cloneNode(true);
+		subMenuLinkClone.removeAttribute("aria-haspopup");
+		subMenuLinkClone.removeAttribute("aria-expanded");
+		if(subMenuLinkClone.attributes['href'].value === "#") {
+			subMenuLinkClone.classList.add("inactive");
+			subMenuLinkClone.tabIndex = -1;
+		}
+		let subMenuLinkCloneListItem = document.createElement("li");
+		subMenuLinkCloneListItem.classList.add("menu-title");
+		subMenuLinkCloneListItem.appendChild(subMenuLinkClone);
+		subMenu.prepend(subMenuLinkCloneListItem);
+
+		// update submenu id and add parent menu data attribute, then move to menu clones container
+		subMenu.id = "sub-menu-" + subMenuId;
+		subMenu.dataset.parentMenuId = parentMenu.id;
+		clones.appendChild(subMenu);
+
+		// add event listener to submenu links to open submenus
+		subMenuLink.addEventListener("click", function (event) {
+			event.preventDefault();
+			subMenu.classList.add("active");
+			parentMenu.classList.add("sub-menu-open");
+			clones.style.height = subMenu.offsetHeight + "px";
+			currentMenu = subMenu;
+			updateMenuBack();
+			trapFocus(drawer, 0, menuBack);
+		});
+	});
+
+	// set initial height of top menus container
+	setInitialMenuClonesHeight();
 })();
 
 function openMenuDrawer() {
-	drawer.querySelectorAll("a").forEach((item) => {
-		item.tabIndex = 0;
-	});
-	drawer.classList.add("toggled");
-	closer.focus();
+	document.body.classList.add("flyout-menu-open");
+	trapFocus(drawer, 250);
 }
 
 function closeMenuDrawer() {
-	drawer.querySelectorAll("a").forEach((item) => {
-		item.tabIndex = -1;
+	releaseFocus(drawer);
+	document.body.classList.remove("flyout-menu-open");
+	drawer.querySelectorAll(".sub-menu.active").forEach((item) => {
+		item.classList.remove("active");
 	});
-	drawer.classList.remove("toggled");
-	toggle.focus();
+	drawer.querySelectorAll(".sub-menu-open").forEach((item) => {
+		item.classList.remove("sub-menu-open");
+	});
+	drawer.querySelectorAll(".menu-item-has-children > a").forEach((item) => {
+		item.setAttribute("aria-expanded", "false");
+	});
+	currentMenu = topLevelMenus;
+	updateMenuBack();
+	setInitialMenuClonesHeight();
+	opener.focus();
 }
 
-/**
- * Sets or removes .focus class on an element.
- */
-function toggleFocus(menuItem) {
-	drawer.querySelectorAll(".focus").forEach(
-		(focusItem) =>
-			function () {
-				focusItem.classList.remove("focus");
+function updateMenuBack() {
+	if( currentMenu == topLevelMenus ) {
+		menuBack.innerHTML = "Close Menu";
+	} else {
+		menuBack.innerHTML = "Previous Menu";
+	}
+}
+
+function copyMenuItems( menus, defaultLocation ) {
+	menus.forEach((menu) => {
+		let links = menu.querySelectorAll("a");
+
+		links.forEach((link) => {
+			let copyLocation = defaultLocation;
+			
+			if(link.dataset.menuDrawerLocation) {
+				copyLocation = link.dataset.menuDrawerLocation;
 			}
-	);
-	menuItem.closest("li").classList.add("focus");
+
+			let clone = link.closest("li").cloneNode(true);
+			if( clone.id ) {
+				clone.id = clone.id + "-drawer";
+			}
+			let copyLocationEl = drawer.querySelector("." + copyLocation);
+			if( copyLocationEl ) {
+				copyLocationEl.appendChild(clone);
+			}
+		});
+	});
+}
+
+function setInitialMenuClonesHeight() {
+	clones.style.height = topLevelMenus.offsetHeight + "px";
 }

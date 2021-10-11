@@ -1,20 +1,20 @@
 // Menu - breakpoint
 $menu-breakpoint: $breakpoint-md !default;
+$flyout-menu-breakpoint: $breakpoint-md !default;
 
 // Menu - global
 $menu-font-size: $font-size-base !default;
 $menu-icon-size: $menu-font-size * 1.75 !default;
 $menu-container-max-width: $wrap-max-width !default;
-$menu-link-padding: $spacer-sm !default;
-$menu-link-padding-x: $menu-link-padding !default;
-$menu-link-padding-y: $menu-link-padding !default;
-$menu-justify-content: space-between !default;
+$menu-link-padding-x: $spacer !default;
+$menu-link-padding-y: $spacer-sm !default;
 $menu-align-items: center !default;
 
 // Menu - dropdown
 $menu-dropdown-padding-right: $spacer !default;
 $menu-dropdown-icon: arrow-down !default;
-$menu-dropdown-icon-width: $spacer-lg !default;
+$menu-dropdown-icon-width: $spacer !default;
+$menu-dropdown-icon-height: $spacer !default;
 
 // Menu - submenu
 $menu-sub-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2) !default;
@@ -31,7 +31,14 @@ $menu-toggle-padding-y: $menu-link-padding-y !default;
 $menu-toggle-display: inline-block !default;
 
 // Menu - drawer
-$menu-drawer-padding: $spacer-md !default;
-$menu-drawer-padding-x: $menu-drawer-padding !default;
-$menu-drawer-padding-y: $menu-drawer-padding !default;
-$menu-drawer-background: rgba(255, 255, 255, 0.95) !default;
+$flyout-menu-padding: $spacer-md !default;
+$flyout-menu-padding-x: $flyout-menu-padding !default;
+$flyout-menu-padding-y: $flyout-menu-padding !default;
+$flyout-menu-background: $white !default;
+$flyout-menu-menus-background: $flyout-menu-background !default;
+$flyout-menu-back-button-background: $gray-200 !default;
+$flyout-menu-link-color: $link-color !default;
+$flyout-menu-menus-link-color: $flyout-menu-link-color !default;
+$flyout-menu-menus-link-border-color: $gray-400 !default;
+$flyout-menu-border: 1px solid $black !default;
+$flyout-menu-max-width: 400px !default;

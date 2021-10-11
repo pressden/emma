@@ -68,7 +68,7 @@ $(function () {
 
 		$activeToggle = $(this);
 		var $miniCart = $("#mini-cart");
-		var $menuDrawer = $("#menu-drawer");
+		var $menuDrawer = $("#flyout-menu");
 
 		if ($miniCart.is(":visible") || $menuDrawer.hasClass("toggled")) {
 			window.location.href = "/cart";

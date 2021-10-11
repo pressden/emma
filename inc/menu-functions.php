@@ -110,3 +110,81 @@ function emma_change_menu_hidden_metaboxes( $user_id ) {
 	update_user_option( $user_id, 'metaboxhidden_nav-menus', $hidden_metaboxes );
 }
 add_action( 'user_register', 'emma_change_menu_hidden_metaboxes', 10, 1 );
+
+function emma_menu_item_custom_fields( $item_id, $item ) {
+	$flyout_menu_location = get_post_meta( $item_id, '_flyout_menu_location', true );
+	wp_nonce_field( 'menu_item_nonce', '_menu_item_nonce_name' );
+
+	if( $item->menu_item_parent == 0 ) {
+	?>
+	<div class="field-custom_menu_meta description-wide" style="margin: 5px 0;">
+		<span class="description">Link placement in sliding menu</span>
+		<input type="hidden" class="nav-menu-id" value="<?php echo $item_id ;?>" />
+		<div class="logged-input-holder">
+			<?php echo $flyout_menu_location; ?>
+			<select id="flyout_menu_location[<?php echo $item_id; ?>]" name="flyout_menu_location[<?php echo $item_id; ?>]">
+				<option value="" <?php echo( $flyout_menu_location == "" ? "selected" : "" ); ?> />Default</option>
+				<?php	for( $tier = 1 ; $tier <= $GLOBALS['flyout_menu_tiers']; $tier++ ) { ?>
+					<option value="tier-<?php echo $tier; ?>" <?php echo( $flyout_menu_location == "tier-" . $tier ? "selected" : "" ); ?> />Tier <?php echo $tier; ?></option>
+				<?php }	?>
+				<option value="hide" <?php echo( $flyout_menu_location == "hide" ? "selected" : "" ); ?> /> Hide</option>
+			</select>
+		</div>
+	</div>
+
+	<div style="clear:both"><?php //var_dump( $item ); ?></div>
+	<?php
+	}
+}
+add_action( 'wp_nav_menu_item_custom_fields', 'emma_menu_item_custom_fields', 10, 2 );
+
+function emma_menu_item_custom_fields_save( $menu_id, $menu_item_db_id ) {
+
+	// Verify this came from our screen and with proper authorization.
+	if ( ! isset( $_POST['_menu_item_nonce_name'] ) || ! wp_verify_nonce( $_POST['_menu_item_nonce_name'], 'menu_item_nonce' ) ) {
+    return $menu_id;
+	}
+
+	$flyout_menu_location = $_POST['flyout_menu_location'][$menu_item_db_id];
+	if ( isset( $flyout_menu_location) && "" != $flyout_menu_location ) {
+		$sanitized_data = sanitize_text_field( $_POST['flyout_menu_location'][$menu_item_db_id] );
+		update_post_meta( $menu_item_db_id, '_flyout_menu_location', $sanitized_data );
+	} else {
+		delete_post_meta( $menu_item_db_id, '_flyout_menu_location' );
+	}
+}
+add_action( 'wp_update_nav_menu_item', 'emma_menu_item_custom_fields_save', 10, 2 );
+
+function emma_menu_item_class_output( $classes, $item ) {
+	if( is_object( $item ) && isset( $item->ID ) ) {
+
+		$feature_link_class = get_post_meta( $item->ID, '_feature_link', true );
+
+		if ( ! empty( $feature_link_class ) ) {
+			$classes[] = $feature_link_class;
+		}
+	}
+	return $classes;
+}
+add_filter( 'nav_menu_css_class', 'emma_menu_item_class_output', 10, 2 );
+
+function emma_menu_item_attributes_output( $attrs, $item, $args ) {
+	if( is_object( $item ) && isset( $item->ID ) ) {
+		$flyout_menu_location = get_post_meta( $item->ID, '_flyout_menu_location', true );
+
+		if ( ! empty( $flyout_menu_location ) ) {
+			$attrs['data-flyout-menu-location'] = $flyout_menu_location;
+		}
+		
+	}
+
+	$item_has_children = in_array( 'menu-item-has-children', $item->classes );
+	if ( $item_has_children ) {
+		$attrs['aria-haspopup'] = "true";
+		$attrs['aria-expanded'] = "false";
+		$attrs['data-sub-menu-id'] = $item->ID;
+	}
+
+	return $attrs;
+}
+add_filter( 'nav_menu_link_attributes', 'emma_menu_item_attributes_output', 10, 3 );

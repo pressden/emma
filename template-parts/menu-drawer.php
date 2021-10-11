@@ -1,20 +1,81 @@
-<nav id="menu-drawer" class="menu-drawer" style="transform: translateX(-100%);">
-	<div class="wrap">
-		<div class="navigation-controls">
-			<a
-				href="javascript:void(0);"
-				id="menu-closer"
-				class="menu-toggle menu-closer"
-				title="<?php esc_attr_e( 'Close Primary Menu', 'emma' ); ?>"
-			>
-				<span class="screen-reader-text">Close Menu</span>
-			</a>
-		</div><!-- .navigation-controls -->
+<div class="flyout-menu-background menu-closer"></div>
+<div id="flyout-menu" class="flyout-menu <?php if ( is_active_sidebar( 'flyout-menu-content' ) ) { echo "two-column"; } ?>">
+	<div class="flyout-menu-wrap">
+		<div class="top-bar">
+			<a href="#" id="menu-closer" class="menu-toggle menu-closer"><span class="screen-reader-text">Close Menu</span></a>
+		</div>
 
-		<div id="menu-clones" class="menu-container">
+		<div class="flyout-menu-left">
+			<?php
+				if ( is_active_sidebar( 'flyout-menu-before' ) ) {
+					?>
 
-			<?php // Menus placed here via Javascript (see: src/js/navigation.js). ?>
+					<section class="flyout-menu-before widget-area">
+						<?php dynamic_sidebar( 'flyout-menu-before' ); ?>
+					</section>
 
-		</div><!-- #menu-clones -->
-	</div><!-- .wrap -->
-</nav><!-- #menu-drawer -->
+					<?php
+				}
+			?>
+
+			<nav class="flyout-menu-menus">
+				<div class="menu-back">
+					<a href="#">Close Menu</a>
+				</div>
+
+				<div class="menu-clones">
+					<div id="top-level-menus" class="top-level-menus">
+
+						<?php
+							$manual_menus = false;
+
+							for( $tier = 1 ; $tier <= $GLOBALS['flyout_menu_tiers']; $tier++ ) {
+								if ( has_nav_menu( 'flyout_menu_tier_' . $tier ) ) {	
+									$manual_menus = true;				
+									wp_nav_menu(
+										array(
+											'theme_location'  => 'flyout_menu_tier_' . $tier,
+											'container' => false,
+											'menu_class' => 'menu tier-' . $tier,
+										)
+									);				
+								}				
+							}
+						?>
+
+						<?php if( ! $manual_menus ) { ?>
+							<?php // Menus placed here via Javascript (see: src/js/navigation.js). ?>
+							<?php	for( $tier = 1 ; $tier <= $GLOBALS['flyout_menu_tiers']; $tier++ ) { ?>
+								<ul class="menu auto-populate tier-<?php echo $tier; ?>"></ul>
+							<?php }	?>
+						<?php } ?>
+
+					</div><!-- #menu-clones -->
+				</div>
+			</nav>
+
+			<?php
+				if ( is_active_sidebar( 'flyout-menu-after' ) ) {
+					?>
+
+					<section class="flyout-menu-after widget-area">
+						<?php dynamic_sidebar( 'flyout-menu-after' ); ?>
+					</section>
+
+					<?php
+				}
+			?>
+		</div>
+		<?php
+			if ( is_active_sidebar( 'flyout-menu-content' ) ) {
+				?>
+
+				<section class="flyout-menu-content widget-area">
+					<?php dynamic_sidebar( 'flyout-menu-content' ); ?>
+				</section>
+
+				<?php
+			}
+		?>
+	</div>
+</div><!-- #flyout-menu -->

@@ -38,11 +38,16 @@ add_action( 'emma_header_bar', 'emma_header_bar_template' );
  * Gets the header inner template parts.
  */
 function emma_header_inner_template() {
-	get_template_part( 'template-parts/navigation', 'left' );
-	get_template_part( 'template-parts/site', 'branding' );
+	$display_logo_left_of_menus = get_theme_mod( 'display_logo_left_of_menus', false );
+	if( $display_logo_left_of_menus ) {
+		get_template_part( 'template-parts/site', 'branding' );
+		get_template_part( 'template-parts/navigation', 'left' );
+	} else {
+		get_template_part( 'template-parts/navigation', 'left' );
+		get_template_part( 'template-parts/site', 'branding' );
+	}
 	get_template_part( 'template-parts/navigation', 'right' );
 	get_template_part( 'template-parts/header', 'widgets' );
-	get_template_part( 'template-parts/navigation', 'controls' );
 }
 add_action( 'emma_header', 'emma_header_inner_template' );
 
@@ -72,7 +77,7 @@ add_action( 'emma_after_header', 'emma_sticky_saver_template' );
 function emma_primary_navigation_template() {
 	get_template_part( 'template-parts/navigation', 'primary' );
 }
-add_action( 'emma_after_header', 'emma_primary_navigation_template' );
+add_action( 'emma_header_bar', 'emma_primary_navigation_template' );
 
 /**
  * Gets the post thumbnail template part.
@@ -153,10 +158,10 @@ add_action( 'emma_footer', 'emma_site_info_template' );
 /**
  * Gets the menu drawer template part.
  */
-function emma_menu_drawer_template() {
+function emma_flyout_menu_template() {
 	get_template_part( 'template-parts/menu', 'drawer' );
 }
-add_action( 'emma_after', 'emma_menu_drawer_template' );
+add_action( 'emma_after', 'emma_flyout_menu_template' );
 
 /**
  * Gets the mini cart template part.
