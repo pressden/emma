@@ -38,7 +38,9 @@
 		&:focus,
 		&:focus-within,
 		&:active {
-			color: $menu-link-hover-color;
+			a {
+				color: $menu-link-hover-color;
+			}
 		}
 
 		:where( a:not(.inactive) ) {
