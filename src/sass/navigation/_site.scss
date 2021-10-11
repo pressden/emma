@@ -17,8 +17,6 @@
 	@if $enable-dropdown-icon {
 		& > ul {
 			& > .menu-item-has-children {
-				padding-right: $menu-dropdown-padding-right;
-
 				& > a {
 					&::after {
 						@include icon-mask( $menu-dropdown-icon );
