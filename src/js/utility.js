@@ -41,7 +41,6 @@ export function trapFocus(element, focusDelay = 0, setFocus = false) {
 	if( !setFocus ) {
 		setFocus = firstFocusableEl;
 	}
-	console.log(focusableEls);
   let lastFocusableEl = focusableEls[focusableEls.length - 1];
 	
   element.addEventListener('keydown', checkFocusChange, false);
@@ -64,7 +63,6 @@ export function checkFocusChange(e) {
 	if (!isTabPressed) { 
 		return; 
 	}
-	console.log("tab pressed");
 
 	if ( e.shiftKey ) /* shift + tab */ {
 		if (document.activeElement === firstFocusableEl) {

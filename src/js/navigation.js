@@ -29,7 +29,7 @@ drawer = document.querySelector("#flyout-menu");
 		);
 	
 		utilityMenus = document.querySelectorAll(
-			"#masthead .widget_nav_menu"
+			"#mastutils .widget_nav_menu"
 		);
 
 		copyMenuItems(mainMenus, "tier-1");
@@ -138,7 +138,7 @@ function updateMenuBack() {
 
 function copyMenuItems( menus, defaultLocation ) {
 	menus.forEach((menu) => {
-		let links = menu.querySelectorAll("a");
+		let links = menu.querySelectorAll(".menu > .menu-item > a");
 
 		links.forEach((link) => {
 			let copyLocation = defaultLocation;
