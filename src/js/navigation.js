@@ -18,7 +18,6 @@ drawer = document.querySelector("#flyout-menu");
 	closers = document.querySelectorAll(".menu-closer");
 	background = document.querySelector(".flyout-menu-background");
 	topLevelMenus = drawer.querySelector("#top-level-menus");
-	subMenus = drawer.querySelectorAll('.sub-menu');
 	menuBack = drawer.querySelector(".menu-back a");
 	currentMenu = topLevelMenus;
 	autoMenus = drawer.querySelector( '.auto-populate' );
@@ -36,6 +35,9 @@ drawer = document.querySelector("#flyout-menu");
 		copyMenuItems(mainMenus, "tier-1");
 		copyMenuItems(utilityMenus, "tier-2");
 	}
+
+	// assign our subMenus variable *after* copying menus
+	subMenus = drawer.querySelectorAll('.sub-menu');
 
 	// set opener and closer event listeners
 	opener.onclick = function () {
