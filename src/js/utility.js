@@ -16,33 +16,31 @@
 	});
 })();
 
-export function trapFocus(element, focusDelay = 0, setFocus = false) {
+export function trapFocus(element, setFocus = false, delay = 0) {
 	releaseFocus();
 	element.classList.add("focus-trapped");
-  let allFocusableEls = element.querySelectorAll('a[href]:not([disabled]):not(.inactive), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
-	let focusableEls = Array();
-	allFocusableEls.forEach((el) => {
-		let style = window.getComputedStyle(el, null);
-
-		if( style.visibility == "visible" ) {
-			focusableEls.push( el );
+	let focusableEls = element.querySelectorAll('a[href]:not([disabled]):not(.inactive), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])');
+	let trapEls = Array();
+	focusableEls.forEach((el) => {
+		let focusTrapIgnored = el.closest(".focus-trap-ignore");
+		if( focusTrapIgnored === null && !el.classList.contains("focus-trap-ignore") ) {
+			trapEls.push( el );
 		}
 	});
-  let firstFocusableEl = focusableEls[0];  
+
+	let firstFocusableEl = trapEls[0];  
 	if( !setFocus ) {
 		setFocus = firstFocusableEl;
 	}
-  let lastFocusableEl = focusableEls[focusableEls.length - 1];
+	let lastFocusableEl = trapEls[trapEls.length - 1];
 	
-  element.addEventListener('keydown', checkFocusChange, false);
+	element.addEventListener('keydown', checkFocusChange, false);
 	element.firstFocusableEl = firstFocusableEl;
 	element.lastFocusableEl = lastFocusableEl;
 
-	if(focusDelay !== false) {
-		setTimeout(function() {
-			setFocus.focus();
-		}, focusDelay);
-	}
+	setTimeout(function() {
+		setFocus.focus();
+	}, delay);
 }
 
 export function checkFocusChange(e) {
@@ -67,7 +65,6 @@ export function checkFocusChange(e) {
 		}
 	}
 }
-
 
 export function releaseFocus() {
 	let focusTrappedEl = document.querySelector(".focus-trapped");

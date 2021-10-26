@@ -7,7 +7,7 @@
 
 import { trapFocus, releaseFocus } from './utility';
 
-let drawer, currentMenu, topLevelMenus, menuBack, opener, clones;
+let drawer, currentMenu, topLevelMenus, subMenus, menuBack, opener, clones;
 drawer = document.querySelector("#flyout-menu");
 
 (function () {
@@ -17,7 +17,8 @@ drawer = document.querySelector("#flyout-menu");
 	opener = document.querySelector("#menu-opener");
 	closers = document.querySelectorAll(".menu-closer");
 	background = document.querySelector(".flyout-menu-background");
-	topLevelMenus = document.querySelector("#top-level-menus");
+	topLevelMenus = drawer.querySelector("#top-level-menus");
+	subMenus = drawer.querySelectorAll('.sub-menu');
 	menuBack = drawer.querySelector(".menu-back a");
 	currentMenu = topLevelMenus;
 	autoMenus = drawer.querySelector( '.auto-populate' );
@@ -59,7 +60,8 @@ drawer = document.querySelector("#flyout-menu");
 			parentMenu.classList.remove("sub-menu-open");
 			currentMenu = parentMenu;
 			updateMenuBack();
-			trapFocus(drawer, 0, menuBack);
+			setFocusTrapIgnore(topLevelMenus);
+			trapFocus(drawer, menuBack);
 			clones.style.height = parentMenu.offsetHeight + "px";
 		}
 	});
@@ -97,7 +99,8 @@ drawer = document.querySelector("#flyout-menu");
 			clones.style.height = subMenu.offsetHeight + "px";
 			currentMenu = subMenu;
 			updateMenuBack();
-			trapFocus(drawer, 0, menuBack);
+			setFocusTrapIgnore(subMenu);
+			trapFocus(drawer, menuBack);
 		});
 	});
 
@@ -107,7 +110,8 @@ drawer = document.querySelector("#flyout-menu");
 
 function openMenuDrawer() {
 	document.body.classList.add("flyout-menu-open");
-	trapFocus(drawer, 250);
+	setFocusTrapIgnore(topLevelMenus);
+	trapFocus(drawer);
 }
 
 function closeMenuDrawer() {
@@ -161,4 +165,12 @@ function copyMenuItems( menus, defaultLocation ) {
 
 function setInitialMenuClonesHeight() {
 	clones.style.height = topLevelMenus.offsetHeight + "px";
+}
+
+function setFocusTrapIgnore( focusMenu ) {
+	topLevelMenus.classList.add( 'focus-trap-ignore' );
+	subMenus.forEach((subMenu) => {
+		subMenu.classList.add( 'focus-trap-ignore' );
+	});
+	focusMenu.classList.remove( 'focus-trap-ignore' );
 }
