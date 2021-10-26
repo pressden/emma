@@ -15,7 +15,7 @@ a {
 	}
 
 	&.inactive {
-		color: inherit;
+		color: inherit !important;
 		cursor: default;
 		
 		&:hover {

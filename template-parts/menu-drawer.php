@@ -2,7 +2,7 @@
 <div id="flyout-menu" class="flyout-menu <?php if ( is_active_sidebar( 'flyout-menu-content' ) ) { echo "two-column"; } ?>">
 	<div class="flyout-menu-wrap">
 		<div class="top-bar">
-			<a href="#" id="menu-closer" class="menu-toggle menu-closer"><span class="screen-reader-text">Close Menu</span></a>
+			<a href="#" id="menu-closer" class="menu-toggle menu-closer menu-closer-icon"><span class="screen-reader-text">Close Menu</span></a>
 		</div>
 
 		<div class="flyout-menu-left">
