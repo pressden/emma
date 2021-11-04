@@ -29,7 +29,6 @@ body {
 	width: 100%;
 	max-width: $flyout-menu-max-width;
 	padding-bottom: $spacer-lg;
-	transform: translateX(100%);
 	z-index: 10;
 	top: var( --admin-bar-height );
 	right: 0;
@@ -45,7 +44,7 @@ body {
 
 	.flyout-menu-open & {
 		visibility: visible;
-		transform: translateX(0);
+		transform: translateX(0) !important;
 		transition: transform 0.25s ease-in-out;
 	}
 
