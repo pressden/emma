@@ -27,7 +27,7 @@ drawer = document.querySelector("#flyout-menu");
 		mainMenus = document.querySelectorAll(
 			"#masthead .site-navigation, #main-navigation"
 		);
-	
+
 		utilityMenus = document.querySelectorAll(
 			"#mastutils .widget_nav_menu"
 		);
@@ -148,7 +148,7 @@ function copyMenuItems( menus, defaultLocation ) {
 
 		links.forEach((link) => {
 			let copyLocation = defaultLocation;
-			
+
 			if(link.dataset.menuDrawerLocation) {
 				copyLocation = link.dataset.menuDrawerLocation;
 			}
