@@ -46,10 +46,11 @@ if ( ! function_exists( 'emma_setup' ) ) {
 			'footer'  => esc_html__( 'Footer Menu', 'emma' ),
 		);
 
+		// Filter 'flyout_menu_tiers' in the global scope for use in templates.
 		$GLOBALS['flyout_menu_tiers'] = apply_filters( 'emma_flyout_menu_tiers', 2 );
 
-		for( $tier = 1 ; $tier <= $GLOBALS['flyout_menu_tiers']; $tier++ ) {
-			$emma_nav_menus['flyout_menu_tier_' . $tier] = esc_html__( 'Flyout Menu Tier ' . $tier, 'emma' );
+		for ( $i = 1; $i <= $GLOBALS['flyout_menu_tiers']; $i++ ) {
+			$emma_nav_menus[ 'flyout_menu_tier_' . $i ] = esc_html__( 'Flyout Menu', 'emma' ) . ' (' . esc_html__( 'Tier', 'emma' ) . " $i)";
 		}
 
 		register_nav_menus( $emma_nav_menus );
@@ -86,7 +87,7 @@ if ( ! function_exists( 'emma_setup' ) ) {
 		 *
 		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
-		$args = array (
+		$args = array(
 			'height'      => 250,
 			'width'       => 250,
 			'flex-width'  => true,
