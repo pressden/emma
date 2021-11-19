@@ -269,32 +269,32 @@ add_action( 'after_setup_theme', 'emma_editor_font_sizes', 0 );
  */
 function emma_widgets_init() {
 	$widget_areas = array(
-		'sitewide-alert'    => array(
+		'sitewide-alert'      => array(
 			'name'        => esc_html__( 'Sitewide Alert', 'emma' ),
 			'id'          => 'sitewide-alert',
 			'description' => esc_html__( 'These widgets appear at the top of every page in case of emergency. For best results, use only a single Text widget with a short message.', 'emma' ),
 		),
-		'header-widgets'    => array(
+		'header-widgets'      => array(
 			'name'        => esc_html__( 'Header Widgets', 'emma' ),
 			'id'          => 'header-widgets',
 			'description' => esc_html__( 'Add widgets to the site header.', 'emma' ),
 		),
-		'primary-sidebar'   => array(
+		'primary-sidebar'     => array(
 			'name'        => esc_html__( 'Primary Sidebar', 'emma' ),
 			'id'          => 'primary-sidebar',
 			'description' => esc_html__( 'Add widgets to pages that contain a sidebar.', 'emma' ),
 		),
-		'secondary-sidebar' => array(
+		'secondary-sidebar'   => array(
 			'name'        => esc_html__( 'Secondary Sidebar', 'emma' ),
 			'id'          => 'secondary-sidebar',
 			'description' => esc_html__( 'Add widgets to pages that support a secondary sidebar.', 'emma' ),
 		),
-		'flyout-menu-before' => array(
+		'flyout-menu-before'  => array(
 			'name'        => esc_html__( 'Flyout Menu (Before)', 'emma' ),
 			'id'          => 'flyout-menu-before',
 			'description' => esc_html__( 'Add widgets above the flyout menu links', 'emma' ),
 		),
-		'flyout-menu-after' => array(
+		'flyout-menu-after'   => array(
 			'name'        => esc_html__( 'Flyout Menu (After)', 'emma' ),
 			'id'          => 'flyout-menu-after',
 			'description' => esc_html__( 'Add widgets below the flyout menu links', 'emma' ),
