@@ -79,12 +79,12 @@ drawer = document.querySelector("#flyout-menu");
 		let subMenuLinkClone = subMenuLink.cloneNode(true);
 		subMenuLinkClone.removeAttribute("aria-haspopup");
 		subMenuLinkClone.removeAttribute("aria-expanded");
+		var subMenuLinkCloneListItem = document.createElement("li");
+		subMenuLinkCloneListItem.classList.add("menu-title");
 		if(subMenuLinkClone.attributes['href'].value === "#") {
-			subMenuLinkClone.classList.add("inactive");
+			subMenuLinkCloneListItem.classList.add("inactive");
 			subMenuLinkClone.tabIndex = -1;
 		}
-		let subMenuLinkCloneListItem = document.createElement("li");
-		subMenuLinkCloneListItem.classList.add("menu-title");
 		subMenuLinkCloneListItem.appendChild(subMenuLinkClone);
 		subMenu.prepend(subMenuLinkCloneListItem);
 
