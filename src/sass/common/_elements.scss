@@ -14,8 +14,9 @@ a {
 		outline: thin dotted;
 	}
 
-	&.inactive {
-		color: inherit !important;
+	&.inactive,
+	.inactive > & {
+		color: inherit;
 		cursor: default;
 		
 		&:hover {

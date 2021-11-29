@@ -38,7 +38,7 @@ body {
 	transition: visibility 0.25s, transform 0.25s ease-in-out;
 	overflow-y: auto;
 
-	a {
+	li {
 		color: $flyout-menu-link-color;
 	}
 
@@ -131,11 +131,19 @@ body {
 		background-color: $flyout-menu-menus-background;
 		color: color-yiq( $flyout-menu-menus-background );
 
+		li {
+			color: $flyout-menu-menus-link-color;
+
+			&:where( .inactive ) {
+				color: $menu-link-inactive-color;
+			}
+		}
+
 		a {
 			display: block;
 			padding-left: $spacer;
 			padding-right: $spacer;
-			color: $flyout-menu-menus-link-color;
+			color: inherit;
 		}
 	}
 

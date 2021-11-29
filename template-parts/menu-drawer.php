@@ -19,9 +19,11 @@
 			?>
 
 			<nav class="flyout-menu-menus">
-				<div class="menu-back">
-					<a href="#">Close Menu</a>
-				</div>
+				<ul class="menu">
+					<li class="menu-back">
+						<a href="#">Close Menu</a>
+					</li>
+				</ul>
 
 				<div class="menu-clones">
 					<div id="top-level-menus" class="top-level-menus">

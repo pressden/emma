@@ -40,6 +40,10 @@
 		&:focus-within,
 		&:active {
 			color: $menu-link-hover-color;
+
+			&:where( .inactive ) {
+				color: $menu-link-inactive-color;
+			}
 		}
 
 		&:where( .inactive ) {
