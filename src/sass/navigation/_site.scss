@@ -33,24 +33,17 @@
 
 	li {
 		position: relative;
+		color: $menu-link-color;
 
 		&:hover,
 		&:focus,
 		&:focus-within,
 		&:active {
-			a {
-				color: $menu-link-hover-color;
-			}
-		}
-
-		:where( a:not(.inactive) ) {
-			color: $menu-link-color;
+			color: $menu-link-hover-color;
 		}
 
 		&:where( .inactive ) {
-			a {
-				color: inherit;
-			}
+			color: $menu-link-inactive-color;
 		}
 	}
 
@@ -58,6 +51,7 @@
 		display: block;
 		padding: $menu-link-padding-y $menu-link-padding-x;
 		text-decoration: none;
+		color: inherit;
 
 		&:focus {
 			outline-offset: -1px;
@@ -103,6 +97,10 @@
 			&:focus-within,
 			&:active {
 				color: $menu-sub-link-hover-color;
+			}
+
+			&:where( .inactive ) {
+				color: $menu-sub-link-inactive-color;
 			}
 
 			&:hover,

@@ -60,8 +60,10 @@ $link-hover-color: shade($link-color, 25%) !default;
 
 // Menus
 $menu-link-color: $link-color !default;
+$menu-link-inactive-color: $body-color !default;
 $menu-link-hover-color: $link-hover-color !default;
 $menu-sub-link-color: $menu-link-color !default;
+$menu-sub-link-inactive-color: $menu-link-inactive-color !default;
 $menu-sub-link-hover-color: $menu-link-hover-color !default;
 $menu-sub-background-color: $white !default;
 
