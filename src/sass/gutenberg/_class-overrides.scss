@@ -7,7 +7,7 @@
 }
 
 .has-medium-font-size {
-	font-size: $font-size-md;
+	@include font-size($font-size-md);
 }
 
 .has-large-font-size {
