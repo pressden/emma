@@ -1,5 +1,30 @@
 <?php
 /**
+ * Add the menu-opener menu item
+ */
+function emma_add_menu_opener_menu_item() {
+	// Get the value for `desktop_show_flyout_menu_toggle`.
+	$desktop_show_flyout_menu_toggle = get_theme_mod( 'desktop_show_flyout_menu_toggle', false );
+	?>
+
+	<li class="menu-opener-container <?php echo ! $desktop_show_flyout_menu_toggle ? 'hide-on-desktop' : ''; ?>">
+		<a
+			href="#"
+			id="menu-opener"
+			class="menu-toggle menu-opener"
+			aria-controls="flyout-menu"
+			aria-expanded="false"
+			title="<?php esc_attr_e( 'Primary Menu', 'emma' ); ?>"
+		>
+			<span class="screen-reader-text">Open Menu</span>
+		</a><!-- #menu-opener -->
+	</li><!-- .menu-opener-container -->
+
+	<?php
+}
+add_action( 'emma_after_right_menu_items', 'emma_add_menu_opener_menu_item' );
+
+/**
  * Add menu meta box
  *
  * @param object $object The meta box object.
