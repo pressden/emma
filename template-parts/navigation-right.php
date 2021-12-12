@@ -14,15 +14,13 @@
 				?>
 
 				<?php
-				if ( has_nav_menu( 'right' ) ) {
-					wp_nav_menu(
-						array(
-							'theme_location' => 'right',
-							'container'      => 'false',
-							'items_wrap'     => '%3$s',
-						)
-					);
-				}
+				wp_nav_menu(
+					array(
+						'theme_location' => 'right',
+						'container'      => 'false',
+						'items_wrap'     => '%3$s',
+					)
+				);
 				?>
 
 				<?php
