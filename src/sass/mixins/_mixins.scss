@@ -118,9 +118,9 @@
 	}
 }
 
-@mixin icon-mask( $icon ) {
+@mixin icon-mask( $icon, $path: $icons-path ) {
 	content: '';
-	mask-image: url( "#{ $icons-path }#{ $icon }.svg" );
+	mask-image: url( "#{ $path }#{ $icon }.svg" );
 	mask-repeat: no-repeat;
 	mask-position: center;
 	mask-origin: content-box;
