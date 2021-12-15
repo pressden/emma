@@ -21,9 +21,7 @@
 }
 
 .menu-opener-container {
-	&.hide-on-desktop {
-		@media screen and (min-width: $menu-breakpoint) {
-			display: none !important;
-		}
+	@media screen and (min-width: $menu-breakpoint) {
+		display: none !important;
 	}
 }

@@ -1,8 +1,10 @@
 .main-navigation {
-	display: none;
+	.menu-item {
+		display: none;
 
-	@media screen and (min-width: $menu-breakpoint) {
-		display: block;
+		@media screen and (min-width: $menu-breakpoint) {
+			display: block;
+		}
 	}
 
 	> .wrap {
