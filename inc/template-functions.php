@@ -25,6 +25,9 @@ function emma_body_classes( $classes ) {
 	
 	// Adds a class based on whether left, right or both (split) navigation menus exist.
 	$desktop_show_flyout_menu_toggle = get_theme_mod( 'desktop_show_flyout_menu_toggle', false );
+	if ( $desktop_show_flyout_menu_toggle ) {
+		$classes[] = 'has-desktop-flyout-menu-toggle';
+	}
 
 	if ( has_nav_menu( 'left' ) && ( has_nav_menu( 'right' ) || $desktop_show_flyout_menu_toggle ) ) {
 		if( $display_logo_left_of_menus ) {
@@ -40,8 +43,6 @@ function emma_body_classes( $classes ) {
 		}
 	} elseif ( has_nav_menu( 'right' ) ) {
 		$classes[] = 'has-right-navigation';
-	} elseif ( $desktop_show_flyout_menu_toggle ) {
-		$classes[] = 'has-desktop-flyout-menu-toggle';
 	}elseif ( has_nav_menu( 'primary' ) ) {
 		$classes[] = 'has-primary-navigation';
 	}

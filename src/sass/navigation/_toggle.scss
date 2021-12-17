@@ -9,16 +9,26 @@
 	text-decoration: none !important;
 }
 
-.menu-container .flyout-menu-opener {
+.flyout-menu-opener {
 	display: flex;
 
-	@media screen and ( min-width: $menu-breakpoint ) {
-		display: none;
-	}
-
 	a {
+		text-indent: -999rem;
+		white-space: nowrap;
+		overflow: hidden;
+
 		&::before {
 			@include icon-mask( 'menu-alt' );
+		}
+	}
+
+	&.auto-added {
+		@media screen and ( min-width: $menu-breakpoint ) {
+			display: none;
+	
+			.has-desktop-flyout-menu-toggle & {
+				display: flex;
+			}
 		}
 	}
 }

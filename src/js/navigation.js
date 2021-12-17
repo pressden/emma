@@ -7,14 +7,14 @@
 
 import { trapFocus, releaseFocus } from './utility';
 
-let drawer, currentMenu, topLevelMenus, subMenus, menuBack, opener, clones;
+let drawer, currentMenu, topLevelMenus, subMenus, menuBack, openers, clones;
 drawer = document.querySelector("#flyout-menu");
 
 (function () {
 	let mainMenus, utilityMenus, closers, autoMenus, background;
 
 	clones = document.querySelector(".menu-clones");
-	opener = document.querySelector(".flyout-menu-opener a");
+	openers = document.querySelectorAll(".flyout-menu-opener a");
 	closers = document.querySelectorAll(".menu-closer");
 	background = document.querySelector(".flyout-menu-background");
 	topLevelMenus = drawer.querySelector("#top-level-menus");
@@ -40,9 +40,14 @@ drawer = document.querySelector("#flyout-menu");
 	subMenus = drawer.querySelectorAll('.sub-menu');
 
 	// set opener and closer event listeners
-	opener.onclick = function () {
+	openers.forEach((opener) => {
+		opener.setAttribute("aria-controls", "flyout-menu");
+		opener.setAttribute("aria-expanded", "false");
+		opener.addEventListener("click", function (event) {
 			openMenuDrawer();
-	};
+		});
+	});
+
 	closers.forEach((closer) => {
 		closer.addEventListener("click", function (event) {
 			event.preventDefault();
@@ -114,6 +119,9 @@ function openMenuDrawer() {
 	document.body.classList.add("flyout-menu-open");
 	setFocusTrapIgnore(topLevelMenus);
 	trapFocus(drawer);
+	openers.forEach((opener) => {
+		opener.setAttribute("aria-expanded", "true");
+	});
 }
 
 function closeMenuDrawer() {
@@ -131,7 +139,10 @@ function closeMenuDrawer() {
 	currentMenu = topLevelMenus;
 	updateMenuBack();
 	setInitialMenuClonesHeight();
-	opener.focus();
+	openers.forEach((opener) => {
+		opener.setAttribute("aria-expanded", "false");
+	});
+	openers[0].focus();
 }
 
 function updateMenuBack() {
