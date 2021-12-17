@@ -14,7 +14,7 @@ drawer = document.querySelector("#flyout-menu");
 	let mainMenus, utilityMenus, closers, autoMenus, background;
 
 	clones = document.querySelector(".menu-clones");
-	opener = document.querySelector("#menu-opener");
+	opener = document.querySelector(".flyout-menu-opener a");
 	closers = document.querySelectorAll(".menu-closer");
 	background = document.querySelector(".flyout-menu-background");
 	topLevelMenus = drawer.querySelector("#top-level-menus");

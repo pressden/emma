@@ -1,4 +1,5 @@
-.menu-toggle {
+.flyout-menu-toggle,
+.flyout-menu-opener a {
 	position: relative;
 	margin: 0;
 	height: 3rem;
@@ -8,20 +9,22 @@
 	text-decoration: none !important;
 }
 
-.menu-opener {
-	&::before {
-		@include icon-mask( 'menu-alt' );
+.menu-container .flyout-menu-opener {
+	display: flex;
+
+	@media screen and ( min-width: $menu-breakpoint ) {
+		display: none;
+	}
+
+	a {
+		&::before {
+			@include icon-mask( 'menu-alt' );
+		}
 	}
 }
 
 .menu-closer-icon {
 	&::before {
 		@include icon-mask( 'no-alt' );
-	}
-}
-
-.menu-opener-container {
-	@media screen and (min-width: $menu-breakpoint) {
-		display: none !important;
 	}
 }

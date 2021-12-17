@@ -1,8 +1,6 @@
-<li class="menu-item">
+<li class="menu-item flyout-menu-opener">
 	<a
 		href="#"
-		id="menu-opener"
-		class="menu-toggle menu-opener"
 		aria-controls="flyout-menu"
 		aria-expanded="false"
 		title="<?php esc_attr_e( 'Primary Menu', 'emma' ); ?>"
