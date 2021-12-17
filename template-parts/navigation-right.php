@@ -1,5 +1,3 @@
-<?php //if ( has_nav_menu( 'right' ) ) : ?>
-
 <nav id="right-navigation" class="site-navigation right-navigation">
 
 	<?php
@@ -14,5 +12,3 @@
 	?>
 
 </nav><!-- #right-navigation -->
-
-<?php //endif; ?>
