@@ -22,9 +22,9 @@ $sitewide-alert-font-weight: bold !default;
 
 // Utility bar
 $utility-bar-wrap-max-width: $wrap-max-width !default;
-$utility-bar-wrap-padding: $spacer-xs 0 !default;
 $utility-bar-wrap-align-items: center !default;
 $utility-bar-wrap-justify-content: space-between !default;
+$utility-bar-menu-item-margin: $spacer-xs 0 !default;
 
 // Header - wrap
 $header-wrap-display: grid !default;
@@ -64,7 +64,7 @@ $header-widgets-flex-grow: 1 !default;
 $header-widgets-order: 5 !default;
 
 // Menu - main navigation
-$main-navigation-wrap-padding: $spacer-sm 0 !default;
+$main-navigation-menu-item-margin: $spacer-sm 0 !default;
 
 // Layout
 $layout-breakpoint-sm: $breakpoint-sm !default;

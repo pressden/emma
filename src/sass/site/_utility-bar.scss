@@ -4,7 +4,6 @@
 	> .wrap {
 		@include center-wrap($utility-bar-wrap-max-width);
 		@include layout-wrap();
-		padding: $utility-bar-wrap-padding;
 		display: flex;
 		flex-wrap: wrap;
 		align-items: $utility-bar-wrap-align-items;
@@ -20,6 +19,10 @@
 				display: flex;
 				justify-content: flex-end;
 			}
+		}
+
+		.menu-item {
+			margin: $utility-bar-menu-item-margin;
 		}
 	}
 }
