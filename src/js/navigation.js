@@ -164,13 +164,16 @@ function copyMenuItems( menus, defaultLocation ) {
 				copyLocation = link.dataset.menuDrawerLocation;
 			}
 
-			let clone = link.closest("li").cloneNode(true);
-			if( clone.id ) {
-				clone.id = clone.id + "-drawer";
-			}
-			let copyLocationEl = drawer.querySelector("." + copyLocation);
-			if( copyLocationEl ) {
-				copyLocationEl.appendChild(clone);
+			let toClone = link.closest("li");
+			if( ! toClone.classList.contains("flyout-menu-opener") ) {
+				let clone = toClone.cloneNode(true);
+				if( clone.id ) {
+					clone.id = clone.id + "-drawer";
+				}
+				let copyLocationEl = drawer.querySelector("." + copyLocation);
+				if( copyLocationEl ) {
+					copyLocationEl.appendChild(clone);
+				}
 			}
 		});
 	});
