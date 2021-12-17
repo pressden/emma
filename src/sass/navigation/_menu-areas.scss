@@ -1,0 +1,46 @@
+.main-navigation,
+.right-navigation {
+	:where( .menu-item ) {
+		display: none;
+
+		@media screen and (min-width: $menu-breakpoint) {
+			display: block;
+		}
+	}
+}
+
+.main-navigation {
+	> .wrap {
+		@include center-wrap($wrap-max-width);
+		@include layout-wrap();
+		padding: $main-navigation-wrap-padding;
+	}
+}
+
+.left-navigation {
+	display: none;
+
+	@media screen and (min-width: $menu-breakpoint) {
+		display: block;
+	}
+}
+
+.footer-navigation {
+	.menu-container {
+		.menu {
+			justify-content: $menu-footer-justify-content;
+		}
+
+		// Ensure footer link color takes precedence
+		li {
+			color: $footer-link-color;
+
+			&:hover,
+			&:focus,
+			&:focus-within,
+			&:active {
+				color: $footer-link-hover-color;
+			}
+		}
+	}
+}
