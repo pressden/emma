@@ -5,6 +5,7 @@
 	--color-contrast-sm: #{tint($body-color, 6%)};
 	--color-contrast-md: #{tint($body-color, 40%)};
 	--layout-spacer-x: #{ $spacer };
+	--header-wrap-columns: 1fr;
 	--justify-content-left-menu: space-between;
 	--justify-content-right-menu: flex-end;
 	--justify-content-primary-menu: space-between;
@@ -16,6 +17,10 @@
 
 	@media screen and ( min-width: $breakpoint-xs ) {
 		--layout-spacer-x: #{ $spacer-lg };
+	}
+
+	@media screen and ( min-width: $menu-breakpoint ) {
+		--justify-content-right-menu: space-between;
 	}
 }
 

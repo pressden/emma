@@ -25,10 +25,6 @@
 	&.auto-added {
 		@media screen and ( min-width: $menu-breakpoint ) {
 			display: none;
-	
-			.has-desktop-flyout-menu-toggle & {
-				display: flex;
-			}
 		}
 	}
 }

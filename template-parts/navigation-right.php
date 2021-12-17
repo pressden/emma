@@ -1,3 +1,8 @@
+<?php 
+	$auto_add_toggle = get_theme_mod( 'auto_add_flyout_menu_toggle', true );
+	if ( has_nav_menu( 'right' ) || $auto_add_toggle ) : 
+?>
+
 <nav id="right-navigation" class="site-navigation right-navigation">
 
 	<?php
@@ -12,3 +17,5 @@
 	?>
 
 </nav><!-- #right-navigation -->
+
+<?php endif; ?>

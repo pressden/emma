@@ -12,8 +12,11 @@ function emma_buffer_template_part( $slug = '', $name ='' ) {
  * Add the flyout menu opener link to right menu, if menu is set
  */
 function emma_add_menu_opener_menu_item( $items, $args ){
-	if( $args->theme_location == 'right' ){
-		$items .= emma_buffer_template_part( 'template-parts/flyout-menu', 'opener' );
+	$auto_add_toggle = get_theme_mod( 'auto_add_flyout_menu_toggle' );
+	if( $auto_add_toggle ) {
+		if( $args->theme_location == 'right' ){
+			$items .= emma_buffer_template_part( 'template-parts/flyout-menu', 'opener' );
+		}
 	}
 	return $items;
 }
@@ -68,6 +71,16 @@ function emma_feature_link_meta_box_content() {
 	 * Feature Link Object
 	 */
 	class Feature {};
+
+	$feature            = new Feature();
+	$feature->classes   = array( 'flyout-menu-opener' );
+	$feature->type      = 'custom';
+	$feature->object_id = 'flyout-menu-opener';
+	$feature->title     = 'Open Menu';
+	$feature->object    = 'custom';
+	$feature->url       = '#';
+
+	$features[] = $feature;
 
 	$feature            = new Feature();
 	$feature->classes   = array( 'search-form-toggle' );
