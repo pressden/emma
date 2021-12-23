@@ -14,7 +14,7 @@
 
 	.has-left-navigation {
 		--header-wrap-columns: #{$header-wrap-left-navigation-columns};
-		
+
 		&.has-right-navigation {
 			--header-wrap-columns: #{$header-wrap-split-navigation-columns};
 		}
