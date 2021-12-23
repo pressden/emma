@@ -127,7 +127,6 @@ body {
 
 	.flyout-menu-menus {
 		border-top: 1px solid $flyout-menu-menus-link-border-color;
-		border-bottom: 1px solid $flyout-menu-menus-link-border-color;
 		background-color: $flyout-menu-menus-background;
 		color: color-yiq( $flyout-menu-menus-background );
 
@@ -206,9 +205,6 @@ body {
 		> a {
 			position: relative;
 			padding-left: 2.5rem !important;
-			font-size: $font-size-sm;
-			font-weight: bold;
-			text-transform: uppercase;
 
 			&::before {
 				@include icon-mask( 'arrow-left-alt2' );
