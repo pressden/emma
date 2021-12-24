@@ -19,6 +19,7 @@ function emma_body_classes( $classes ) {
 
 	// Adds classes based on menu parameters
 	$auto_add_toggle = get_theme_mod( 'auto_add_flyout_menu_toggle', true );
+
 	if ( $auto_add_toggle ) {
 		$classes[] = "has-auto-flyout-toggle";
 	}
