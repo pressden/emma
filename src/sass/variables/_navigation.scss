@@ -13,7 +13,7 @@ $menu-align-items: center !default;
 // Menu - dropdown
 $menu-dropdown-icon: arrow-down !default;
 $menu-dropdown-icon-width: $spacer !default;
-$menu-dropdown-icon-height: $spacer !default;
+$menu-dropdown-icon-height: $menu-dropdown-icon-width !default;
 
 // Menu - submenu
 $menu-sub-box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2) !default;
@@ -30,9 +30,6 @@ $menu-toggle-padding-y: $menu-link-padding-y !default;
 $menu-toggle-display: inline-block !default;
 
 // Menu - drawer
-$flyout-menu-padding: $spacer-md !default;
-$flyout-menu-padding-x: $flyout-menu-padding !default;
-$flyout-menu-padding-y: $flyout-menu-padding !default;
 $flyout-menu-background: $white !default;
 $flyout-menu-menus-background: $flyout-menu-background !default;
 $flyout-menu-back-button-background: $gray-200 !default;
