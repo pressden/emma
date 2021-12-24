@@ -1,9 +1,6 @@
 // Breakpoints
 $wc-cart-breakpoint: $breakpoint-md !default;
 
-// Branding
-$wc-primary: $primary !default;
-
 // Spacing
 $wc-gap: $spacer-lg !default;
 $wc-gallery-gap: $spacer !default;
@@ -43,7 +40,7 @@ $wc-button-background-color: $button-background-color !default;
 $wc-table-head-background-color: $gray-800 !default;
 
 // Prices
-$wc-price-color: $wc-primary !default;
+$wc-price-color: $primary !default;
 
 // Review Stars
 $wc-review-star-size: 1.5rem !default;
