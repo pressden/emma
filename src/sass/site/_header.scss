@@ -5,7 +5,7 @@
 
 @media screen and (min-width: $menu-breakpoint) {
 	.has-auto-flyout-toggle {
-		--header-wrap-columns: $header-wrap-columns;
+		--header-wrap-columns: #{$header-wrap-columns};
 	}
 
 	.has-right-navigation {
