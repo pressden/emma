@@ -22,8 +22,10 @@
 	> .wrap {
 		@include center-wrap($wrap-max-width);
 		@include layout-wrap();
+	}
 
-		.menu-item {
+	.menu {
+		> .menu-item {
 			margin: $main-navigation-menu-item-margin;
 		}
 	}
