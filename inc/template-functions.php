@@ -17,33 +17,19 @@ function emma_body_classes( $classes ) {
 		$classes[] = 'hfeed';
 	}
 
-	// Adds a class if the option is selected to place logo left of both menus
-	$display_logo_left_of_menus = get_theme_mod( 'display_logo_left_of_menus', false );
-	if( $display_logo_left_of_menus ) {
-		$classes[] = "logo-left";
-	}
-	
-	// Adds a class based on whether left, right or both (split) navigation menus exist.
-	$desktop_show_flyout_menu_toggle = get_theme_mod( 'desktop_show_flyout_menu_toggle', false );
+	// Adds classes based on menu parameters
+	$auto_add_toggle = get_theme_mod( 'auto_add_flyout_menu_toggle', true );
 
-	if ( has_nav_menu( 'left' ) && ( has_nav_menu( 'right' ) || $desktop_show_flyout_menu_toggle ) ) {
-		if( $display_logo_left_of_menus ) {
-			$classes[] = 'has-double-right-navigation';
-		} else {
-			$classes[] = 'has-split-navigation';
-		}
-	} elseif ( has_nav_menu( 'left' ) ) {
-		if( $display_logo_left_of_menus ) {
-			$classes[] = 'has-right-navigation';
-		} else {
-			$classes[] = 'has-left-navigation';
-		}
-	} elseif ( has_nav_menu( 'right' ) ) {
-		$classes[] = 'has-right-navigation';
-	} elseif ( $desktop_show_flyout_menu_toggle ) {
-		$classes[] = 'has-desktop-flyout-menu-toggle';
-	}elseif ( has_nav_menu( 'primary' ) ) {
-		$classes[] = 'has-primary-navigation';
+	if ( $auto_add_toggle ) {
+		$classes[] = "has-auto-flyout-toggle";
+	}
+
+	if ( has_nav_menu( 'left' ) ) {
+		$classes[] = "has-left-navigation";
+	}
+
+	if ( has_nav_menu( 'right' ) ) {
+		$classes[] = "has-right-navigation";
 	}
 
 	// Add a layout body class.

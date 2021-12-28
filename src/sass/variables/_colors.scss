@@ -50,10 +50,6 @@ $editor-palette: map-merge(
 $body-bg: $white !default;
 $body-color: $gray-900 !default;
 
-// Screen Readers
-$screen-color: #21759b !default;
-$screen-background-color: #f1f1f1 !default;
-
 // Links
 $link-color: $action !default;
 $link-hover-color: shade($link-color, 25%) !default;

@@ -1,28 +1,39 @@
 <?php
 /**
- * Add the menu-opener menu item
+ * Buffer the output of a template part for use elsewhere
  */
-function emma_add_menu_opener_menu_item() {
-	// Get the value for `desktop_show_flyout_menu_toggle`.
-	$desktop_show_flyout_menu_toggle = get_theme_mod( 'desktop_show_flyout_menu_toggle', false );
-	?>
-
-	<li class="menu-opener-container <?php echo ! $desktop_show_flyout_menu_toggle ? 'hide-on-desktop' : ''; ?>">
-		<a
-			href="#"
-			id="menu-opener"
-			class="menu-toggle menu-opener"
-			aria-controls="flyout-menu"
-			aria-expanded="false"
-			title="<?php esc_attr_e( 'Primary Menu', 'emma' ); ?>"
-		>
-			<span class="screen-reader-text">Open Menu</span>
-		</a><!-- #menu-opener -->
-	</li><!-- .menu-opener-container -->
-
-	<?php
+function emma_buffer_template_part( $slug = '', $name ='' ) {
+	ob_start();
+	get_template_part( $slug, $name );
+	return ob_get_clean();
 }
-add_action( 'emma_after_right_menu_items', 'emma_add_menu_opener_menu_item' );
+
+/**
+ * Add the flyout menu opener link to right menu, if menu is set
+ */
+function emma_add_menu_opener_menu_item( $items, $args ){
+	$auto_add_toggle = get_theme_mod( 'auto_add_flyout_menu_toggle' );
+	if( $auto_add_toggle ) {
+		if( $args->theme_location == 'right' ){
+			$items .= emma_buffer_template_part( 'template-parts/flyout-menu', 'opener' );
+		}
+	}
+	return $items;
+}
+add_filter('wp_nav_menu_items', 'emma_add_menu_opener_menu_item', 10, 2);
+
+/**
+ * Fallback function to add the right menu if it is not set
+ */
+function fallback_right_menu() {
+	ob_start(); ?>
+		<div class="menu-container">
+			<ul id="right-menu" class="menu">
+				<?php get_template_part( 'template-parts/flyout-menu', 'opener' ); ?>
+			</ul>
+		</div>
+	<?php	echo ob_get_clean();
+}
 
 /**
  * Add menu meta box
@@ -60,6 +71,16 @@ function emma_feature_link_meta_box_content() {
 	 * Feature Link Object
 	 */
 	class Feature {};
+
+	$feature            = new Feature();
+	$feature->classes   = array( 'flyout-menu-opener' );
+	$feature->type      = 'custom';
+	$feature->object_id = 'flyout-menu-opener';
+	$feature->title     = 'Open Menu';
+	$feature->object    = 'custom';
+	$feature->url       = '#';
+
+	$features[] = $feature;
 
 	$feature            = new Feature();
 	$feature->classes   = array( 'search-form-toggle' );

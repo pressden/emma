@@ -39,7 +39,6 @@ body {
 // 1. Remove top margins from headings
 //    By default, `<h1>`-`<h6>` all receive top and bottom margins. We nuke the top
 //    margin for easier control within type scales as it avoids margin collapsing.
-
 %heading {
 	margin-top: 0; // 1
 	margin-bottom: $headings-margin-bottom;
@@ -51,33 +50,36 @@ body {
 	color: $headings-color;
 }
 
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	@extend %heading;
+}
+
+h1 {
 	@include font-size($h1-font-size);
 }
 
 h2 {
-	@extend %heading;
 	@include font-size($h2-font-size);
 }
 
 h3 {
-	@extend %heading;
 	@include font-size($h3-font-size);
 }
 
 h4 {
-	@extend %heading;
 	@include font-size($h4-font-size);
 }
 
 h5 {
-	@extend %heading;
 	@include font-size($h5-font-size);
 }
 
 h6 {
-	@extend %heading;
 	@include font-size($h6-font-size);
 }
 
@@ -85,7 +87,6 @@ h6 {
 //
 // Similarly, the top margin on `<p>`s get reset. However, we also reset the
 // bottom margin to use `rem` units instead of `em`.
-
 p {
 	margin-top: 0;
 	margin-bottom: $paragraph-margin-bottom;
@@ -111,21 +112,17 @@ ul ol {
 }
 
 // Add the correct font weight in Chrome, Edge, and Safari
-
 b,
 strong {
 	font-weight: $font-weight-bolder;
 }
 
 // Add the correct font size in all browsers
-
 small {
 	@include font-size($font-size-sm);
 }
 
-// Prevent `sub` and `sup` elements from affecting the line height in
-// all browsers.
-
+// Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 sub,
 sup {
 	position: relative;
@@ -142,7 +139,6 @@ sup {
 }
 
 // Links
-
 a {
 	color: $link-color;
 	text-decoration: $link-decoration;
@@ -154,30 +150,24 @@ a {
 }
 
 // Figures
-
 // Apply a consistent margin strategy (matches our type styles).
-
 figure {
 	margin: 0;
 }
 
 // Tables
-
 // Prevent double borders
-
 table {
 	border-collapse: collapse;
 }
 
 // Matches default `<td>` alignment by inheriting from the `<body>`, or the
 // closest parent with a set `text-align`.
-
 th {
 	text-align: inherit;
 }
 
 // Normalizes User Agent input stuff
-
 input,
 button,
 select,
@@ -190,7 +180,6 @@ textarea {
 }
 
 // Removes gap between image and its container
-
 img {
 	vertical-align: middle;
 }

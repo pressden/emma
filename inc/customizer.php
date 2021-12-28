@@ -110,25 +110,14 @@ function emma_customize_register( $wp_customize ) {
 		)
 	);
 
-	$wp_customize->add_setting( 'desktop_show_flyout_menu_toggle', array( 'sanitize_callback' => 'sanitize_key' ) );
+	$wp_customize->add_setting( 'auto_add_flyout_menu_toggle', array( 'sanitize_callback' => 'sanitize_key', 'default' => true ) );
 	$wp_customize->add_control(
-		'desktop_show_flyout_menu_toggle',
+		'auto_add_flyout_menu_toggle',
 		array(
 			'type'     => 'checkbox',
 			'priority' => 10,
 			'section'  => 'layout',
-			'label'    => 'Show Flyout Menu Toggle on Desktop',
-		)
-	);
-
-	$wp_customize->add_setting( 'display_logo_left_of_menus', array( 'sanitize_callback' => 'sanitize_key' ) );
-	$wp_customize->add_control(
-		'display_logo_left_of_menus',
-		array(
-			'type'     => 'checkbox',
-			'priority' => 10,
-			'section'  => 'layout',
-			'label'    => 'Display the Logo to the left of both menus',
+			'label'    => 'Automatically add the flyout menu toggle for mobile resolutions',
 		)
 	);
 

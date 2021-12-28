@@ -5,6 +5,15 @@ $layout-spacer-y: $spacer-md !default;
 // Paragraph
 $paragraph-margin-bottom: $spacer !default;
 
+// Headings
+$headings-margin-bottom: $spacer-sm !default;
+$headings-font-family: null !default;
+$headings-font-style: null !default;
+$headings-font-weight: 500 !default;
+$headings-letter-spacing: normal !default;
+$headings-line-height: 1.2 !default;
+$headings-color: null !default;
+
 // Headings - font sizes
 $h1-font-size: $font-size-base * 2.25 !default;
 $h2-font-size: $font-size-base * 1.875 !default;
@@ -22,9 +31,9 @@ $sitewide-alert-font-weight: bold !default;
 
 // Utility bar
 $utility-bar-wrap-max-width: $wrap-max-width !default;
-$utility-bar-wrap-padding: $spacer-xs 0 !default;
 $utility-bar-wrap-align-items: center !default;
 $utility-bar-wrap-justify-content: space-between !default;
+$utility-bar-menu-item-margin: $spacer-xs 0 !default;
 
 // Header - wrap
 $header-wrap-display: grid !default;
@@ -32,14 +41,13 @@ $header-wrap-column-gap: $spacer-lg !default;
 $header-wrap-max-width: $wrap-max-width !default;
 $header-wrap-padding: $layout-spacer-y 0 !default;
 $header-wrap-align-items: center !default;
-$header-wrap-justify-content: space-between !default;
+$header-wrap-justify-content: start !default;
 
 // Header - navigation columns
-$header-wrap-no-navigation-columns: 1fr !default;
+$header-wrap-columns: 1fr !default; // overridden by more specific variables below
 $header-wrap-left-navigation-columns: 1fr fit-content(50%) !default;
 $header-wrap-right-navigation-columns: fit-content(50%) 1fr !default;
 $header-wrap-split-navigation-columns: 1fr fit-content(50%) 1fr !default;
-$header-wrap-double-right-navigation-columns: fit-content(50%) 1fr auto !default;
 
 // Header - sticky
 $sticky-header-offset: 72px !default;
@@ -64,7 +72,7 @@ $header-widgets-flex-grow: 1 !default;
 $header-widgets-order: 5 !default;
 
 // Menu - main navigation
-$main-navigation-wrap-padding: $spacer-sm 0 !default;
+$main-navigation-menu-item-margin: $spacer-sm 0 !default;
 
 // Layout
 $layout-breakpoint-sm: $breakpoint-sm !default;
@@ -81,9 +89,6 @@ $layout-sidebar-content-sidebar-columns: $layout-sidebar-width $layout-content-w
 
 // Content - entry header
 $entry-header-wrap-max-width: $wrap-max-width !default;
-
-// Content - nav links (pagination)
-$nav-links-max-width: $wrap-max-width !default;
 
 // Content - entry footer
 $entry-footer-wrap-max-width: $content-max-width !default;

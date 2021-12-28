@@ -1,0 +1,58 @@
+.main-navigation,
+.right-navigation,
+.utility-bar {
+	:where( .menu-item:not(.show-on-mobile) ) {
+		display: none;
+
+		@media screen and (min-width: $menu-breakpoint) {
+			display: block;
+		}
+	}
+}
+
+.menu-item {
+	&.hide-on-desktop {
+		@media screen and (min-width: $menu-breakpoint) {
+			display: none;
+		}
+	}
+}
+
+.main-navigation {
+	> .wrap {
+		@include center-wrap($wrap-max-width);
+		@include layout-wrap();
+
+		.menu-item {
+			margin: $main-navigation-menu-item-margin;
+		}
+	}
+}
+
+.left-navigation {
+	display: none;
+
+	@media screen and (min-width: $menu-breakpoint) {
+		display: block;
+	}
+}
+
+.footer-navigation {
+	.menu-container {
+		.menu {
+			justify-content: $menu-footer-justify-content;
+		}
+
+		// Ensure footer link color takes precedence
+		li {
+			color: $footer-link-color;
+
+			&:hover,
+			&:focus,
+			&:focus-within,
+			&:active {
+				color: $footer-link-hover-color;
+			}
+		}
+	}
+}

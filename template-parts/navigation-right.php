@@ -1,39 +1,21 @@
-<?php if ( has_nav_menu( 'right' ) ) : ?>
+<?php 
+	$auto_add_toggle = get_theme_mod( 'auto_add_flyout_menu_toggle', true );
+	if ( has_nav_menu( 'right' ) || $auto_add_toggle ) : 
+?>
 
-	<nav id="right-navigation" class="site-navigation right-navigation">
-		<div class="menu-container">
-			<ul id="right-menu" class="menu">
+<nav id="right-navigation" class="site-navigation right-navigation">
 
-				<?php
-				/**
-				 * Fires before the right menu items.
-				 *
-				 * @since 1.0.0
-				 */
-				do_action( 'emma_before_right_menu_items' );
-				?>
+	<?php
+	wp_nav_menu(
+		array(
+			'theme_location'  => 'right',
+			'menu_id'         => 'right-menu',
+			'container_class' => 'menu-container',
+			'fallback_cb'			=> 'fallback_right_menu',
+		)
+	);
+	?>
 
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location' => 'right',
-						'container'      => 'false',
-						'items_wrap'     => '%3$s',
-					)
-				);
-				?>
-
-				<?php
-				/**
-				 * Fires after the right menu items.
-				 *
-				 * @since 1.0.0
-				 */
-				do_action( 'emma_after_right_menu_items' );
-				?>
-
-			</ul><!-- #right-menu -->
-		</div><!-- .menu-container -->
-	</nav><!-- #right-navigation -->
+</nav><!-- #right-navigation -->
 
 <?php endif; ?>

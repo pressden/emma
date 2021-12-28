@@ -50,15 +50,6 @@ $notice: #ffb900 !default;
 $warning: #f56e28 !default;
 $danger: #dc3232 !default;
 
-// Headings
-$headings-margin-bottom: math.div($spacer, 2) !default;
-$headings-font-family: null !default;
-$headings-font-style: null !default;
-$headings-font-weight: 500 !default;
-$headings-letter-spacing: normal !default;
-$headings-line-height: 1.2 !default;
-$headings-color: null !default;
-
 // Columns - use function columns($key)
 $columns: (
 	1: 100%,
