@@ -12,7 +12,7 @@ function emma_buffer_template_part( $slug = '', $name ='' ) {
  * Add the flyout menu opener link to right menu, if menu is set
  */
 function emma_add_menu_opener_menu_item( $items, $args ){
-	$auto_add_toggle = get_theme_mod( 'auto_add_flyout_menu_toggle' );
+	$auto_add_toggle = get_theme_mod( 'auto_add_flyout_menu_toggle', true );
 	if( $auto_add_toggle ) {
 		if( $args->theme_location == 'right' ){
 			$items .= emma_buffer_template_part( 'template-parts/flyout-menu', 'opener' );
