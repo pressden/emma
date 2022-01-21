@@ -15,6 +15,7 @@ module.exports = {
 	entry: {
 		theme: path.resolve(__dirname, "../src/theme"),
 		admin: path.resolve(__dirname, "../src/admin"),
+		woocommerce: path.resolve(__dirname, "../src/woocommerce"),
 	},
 	optimization: {
 		splitChunks: {
@@ -29,6 +30,13 @@ module.exports = {
 				adminStyles: {
 					name: "admin",
 					test: (m, c, entry = "admin") =>
+						m.constructor.name === "CssModule" && recursiveIssuer(m) === entry,
+					chunks: "all",
+					enforce: true,
+				},
+				woocommerceStyles: {
+					name: "woocommerce",
+					test: (m, c, entry = "woocommerce") =>
 						m.constructor.name === "CssModule" && recursiveIssuer(m) === entry,
 					chunks: "all",
 					enforce: true,
