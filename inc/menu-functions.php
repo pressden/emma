@@ -2,7 +2,7 @@
 /**
  * Buffer the output of a template part for use elsewhere
  */
-function emma_buffer_template_part( $slug = '', $name ='' ) {
+function emma_buffer_template_part( $slug = '', $name = '' ) {
 	ob_start();
 	get_template_part( $slug, $name );
 	return ob_get_clean();
@@ -11,16 +11,16 @@ function emma_buffer_template_part( $slug = '', $name ='' ) {
 /**
  * Add the flyout menu opener link to right menu, if menu is set
  */
-function emma_add_menu_opener_menu_item( $items, $args ){
+function emma_add_menu_opener_menu_item( $items, $args ) {
 	$auto_add_toggle = get_theme_mod( 'auto_add_flyout_menu_toggle', true );
-	if( $auto_add_toggle ) {
-		if( $args->theme_location == 'right' ){
+	if ( $auto_add_toggle ) {
+		if ( $args->theme_location == 'right' ) {
 			$items .= emma_buffer_template_part( 'template-parts/flyout-menu', 'opener' );
 		}
 	}
 	return $items;
 }
-add_filter('wp_nav_menu_items', 'emma_add_menu_opener_menu_item', 10, 2);
+add_filter( 'wp_nav_menu_items', 'emma_add_menu_opener_menu_item', 10, 2 );
 
 /**
  * Fallback function to add the right menu if it is not set
@@ -32,7 +32,8 @@ function fallback_right_menu() {
 				<?php get_template_part( 'template-parts/flyout-menu', 'opener' ); ?>
 			</ul>
 		</div>
-	<?php	echo ob_get_clean();
+	<?php
+	echo ob_get_clean();
 }
 
 /**
@@ -266,8 +267,8 @@ function emma_menu_item_attributes_output( $attrs, $item, $args ) {
 
 	$item_has_children = in_array( 'menu-item-has-children', $item->classes, true );
 	if ( $item_has_children ) {
-		$attrs['aria-haspopup']    = true;
-		$attrs['aria-expanded']    = false;
+		$attrs['aria-haspopup']    = 'true';
+		$attrs['aria-expanded']    = 'false';
 		$attrs['data-sub-menu-id'] = $item->ID;
 	}
 
