@@ -69,10 +69,11 @@ function emma_declare_woocommerce_support() {
 }
 
 /**
- * Enqueue Woocommerce scripts.
+ * Enqueue Woocommerce scripts and styles.
  */
 function emma_enqueue_woocommerce_scripts() {
-	wp_enqueue_script( 'emma-woocommerce-scripts', get_template_directory_uri() . '/src/js/woocommerce.js', null, wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'emma-woocommerce-scripts', get_stylesheet_directory_uri() . '/dist/woocommerce.js', null, wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_style( 'emma-woocommerce-style', get_stylesheet_directory_uri() . '/dist/woocommerce.css', null, wp_get_theme()->get( 'Version' ) );
 }
 
 /**
