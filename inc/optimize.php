@@ -49,3 +49,11 @@ function emma_disable_emojis_remove_dns_prefetch( $urls, $relation_type ) {
 
 	return $urls;
 }
+
+/**
+ * dequeue global styles that were overriding our CSS with !important flags - these will be useful with theme.json
+ */
+function emma_dequeue_global_styles() {
+	wp_dequeue_style( 'global-styles' );
+}
+add_action( 'wp_enqueue_scripts', 'emma_dequeue_global_styles', 100 );
