@@ -16,7 +16,10 @@ $alert-border-radius: $border-radius !default;
 $input-border-radius: $border-radius !default;
 $input-padding-offset: .1875 !default; // Account for the 2px border around buttons to keep inputs and buttons consistent.
 $input-padding-x: $spacer-sm !default;
-$input-padding-y: $spacer-sm + $input-padding-offset !default;
+$input-padding-y: $spacer-xs + $input-padding-offset !default;
+
+// Select2
+$select2-height: auto !default;
 
 // Links
 $link-decoration: none !default;
