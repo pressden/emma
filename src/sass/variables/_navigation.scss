@@ -1,6 +1,5 @@
 // Menu - breakpoint
 $menu-breakpoint: $breakpoint-md !default;
-$flyout-menu-breakpoint: $breakpoint-md !default;
 
 // Menu - global
 $menu-font-size: $font-size-base !default;
@@ -29,7 +28,10 @@ $menu-toggle-padding-x: $menu-link-padding-x !default;
 $menu-toggle-padding-y: $menu-link-padding-y !default;
 $menu-toggle-display: inline-block !default;
 
-// Menu - drawer
+// Flyout Menu - breakpoint
+$flyout-menu-breakpoint: $breakpoint-md !default;
+
+// Flyout Menu - global
 $flyout-menu-background: $white !default;
 $flyout-menu-menus-background: $flyout-menu-background !default;
 $flyout-menu-back-button-background: $gray-200 !default;
