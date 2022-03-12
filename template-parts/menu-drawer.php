@@ -8,8 +8,8 @@ $flyout_menu_columns = ( is_active_sidebar( 'flyout-menu-content' ) ) ? 'two-col
 
 	<div class="flyout-menu-wrap">
 
-		<div class="top-bar">
-			<a href="#" id="menu-closer" class="flyout-menu-toggle menu-closer menu-closer-icon"><span class="screen-reader-text">Close Menu</span></a>
+		<div class="top-bar flyout-menu-toggle">
+			<a href="#" id="menu-closer" class="menu-closer menu-closer-icon"><span class="screen-reader-text">Close Menu</span></a>
 		</div>
 
 		<div class="flyout-menu-left">

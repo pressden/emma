@@ -1,12 +1,14 @@
 .flyout-menu-toggle,
-.flyout-menu-opener a {
-	position: relative;
-	margin: 0;
-	height: 3rem;
-	width: 3rem;
-	padding: $menu-toggle-padding-y $menu-toggle-padding-x;
-	display: $menu-toggle-display;
-	text-decoration: none !important;
+.flyout-menu-opener {
+	> a {
+		position: relative;
+		margin: 0;
+		height: 3rem;
+		min-width: 3rem;
+		padding: $menu-toggle-padding-y $menu-toggle-padding-x;
+		display: $menu-toggle-display;
+		text-decoration: none !important;
+	}
 }
 
 .flyout-menu-opener {
