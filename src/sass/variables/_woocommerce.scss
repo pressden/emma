@@ -25,6 +25,9 @@ $wc-archive-row-gap: $wc-gap !default;
 $wc-product-column-gap: $wc-gap !default;
 $wc-product-row-gap: $wc-gap !default;
 
+// Tabs
+$wc-tab-padding: 0.75rem 1.5rem !default;
+
 // Product gallery
 $wc-product-gallery-column-gap: $wc-gallery-gap !default;
 $wc-product-gallery-row-gap: $wc-gallery-gap !default;
@@ -52,3 +55,4 @@ $wc-mini-cart-width: 300px !default;
 $wc-mini-cart-background-color: $gray-100 !default;
 $wc-mini-cart-border-color: $primary !default;
 $wc-mini-cart-border-radius: 0 !default;
+
