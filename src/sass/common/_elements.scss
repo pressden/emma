@@ -18,12 +18,12 @@ a {
 	.inactive > & {
 		color: inherit;
 		cursor: default;
-		
+
 		&:hover {
 			color: inherit;
 			text-decoration: none;
 		}
-	
+
 		&:focus {
 			outline: none;
 		}
