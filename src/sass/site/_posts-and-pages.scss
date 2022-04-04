@@ -160,10 +160,10 @@
 	}
 
 	.post-thumbnail {
-		display: none;
+		margin-bottom: 0;
 
 		@media screen and (min-width: $breakpoint-xs) {
-			display: block;
+			margin-bottom: $spacer-lg;
 		}
 	}
 }
