@@ -208,8 +208,26 @@
 			}
 
 			.comment-form-rating {
+				margin-bottom: $spacer;
+
 				.stars {
+					margin-bottom: 0;
+					line-height: 0;
+
+					&:hover,
+					&.selected {
+						a {
+							color: $accent;
+						}
+
+						a:hover ~ a:before,
+						a.active ~ a:before {
+							color: $gray-400;
+						}
+					}
+
 					a {
+						margin-right: -5px;
 						position: relative;
 						height: 1.5rem;
 						width: 1.5rem;
@@ -217,21 +235,10 @@
 						display: inline-block;
 						text-decoration: none;
 						font-weight: 400;
+						color: $gray-400;
 
 						&::before {
 							@include icon-mask( 'star-filled' );
-						}
-					}
-
-					&.selected {
-						a:before {
-							color: $accent;
-							opacity: 1;
-						}
-
-						a.active ~ a:before {
-							color: $gray-600;
-							opacity: 0.25;
 						}
 					}
 				}
