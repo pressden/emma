@@ -107,7 +107,10 @@
 
 				tr {
 					border-top: 1px solid $input-border-color;
-					border-bottom: 1px solid $input-border-color;
+
+					&.order-total {
+						border-bottom: 1px solid $input-border-color;
+					}
 
 					td,
 					th {
