@@ -103,14 +103,15 @@ $(function () {
 		}
 	});
 
-	$("*").focus(function () {
+	document.addEventListener( 'focus', function() {
+		let newFocus = document.activeElement;
 		if (
-			!$(this).hasClass(".mini-cart-toggle") &&
-			!$(this).closest("#mini-cart").length
+			!$(newFocus).hasClass(".mini-cart-toggle") &&
+			!$(newFocus).closest("#mini-cart").length
 		) {
 			hideMiniCart();
 		}
-	});
+	}, true );
 });
 
 function relocateMiniCart($miniCart) {
