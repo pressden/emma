@@ -7,7 +7,7 @@ $button-disabled-cursor: not-allowed !default;
 
 // Button Selectors
 $button-selectors-admin: ".wp-block-button__link" !default;
-$button-selectors-theme: "button, input[type='button'], input[type='reset'], input[type='submit'], a.button, .menu-container ul li.button > a" !default;
+$button-selectors-theme: "button:where( :not( .ignore-theme ) ), input[type='button'], input[type='reset'], input[type='submit'], a.button, .menu-container ul li.button > a" !default;
 
 // Alerts
 $alert-border-radius: $border-radius !default;
