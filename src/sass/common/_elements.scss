@@ -4,24 +4,25 @@ img {
 }
 
 a {
-	// Global a:hover is handled by Reboot, no need to repeat it here
-	&:focus,
-	&:active {
-		color: $link-hover-color;
+	color: var( --link-color );
+
+	&:hover {
+		text-shadow: 0 0 1px currentColor;
 	}
 
 	&:focus {
-		outline: thin dotted;
+		outline: 3px solid;
+		outline-offset: 3px;
 	}
 
 	&.inactive,
 	.inactive > & {
 		color: inherit;
 		cursor: default;
+		text-decoration: none;
 
 		&:hover {
-			color: inherit;
-			text-decoration: none;
+			text-shadow: none;
 		}
 
 		&:focus {

@@ -32,6 +32,7 @@ body {
 	background: $body-bg; // 2
 	-webkit-text-size-adjust: 100%; // 3
 	-webkit-tap-highlight-color: rgba($black, 0); // 4
+	text-underline-offset: $text-underline-offset;
 }
 
 // Typography
@@ -136,17 +137,6 @@ sub {
 }
 sup {
 	top: -0.5em;
-}
-
-// Links
-a {
-	color: $link-color;
-	text-decoration: $link-decoration;
-
-	&:hover {
-		color: $link-hover-color;
-		text-decoration: $link-hover-decoration;
-	}
 }
 
 // Figures

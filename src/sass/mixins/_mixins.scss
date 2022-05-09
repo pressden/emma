@@ -56,12 +56,8 @@
 @mixin background-color-custom-properties($bg-color) {
 	--bg-color: #{$bg-color};
 	--color: #{color-yiq($bg-color)};
-	@if color-yiq($bg-color) == $yiq-text-dark {
-		--bg-color-contrast-sm: #{shade($bg-color, $shade-color-contrast-sm)};
-		--bg-color-contrast-md: #{shade($bg-color, $shade-color-contrast-md)};
-	} @else {
-		--bg-color-contrast-sm: #{tint($bg-color, $tint-color-contrast-sm)};
-		--bg-color-contrast-md: #{tint($bg-color, $tint-color-contrast-md)};
+	@if color-yiq($bg-color) != $yiq-text-dark {
+		--link-color: #{color-yiq($bg-color)};
 	}
 }
 

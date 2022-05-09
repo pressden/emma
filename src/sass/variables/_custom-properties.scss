@@ -9,6 +9,7 @@
 	--justify-content-left-menu: space-between;
 	--justify-content-right-menu: flex-end;
 	--justify-content-primary-menu: space-between;
+	--link-color: #{$link-color};
 
 	@if color-yiq($body-color) == $yiq-text-dark {
 		--color-contrast-sm: #{shade($body-color, 6%)};

@@ -8,29 +8,18 @@ $button-selectors: $button-selectors-admin !default;
 	@include background-color($button-background-color);
 	display: inline-block;
 	padding: $button-padding;
-	border: $button-border var(--bg-color);
+	border: 0;
 	border-radius: $button-border-radius;
 	cursor: pointer;
 
-	&:visited {
-		// override styles from Gutenberg stylesheet on :visited
-		color: var(--color);
+	&:focus {
+		outline: 3px solid;
+		outline-offset: 3px;
+		outline-color: var(--bg-color);
 	}
 
-	&:active,
-	&:focus {
-		outline: 0;
-		box-shadow: 0 0 0 3px var(--bg-color-contrast-md);
-	}
-
-	&:hover,
-	&:active,
-	&:focus {
-		background-color: var(--bg-color-contrast-sm);
-		border-color: var(--bg-color-contrast-sm);
-		text-decoration: none;
-		// override styles from Gutenberg stylesheet on :active, :focus and :hover
-		color: var(--color);
+	&:hover {
+		text-shadow: 0 0 1px currentColor;
 	}
 
 	&:disabled,
@@ -39,9 +28,8 @@ $button-selectors: $button-selectors-admin !default;
 		filter: $button-disabled-filter-effect;
 		cursor: $button-disabled-cursor;
 
-		&:active,
 		&:focus {
-			box-shadow: none;
+			outline: 0px;
 		}
 	}
 
@@ -67,16 +55,12 @@ $button-selectors: $button-selectors-admin !default;
 }
 
 .is-style-outline > .wp-block-button__link {
-	padding: $button-padding;
+	padding: $outline-button-padding;
+	border: $outline-button-border-size solid;
 	border-color: currentColor;
 	background-color: transparent !important;
 
-	&:hover {
-		color: currentColor;
-		text-decoration: underline;
-	}
-	&:active,
 	&:focus {
-		box-shadow: 0 0 0 3px var(--color-contrast-md);
+		outline-color: currentColor;
 	}
 }
