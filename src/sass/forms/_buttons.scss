@@ -11,8 +11,9 @@ $button-selectors: $button-selectors-admin !default;
 	border: 0;
 	border-radius: $button-border-radius;
 	cursor: pointer;
+	text-decoration: none;
 
-	&:focus {
+	&:focus-visible {
 		outline: 3px solid;
 		outline-offset: 3px;
 		outline-color: var(--bg-color);
@@ -60,7 +61,7 @@ $button-selectors: $button-selectors-admin !default;
 	border-color: currentColor;
 	background-color: transparent !important;
 
-	&:focus {
+	&:focus-visible {
 		outline-color: currentColor;
 	}
 }

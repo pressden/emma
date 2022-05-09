@@ -10,7 +10,7 @@ a {
 		opacity: 0.9;
 	}
 
-	&:focus {
+	&:focus-visible {
 		outline: 3px solid;
 		outline-offset: 3px;
 	}
@@ -23,10 +23,6 @@ a {
 
 		&:hover {
 			opacity: 1;
-		}
-
-		&:focus {
-			outline: none;
 		}
 	}
 }
