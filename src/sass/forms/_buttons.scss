@@ -19,7 +19,7 @@ $button-selectors: $button-selectors-admin !default;
 	}
 
 	&:hover {
-		text-shadow: 0 0 1px currentColor;
+		opacity: 0.9;
 	}
 
 	&:disabled,

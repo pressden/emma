@@ -7,7 +7,7 @@ a {
 	color: var( --link-color );
 
 	&:hover {
-		text-shadow: 0 0 1px currentColor;
+		opacity: 0.9;
 	}
 
 	&:focus {
@@ -22,7 +22,7 @@ a {
 		text-decoration: none;
 
 		&:hover {
-			text-shadow: none;
+			opacity: 1;
 		}
 
 		&:focus {
