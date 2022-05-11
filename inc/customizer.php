@@ -60,29 +60,6 @@ function emma_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_section(
-		'analytics',
-		array(
-			'priority'       => 10,
-			'theme_supports' => '',
-			'title'          => 'Analytics',
-			'description'    => '',
-			'panel'          => 'theme_settings',
-		)
-	);
-
-	$wp_customize->add_setting( 'gtm_id', array( 'sanitize_callback' => 'sanitize_text_field' ) );
-	$wp_customize->add_control(
-		'gtm_id',
-		array(
-			'type'        => 'text',
-			'priority'    => 10,
-			'section'     => 'analytics',
-			'label'       => 'Google Tag Manager ID',
-			'description' => 'Enter the full ID, starting with "GTM-"',
-		)
-	);
-
-	$wp_customize->add_section(
 		'layout',
 		array(
 			'priority'       => 10,
