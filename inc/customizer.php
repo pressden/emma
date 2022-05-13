@@ -218,6 +218,53 @@ function emma_customize_register( $wp_customize ) {
 			'label'    => 'Show Featured Image',
 		)
 	);
+
+	$wp_customize->add_section(
+		'emma_scripts',
+		array(
+			'priority'       => 10,
+			'theme_supports' => '',
+			'title'          => __( 'Header/Footer Scripts', 'emma' ),
+			'description'    => '',
+			'panel'          => 'theme_settings',
+		)
+	);
+
+	$wp_customize->add_setting( 'early_header_scripts' );
+	$wp_customize->add_control(
+		'early_header_scripts',
+		array(
+			'type'        => 'textarea',
+			'priority'    => 10,
+			'section'     => 'emma_scripts',
+			'label'       => __( 'Early Header Scripts', 'emma' ),
+			'description' => __( 'This code will output as early as possible after the opening <code>' . esc_html( '<head>' ) . '</code> tag in the document source.', 'emma' ),
+		)
+	);
+
+	$wp_customize->add_setting( 'late_header_scripts' );
+	$wp_customize->add_control(
+		'late_header_scripts',
+		array(
+			'type'        => 'textarea',
+			'priority'    => 10,
+			'section'     => 'emma_scripts',
+			'label'       => __( 'Late Header Scripts', 'emma' ),
+			'description' => __( 'This code will output immediately before the closing <code>' . esc_html( '</head>' ) . '</code> tag in the document source.', 'emma' ),
+		)
+	);
+
+	$wp_customize->add_setting( 'footer_scripts' );
+	$wp_customize->add_control(
+		'footer_scripts',
+		array(
+			'type'        => 'textarea',
+			'priority'    => 10,
+			'section'     => 'emma_scripts',
+			'label'       => __( 'Footer Scripts', 'emma' ),
+			'description' => __( 'This code will output immediately before the closing <code>' . esc_html( '</body>' ) . '</code> tag in the document source.', 'emma' ),
+		)
+	);
 }
 add_action( 'customize_register', 'emma_customize_register' );
 
