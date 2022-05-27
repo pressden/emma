@@ -2,19 +2,12 @@
 	--admin-bar-height: 0px;
 	--bg-color: transparent;
 	--color: #{$body-color};
-	--color-contrast-sm: #{tint($body-color, 6%)};
-	--color-contrast-md: #{tint($body-color, 40%)};
 	--layout-spacer-x: #{ $spacer };
 	--header-wrap-columns: 1fr;
 	--justify-content-left-menu: space-between;
 	--justify-content-right-menu: flex-end;
 	--justify-content-primary-menu: space-between;
 	--link-color: #{$link-color};
-
-	@if color-yiq($body-color) == $yiq-text-dark {
-		--color-contrast-sm: #{shade($body-color, 6%)};
-		--color-contrast-md: #{shade($body-color, 25%)};
-	}
 
 	@media screen and ( min-width: $breakpoint-xs ) {
 		--layout-spacer-x: #{ $spacer-lg };

@@ -32,24 +32,17 @@
 }
 
 @mixin color($color) {
-	color: var(--color);
+	color: var(--color) !important;
 	@include color-custom-properties($color);
 }
 
 @mixin color-custom-properties($color) {
 	--color: #{$color};
-	@if color-yiq($color) == $yiq-text-dark {
-		--color-contrast-sm: #{shade($color, $shade-color-contrast-sm)};
-		--color-contrast-md: #{shade($color, $shade-color-contrast-md)};
-	} @else {
-		--color-contrast-sm: #{tint($color, $tint-color-contrast-sm)};
-		--color-contrast-md: #{tint($color, $tint-color-contrast-md)};
-	}
 }
 
 @mixin background-color($bg-color) {
 	background-color: var(--bg-color);
-	color: var(--color);
+	color: var(--color) !important;
 	@include background-color-custom-properties($bg-color);
 }
 
