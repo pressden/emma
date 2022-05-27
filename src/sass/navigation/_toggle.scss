@@ -8,6 +8,7 @@
 		padding: $menu-toggle-padding-y $menu-toggle-padding-x;
 		display: $menu-toggle-display;
 		text-decoration: none !important;
+		outline-offset: -0.125rem;
 	}
 }
 

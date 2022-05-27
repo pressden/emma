@@ -156,6 +156,11 @@ body {
 		margin: 0;
 		padding-left: 0;
 		list-style: none;
+
+		a {
+			outline-offset: -0.125rem;
+			text-decoration: none;
+		}
 	}
 
 	.top-level-menus,

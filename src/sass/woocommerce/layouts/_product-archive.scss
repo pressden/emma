@@ -109,6 +109,7 @@
 				flex-direction: column;
 				margin-bottom: $spacer;
 				align-items: center;
+				text-decoration: none;
 
 				@include remove-hover-underline;
 				&:hover {

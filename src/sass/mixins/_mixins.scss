@@ -32,36 +32,25 @@
 }
 
 @mixin color($color) {
-	color: var(--color);
+	color: var(--color) !important;
 	@include color-custom-properties($color);
 }
 
 @mixin color-custom-properties($color) {
 	--color: #{$color};
-	@if color-yiq($color) == $yiq-text-dark {
-		--color-contrast-sm: #{shade($color, $shade-color-contrast-sm)};
-		--color-contrast-md: #{shade($color, $shade-color-contrast-md)};
-	} @else {
-		--color-contrast-sm: #{tint($color, $tint-color-contrast-sm)};
-		--color-contrast-md: #{tint($color, $tint-color-contrast-md)};
-	}
 }
 
 @mixin background-color($bg-color) {
 	background-color: var(--bg-color);
-	color: var(--color);
+	color: var(--color) !important;
 	@include background-color-custom-properties($bg-color);
 }
 
 @mixin background-color-custom-properties($bg-color) {
 	--bg-color: #{$bg-color};
 	--color: #{color-yiq($bg-color)};
-	@if color-yiq($bg-color) == $yiq-text-dark {
-		--bg-color-contrast-sm: #{shade($bg-color, $shade-color-contrast-sm)};
-		--bg-color-contrast-md: #{shade($bg-color, $shade-color-contrast-md)};
-	} @else {
-		--bg-color-contrast-sm: #{tint($bg-color, $tint-color-contrast-sm)};
-		--bg-color-contrast-md: #{tint($bg-color, $tint-color-contrast-md)};
+	@if color-yiq($bg-color) != $yiq-text-dark {
+		--link-color: #{color-yiq($bg-color)};
 	}
 }
 
