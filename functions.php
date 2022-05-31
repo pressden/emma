@@ -449,6 +449,30 @@ function emma_get_layout_option( $post_id = null ) {
 }
 
 /**
+ * Echo early header scripts into wp_head().
+ */
+function emma_early_header_scripts() {
+	echo get_theme_mod( 'early_header_scripts' );
+}
+add_action( 'wp_head', 'emma_early_header_scripts', 1 );
+
+/**
+ * Echo late header scripts into wp_head().
+ */
+function emma_late_header_scripts() {
+	echo get_theme_mod( 'late_header_scripts' );
+}
+add_action( 'wp_head', 'emma_late_header_scripts', 100 );
+
+/**
+ * Echo footer scripts into wp_footer().
+ */
+function emma_footer_scripts() {
+	echo get_theme_mod( 'footer_scripts' );
+}
+add_action( 'wp_footer', 'emma_footer_scripts' );
+
+/**
  * Check post thumbnail visibility within the loop
  */
 function emma_show_post_thumbnail() {
