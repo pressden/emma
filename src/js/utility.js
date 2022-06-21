@@ -28,12 +28,12 @@ export function trapFocus(element, setFocus = false, delay = 0) {
 		}
 	});
 
-	let firstFocusableEl = trapEls[0];  
+	let firstFocusableEl = trapEls[0];
 	if( !setFocus ) {
 		setFocus = firstFocusableEl;
 	}
 	let lastFocusableEl = trapEls[trapEls.length - 1];
-	
+
 	element.addEventListener('keydown', checkFocusChange, false);
 	element.firstFocusableEl = firstFocusableEl;
 	element.lastFocusableEl = lastFocusableEl;
@@ -49,8 +49,8 @@ export function checkFocusChange(e) {
 	let KEYCODE_TAB = 9;
 	let isTabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
 
-	if (!isTabPressed) { 
-		return; 
+	if (!isTabPressed) {
+		return;
 	}
 
 	if ( e.shiftKey ) /* shift + tab */ {
