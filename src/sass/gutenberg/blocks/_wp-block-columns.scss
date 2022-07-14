@@ -6,40 +6,23 @@ $full-columns-breakpoint: 782px;
 }
 
 .wp-block-columns {
-	justify-content: center;
-	column-gap: $spacer-lg;
-	row-gap: $spacer;
-
 	&.rg-0 {
-		.wp-block-column {
-			row-gap: 0;
-		}
+		row-gap: 0;
 	}
 
-	&.rg-lg {
-		.wp-block-column {
-			row-gap: $spacer-lg;
-		}
+	&.rg-md {
+			row-gap: $spacer;
 	}
 
 	&.cg-0 {
 		column-gap: 0;
+	}
 
-		.wp-block-column {
-			@media screen and (min-width: $two-columns-breakpoint) and (max-width: $full-columns-breakpoint - 1px) {
-				//max-width is required for inline flex-basis to work
-				flex-basis: 50% !important;
-			}
-		}
+	&.cg-md {
+		column-gap: $spacer;
 	}
 
 	&.cg-sm {
 		column-gap: $spacer;
-
-		@media screen and (min-width: $two-columns-breakpoint) and (max-width: $full-columns-breakpoint - 1px) {
-			.wp-block-column {
-				flex-basis: calc(50% - #{$spacer} / 2) !important;
-			}
-		}
 	}
 }
