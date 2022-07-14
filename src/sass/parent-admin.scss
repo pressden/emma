@@ -5,11 +5,11 @@
 // Core
 @import "parent-core";
 
-// Custom properties
-@import "custom-properties";
-
 // Variables
 $admin-stylesheet: true;
+
+// Custom properties
+@import "custom-properties";
 
 // Core styles
 @import "forms/buttons";

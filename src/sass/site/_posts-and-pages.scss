@@ -79,11 +79,12 @@
 	margin-bottom: $spacer-xs;
 }
 
+// @FUTURE: May be able to remove several selectors after layout system is better refined
 .entry-content,
 .page-content,
 .widget_block,
 .wp-block-cover__inner-container,
-.wp-block-group__inner-container,
+.wp-block-group,
 .wp-block-column {
 	> * {
 		margin-left: auto;
@@ -190,18 +191,16 @@
 
 .wp-block-group.has-background,
 .wp-block-group.border {
-	> .wp-block-group__inner-container {
-		> * {
-			@include layout-wrap();
+	> * {
+		@include layout-wrap();
 
-			&.alignfull {
-				width: 100%; //needed because width declaration above this one supercedes normal .alignwide class unless the !important flag is used
-			}
+		&.alignfull {
+			width: 100%; //needed because width declaration above this one supercedes normal .alignwide class unless the !important flag is used
 		}
 	}
 }
 
-.wp-block-column,
+// @TODO: rework for new gap presets
 .wp-block-emma-grid-cell {
 	> * {
 		margin-bottom: $spacer;
@@ -216,7 +215,7 @@
 	}
 
 	.wp-block-cover__inner-container,
-	.wp-block-group__inner-container {
+	.wp-block-group {
 		> * {
 			margin-bottom: $spacer;
 		}
@@ -232,33 +231,28 @@
 	}
 }
 
-.entry-content,
+// @FUTURE: remove cover block when able
 .widget_block,
-.wp-block-cover__inner-container,
-.wp-block-group__inner-container {
+.wp-block-cover__inner-container {
 	> * {
-		margin-bottom: $spacer-lg;
+		margin-block-start: 0;
+		margin-block-end: 0;
 	}
-}
 
-.wp-block-cover__inner-container,
-.wp-block-group__inner-container,
-.wp-block-column,
-.wp-block-emma-grid-cell {
-	> :last-child {
-		margin-bottom: 0;
+	> * + * {
+		margin-block-start: var( --wp--style--block-gap );
 	}
 }
 
 .wp-block-group.has-background,
 .wp-block-group.border,
 .wp-block-cover {
-	padding-top: $spacer-lg;
-	padding-bottom: $spacer-lg;
+	padding-top: var( --wp--style--block-gap );
+	padding-bottom: var( --wp--style--block-gap );
 }
 
 p.has-background {
-	padding: $spacer;
+	padding: var( --wp--style--block-gap );
 }
 
 .entry-footer {

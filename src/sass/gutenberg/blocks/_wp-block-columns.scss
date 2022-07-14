@@ -1,28 +1,26 @@
-$two-columns-breakpoint: 600px;
-$full-columns-breakpoint: 782px;
-
-.wp-block-column {
-	margin: 0 !important;
-}
-
+// @FUTURE: remove when row/column gap support improves
 .wp-block-columns {
 	&.rg-0 {
 		row-gap: 0;
 	}
 
 	&.rg-md {
-			row-gap: $spacer;
+		row-gap: $spacer;
+	}
+
+	&.rg-lg {
+		row-gap: $spacer-lg;
 	}
 
 	&.cg-0 {
 		column-gap: 0;
 	}
-
+	
 	&.cg-md {
 		column-gap: $spacer;
 	}
 
-	&.cg-sm {
-		column-gap: $spacer;
+	&.cg-lg {
+		column-gap: $spacer-lg;
 	}
 }
