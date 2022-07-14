@@ -6,7 +6,7 @@
 
 .menu-container {
 	@include center-wrap($menu-container-max-width);
-	@include font-size($menu-font-size);
+	font-size: $menu-font-size;
 
 	ul {
 		margin: 0;

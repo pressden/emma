@@ -20,7 +20,7 @@
 	do_action( 'emma_before_entry_content' );
 	?>
 
-	<div class="entry-content">
+	<div class="entry-content wp-site-blocks">
 
 		<?php
 		/**
