@@ -48,5 +48,7 @@ $hr-opacity: 1 !default;
 $hr-margin-y: 0 !default;
 
 // Focus
-$focus-outline: 3px solid !default;
+$focus-outline-width: 3px !default;
+$focus-outline-style: solid !default;
 $focus-outline-offset: 3px !default;
+$focus-outline-color: currentColor !default;

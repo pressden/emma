@@ -1,15 +1,5 @@
-// Gutenberg
-@import "editor/color-palette";
-
-// Overrides
-@import "class-overrides";
-
 // Blocks
 @import "blocks/block-responsive-grid";
 @import "blocks/wp-block-columns";
-@import "blocks/wp-block-cover";
-@import "blocks/wp-block-gallery";
-@import "blocks/wp-block-media-text";
 @import "blocks/wp-block-separator";
-@import "blocks/wp-block-spacer";
 @import "editor/align-wide";

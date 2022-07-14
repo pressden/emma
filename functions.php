@@ -376,6 +376,9 @@ require get_template_directory() . '/inc/helpers.php';
 // Optimize WordPress by removing unused features.
 require get_template_directory() . '/inc/optimize.php';
 
+// Supplement Global Styles in theme.json
+require get_template_directory() . '/inc/global-styles.php';
+
 // Implement the Custom Header feature.
 require get_template_directory() . '/inc/custom-header.php';
 
@@ -597,7 +600,7 @@ function emma_render_page_for_posts( &$post ) {
 	do_action( 'emma_before_entry_content' );
 	?>
 
-	<div class="entry-content">
+	<div class="entry-content wp-site-blocks">
 
 		<?php
 		/**
