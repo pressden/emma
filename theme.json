@@ -1,9 +1,12 @@
 {
 	"version": 2,
 	"settings": {
+<<<<<<< HEAD
 		"custom": {
 			"buttonBackgroundColor": "var(--wp--preset--color--primary)"
 		},
+=======
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 		"color": {
 			"link": true,
 			"defaultPalette": false,
@@ -11,7 +14,12 @@
 				{
 					"slug": "primary",
 					"color": "#0073aa",
+<<<<<<< HEAD
 					"name": "Primary"
+=======
+					"name": "Primary",
+					"contrast": "#fff"
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 				},
 				{
 					"slug": "primary-support",
@@ -21,7 +29,11 @@
 				{
 					"slug": "secondary",
 					"color": "#663f46",
+<<<<<<< HEAD
 					"name": "Secondary"
+=======
+					"name": "Secondary Support"
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 				},
 				{
 					"slug": "secondary-support",
@@ -70,7 +82,11 @@
 			"wideSize": "1100px"
 		},
 		"typography": {
+<<<<<<< HEAD
 			"lineHeight": true,
+=======
+			"customLineHeight": true,
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 			"letterSpacing": false,
 			"fontWeight": false,
 			"fontStyle": false,
@@ -78,6 +94,7 @@
 			"fontSizes": [
 				{
 					"slug": "small",
+<<<<<<< HEAD
 					"name": "Small",
 					"size": "1rem",
 					"fluid": false
@@ -92,6 +109,20 @@
 					"slug": "medium",
 					"name": "Medium",
 					"size": "1.75rem",
+=======
+					"size": "1rem",
+					"name": "Small"
+				},
+				{
+					"slug": "normal",
+					"size": "1.25rem",
+					"name": "Normal"
+				},
+				{
+					"slug": "medium",
+					"size": "clamp( 1.5rem, 1.4rem + 0.51vw, 1.75rem)",
+					"name": "Medium",
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 					"fluid": {
 						"min": "1.5rem",
 						"max": "1.75rem"
@@ -99,6 +130,7 @@
 				},
 				{
 					"slug": "large",
+<<<<<<< HEAD
 					"name": "Large",
 					"size": "2.25rem",
 					"fluid": {
@@ -123,6 +155,20 @@
 						"min": "2.6rem",
 						"max": "4.5rem"
 					}
+=======
+					"size": "clamp( 1.7rem, 1.47rem + 1.13vw, 2.25rem)",
+					"name": "Large"
+				},
+				{
+					"slug": "huge",
+					"size": "clamp( 2rem, 1.59rem + 2.05vw, 3rem)",
+					"name": "Huge"
+				},
+				{
+					"slug": "giant",
+					"size": "clamp( 2.6rem, 1.82rem + 3.9vw, 4.5rem)",
+					"name": "Giant"
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 				}
 			],
 			"fontFamilies": [
@@ -139,6 +185,7 @@
 			]
 		},
 		"spacing": {
+<<<<<<< HEAD
 			"padding": true,
 			"margin": true,
 			"blockGap": true,
@@ -160,6 +207,20 @@
 			"radius": true,
 			"style": true,
 			"width": true
+=======
+			"customPadding": true,
+			"customMargin": true,
+			"blockGap": true,
+			"units": [
+				"rem"
+			]
+		},
+		"border": {
+			"customColor": true,
+			"customRadius": true,
+			"customStyle": true,
+			"customWidth": true
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 		}
 	},
 	"styles": {
@@ -176,6 +237,25 @@
 			"lineHeight": "1.5"
 		},
 		"blocks": {
+<<<<<<< HEAD
+=======
+			"core/button": {
+				"color": {
+					"background": "var(--wp--preset--color--primary)"
+				},
+				"border": {
+					"radius": 0
+				},
+				"spacing": {
+					"padding": {
+						"top": "0.5rem;",
+						"right": "1rem",
+						"bottom": "0.5rem",
+						"left": "1rem"
+					}
+				}
+			},
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 			"core/cover": {
 				"spacing": {
 					"padding": {
@@ -186,6 +266,7 @@
 			}
 		},
 		"elements": {
+<<<<<<< HEAD
 			"button": {
 				"color": {
 					"background": "var(--wp--custom--button-background-color)"
@@ -194,6 +275,8 @@
 					"radius": 0
 				}
 			},
+=======
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 			"link": {
 				"color": {
 					"text": "var(--wp--preset--color--primary)"
@@ -201,25 +284,41 @@
 			},
 			"h1": {
 				"typography": {
+<<<<<<< HEAD
 					"fontSize": "var(--wp--preset--font-size--huge)",
+=======
+					"fontSize": "var(--wp--preset--font-size--giant)",
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 					"fontWeight": "unset"
 				}
 			},
 			"h2": {
 				"typography": {
+<<<<<<< HEAD
 					"fontSize": "var(--wp--preset--font-size--large)",
+=======
+					"fontSize": "var(--wp--preset--font-size--huge)",
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 					"fontWeight": "unset"
 				}
 			},
 			"h3": {
 				"typography": {
+<<<<<<< HEAD
 					"fontSize": "var(--wp--preset--font-size--medium)",
+=======
+					"fontSize": "var(--wp--preset--font-size--large)",
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 					"fontWeight": "unset"
 				}
 			},
 			"h4": {
 				"typography": {
+<<<<<<< HEAD
 					"fontSize": "var(--wp--preset--font-size--medium)",
+=======
+					"fontSize": "var(--wp--preset--font-size--large)",
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 					"fontWeight": "unset"
 				}
 			},
@@ -236,6 +335,7 @@
 				}
 			}
 		}
+<<<<<<< HEAD
 	},
 	"templateParts": [
 		{
@@ -271,4 +371,7 @@
 			"title": "Footer Content"
 		}
 	]
+=======
+	}
+>>>>>>> 68ddaf3 (implement theme.json and adjust templates and CSS)
 }
