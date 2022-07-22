@@ -4,25 +4,25 @@
  * Relocates and displays the search form when a toggle is clicked or focused
  */
 
-var search_form;
+var searchForm;
 
 (function () {
-	search_form = document.querySelector(".toggle-search-form");
+	searchForm = document.querySelector(".toggle-search-form");
 
 	document.querySelectorAll(".search-form-toggle").forEach((toggle) => {
-		var toggle_link = toggle.querySelector("a");
-		toggle_link.addEventListener("click", (event) => {
+		var toggleLink = toggle.querySelector("a");
+		toggleLink.addEventListener("click", (event) => {
 			event.preventDefault();
-			if (search_form.classList.contains("d-none")) {
+			if (searchForm.classList.contains("d-none")) {
 				relocateSearch(toggle);
 			} else {
 				hideSearchForm();
 			}
 		});
-		toggle_link.addEventListener("blur", (event) => {
+		toggleLink.addEventListener("blur", (event) => {
 			if (
 				event.relatedTarget != null &&
-				!search_form.contains(event.relatedTarget)
+				!searchForm.contains(event.relatedTarget)
 			) {
 				hideSearchForm();
 			}
@@ -33,8 +33,8 @@ var search_form;
 		input.addEventListener("blur", (event) => {
 			if (
 				event.relatedTarget != null &&
-				!search_form.contains(event.relatedTarget) &&
-				!search_form
+				!searchForm.contains(event.relatedTarget) &&
+				!searchForm
 					.closest(".search-form-toggle")
 					.contains(event.relatedTarget)
 			) {
@@ -44,11 +44,11 @@ var search_form;
 	});
 
 	document.addEventListener("click", (event) => {
-		if (!search_form.classList.contains("d-none")) {
+		if (!searchForm.classList.contains("d-none")) {
 			if (
 				!event.target.parentElement.classList.contains("search-form-toggle") &&
 				!event.target.classList.contains("toggle-search-form") &&
-				!search_form.contains(event.target)
+				!searchForm.contains(event.target)
 			) {
 				hideSearchForm();
 			}
@@ -57,35 +57,40 @@ var search_form;
 })();
 
 function relocateSearch(toggle) {
-	toggle.appendChild(search_form);
+	toggle.appendChild(searchForm);
 
-	search_form.classList.remove("d-none");
-	var search_form_rect = search_form.getBoundingClientRect();
-	search_form.classList.add("d-none");
+	searchForm.classList.remove("d-none");
+	var searchFormRect = searchForm.getBoundingClientRect();
+	searchForm.classList.add("d-none");
 
-	var document_width = document.body.clientWidth;
-	var document_height = document.body.clientHeight;
-	var toggle_rect = toggle.getBoundingClientRect();
+	var documentWidth = document.body.clientWidth;
+	var documentHeight = document.body.clientHeight;
+	var toggleRect = toggle.getBoundingClientRect();
 
-	if (document_width < toggle_rect.right + search_form_rect.width) {
-		search_form.style.left = -search_form_rect.width + toggle_rect.width + "px";
-	} else {
-		search_form.style.left = 0;
+	// Default search form alignment is left:0 flowing right.
+	if ( searchFormRect.width < documentWidth - toggleRect.x ) {
+		// Nothing to do for the default behavior.
+	}
+	// Alternate search form alignment is right:0 flowing left.
+	else if ( searchFormRect.width < toggleRect.x + toggleRect.width ) {
+		searchForm.style.right = 0;
+	}
+	// On narrow screens display the search form edge to edge.
+	else {
+		searchForm.style.width = '100vw';
+		searchForm.style.left  = ( - toggleRect.x ) + 'px';
 	}
 
-	if (
-		document_height <
-		toggle_rect.bottom + window.pageYOffset + search_form_rect.height
-	) {
-		search_form.style.top = -search_form_rect.height - 4 + "px";
+	if ( documentHeight < toggleRect.bottom + window.pageYOffset + searchFormRect.height ) {
+		searchForm.style.top = -searchFormRect.height - 4 + "px";
 	} else {
-		search_form.style.top = toggle_rect.height + 4 + "px";
+		searchForm.style.top = toggleRect.height + 4 + "px";
 	}
 
-	search_form.classList.remove("d-none");
-	search_form.querySelector(".search-field").focus();
+	searchForm.classList.remove("d-none");
+	searchForm.querySelector(".search-field").focus();
 }
 
 function hideSearchForm() {
-	search_form.classList.add("d-none");
+	searchForm.classList.add("d-none");
 }
