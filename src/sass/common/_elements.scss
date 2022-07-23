@@ -11,8 +11,8 @@ a {
 	}
 
 	&:focus-visible {
-		outline: 3px solid;
-		outline-offset: 3px;
+		outline: $focus-outline;
+		outline-offset: $focus-outline-offset;
 	}
 
 	&.inactive,

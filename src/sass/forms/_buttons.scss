@@ -14,8 +14,8 @@ $button-selectors: $button-selectors-admin !default;
 	text-decoration: none;
 
 	&:focus-visible {
-		outline: 3px solid;
-		outline-offset: 3px;
+		outline: $focus-outline;
+		outline-offset: $focus-outline-offset;
 		outline-color: var(--bg-color);
 	}
 
@@ -30,7 +30,7 @@ $button-selectors: $button-selectors-admin !default;
 		cursor: $button-disabled-cursor;
 
 		&:focus {
-			outline: 0px;
+			outline: 0;
 		}
 	}
 
