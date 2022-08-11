@@ -8,8 +8,7 @@
 				{
 					"slug": "primary",
 					"color": "#0073aa",
-					"name": "Primary",
-					"contrast": "#fff"
+					"name": "Primary"
 				},
 				{
 					"slug": "primary-support",
@@ -78,13 +77,19 @@
 					"slug": "small",
 					"name": "Small",
 					"size": "1rem",
-					"fluid": false
+					"fluid": {
+						"min": "1rem",
+						"max": "1rem"
+					}
 				},
 				{
 					"slug": "normal",
 					"name": "Normal",
 					"size": "1.25rem",
-					"fluid": false
+					"fluid": {
+						"min": "1.25rem",
+						"max": "1.25rem"
+					}
 				},
 				{
 					"slug": "medium",
