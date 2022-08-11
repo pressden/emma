@@ -76,18 +76,20 @@
 			"fontSizes": [
 				{
 					"slug": "small",
+					"name": "Small",
 					"size": "1rem",
-					"name": "Small"
+					"fluid": false
 				},
 				{
 					"slug": "normal",
+					"name": "Normal",
 					"size": "1.25rem",
-					"name": "Normal"
+					"fluid": false
 				},
 				{
 					"slug": "medium",
-					"size": "clamp( 1.5rem, 1.4rem + 0.51vw, 1.75rem)",
 					"name": "Medium",
+					"size": "1.75rem",
 					"fluid": {
 						"min": "1.5rem",
 						"max": "1.75rem"
@@ -95,18 +97,30 @@
 				},
 				{
 					"slug": "large",
-					"size": "clamp( 1.7rem, 1.47rem + 1.13vw, 2.25rem)",
-					"name": "Large"
+					"name": "Large",
+					"size": "2.25rem",
+					"fluid": {
+						"min": "1.7rem",
+						"max": "2.25rem"
+					}
 				},
 				{
 					"slug": "huge",
-					"size": "clamp( 2rem, 1.59rem + 2.05vw, 3rem)",
-					"name": "Huge"
+					"name": "Huge",
+					"size": "3rem",
+					"fluid": {
+						"min": "2rem",
+						"max": "3rem"
+					}
 				},
 				{
 					"slug": "giant",
-					"size": "clamp( 2.6rem, 1.82rem + 3.9vw, 4.5rem)",
-					"name": "Giant"
+					"size": "4.5rem",
+					"name": "Giant",
+					"fluid": {
+						"min": "2.6rem",
+						"max": "4.5rem"
+					}
 				}
 			],
 			"fontFamilies": [
@@ -128,7 +142,15 @@
 			"blockGap": true,
 			"units": [
 				"rem"
-			]
+			],
+			"customSpacingSize": false,
+			"spacingScale": {
+				"operator": "*",
+				"increment": 2,
+				"steps": 6,
+				"mediumStep": 1,
+				"unit": "rem"
+			}
 		},
 		"border": {
 			"customColor": true,
@@ -177,6 +199,9 @@
 			}
 		},
 		"elements": {
+			"button": {
+
+			},
 			"link": {
 				"color": {
 					"text": "var(--wp--preset--color--primary)"
