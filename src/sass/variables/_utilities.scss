@@ -28,12 +28,12 @@ $enable-responsive-font-sizes: true !default;
 $rfs-breakpoint: $content-max-alignwide-width !default;
 
 // Font sizes
-$font-size-sm: $font-size-base * 0.8 !default; // small
+$font-size-sm: var( --wp--preset--font-size--small, calc( $font-size-base * 0.8 ) ) !default; // small
 $font-size-default: $font-size-base !default; //default
-$font-size-md: $font-size-base * 1.4 !default; // medium
-$font-size-lg: $font-size-base * 1.8 !default; // large
-$font-size-xl: $font-size-base * 2.4 !default; // huge
-$font-size-2x: $font-size-base * 3.6 !default; // giant
+$font-size-md: var( --wp--preset--font-size--medium, calc( $font-size-base * 1.4 ) ) !default; // medium
+$font-size-lg: var( --wp--preset--font-size--large, calc( $font-size-base * 1.8 ) ) !default; // large
+$font-size-xl: var( --wp--preset--font-size--huge, calc( $font-size-base * 2.4 ) ) !default; // huge
+$font-size-2x: var( --wp--preset--font-size--medium, calc( $font-size-base * 3.6 ) ) !default; // giant
 
 // Border widths
 $border-width-sm: 1px !default;
