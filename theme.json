@@ -158,10 +158,10 @@
 			}
 		},
 		"border": {
-			"customColor": true,
-			"customRadius": true,
-			"customStyle": true,
-			"customWidth": true
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true
 		}
 	},
 	"styles": {
