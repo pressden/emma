@@ -154,53 +154,6 @@
 	margin-right: auto;
 }
 
-// Border utilities
-$border-widths: (
-	"sm": $border-width-sm,
-	"md": $border-width-md,
-	"lg": $border-width-lg,
-);
-
-$border-locations: (
-	"l": "left",
-	"t": "top",
-	"r": "right",
-	"b": "bottom",
-);
-
-.border {
-	border-width: 0px;
-	border-style: solid;
-}
-
-@each $name, $width in $border-widths {
-	.b-#{$name} {
-		border-width: $width;
-	}
-
-	.bx-#{$name} {
-		border-left-width: $width;
-		border-right-width: $width;
-	}
-
-	.by-#{$name} {
-		border-top-width: $width;
-		border-bottom-width: $width;
-	}
-
-	@each $loc-name, $location in $border-locations {
-		.b#{$loc-name}-#{$name} {
-			border-#{$location}-width: $width;
-		}
-	}
-}
-
-@each $name, $color in $editor-palette {
-	.b-#{$name} {
-		border-color: $color;
-	}
-}
-
 // Gap utilities (based on spacer sizes)
 @each $name, $gap in $spacer-sizes {
 	.cg-#{$name} {
