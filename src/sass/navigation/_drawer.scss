@@ -33,7 +33,7 @@ body {
 	top: var( --admin-bar-height );
 	right: 0;
 	background: $flyout-menu-background;
-	color: color-yiq( $flyout-menu-background );
+	color: $flyout-menu-color;
 	border: $flyout-menu-border;
 	transition: visibility 0.25s, transform 0.25s ease-in-out;
 	overflow-y: auto;
@@ -128,7 +128,7 @@ body {
 	.flyout-menu-menus {
 		border-top: 1px solid $flyout-menu-menus-link-border-color;
 		background-color: $flyout-menu-menus-background;
-		color: color-yiq( $flyout-menu-menus-background );
+		color: $flyout-menu-menus-color;
 
 		li {
 			color: $flyout-menu-menus-link-color;

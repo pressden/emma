@@ -1,8 +1,9 @@
+// @TODO: rework buttons for WooCommerce along with buttons in core
 a.button.add_to_cart_button,
 button.single_add_to_cart_button,
 a.button.checkout-button,
 button#place_order,
 a.button.product_type_grouped,
 .woocommerce-message a.button {
-	@include background-color-custom-properties($wc-button-background-color);
+	//@include background-color-custom-properties($wc-button-background-color);
 }
