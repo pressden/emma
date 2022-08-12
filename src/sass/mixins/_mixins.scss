@@ -31,29 +31,6 @@
 	}
 }
 
-@mixin color($color) {
-	color: var(--color) !important;
-	@include color-custom-properties($color);
-}
-
-@mixin color-custom-properties($color) {
-	--color: #{$color};
-}
-
-@mixin background-color($bg-color) {
-	background-color: var(--bg-color);
-	color: var(--color) !important;
-	@include background-color-custom-properties($bg-color);
-}
-
-@mixin background-color-custom-properties($bg-color) {
-	--bg-color: #{$bg-color};
-	--color: #{color-yiq($bg-color)};
-	@if color-yiq($bg-color) != $yiq-text-dark {
-		--link-color: #{color-yiq($bg-color)};
-	}
-}
-
 @mixin sr-only-focusable-fixed() {
 	@include sr-only-focusable;
 

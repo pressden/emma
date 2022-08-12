@@ -37,18 +37,18 @@ $font-weight-base: $font-weight-normal !default;
 $icons-path: "/wp-content/themes/emma/assets/icons/" !default;
 
 // Colors
-$primary: #0073aa !default;
-$primary-support: #d4f9f8 !default;
-$secondary: #663f46 !default;
-$secondary-support: #b8d8d8 !default;
+$primary: var( --wp--preset--color--primary, #0073aa ) !default;
+$primary-support: var( --wp--preset--color--primary-support, #d4f9f8 ) !default;
+$secondary: var( --wp--preset--color--secondary, #663f46 ) !default;
+$secondary-support: var( --wp--preset--color--secondary-support, #b8d8d8 ) !default;
 
-$action: $primary !default;
-$accent: #d34e24 !default;
-$info: #00a0d2 !default;
-$success: #46b450 !default;
-$notice: #ffb900 !default;
-$warning: #f56e28 !default;
-$danger: #dc3232 !default;
+$action: var( --wp--preset--color--action, $primary ) !default;
+$accent: var( --wp--preset--color--accent, #d34e24 ) !default;
+$info: var( --wp--preset--color--info, #00a0d2 ) !default;
+$success: var( --wp--preset--color--success, #46b450 ) !default;
+$notice: var( --wp--preset--color--notice, #ffb900 ) !default;
+$warning: var( --wp--preset--color--warning, #f56e28 ) !default;
+$danger: var( --wp--preset--color--danger, #dc3232 ) !default;
 
 // Columns - use function columns($key)
 $columns: (
