@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	min-height: var(--full-height);
-	overflow-x: var(--overflow-x);
+	overflow-x: var(--page-overflow-x);
 
 	.site-content {
 		flex-grow: 1;
@@ -88,11 +88,7 @@
 	font-size: $font-size-sm;
 }
 
-// @FUTURE: May be able to remove several selectors after layout system is better refined
-.wp-site-blocks,
-.wp-block-cover__inner-container,
-.wp-block-group,
-.wp-block-column {
+.wp-block-cover__inner-container {
 	> * {
 		margin-left: auto;
 		margin-right: auto;
@@ -108,35 +104,11 @@
 .wp-block-group:where( .alignfull ),
 .wp-block-column.has-background,
 .wp-block-column.has-border-color,
-.wp-block-cover__inner-container {
+.wp-block-cover__inner-container,
+.emma-container.has-background, //.emma-container used in various custom blocks as a replication of .wp-block-group
+.emma-container.has-border-color {
 	> * {
 		@include layout-wrap();
-	}
-}
-
-.page-content {
-	.entry-header,
-	.entry-footer {
-		> .wrap {
-			width: 100%;
-		}
-	}
-
-	.entry-content {
-		> * {
-			width: 100%;
-		}
-	}
-}
-
-.wp-block-group.has-background,
-.wp-block-group.has-border-color {
-	> * {
-		@include layout-wrap();
-
-		&.alignfull {
-			width: 100%; //needed because width declaration above this one supercedes normal .alignwide class unless the !important flag is used
-		}
 	}
 }
 
@@ -186,6 +158,8 @@
 
 .wp-block-group.has-background,
 .wp-block-group.has-border-color,
+.emma-container.has-background,
+.emma-container.has-border-color,
 .wp-block-column.has-background,
 .wp-block-column.has-border-color,
 .wp-block-cover {
@@ -193,8 +167,17 @@
 	padding-bottom: var( --wp--style--block-gap );
 }
 
-p.has-background {
-	padding: var( --wp--style--block-gap );
+// unifies padding for inline elements that are given a background color - includes responsive left/right padding via --layout-spacer-x
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	&.has-background {
+		padding: var( --wp--style--block-gap ) var(--layout-spacer-x);
+	}
 }
 
 .entry-footer {
