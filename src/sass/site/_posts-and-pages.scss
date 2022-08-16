@@ -95,7 +95,9 @@
 .entry-content,
 .page-content,
 .widget_block,
-.wp-block-group,
+.wp-block-group.has-background,
+.wp-block-group.has-border-color,
+.wp-block-group:where( .alignfull ),
 .wp-block-cover__inner-container {
 	> * {
 		@include layout-wrap();
