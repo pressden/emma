@@ -67,7 +67,7 @@
 			"wideSize": "1100px"
 		},
 		"typography": {
-			"customLineHeight": true,
+			"lineHeight": true,
 			"letterSpacing": false,
 			"fontWeight": false,
 			"fontStyle": false,
