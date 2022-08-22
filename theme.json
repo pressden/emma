@@ -77,19 +77,13 @@
 					"slug": "small",
 					"name": "Small",
 					"size": "1rem",
-					"fluid": {
-						"min": "1rem",
-						"max": "1rem"
-					}
+					"fluid": false
 				},
 				{
 					"slug": "normal",
 					"name": "Normal",
 					"size": "1.25rem",
-					"fluid": {
-						"min": "1.25rem",
-						"max": "1.25rem"
-					}
+					"fluid": false
 				},
 				{
 					"slug": "medium",
