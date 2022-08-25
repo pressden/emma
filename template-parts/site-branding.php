@@ -19,7 +19,15 @@
 	do_action( 'emma_site_branding' );
 	?>
 
-	<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+	<p class="site-title">
+		<?php if ( display_header_text() ) : ?>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+		<?php endif; ?>
+			<?php bloginfo( 'name' ); ?>
+		<?php if ( display_header_text() ) : ?>
+			</a>
+		<?php endif; ?>
+	</p>
 
 	<?php
 	$description = get_bloginfo( 'description', 'display' );
