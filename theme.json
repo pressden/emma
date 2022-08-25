@@ -140,7 +140,8 @@
 			"margin": true,
 			"blockGap": true,
 			"units": [
-				"rem"
+				"rem",
+				"%"
 			],
 			"customSpacingSize": false,
 			"spacingScale": {
