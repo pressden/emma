@@ -12,7 +12,7 @@
 	}
 
 	.content-area {
-		@media screen and( min-width: $layout-breakpoint-sm ) {
+		@media screen and ( min-width: $layout-breakpoint-sm ) {
 			grid-column: 1 / span 2;
 		}
 
