@@ -179,14 +179,6 @@
 				},
 				"border": {
 					"radius": 0
-				},
-				"spacing": {
-					"padding": {
-						"top": "0.5rem;",
-						"right": "1rem",
-						"bottom": "0.5rem",
-						"left": "1rem"
-					}
 				}
 			},
 			"core/cover": {
