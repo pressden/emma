@@ -118,9 +118,10 @@
 
 			.tabs {
 				display: flex;
-				flex-wrap: wrap;
 				margin-bottom: 0;
 				padding-left: 1rem;
+				overflow-x: scroll;
+				overflow-y: hidden;
 
 				li {
 					display: block;
@@ -129,6 +130,7 @@
 					border: 1px solid transparent;
 					border-top-left-radius: 0.25rem;
 					border-top-right-radius: 0.25rem;
+					white-space: nowrap;
 
 					&.active {
 						background-color: white;
