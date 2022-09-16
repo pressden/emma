@@ -99,6 +99,8 @@
 .wp-block-group.has-background,
 .wp-block-group.has-border-color,
 .wp-block-group:where( .alignfull ),
+.wp-block-column.has-background,
+.wp-block-column.has-border-color,
 .wp-block-cover__inner-container {
 	> * {
 		@include layout-wrap();
@@ -249,6 +251,8 @@
 
 .wp-block-group.has-background,
 .wp-block-group.has-border-color,
+.wp-block-column.has-background,
+.wp-block-column.has-border-color,
 .wp-block-cover {
 	padding-top: var( --wp--style--block-gap );
 	padding-bottom: var( --wp--style--block-gap );
