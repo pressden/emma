@@ -7,7 +7,7 @@
 var searchForm;
 
 (function () {
-	searchForm = document.querySelector(".toggle-search-form");
+	searchForm = document.querySelector(".floating-search-form");
 
 	document.querySelectorAll(".search-form-toggle").forEach((toggle) => {
 		var toggleLink = toggle.querySelector("a");
@@ -29,7 +29,7 @@ var searchForm;
 		});
 	});
 
-	document.querySelectorAll(".toggle-search-form input").forEach((input) => {
+	document.querySelectorAll(".floating-search-form input").forEach((input) => {
 		input.addEventListener("blur", (event) => {
 			if (
 				event.relatedTarget != null &&
@@ -47,7 +47,7 @@ var searchForm;
 		if (!searchForm.classList.contains("d-none")) {
 			if (
 				!event.target.parentElement.classList.contains("search-form-toggle") &&
-				!event.target.classList.contains("toggle-search-form") &&
+				!event.target.classList.contains("floating-search-form") &&
 				!searchForm.contains(event.target)
 			) {
 				hideSearchForm();
@@ -77,7 +77,7 @@ function relocateSearch(toggle) {
 	}
 	// On narrow screens display the search form edge to edge.
 	else {
-		searchForm.style.width = '100vw';
+		//searchForm.style.width = '100vw';
 		searchForm.style.left  = ( - toggleRect.x ) + 'px';
 	}
 
