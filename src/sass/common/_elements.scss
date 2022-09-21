@@ -3,7 +3,8 @@ img {
 	max-width: 100%; /* Adhere to container width. */
 }
 
-a {
+a,
+.wp-element-button {
 	outline-offset: $focus-outline-offset;
 	outline-width: $focus-outline-width;
 	outline-color: $focus-outline-color;
