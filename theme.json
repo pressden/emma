@@ -1,6 +1,9 @@
 {
 	"version": 2,
 	"settings": {
+		"custom": {
+			"buttonBackgroundColor": "var(--wp--preset--color--primary)"
+		},
 		"color": {
 			"link": true,
 			"defaultPalette": false,
@@ -173,14 +176,6 @@
 			"lineHeight": "1.5"
 		},
 		"blocks": {
-			"core/button": {
-				"color": {
-					"background": "var(--wp--preset--color--primary)"
-				},
-				"border": {
-					"radius": 0
-				}
-			},
 			"core/cover": {
 				"spacing": {
 					"padding": {
@@ -192,6 +187,12 @@
 		},
 		"elements": {
 			"button": {
+				"color": {
+					"background": "var(--wp--custom--button-background-color)"
+				},
+				"border": {
+					"radius": 0
+				}
 			},
 			"link": {
 				"color": {
