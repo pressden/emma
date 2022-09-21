@@ -25,7 +25,7 @@ get_header();
 						<?php echo apply_filters( 'emma_404_page_content', "You can go back to our <a href='" . get_home_url() . "'>homepage</a> or search by topic below." ); ?>
 					</p>
 
-					<?php echo get_search_form(); ?>
+					<?php emma_get_search_block(); ?>
 				</div><!-- .entry-content -->
 
 			</article><!-- #post-<?php the_ID(); ?> -->

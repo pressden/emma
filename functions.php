@@ -546,32 +546,19 @@ function emma_enable_gutenberg_editor_for_blog_page( $replace, $post ) {
 add_filter( 'replace_editor', 'emma_enable_gutenberg_editor_for_blog_page', 10, 2 );
 
 /**
- * Output search form with custom classes
+ * Output search block
  */
-function emma_get_search_form() {
-	// Add the custom class filter to the search form.
-	add_filter( 'get_search_form', 'emma_search_form_class_filter', 10, 2 );
-
-	get_search_form();
-
-	// Remove the custom class filter to avoid affecting other search forms.
-	remove_filter( 'get_search_form', 'emma_search_form_class_filter', 10, 2 );
+function emma_get_search_block() {
+	echo do_blocks( '<!-- wp:search {"label":"Search","showLabel":false,"buttonText":"Search"} /-->' );
 }
-add_action( 'emma_after', 'emma_get_search_form' );
 
 /**
- * Filter the search form to apply custom classes to the markup
- *
- * @param string $form Search form markup.
- * @param array  $args Arguments.
+ * Output search block for floating search form
  */
-function emma_search_form_class_filter( $form, $args ) {
-	// Get the position of the native "search-form" class plus offset (custom after native).
-	$string_position = strpos( $form, 'search-form' ) + 11;
-
-	// Return $form with custom classes injected into the markup.
-	return substr_replace( $form, ' toggle-search-form d-none', $string_position, 0 );
+function emma_get_floating_search_block() {
+	echo do_blocks( '<!-- wp:search {"label":"Search","showLabel":false,"buttonText":"Search","className":"floating-search-form d-none"} /-->' );
 }
+add_action( 'emma_after', 'emma_get_floating_search_block' );
 
 /**
  * Render the page_for_posts (pfp) content
