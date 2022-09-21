@@ -75,7 +75,16 @@
 
 .page-title,
 .entry-title {
-	margin-bottom: $spacer-xs;
+	margin-top: 0;
+	margin-bottom: 0;
+
+	a {
+		text-decoration: none;
+	}
+}
+
+.entry-url {
+	font-size: $font-size-sm;
 }
 
 // @FUTURE: May be able to remove several selectors after layout system is better refined
