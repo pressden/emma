@@ -103,8 +103,11 @@ drawer = document.querySelector( '#flyout-menu' );
 			event.preventDefault();
 			subMenu.classList.add( 'active' );
 			parentMenu.classList.add( 'sub-menu-open' );
+			//set submenu to scroll on vertical overflow so it properly calculates the height if it will force a scrollbar for its parent
+			subMenu.style.overflowY = "scroll";
 			clones.style.height = subMenu.offsetHeight + 'px';
 			currentMenu = subMenu;
+			subMenu.style.overflowY = "visible";
 			updateMenuBack();
 			setFocusTrapIgnore( subMenu );
 			trapFocus( drawer, menuBack );
