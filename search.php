@@ -25,7 +25,7 @@ get_header();
 
 			<div class="page-content">
 
-				<?php echo get_search_form(); ?>
+				<?php emma_get_search_block(); ?>
 
 				<?php
 				/* Start the Loop */
