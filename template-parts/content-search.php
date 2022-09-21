@@ -16,7 +16,7 @@
 
 			<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
-			<small><a href="<?php echo get_permalink(); ?>"><?php echo get_permalink(); ?></a></small>
+			<div class="entry-url"><a href="<?php echo get_permalink(); ?>"><?php echo get_permalink(); ?></a></div>
 
 		</div><!-- .wrap -->
 	</header><!-- .entry-header -->
