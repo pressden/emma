@@ -1,6 +1,6 @@
 // @TODO: adapt commented out styles to apply styling to buttons outside of the editor in a consistent manner
 :where( :not( .is-style-outline ) ) > .wp-block-button__link,
-.wp-element-button {
+:where( :not( .is-style-outline ) ) > .wp-element-button {
 	outline-color: var( --bg-color, var( --wp--custom--button-background-color ) );
 }
 
