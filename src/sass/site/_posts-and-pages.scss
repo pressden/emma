@@ -89,9 +89,7 @@
 }
 
 // @FUTURE: May be able to remove several selectors after layout system is better refined
-.entry-content,
-.page-content,
-.widget_block,
+.wp-site-blocks,
 .wp-block-cover__inner-container,
 .wp-block-group,
 .wp-block-column {
@@ -126,78 +124,6 @@
 
 	.entry-content {
 		> * {
-			width: 100%;
-		}
-	}
-}
-
-.archive,
-.blog,
-.search {
-	.post,
-	.search-result {
-		display: grid;
-		row-gap: $spacer-sm;
-		column-gap: $spacer;
-		margin-top: $spacer-lg;
-		margin-bottom: $spacer-lg;
-
-		&:not(:last-child) {
-			border-bottom: $posts-border-bottom;
-		}
-	}
-
-	.page-content {
-		.entry-header {
-			margin-top: 0;
-			margin-bottom: 0;
-			text-align: left;
-
-			@media screen and (min-width: $breakpoint-xs) {
-				grid-column: 1 / -1;
-			}
-		}
-	}
-
-	.entry-footer {
-		@media screen and (min-width: $breakpoint-xs) {
-			grid-column: 1 / -1;
-		}
-	}
-
-	.has-post-thumbnail {
-		@media screen and (min-width: $breakpoint-xs) {
-			grid-template-columns: 125px 1fr;
-
-			.entry-content {
-				grid-column: 2;
-			}
-		}
-	}
-
-	.post-thumbnail {
-		margin-bottom: 0;
-
-		@media screen and (min-width: $breakpoint-xs) {
-			margin-bottom: $spacer-lg;
-		}
-	}
-}
-
-.search {
-	.search-form {
-		display: flex;
-		column-gap: $spacer-sm;
-		margin-top: $spacer;
-		margin-bottom: $spacer;
-		align-items: center;
-
-		label {
-			flex-grow: 1;
-			margin-bottom: 0;
-		}
-
-		.search-field {
 			width: 100%;
 		}
 	}

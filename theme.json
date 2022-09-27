@@ -21,7 +21,7 @@
 				{
 					"slug": "secondary",
 					"color": "#663f46",
-					"name": "Secondary Support"
+					"name": "Secondary"
 				},
 				{
 					"slug": "secondary-support",
@@ -236,5 +236,39 @@
 				}
 			}
 		}
-	}
+	},
+	"templateParts": [
+		{
+			"name": "index-content",
+			"title": "Index Content"
+		},
+		{
+			"name": "home-content",
+			"title": "Home Content"
+		},
+		{
+			"name": "archive-content",
+			"title": "Archive Content"
+		},
+		{
+			"name": "search-content",
+			"title": "Search Page Content"
+		},
+		{
+			"name": "404-content",
+			"title": "404 Page Content"
+		},
+		{
+			"name": "page-content",
+			"title": "Page Content"
+		},
+		{
+			"name": "single-content",
+			"title": "Single Content"
+		},
+		{
+			"name": "footer-content",
+			"title": "Footer Content"
+		}
+	]
 }
