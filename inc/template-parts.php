@@ -147,7 +147,7 @@ add_action( 'emma_footer', 'emma_footer_menu_template' );
 function emma_site_info_template() {
 	get_template_part( 'template-parts/site', 'info' );
 }
-add_action( 'emma_footer', 'emma_site_info_template' );
+add_action( 'emma_site_info', 'emma_site_info_template' );
 
 /**
  * Gets the menu drawer template part.

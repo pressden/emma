@@ -63,3 +63,10 @@
 		font-size: $font-size-md;
 	}
 }
+
+.wp-block-query-pagination-numbers {
+	.page-numbers {
+		padding-left: $spacer-xs;
+		padding-right: $spacer-xs;
+	}
+}

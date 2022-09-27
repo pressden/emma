@@ -101,6 +101,9 @@ if ( ! function_exists( 'emma_setup' ) ) {
 
 		// Add support for responsive embeds.
 		add_theme_support( 'responsive-embeds' );
+
+		// Add support for template editing.
+		add_theme_support( 'block-template-parts' );
 	}
 }
 add_action( 'after_setup_theme', 'emma_setup' );

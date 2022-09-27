@@ -23,7 +23,7 @@
 
 	<?php emma_post_thumbnail( 'thumbnail' ); ?>
 
-	<div class="entry-content">
+	<div class="entry-content wp-site-blocks">
 
 		<?php the_excerpt(); ?>
 

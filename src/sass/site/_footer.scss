@@ -1,19 +1,14 @@
-.site-footer {
+.site-info {
 	padding: $footer-padding;
 	color: $footer-color;
 	background-color: $footer-background-color;
+	text-align: $site-info-text-align;
 
 	> .wrap {
 		@include center-wrap($footer-wrap-max-width);
 		@include layout-wrap();
 		padding: $footer-wrap-padding;
 		position: relative;
-		column-gap: $footer-wrap-column-gap;
-		row-gap: $footer-wrap-row-gap;
-		display: flex;
-		align-items: $footer-wrap-align-items;
-		justify-content: $footer-wrap-justify-content;
-		flex-wrap: $footer-wrap-flex-wrap;
 	}
 
 	a {
@@ -26,8 +21,4 @@
 			color: $footer-link-hover-color;
 		}
 	}
-}
-
-.site-info {
-	text-align: $site-info-text-align;
 }
