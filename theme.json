@@ -240,35 +240,43 @@
 	"templateParts": [
 		{
 			"name": "index-content",
-			"title": "Index Content"
+			"title": "Index Content",
+			"area": "uncategorized"
 		},
 		{
 			"name": "home-content",
-			"title": "Home Content"
+			"title": "Home Content",
+			"area": "uncategorized"
 		},
 		{
 			"name": "archive-content",
-			"title": "Archive Content"
+			"title": "Archive Content",
+			"area": "uncategorized"
 		},
 		{
 			"name": "search-content",
-			"title": "Search Page Content"
+			"title": "Search Page Content",
+			"area": "uncategorized"
 		},
 		{
 			"name": "404-content",
-			"title": "404 Page Content"
+			"title": "404 Page Content",
+			"area": "uncategorized"
 		},
 		{
 			"name": "page-content",
-			"title": "Page Content"
+			"title": "Page Content",
+			"area": "uncategorized"
 		},
 		{
 			"name": "single-content",
-			"title": "Single Content"
+			"title": "Single Content",
+			"area": "uncategorized"
 		},
 		{
 			"name": "footer-content",
-			"title": "Footer Content"
+			"title": "Footer Content",
+			"area": "footer"
 		}
 	]
 }
