@@ -113,21 +113,6 @@
 	}
 }
 
-.page-content {
-	.entry-header,
-	.entry-footer {
-		> .wrap {
-			width: 100%;
-		}
-	}
-
-	.entry-content {
-		> * {
-			width: 100%;
-		}
-	}
-}
-
 .wp-block-group.has-background,
 .wp-block-group.has-border-color {
 	> * {
