@@ -1,67 +1,77 @@
-$button-selectors: $button-selectors-admin !default;
-
-@if $admin-stylesheet == false {
-	$button-selectors: $button-selectors-theme + ", " + $button-selectors-admin;
+// @TODO: adapt commented out styles to apply styling to buttons outside of the editor in a consistent manner
+.wp-element-button {
+	--bg-color: var( --wp--custom--button-background-color ); //prevents a parent element with a background color from affecting the outline color
 }
 
-#{$button-selectors} {
-	@include background-color($button-background-color);
-	display: inline-block;
-	padding: $button-padding;
-	border: 0;
-	border-radius: $button-border-radius;
-	cursor: pointer;
-	text-decoration: none;
-
-	&:focus-visible {
-		outline: $focus-outline;
-		outline-offset: $focus-outline-offset;
-		outline-color: var(--bg-color);
-	}
-
-	&:hover {
-		opacity: 0.9;
-	}
-
-	&:disabled,
-	&.disabled:not(:disabled),
-	&.loading {
-		filter: $button-disabled-filter-effect;
-		cursor: $button-disabled-cursor;
-
-		&:focus {
-			outline: 0;
-		}
-	}
-
-	&.loading {
-		color: transparent !important;
-
-		&::before {
-			@include icon-mask( 'update' );
-			animation: loading-spin 1s infinite;
-			animation-timing-function: linear;
-			color: var(--color);
-		}
-
-		@keyframes loading-spin {
-			0% {
-				transform: rotate(0deg);
-			}
-			100% {
-				transform: rotate(360deg);
-			}
-		}
-	}
+:where( :not( .is-style-outline ) ) > .wp-block-button__link,
+:where( :not( .is-style-outline ) ) > .wp-element-button {
+	outline-color: var( --bg-color );
 }
 
-.is-style-outline > .wp-block-button__link {
-	padding: $outline-button-padding;
-	border: $outline-button-border-size solid;
-	border-color: currentColor;
-	background-color: transparent !important;
+// $button-selectors: $button-selectors-admin !default;
 
-	&:focus-visible {
-		outline-color: currentColor;
-	}
-}
+// @if $admin-stylesheet == false {
+// 	$button-selectors: $button-selectors-theme + ", " + $button-selectors-admin;
+// }
+
+// #{$button-selectors} {
+// 	@include background-color($button-background-color);
+// 	display: inline-block;
+// 	padding: $button-padding;
+// 	border: 0;
+// 	border-radius: $button-border-radius;
+// 	cursor: pointer;
+// 	text-decoration: none;
+
+// 	&:focus-visible {
+// 		outline: $focus-outline;
+// 		outline-offset: $focus-outline-offset;
+// 		outline-color: var(--bg-color);
+// 	}
+
+// 	&:hover {
+// 		opacity: 0.9;
+// 	}
+
+// 	&:disabled,
+// 	&.disabled:not(:disabled),
+// 	&.loading {
+// 		filter: $button-disabled-filter-effect;
+// 		cursor: $button-disabled-cursor;
+
+// 		&:focus {
+// 			outline: 0;
+// 		}
+// 	}
+
+// 	&.loading {
+// 		color: transparent !important;
+
+// 		&::before {
+// 			@include icon-mask( 'update' );
+// 			animation: loading-spin 1s infinite;
+// 			animation-timing-function: linear;
+// 			color: var(--color);
+// 		}
+
+// 		@keyframes loading-spin {
+// 			0% {
+// 				transform: rotate(0deg);
+// 			}
+// 			100% {
+// 				transform: rotate(360deg);
+// 			}
+// 		}
+// 	}
+// }
+
+// .is-style-outline > .wp-block-button__link {
+// 	padding: $outline-button-padding;
+// 	border: $outline-button-border-size solid;
+// 	border-color: currentColor;
+// 	background-color: transparent !important;
+
+// 	&:focus-visible {
+// 		outline-color: currentColor;
+// 	}
+// }

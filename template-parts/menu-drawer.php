@@ -4,7 +4,7 @@ $flyout_menu_columns = ( is_active_sidebar( 'flyout-menu-content' ) ) ? 'two-col
 
 <div class="flyout-menu-background menu-closer"></div>
 
-<div id="flyout-menu" style="transform: translateX(100%);" class="flyout-menu <?php echo esc_attr( $flyout_menu_columns ); ?>">
+<div id="flyout-menu" style="<?php echo apply_filters( 'emma_flyout_menu_style', 'transform: translateX(100%);' ) ?>" class="flyout-menu <?php echo esc_attr( $flyout_menu_columns ); ?>">
 
 	<div class="flyout-menu-wrap">
 

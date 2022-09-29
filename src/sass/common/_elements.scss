@@ -3,16 +3,18 @@ img {
 	max-width: 100%; /* Adhere to container width. */
 }
 
-a {
-	color: var( --link-color );
-
+a,
+.wp-element-button {
+	outline-offset: $focus-outline-offset;
+	outline-width: $focus-outline-width;
+	outline-color: $focus-outline-color;
+	
 	&:hover {
 		opacity: 0.9;
 	}
-
+	
 	&:focus-visible {
-		outline: $focus-outline;
-		outline-offset: $focus-outline-offset;
+		outline-style: $focus-outline-style;
 	}
 
 	&.inactive,

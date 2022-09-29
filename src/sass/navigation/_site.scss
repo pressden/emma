@@ -6,7 +6,7 @@
 
 .menu-container {
 	@include center-wrap($menu-container-max-width);
-	@include font-size($menu-font-size);
+	font-size: $menu-font-size;
 
 	ul {
 		margin: 0;
@@ -39,8 +39,6 @@
 		&:focus,
 		&:focus-within,
 		&:active {
-			color: $menu-link-hover-color;
-
 			&:where( .inactive ) {
 				color: $menu-link-inactive-color;
 			}
@@ -95,13 +93,6 @@
 
 		.menu-item {
 			color: $menu-sub-link-color;
-
-			&:hover,
-			&:focus,
-			&:focus-within,
-			&:active {
-				color: $menu-sub-link-hover-color;
-			}
 
 			&:where( .inactive ) {
 				color: $menu-sub-link-inactive-color;

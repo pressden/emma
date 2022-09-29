@@ -23,15 +23,13 @@
 }
 
 .search-form-toggle {
-	.search-form {
+	.wp-block-search {
 		position: absolute;
 		z-index: 100;
-		display: grid;
-		grid-template-columns: 3fr 1fr;
-		column-gap: $spacer-sm;
 		margin: 0;
 		padding: $spacer;
-		min-width: 400px;
+		width: 100vw;
+		max-width: 600px;
 		background-color: $white;
 		border-top: 3px solid $action;
 		box-shadow: 2px 2px 10px 0 rgba($black, 0.3);

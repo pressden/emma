@@ -6,7 +6,7 @@
 	width: $wc-mini-cart-width;
 	z-index: 99999;
 	background-color: $wc-mini-cart-background-color;
-	color: color-yiq($wc-mini-cart-background-color);
+	color: $wc-mini-cart-color;
 	border: 1px solid $wc-mini-cart-border-color;
 	border-radius: $wc-mini-cart-border-radius;
 
@@ -98,12 +98,6 @@
 			width: 42%;
 			text-align: center;
 			padding: $spacer-sm $spacer;
-
-			&.checkout {
-				@include background-color-custom-properties(
-					$wc-button-background-color
-				);
-			}
 		}
 	}
 
@@ -161,7 +155,7 @@
 		&:hover,
 		&:focus {
 			.cart-count {
-				background-color: $link-hover-color;
+				background-color: $gray-200;
 			}
 		}
 	}
@@ -180,13 +174,6 @@
 			a {
 				padding: 0;
 			}
-		}
-	}
-
-	.mini-cart-toggle {
-		&:hover > a .cart-count,
-		&:focus > a .cart-count {
-			background-color: $menu-link-hover-color;
 		}
 	}
 }

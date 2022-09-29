@@ -32,14 +32,14 @@
 	.woocommerce-message,
 	.woocommerce-info {
 		background-color: $info;
-		color: color-yiq($info);
+		color: $white;
 
 		a:not(.button) {
-			color: color-yiq($info);
+			color: $white;
 			text-decoration: underline;
 
 			&:hover {
-				color: color-yiq($info);
+				color: $white;
 			}
 		}
 	}
@@ -74,18 +74,18 @@
 
 	.woocommerce-error {
 		background-color: $warning;
-		color: color-yiq($warning);
+		color: $white;
 
 		li {
 			display: block;
 		}
 
 		a:not(.button) {
-			color: color-yiq($warning);
+			color: $white;
 			text-decoration: underline;
 
 			&:hover {
-				color: color-yiq($warning);
+				color: $white;
 			}
 		}
 	}
@@ -112,7 +112,7 @@
 	padding: $spacer $spacer-lg $spacer 5rem;
 	z-index: 1000;
 	background-color: $primary;
-	color: color-yiq($primary);
+	color: $white;
 
 	&::before {
 		@include icon-mask( 'info' );
@@ -129,11 +129,11 @@
 		margin-right: -$spacer-lg;
 		margin-top: -$spacer;
 		margin-bottom: -$spacer;
-		color: color-yiq($info);
+		color: $white;
 		text-decoration: underline;
 
 		&:hover {
-			color: color-yiq($info);
+			color: $white;
 		}
 	}
 }

@@ -76,14 +76,22 @@
 
 .page-title,
 .entry-title {
-	margin-bottom: $spacer-xs;
+	margin-top: 0;
+	margin-bottom: 0;
+
+	a {
+		text-decoration: none;
+	}
 }
 
-.entry-content,
-.page-content,
-.widget_block,
+.entry-url {
+	font-size: $font-size-sm;
+}
+
+// @FUTURE: May be able to remove several selectors after layout system is better refined
+.wp-site-blocks,
 .wp-block-cover__inner-container,
-.wp-block-group__inner-container,
+.wp-block-group,
 .wp-block-column {
 	> * {
 		margin-left: auto;
@@ -95,113 +103,29 @@
 .entry-content,
 .page-content,
 .widget_block,
+.wp-block-group.has-background,
+.wp-block-group.has-border-color,
+.wp-block-group:where( .alignfull ),
+.wp-block-column.has-background,
+.wp-block-column.has-border-color,
 .wp-block-cover__inner-container {
 	> * {
 		@include layout-wrap();
 	}
 }
 
-.page-content {
-	.entry-header,
-	.entry-footer {
-		> .wrap {
-			width: 100%;
-		}
-	}
-
-	.entry-content {
-		> * {
-			width: 100%;
-		}
-	}
-}
-
-.archive,
-.blog,
-.search {
-	.post,
-	.search-result {
-		display: grid;
-		row-gap: $spacer-sm;
-		column-gap: $spacer;
-		margin-top: $spacer-lg;
-		margin-bottom: $spacer-lg;
-
-		&:not(:last-child) {
-			border-bottom: $posts-border-bottom;
-		}
-	}
-
-	.page-content {
-		.entry-header {
-			margin-top: 0;
-			margin-bottom: 0;
-			text-align: left;
-
-			@media screen and (min-width: $breakpoint-xs) {
-				grid-column: 1 / -1;
-			}
-		}
-	}
-
-	.entry-footer {
-		@media screen and (min-width: $breakpoint-xs) {
-			grid-column: 1 / -1;
-		}
-	}
-
-	.has-post-thumbnail {
-		@media screen and (min-width: $breakpoint-xs) {
-			grid-template-columns: 125px 1fr;
-
-			.entry-content {
-				grid-column: 2;
-			}
-		}
-	}
-
-	.post-thumbnail {
-		margin-bottom: 0;
-
-		@media screen and (min-width: $breakpoint-xs) {
-			margin-bottom: $spacer-lg;
-		}
-	}
-}
-
-.search {
-	.search-form {
-		display: flex;
-		column-gap: $spacer-sm;
-		margin-top: $spacer;
-		margin-bottom: $spacer;
-		align-items: center;
-
-		label {
-			flex-grow: 1;
-			margin-bottom: 0;
-		}
-
-		.search-field {
-			width: 100%;
-		}
-	}
-}
-
 .wp-block-group.has-background,
-.wp-block-group.border {
-	> .wp-block-group__inner-container {
-		> * {
-			@include layout-wrap();
+.wp-block-group.has-border-color {
+	> * {
+		@include layout-wrap();
 
-			&.alignfull {
-				width: 100%; //needed because width declaration above this one supercedes normal .alignwide class unless the !important flag is used
-			}
+		&.alignfull {
+			width: 100%; //needed because width declaration above this one supercedes normal .alignwide class unless the !important flag is used
 		}
 	}
 }
 
-.wp-block-column,
+// @TODO: rework for new gap presets
 .wp-block-emma-grid-cell {
 	> * {
 		margin-bottom: $spacer;
@@ -209,14 +133,14 @@
 
 	.wp-block-group {
 		&.has-background,
-		&.border {
+		&.has-border-color {
 			padding-top: $layout-spacer-y;
 			padding-bottom: $layout-spacer-y;
 		}
 	}
 
 	.wp-block-cover__inner-container,
-	.wp-block-group__inner-container {
+	.wp-block-group {
 		> * {
 			margin-bottom: $spacer;
 		}
@@ -224,7 +148,7 @@
 
 	> .wp-block-group {
 		&.has-background,
-		&.border {
+		&.has-border-color {
 			&:only-child {
 				height: 100%;
 			}
@@ -232,33 +156,30 @@
 	}
 }
 
-.entry-content,
+// @FUTURE: remove cover block when able
 .widget_block,
-.wp-block-cover__inner-container,
-.wp-block-group__inner-container {
+.wp-block-cover__inner-container {
 	> * {
-		margin-bottom: $spacer-lg;
+		margin-block-start: 0;
+		margin-block-end: 0;
 	}
-}
 
-.wp-block-cover__inner-container,
-.wp-block-group__inner-container,
-.wp-block-column,
-.wp-block-emma-grid-cell {
-	> :last-child {
-		margin-bottom: 0;
+	> * + * {
+		margin-block-start: var( --wp--style--block-gap );
 	}
 }
 
 .wp-block-group.has-background,
-.wp-block-group.border,
+.wp-block-group.has-border-color,
+.wp-block-column.has-background,
+.wp-block-column.has-border-color,
 .wp-block-cover {
-	padding-top: $spacer-lg;
-	padding-bottom: $spacer-lg;
+	padding-top: var( --wp--style--block-gap );
+	padding-bottom: var( --wp--style--block-gap );
 }
 
 p.has-background {
-	padding: $spacer;
+	padding: var( --wp--style--block-gap );
 }
 
 .entry-footer {
