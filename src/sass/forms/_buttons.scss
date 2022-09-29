@@ -1,7 +1,11 @@
 // @TODO: adapt commented out styles to apply styling to buttons outside of the editor in a consistent manner
+.wp-element-button {
+	--bg-color: var( --wp--custom--button-background-color ); //prevents a parent element with a background color from affecting the outline color
+}
+
 :where( :not( .is-style-outline ) ) > .wp-block-button__link,
 :where( :not( .is-style-outline ) ) > .wp-element-button {
-	outline-color: var( --bg-color, var( --wp--custom--button-background-color ) );
+	outline-color: var( --bg-color );
 }
 
 // $button-selectors: $button-selectors-admin !default;
