@@ -4,14 +4,11 @@
 	}
 
 	div.product {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		column-gap: $wc-product-column-gap;
+		row-gap: $wc-product-row-gap;
 		position: relative;
-
-		@media screen and (min-width: $breakpoint-md) {
-			display: grid;
-			grid-template-columns: 1fr 1fr;
-			column-gap: $wc-product-column-gap;
-			row-gap: $wc-product-row-gap;
-		}
 
 		.woocommerce-product-gallery {
 			grid-column: 1 / 3;
