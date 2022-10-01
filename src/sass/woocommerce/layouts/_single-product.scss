@@ -130,6 +130,10 @@
 				overflow-x: scroll;
 				overflow-y: hidden;
 
+				@media screen and (min-width: $breakpoint-sm) {
+					overflow: initial;
+				}
+
 				li {
 					display: block;
 					margin-bottom: -1px;
