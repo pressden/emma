@@ -16,7 +16,7 @@ get_header();
 			<?php
 				$hide_title = get_post_meta( $post->ID, 'hide_title', true );
 				if ( empty( $hide_title ) ) {
-					echo do_blocks( '<!-- wp:post-title {"textAlign":"center","level":1,"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} /-->' );
+					echo do_blocks( '<!-- wp:post-title {"textAlign":"center","level":1,"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}},"className":"page-title"} /-->' );
 				}
 			?>
 			<?php block_template_part( 'single-content' ); ?>
