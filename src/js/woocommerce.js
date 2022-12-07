@@ -68,9 +68,8 @@ $(function () {
 
 		$activeToggle = $(this);
 		var $miniCart = $("#mini-cart");
-		var $menuDrawer = $("#flyout-menu");
 
-		if ($miniCart.is(":visible") || $menuDrawer.hasClass("toggled")) {
+		if ($miniCart.is(":visible") || $('body').hasClass("flyout-menu-open")) {
 			window.location.href = "/cart";
 			return false;
 		}
