@@ -88,7 +88,7 @@ function relocateSearch(toggle) {
 	}
 
 	searchForm.classList.remove("d-none");
-	searchForm.querySelector(".search-field").focus();
+	searchForm.querySelector('input[type="search"]').focus();
 }
 
 function hideSearchForm() {
