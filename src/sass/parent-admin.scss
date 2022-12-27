@@ -2,16 +2,11 @@
 # Emma - Admin Styles
 --------------------------------------------------------------*/
 
-// Functions
-@import "_functions";
+// Core
+@import "parent-core";
 
 // Variables
 $admin-stylesheet: true;
-@import "variables/variables";
-
-// Mixins
-@import "mixins/mixins";
-@import "mixins/vendor/rfs";
 
 // Core styles
 @import "forms/buttons";

@@ -2,15 +2,8 @@
 # Emma - Theme Styles
 --------------------------------------------------------------*/
 
-// Functions
-@import "_functions";
-
-// Variables
-@import "variables/variables";
-
-// Mixins
-@import "mixins/mixins";
-@import "mixins/vendor/rfs";
+// Core
+@import "parent-core";
 
 // Reset
 @import "common/reset";

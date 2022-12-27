@@ -1,0 +1,15 @@
+/*--------------------------------------------------------------
+# Emma - Theme SASS Core
+#
+# The SASS core imports all functions, variables and mixins.
+--------------------------------------------------------------*/
+
+// Functions
+@import "_functions";
+
+// Variables
+@import "variables/variables";
+
+// Mixins
+@import "mixins/mixins";
+@import "mixins/vendor/rfs";
