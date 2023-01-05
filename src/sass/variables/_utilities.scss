@@ -25,7 +25,6 @@ $spacer-sizes: (
 
 // Responsive Font Sizes
 $enable-responsive-font-sizes: true !default;
-$rfs-breakpoint: $content-max-alignwide-width !default;
 
 // Font sizes
 $font-size-sm: var( --wp--preset--font-size--small, calc( $font-size-base * 0.8 ) ) !default; // small
