@@ -25,7 +25,7 @@ body {
 .flyout-menu {
 	visibility: hidden;
 	position: fixed;
-	height: var( --full-height );
+	height: calc( 100% - var( --admin-bar-height ) );
 	width: 100%;
 	max-width: $flyout-menu-max-width;
 	padding-bottom: $spacer-lg;
