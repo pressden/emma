@@ -81,17 +81,15 @@ drawer = document.querySelector( '#flyout-menu' );
 		let parentMenu = menuItem.closest( '.sub-menu, .top-level-menus' );
 
 		// clone submenu parent link and add as submenu title
-		let subMenuLinkClone = subMenuLink.cloneNode( true );
-		subMenuLinkClone.removeAttribute( 'aria-haspopup' );
-		subMenuLinkClone.removeAttribute( 'aria-expanded' );
-		var subMenuLinkCloneListItem = document.createElement( 'li' );
-		subMenuLinkCloneListItem.classList.add( 'menu-title' );
-		if ( subMenuLinkClone.attributes['href'].value === '#' ) {
-			subMenuLinkCloneListItem.classList.add( 'inactive' );
-			subMenuLinkClone.tabIndex = -1;
+		if ( subMenuLink.attributes['href'].value !== '#' ) {
+			let subMenuLinkClone = subMenuLink.cloneNode( true );
+			subMenuLinkClone.removeAttribute( 'aria-haspopup' );
+			subMenuLinkClone.removeAttribute( 'aria-expanded' );
+			var subMenuLinkCloneListItem = document.createElement( 'li' );
+			subMenuLinkCloneListItem.classList.add( 'menu-item' );
+			subMenuLinkCloneListItem.appendChild( subMenuLinkClone );
+			subMenu.prepend( subMenuLinkCloneListItem );
 		}
-		subMenuLinkCloneListItem.appendChild( subMenuLinkClone );
-		subMenu.prepend( subMenuLinkCloneListItem );
 
 		// update submenu id and add parent menu data attribute, then move to menu clones container
 		subMenu.id = 'sub-menu-' + subMenuId;
