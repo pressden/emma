@@ -17,6 +17,7 @@
 		align-items: center;
 
 		h3 {
+			margin-top: 0;
 			margin-bottom: 0;
 		}
 
@@ -149,13 +150,6 @@
 
 			&:empty {
 				display: none;
-			}
-		}
-
-		&:hover,
-		&:focus {
-			.cart-count {
-				background-color: $gray-200;
 			}
 		}
 	}
