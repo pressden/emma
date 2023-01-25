@@ -109,7 +109,7 @@
 				@include remove-hover-underline;
 
 				&::before {
-					@include icon-mask( 'no' );
+					@include icon-mask( 'no', true );
 				}
 			}
 

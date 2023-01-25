@@ -39,7 +39,7 @@
 		width: 2.5rem;
 
 		&::before {
-			@include icon-mask( 'arrow-left-alt2' );
+			@include icon-mask( 'arrow-left-alt2', true );
 		}
 	}
 

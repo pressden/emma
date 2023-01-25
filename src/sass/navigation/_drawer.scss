@@ -207,9 +207,12 @@ body {
 
 			&::before {
 				@include icon-mask( 'arrow-left-alt2' );
+				content: '';
+				position: absolute;
+				top: 0;
 				left: $spacer-sm;
 				width: $spacer-lg;
-				padding: 0;
+				height: 100%;
 			}
 		}
 	}
@@ -249,11 +252,14 @@ body {
 
 			&::after {
 				@include icon-mask( 'arrow-left-alt2' );
+				content: '';
+				position: absolute;
 				transform: rotate( 180deg );
+				top: 0;
 				left: auto;
 				right: $spacer-sm;
 				width: $spacer-lg;
-				padding: 0;
+				height: 100%;
 			}
 		}
 	}

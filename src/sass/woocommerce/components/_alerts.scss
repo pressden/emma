@@ -114,9 +114,13 @@
 	background-color: $primary;
 	color: $white;
 
+	//revisit with testing
 	&::before {
 		@include icon-mask( 'info' );
+		position: absolute;
+		top: 0;
 		left: $spacer-lg;
+		height: 100%;
 		width: 3rem;
 		padding: $spacer-sm;
 	}

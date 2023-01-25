@@ -84,23 +84,26 @@
 	}
 }
 
-@mixin icon-mask( $icon, $path: $icons-path ) {
+@mixin icon-mask( $icon, $fill-container: false, $path: $icons-path ) {
 	content: '';
 	mask-image: url( "#{ $path }#{ $icon }.svg" );
 	mask-repeat: no-repeat;
 	mask-position: center;
 	mask-origin: content-box;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	padding-top: inherit;
-	padding-bottom: inherit;
-	padding-left: 0;
-	padding-right: 0;
-	text-indent: 0;
 	background-color: currentColor;
+	
+	@if $fill-container {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		padding-top: inherit;
+		padding-bottom: inherit;
+		padding-left: 0;
+		padding-right: 0;
+		//text-indent: 0;
+	}
 }
 
 /*--------------------------------------------------------------

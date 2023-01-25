@@ -33,7 +33,7 @@
 				border-radius: 100%;
 
 				&::before {
-					@include icon-mask( 'search' );
+					@include icon-mask( 'search', true );
 					padding: $spacer-xs;
 				}
 			}
@@ -249,7 +249,7 @@
 						color: $gray-400;
 
 						&::before {
-							@include icon-mask( 'star-filled' );
+							@include icon-mask( 'star-filled', true );
 						}
 					}
 				}

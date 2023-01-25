@@ -16,7 +16,7 @@
 			min-width: 3rem;
 
 			&::before {
-				@include icon-mask( 'search' );
+				@include icon-mask( 'search', true );
 			}
 		}
 	}

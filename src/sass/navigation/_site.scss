@@ -21,10 +21,8 @@
 					&::after {
 						@include icon-mask( $menu-dropdown-icon );
 						display: inline-block;
-						position: static;
 						width: $menu-dropdown-icon-width;
 						height: $menu-dropdown-icon-height;
-						padding: 0;
 					}
 				}
 			}

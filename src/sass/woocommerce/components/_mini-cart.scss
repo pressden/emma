@@ -29,7 +29,7 @@
 			height: $menu-icon-size;
 
 			&::before {
-				@include icon-mask( 'dismiss' );
+				@include icon-mask( 'dismiss', true );
 			}
 
 			&:hover,
@@ -69,7 +69,7 @@
 					overflow: hidden;
 
 					&::before {
-						@include icon-mask( 'no' );
+						@include icon-mask( 'no', true );
 					}
 				}
 
@@ -123,7 +123,7 @@
 		min-width: 3rem;
 
 		&::before {
-			@include icon-mask( 'cart' );
+			@include icon-mask( 'cart', true );
 		}
 
 		.cart-count {

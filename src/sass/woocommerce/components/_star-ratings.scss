@@ -7,7 +7,7 @@
 
 		&::before,
 		span::before {
-			@include icon-mask( 'star-filled' );
+			@include icon-mask( 'star-filled', true );
 			mask-repeat: repeat-x;
 			opacity: 0.25;
 			width: $wc-review-star-size * 5;
