@@ -102,8 +102,6 @@
 .wp-block-group.has-background,
 .wp-block-group.has-border-color,
 .wp-block-group:where( .alignfull ),
-.wp-block-column.has-background,
-.wp-block-column.has-border-color,
 .wp-block-cover__inner-container,
 .emma-container.has-background, //.emma-container used in various custom blocks as a replication of .wp-block-group
 .emma-container.has-border-color {
@@ -116,21 +114,6 @@
 .wp-block-emma-grid-cell {
 	> * {
 		margin-bottom: $spacer;
-	}
-
-	.wp-block-group {
-		&.has-background,
-		&.has-border-color {
-			padding-top: $layout-spacer-y;
-			padding-bottom: $layout-spacer-y;
-		}
-	}
-
-	.wp-block-cover__inner-container,
-	.wp-block-group {
-		> * {
-			margin-bottom: $spacer;
-		}
 	}
 
 	> .wp-block-group {
@@ -160,24 +143,9 @@
 .wp-block-group.has-border-color,
 .emma-container.has-background,
 .emma-container.has-border-color,
-.wp-block-column.has-background,
-.wp-block-column.has-border-color,
 .wp-block-cover {
 	padding-top: var( --wp--style--block-gap );
 	padding-bottom: var( --wp--style--block-gap );
-}
-
-// unifies padding for inline elements that are given a background color - includes responsive left/right padding via --layout-spacer-x
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	&.has-background {
-		padding: var( --wp--style--block-gap ) var(--layout-spacer-x);
-	}
 }
 
 .entry-footer {
