@@ -6,7 +6,11 @@
 		},
 		"color": {
 			"link": true,
+			"background": false,
 			"defaultPalette": false,
+			"defaultGradients": false,
+			"customGradient": false,
+			"gradients":[],
 			"palette": [
 				{
 					"slug": "primary",
@@ -155,11 +159,42 @@
 				"unit": "rem"
 			}
 		},
-		"border": {
-			"color": true,
-			"radius": true,
-			"style": true,
-			"width": true
+		"blocks": {
+			"core/group": {
+				"color": {
+						"background": true
+				},
+				"border": {
+					"color": true,
+					"radius": true,
+					"style": true,
+					"width": true
+				}
+			},
+			"core/cover": {
+				"color": {
+						"background": true
+				},
+				"border": {
+					"color": true,
+					"radius": true,
+					"style": true,
+					"width": true
+				}
+			},
+			"core/button": {
+				"color": {
+						"background": true
+				}
+			},
+			"core/image": {
+				"border": {
+					"color": true,
+					"radius": true,
+					"style": true,
+					"width": true
+				}
+			}
 		}
 	},
 	"styles": {
