@@ -14,6 +14,7 @@ $admin-stylesheet: true;
 // Core styles
 @import "forms/buttons";
 @import "gutenberg/gutenberg";
+@import "site/posts-and-pages";
 
 // Core overrides and custom blocks
 @import "editor/overrides";

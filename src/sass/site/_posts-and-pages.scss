@@ -108,6 +108,12 @@
 	> * {
 		@include layout-wrap();
 	}
+
+	//undo the hard set horizontal padding that the editor gives to group blocks with background colors
+	@if $admin-stylesheet == true {
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 // @TODO: rework for new gap presets
