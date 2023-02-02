@@ -55,6 +55,10 @@ $alignments: (start, center, end, stretch);
 		justify-self: var(--grid-block-justify);
 		align-self: var(--grid-block-align);
 
+		> * {
+			margin-bottom: $spacer;
+		}	
+
 		> :last-child {
 			margin-bottom: 0;
 		}

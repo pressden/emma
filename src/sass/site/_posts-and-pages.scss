@@ -117,11 +117,8 @@
 }
 
 // @TODO: rework for new gap presets
-.wp-block-emma-grid-cell {
-	> * {
-		margin-bottom: $spacer;
-	}
-
+.wp-block-emma-grid-cell,
+.wp-block-column {
 	> .wp-block-group {
 		&.has-background,
 		&.has-border-color {
