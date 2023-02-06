@@ -17,7 +17,7 @@ get_header();
 
 <div id="primary" class="content-area">
 	<main id="main" class="site-main">
-		<div class="page-content wp-site-blocks">
+		<div class="page-content is-layout-constrained wp-site-blocks">
 			<?php
 				$hide_title = get_post_meta( $post->ID, 'hide_title', true );
 				if ( empty( $hide_title ) ) {
