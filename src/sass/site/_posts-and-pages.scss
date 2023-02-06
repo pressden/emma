@@ -116,6 +116,13 @@
 	}
 }
 
+// adds default spacing between footer and regular page content by adding bottom margin to the last block on the page - can be overridden on a page-by-page basis by setting the bottom margin of the last block to 0.
+.entry-content {
+	> :last-child {
+		margin-bottom: var(--wp--style--block-gap);
+	}
+}
+
 // @TODO: rework for new gap presets
 .wp-block-emma-grid-cell,
 .wp-block-column {
