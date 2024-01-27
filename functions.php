@@ -28,12 +28,10 @@ add_action( 'wp_enqueue_scripts', 'emma_enqueue_frontend' );
  * Enqueue backend scripts for stuff that should always get loaded
  */
 function emma_enqueue_editor() {
-  $theme_version = wp_get_theme( get_template() )->get( 'Version' );
+  $theme_version       = wp_get_theme( get_template() )->get( 'Version' );
+  $frontend_stylesheet = get_template_directory_uri() . '/style.css';
 
-  $fontend_stylesheet = get_template_directory_uri() . '/style.css';
-  $admin_stylesheet = get_template_directory_uri() . '/admin-style.css';
-  wp_enqueue_style( 'emma', $fontend_stylesheet, null, $theme_version );
-  wp_enqueue_style( 'emma-admin', $admin_stylesheet, [], $theme_version );
+  wp_enqueue_style( 'emma', $frontend_stylesheet, null, $theme_version );
 }
 add_action( 'enqueue_block_editor_assets', 'emma_enqueue_editor' );
 
