@@ -4,15 +4,458 @@ Theme URI: https://github.com/pressden/emma
 Author: D.S. Webster | Eric Michel
 Author URI: https://github.com/pressden
 Description: Emma is a highly customizable parent theme powered by NPM, Webpack, SASS and ES6.
-Version: 1.0.22
+Version: 2.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: emma
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
-Tested up to: 5.7.2
+Tags: full-site-editing, fse, theme-json, custom-logo, custom-menu, featured-images, threaded-comments
+Tested up to: 6.4.2
 Requires PHP: 7.3
 
 Emma includes featues inspired by Underscores, Genesis, Bootstrap, CSS Tricks and many others. This theme,
 like WordPress, is licensed under the GPL. Use it to make something cool, have fun, and share what you've
 learned with others.
 */
+
+/* Root Variables */
+
+:root {
+	--admin-bar-height: 0px;
+	--layout-spacer-x: 1rem; /* TODO: swap to WP custom prop */
+
+	@media screen and ( min-width: 480px ) {
+		--layout-spacer-x: 2rem;
+	}
+
+	@media screen and ( min-width: 768px ) {
+		--justify-content-right-menu: space-between;
+	}
+}
+
+/* CSS Reset */
+
+@layer reset {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	p:empty {
+		display: none;
+	}
+
+	input,
+	button,
+	select,
+	optgroup,
+	textarea {
+		margin: 0;
+		font-family: inherit;
+		font-size: inherit;
+		line-height: inherit;
+	}
+
+	button {
+		cursor: pointer;
+	}
+}
+
+/* Full Height Calculations */
+
+body {
+	--full-height: calc( 100vh - var( --admin-bar-height ) );
+}
+
+body.admin-bar {
+	--admin-bar-height: 46px;
+
+	@media screen and ( min-width: 782px ) {
+		--admin-bar-height: 32px;
+	}
+}
+
+.block-editor {
+	--full-height: calc( 100vh - 139px );
+
+	@media screen and ( min-width: 782px ) {
+		--full-height: calc( 100vh - 81px );
+	}
+}
+
+/* Link Outlines */
+
+a,
+.wp-element-button,
+button,
+summary {
+	outline-offset: 3px;
+	outline-width: 3px;
+	outline-color: currentColor;
+
+	&:hover {
+		opacity: 0.9;
+	}
+
+	&:focus-visible {
+		outline-style: solid;
+	}
+}
+
+.wp-element-button {
+	--bg-color: var( --wp--custom--button-background-color ); /* prevents a parent element with a background color from affecting the outline color */
+}
+
+:where( :not( .is-style-outline ) ) > .wp-block-button__link,
+:where( :not( .is-style-outline ) ) > .wp-element-button {
+	outline-color: var( --bg-color );
+}
+
+/* Block Alignments */
+
+.alignleft,
+.alignright {
+	max-width: calc( 50% - var( --layout-spacer-x ) );
+
+	@media screen and ( max-width: 479px ) {
+		float: none !important;
+		max-width: 100%;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+}
+
+/* Block Theme CSS */
+
+.wp-site-blocks {
+	display: flex;
+	flex-direction: column;
+	min-height: var( --full-height );
+
+	> * {
+    margin-block-start: 0;
+	}
+
+	& main {
+		flex-grow: 1;
+	}
+
+	.entry-content {
+		/* adds default spacing between header and regular page content by adding top margin to the first block on the page - can be overridden on a page-by-page basis by setting the top margin of the last block to 0. */
+		> :first-child {
+			margin-block-start: var( --wp--style--block-gap );
+		}
+
+		/* adds default spacing between footer and regular page content by adding bottom margin to the last block on the page - can be overridden on a page-by-page basis by setting the bottom margin of the last block to 0. */
+		> :last-child {
+			margin-block-end: var( --wp--style--block-gap );
+		}
+	}
+}
+
+.entry-content,
+.page-content,
+.widget_block,
+.wp-block-group.has-background,
+.wp-block-group.has-border-color,
+.wp-block-group:where( .alignfull ),
+.wp-block-cover__inner-container,
+.emma-container.has-background, /* .emma-container used in various custom blocks as a replication of .wp-block-group */
+.emma-container.has-border-color {
+	> * {
+		width: calc( 100% - var( --layout-spacer-x ) * 2 );
+	}
+}
+
+.wp-block-group.has-background,
+.wp-block-group.has-border-color,
+.emma-container.has-background,
+.emma-container.has-border-color,
+.wp-block-cover {
+	padding-top: var( --wp--style--block-gap );
+	padding-bottom: var( --wp--style--block-gap );
+}
+
+.alignfull {
+	margin-left: 0;
+	margin-right: 0;
+	width: 100% !important;
+	max-width: 100% !important;
+}
+
+/* Flyout Menu Stuff */
+
+.flyout-menu-opener {
+	> a {
+		position: relative;
+    display: block;
+    margin: 0;
+    height: 3rem;
+    min-width: 3rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none !important;
+		text-indent: -999rem;
+    white-space: nowrap;
+    overflow: hidden;
+
+		&::before {
+			content: "";
+			-webkit-mask-image: url( assets/icons/menu-alt.svg );
+			mask-image: url( assets/icons/menu-alt.svg );
+			-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+			-webkit-mask-position: center;
+			mask-position: center;
+			-webkit-mask-origin: content-box;
+			mask-origin: content-box;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			padding-top: inherit;
+			padding-bottom: inherit;
+			padding-left: 0;
+			padding-right: 0;
+			text-indent: 0;
+			background-color: currentColor;
+		}
+	}
+}
+
+.flyout-menu-closer.close-icon {
+	position: relative;
+	margin: 0;
+	min-height: 3rem;
+	width: 3rem;
+	padding: 0.5rem 1rem;
+	margin-left: auto;
+	text-decoration: none !important;
+	text-indent: -999rem;
+	white-space: nowrap;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		-webkit-mask-image: url( assets/icons/no-alt.svg );
+		mask-image: url( assets/icons/no-alt.svg );
+		-webkit-mask-repeat: no-repeat;
+		mask-repeat: no-repeat;
+		-webkit-mask-position: center;
+		mask-position: center;
+		-webkit-mask-origin: content-box;
+		mask-origin: content-box;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		padding-top: inherit;
+		padding-bottom: inherit;
+		padding-left: 0;
+		padding-right: 0;
+		text-indent: 0;
+		background-color: currentColor;
+	}
+}
+
+body {
+	&.flyout-menu-open {
+		overflow-y: hidden;
+	}
+}
+
+.flyout-menu__background {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0 !important;
+	z-index: 9;
+	background: rgba( 0, 0, 0, 0.25 );;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.2s ease;
+	backdrop-filter: blur( 3px );
+
+	.flyout-menu-open & {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.flyout-menu {
+	position: fixed;
+	top: var( --admin-bar-height );
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	max-width: 400px;
+	margin: 0;
+	background-color: white;
+	z-index: 10;
+	visibility: hidden;
+	transition: visibility 0.2s,transform 0.2s ease;
+
+	.flyout-menu-open & {
+		transform: translateX( 0 ) !important;
+		visibility: visible;
+		transition: transform 0.2s ease;
+	}
+
+	.has-open-submenu {
+		visibility: hidden !important;
+	}
+
+	& ul {
+		list-style: none;
+		padding-left: 0;
+		margin: 0;
+	}
+
+	& a,
+	& button,
+	& summary {
+		display: block;
+		padding: 0.5rem 1rem;
+		color: black;
+		text-decoration: none;
+		outline-offset: -3px;
+	}
+
+	& button {
+		border: 0;
+		background-color: white;
+		width: 100%;
+		text-align: left;
+	}
+
+	.menu-back {
+		position: relative;
+		padding-left: 2.5rem;
+		cursor: pointer;
+		font-size: 0.8em;
+
+		&::marker {
+			content: '';
+			display: none;
+		}
+		&::before {
+			content: "";
+			-webkit-mask-image: url( assets/icons/arrow-left-alt.svg );
+			mask-image: url( assets/icons/arrow-left-alt.svg );
+			-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+			-webkit-mask-position: center;
+			mask-position: center;
+			-webkit-mask-origin: content-box;
+			mask-origin: content-box;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			padding-top: inherit;
+			padding-bottom: inherit;
+			padding-left: 0;
+			padding-right: 0;
+			text-indent: 0;
+			background-color: currentColor;
+			left: 1rem;
+			right: auto;
+			width: 1rem;
+			padding: 0;
+		}
+	}
+
+	& summary {
+		position: relative;
+		padding-right: 3rem;
+		cursor: pointer;
+
+		&::marker {
+			content: '';
+			display: none;
+		}
+		&::before {
+			content: "";
+			-webkit-mask-image: url( assets/icons/arrow-left-alt.svg );
+			mask-image: url( assets/icons/arrow-left-alt.svg );
+			-webkit-mask-repeat: no-repeat;
+			mask-repeat: no-repeat;
+			-webkit-mask-position: center;
+			mask-position: center;
+			-webkit-mask-origin: content-box;
+			mask-origin: content-box;
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			padding-top: inherit;
+			padding-bottom: inherit;
+			padding-left: 0;
+			padding-right: 0;
+			text-indent: 0;
+			background-color: currentColor;
+			transform: rotate( 180deg );
+			left: auto;
+			right: 1rem;
+			width: 1.5rem;
+			padding: 0;
+		}
+	}
+
+	.flyout-menu__inner-container {
+		display: flex;
+		flex-direction: column;
+		height: calc( 100% - 3rem );
+	}
+
+	.submenu {
+		position: absolute;
+		top: -1px;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		transform: translateX( 100% );
+		visibility: hidden;
+		background-color: white;
+		z-index: 2;
+	}
+
+	.flyout-menu__menus {
+		position: relative;
+		height: 100%;
+		flex-grow: 1;
+	}
+
+	.top-menu__inner-container {
+		transition: visibility 0.2s ease;
+	}
+
+	.top-menu__inner-container,
+	.submenu__inner-container {
+		height: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+
+	& details[open] {
+		> .submenu {
+			transition: transform 0.2s ease, visibility 0.2s ease;
+		}
+
+		&.submenu-open > .submenu {
+			transform: translateX( 0 ) !important;
+			visibility: visible;
+		}
+	}
+
+	.secondary-menu > li > a,
+	.secondary-menu > li > details > summary {
+		font-size: var( --wp--preset--font-size--small );
+		padding: 0.25rem 1rem;
+	}
+}
