@@ -127,7 +127,7 @@ window.onload = ( event ) => {
 			el.inert = false;
 		} );
 
-		if( elToFocus ) {
+		if ( elToFocus ) {
 			elToFocus.focus();
 		}
 	}
