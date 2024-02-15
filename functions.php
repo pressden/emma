@@ -8,7 +8,8 @@
  */
 
 // Shortcodes.
-require get_template_directory() . '/inc/shortcodes.php';
+require_once get_template_directory() . '/inc/shortcodes.php';
+require_once get_template_directory() . '/inc/customizer.php';
 
 /**
  * Register and enqueue frontend scripts and styles
