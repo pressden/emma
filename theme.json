@@ -164,6 +164,11 @@
 			}
 		},
 		"blocks": {
+			"emma/faq": {
+				"color": {
+					"background": true
+				}
+			},
 			"core/group": {
 				"color": {
 						"background": true
