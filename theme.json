@@ -1,12 +1,12 @@
 {
 	"version": 2,
 	"settings": {
+		"appearanceTools": true,
 		"custom": {
 			"buttonBackgroundColor": "var(--wp--preset--color--primary)",
 			"menuBreakpoint": "1100px"
 		},
 		"color": {
-			"link": true,
 			"background": false,
 			"defaultPalette": false,
 			"defaultGradients": false,
@@ -75,7 +75,6 @@
 			"wideSize": "1200px"
 		},
 		"typography": {
-			"lineHeight": true,
 			"letterSpacing": false,
 			"fontWeight": false,
 			"fontStyle": false,
@@ -147,9 +146,6 @@
 			]
 		},
 		"spacing": {
-			"padding": true,
-			"margin": true,
-			"blockGap": true,
 			"units": [
 				"rem",
 				"%"
@@ -172,23 +168,11 @@
 			"core/group": {
 				"color": {
 						"background": true
-				},
-				"border": {
-					"color": true,
-					"radius": true,
-					"style": true,
-					"width": true
 				}
 			},
 			"core/cover": {
 				"color": {
 						"background": true
-				},
-				"border": {
-					"color": true,
-					"radius": true,
-					"style": true,
-					"width": true
 				}
 			},
 			"core/button": {
@@ -199,14 +183,6 @@
 			"core/separator": {
 				"color": {
 						"background": true
-				}
-			},
-			"core/image": {
-				"border": {
-					"color": true,
-					"radius": true,
-					"style": true,
-					"width": true
 				}
 			}
 		}
