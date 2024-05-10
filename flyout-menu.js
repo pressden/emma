@@ -1,4 +1,4 @@
-window.onload = ( event ) => {
+window.addEventListener("load", (event) => {
 	const flyoutMenu = document.querySelector( '#flyout-menu' );
 		if ( ! flyoutMenu ) {
 			return;
@@ -131,7 +131,7 @@ window.onload = ( event ) => {
 			elToFocus.focus();
 		}
 	}
-};
+});
 
 function getSiblings( el ) {
 	return Array.prototype.filter.call(el.parentNode.children, function (sibling) {
