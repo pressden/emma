@@ -45,10 +45,10 @@ function flyout_menu_shortcode ( $atts = array() ) {
     }
 
     if ( $menu_atts['secondary_menus'] ) {
-        $secondary_menu_ids = explode( ",", $menu_atts['menus'] );
+        $secondary_menu_ids = explode( ",", $menu_atts['secondary_menus'] );
         $secondary_args = array(
             'post_type' => 'wp_navigation',
-            'post__in'  => $menu_ids
+            'post__in'  => $secondary_menu_ids
         );
 
         $secondary_query = new WP_Query( $secondary_args );
