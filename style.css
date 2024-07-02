@@ -152,8 +152,6 @@ summary {
 }
 
 .entry-content,
-.page-content,
-.widget_block,
 .wp-block-group.has-background,
 .wp-block-group.has-border-color,
 .wp-block-group:where( .alignfull:not( .is-layout-grid ) ),
@@ -183,60 +181,12 @@ summary {
 
 /* Flyout Menu Stuff */
 
-.flyout-menu-opener {
-	> a {
-		position: relative;
-    display: block;
-    margin: 0;
-    height: 3rem;
-    min-width: 3rem;
-    padding: 0.5rem 1rem;
-    text-decoration: none !important;
-		text-indent: -999rem;
-    white-space: nowrap;
-    overflow: hidden;
-
-		&::before {
-			content: "";
-			-webkit-mask-image: url( assets/icons/menu-alt.svg );
-			mask-image: url( assets/icons/menu-alt.svg );
-			-webkit-mask-repeat: no-repeat;
-			mask-repeat: no-repeat;
-			-webkit-mask-position: center;
-			mask-position: center;
-			-webkit-mask-origin: content-box;
-			mask-origin: content-box;
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			padding-top: inherit;
-			padding-bottom: inherit;
-			padding-left: 0;
-			padding-right: 0;
-			text-indent: 0;
-			background-color: currentColor;
-		}
-	}
-}
-
-.flyout-menu-closer.close-icon {
-	position: relative;
-	margin: 0;
-	min-height: 3rem;
-	width: 3rem;
-	padding: 0.5rem 1rem;
-	margin-left: auto;
-	text-decoration: none !important;
-	text-indent: -999rem;
-	white-space: nowrap;
-	overflow: hidden;
-
+.flyout-menu-opener > a,
+.flyout-menu-closer.close-icon,
+.flyout-menu .menu-back,
+.flyout-menu summary {
 	&::before {
 		content: "";
-		-webkit-mask-image: url( assets/icons/no-alt.svg );
-		mask-image: url( assets/icons/no-alt.svg );
 		-webkit-mask-repeat: no-repeat;
 		mask-repeat: no-repeat;
 		-webkit-mask-position: center;
@@ -244,16 +194,45 @@ summary {
 		-webkit-mask-origin: content-box;
 		mask-origin: content-box;
 		position: absolute;
-		top: 0;
-		left: 0;
-		height: 100%;
-		width: 100%;
-		padding-top: inherit;
-		padding-bottom: inherit;
-		padding-left: 0;
-		padding-right: 0;
-		text-indent: 0;
 		background-color: currentColor;
+		top: 0;
+		height: 100%;
+	}
+}
+
+.flyout-menu-opener {
+	> a {
+		position: relative;
+    display: block;
+    margin: 0;
+    height: 3rem;
+    min-width: 3rem;
+		text-indent: -999rem;
+    white-space: nowrap;
+    overflow: hidden;
+
+		&:before {
+			-webkit-mask-image: url( assets/icons/menu-alt.svg );
+			mask-image: url( assets/icons/menu-alt.svg );
+			left: 0;
+			width: 100%;
+			padding: 0.5rem 0;
+		}
+	}
+}
+
+.flyout-menu-closer.close-icon {
+	position: relative;
+	min-height: 3rem;
+	width: 3rem;
+	margin-left: auto;
+
+	&:before {
+		-webkit-mask-image: url( assets/icons/no-alt.svg );
+		mask-image: url( assets/icons/no-alt.svg );
+		left: 0;
+		width: 100%;
+		padding: 0.5rem 0;
 	}
 }
 
@@ -269,7 +248,6 @@ body {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	margin: 0 !important;
 	z-index: 9;
 	background: rgba( 0, 0, 0, 0.25 );;
 	opacity: 0;
@@ -332,38 +310,13 @@ body {
 	.menu-back {
 		position: relative;
 		padding-left: 2.5rem;
-		cursor: pointer;
 		font-size: 0.8em;
 
-		&::marker {
-			content: '';
-			display: none;
-		}
-		&::before {
-			content: "";
+		&:before {
 			-webkit-mask-image: url( assets/icons/arrow-left-alt.svg );
 			mask-image: url( assets/icons/arrow-left-alt.svg );
-			-webkit-mask-repeat: no-repeat;
-			mask-repeat: no-repeat;
-			-webkit-mask-position: center;
-			mask-position: center;
-			-webkit-mask-origin: content-box;
-			mask-origin: content-box;
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			padding-top: inherit;
-			padding-bottom: inherit;
-			padding-left: 0;
-			padding-right: 0;
-			text-indent: 0;
-			background-color: currentColor;
 			left: 1rem;
-			right: auto;
 			width: 1rem;
-			padding: 0;
 		}
 	}
 
@@ -376,32 +329,12 @@ body {
 			content: '';
 			display: none;
 		}
-		&::before {
-			content: "";
+		&:before {
 			-webkit-mask-image: url( assets/icons/arrow-left-alt.svg );
 			mask-image: url( assets/icons/arrow-left-alt.svg );
-			-webkit-mask-repeat: no-repeat;
-			mask-repeat: no-repeat;
-			-webkit-mask-position: center;
-			mask-position: center;
-			-webkit-mask-origin: content-box;
-			mask-origin: content-box;
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			padding-top: inherit;
-			padding-bottom: inherit;
-			padding-left: 0;
-			padding-right: 0;
-			text-indent: 0;
-			background-color: currentColor;
-			transform: rotate( 180deg );
-			left: auto;
 			right: 1rem;
 			width: 1.5rem;
-			padding: 0;
+			transform: rotate( 180deg );
 		}
 	}
 

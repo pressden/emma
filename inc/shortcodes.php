@@ -61,7 +61,7 @@ function flyout_menu_shortcode ( $atts = array() ) {
 
     <div class="flyout-menu__background flyout-menu-closer focus-trap"></div>
     <div style="transform: translateX( 100% );" id="flyout-menu" class="flyout-menu focus-trap">
-        <button class="flyout-menu-closer close-icon">Close Menu</button>
+        <button class="flyout-menu-closer close-icon"><span class="screen-reader-text">Close Menu</span></button>
         <div class="flyout-menu__inner-container">
             <div class="flyout-menu__menus">
                 <div class="top-menu__inner-container menu-container">
