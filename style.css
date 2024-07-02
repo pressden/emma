@@ -158,7 +158,7 @@ summary {
 .widget_block,
 .wp-block-group.has-background,
 .wp-block-group.has-border-color,
-.wp-block-group:where( .alignfull ),
+.wp-block-group:where( .alignfull:not( .is-layout-grid ) ),
 .wp-block-cover__inner-container,
 .emma-container.has-background, /* .emma-container used in various custom blocks as a replication of .wp-block-group */
 .emma-container.has-border-color {
