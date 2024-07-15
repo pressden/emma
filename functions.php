@@ -80,31 +80,6 @@ function emma_global_styles_menu_breakpoint() {
 }
 add_action( 'wp_enqueue_scripts', 'emma_global_styles_menu_breakpoint', 100 );
 
-function menu_output( $menu_array, $parent_menu_name ) {
-  foreach( $menu_array as $menu_item ) {
-    if ( str_starts_with( $menu_item['blockName'], 'core/navigation' ) ) { ?>
-      <li>
-        <?php if ( $menu_item['innerBlocks'] ) {?>
-          <details>
-            <summary><?= $menu_item['attrs']['label']; ?></summary>
-            <div class="submenu menu-container">
-              <div class="submenu__inner-container">
-                <ul>
-                  <li><button class="menu-back"><?= $parent_menu_name; ?></button></li>
-                  <li class="top-level-menu-item"><a href="<?= $menu_item['attrs']['url'] ?>"><?= $menu_item['attrs']['label']; ?></a></li>
-                  <?php menu_output( $menu_item['innerBlocks'], $menu_item['attrs']['label'] ); ?>
-                </ul>
-              </div>
-            </div>
-          </details>
-        <?php } elseif ( ! str_contains( $menu_item['attrs']['className'] ?? '', 'flyout-menu-opener' ) ) { ?>
-          <a href="<?= $menu_item['attrs']['url'] ?>"><?= $menu_item['attrs']['label']; ?></a>
-        <?php } ?>
-      </li>
-    <?php }
-  }
-}
-
 /**
  * Prevents posts set to noindex via Yoast SEO plugin from appearing in site search
  */

@@ -7,17 +7,17 @@
  * @since 0.1
  */
 
-function year_shortcode () {
+function emma_year_shortcode () {
     return date_i18n( 'Y' );
 }
-add_shortcode( 'year', 'year_shortcode' );
+add_shortcode( 'year', 'emma_year_shortcode' );
 
-function site_name_shortcode () {
+function emma_site_name_shortcode () {
     return get_option( 'blogname' );
 }
-add_shortcode( 'site_name', 'site_name_shortcode' );
+add_shortcode( 'site_name', 'emma_site_name_shortcode' );
 
-function flyout_menu_shortcode ( $atts = array() ) {
+function emma_flyout_menu_shortcode ( $atts = array() ) {
     $atts = array_change_key_case( (array) $atts, CASE_LOWER );
     $menu_atts = shortcode_atts(
         array(
@@ -72,7 +72,7 @@ function flyout_menu_shortcode ( $atts = array() ) {
                         while ( $query->have_posts() ) {
                             $query->the_post();
                             $menu_array = parse_blocks( get_the_content() );
-                            menu_output( $menu_array, 'Main Menu' );
+                            emma_menu_output( $menu_array, 'Main Menu' );
                         }
                         ?>
 
@@ -86,7 +86,7 @@ function flyout_menu_shortcode ( $atts = array() ) {
                             while ( $secondary_query->have_posts() ) {
                                 $secondary_query->the_post();
                                 $menu_array = parse_blocks( get_the_content() );
-                                menu_output( $menu_array, 'Main Menu' );
+                                emma_menu_output( $menu_array, 'Main Menu' );
                             }
                             ?>
 
@@ -104,4 +104,29 @@ function flyout_menu_shortcode ( $atts = array() ) {
     <?php
     return ob_get_clean();
 }
-add_shortcode ('flyout_menu', 'flyout_menu_shortcode');
+add_shortcode ('flyout_menu', 'emma_flyout_menu_shortcode');
+
+function emma_menu_output( $menu_array, $parent_menu_name ) {
+    foreach( $menu_array as $menu_item ) {
+      if ( str_starts_with( $menu_item['blockName'], 'core/navigation' ) ) { ?>
+        <li>
+          <?php if ( $menu_item['innerBlocks'] ) {?>
+            <details>
+              <summary><?= $menu_item['attrs']['label']; ?></summary>
+              <div class="submenu menu-container">
+                <div class="submenu__inner-container">
+                  <ul>
+                    <li><button class="menu-back"><?= $parent_menu_name; ?></button></li>
+                    <li class="top-level-menu-item"><a href="<?= $menu_item['attrs']['url'] ?>"><?= $menu_item['attrs']['label']; ?></a></li>
+                    <?php emma_menu_output( $menu_item['innerBlocks'], $menu_item['attrs']['label'] ); ?>
+                  </ul>
+                </div>
+              </div>
+            </details>
+          <?php } elseif ( ! str_contains( $menu_item['attrs']['className'] ?? '', 'flyout-menu-opener' ) ) { ?>
+            <a href="<?= $menu_item['attrs']['url'] ?>"><?= $menu_item['attrs']['label']; ?></a>
+          <?php } ?>
+        </li>
+      <?php }
+    }
+  }
