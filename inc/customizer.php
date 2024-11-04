@@ -61,6 +61,28 @@ function emma_customize_register( $wp_customize ) {
 			'description' => __( 'This code will output immediately before the closing <code>' . esc_html( '</body>' ) . '</code> tag in the document source.', 'emma' ),
 		)
 	);
+
+	$wp_customize->add_section(
+		'emma_updates',
+		array(
+			'priority'       => 100,
+			'theme_supports' => '',
+			'title'          => __( 'Update Settings', 'emma' ),
+			'description'    => '',
+		)
+	);
+
+	$wp_customize->add_setting( 'disable_automatic_updates' );
+	$wp_customize->add_control(
+		'disable_automatic_updates',
+		array(
+			'type'        => 'checkbox',
+			'priority'    => 10,
+			'section'     => 'emma_updates',
+			'label'       => __( 'Disable Automatic Updates', 'emma' ),
+			'description' => __( 'Disables all WordPress, theme, and plugin automatic updates.', 'emma' ),
+		)
+	);
 }
 add_action( 'customize_register', 'emma_customize_register' );
 
@@ -87,3 +109,14 @@ function emma_footer_scripts() {
 	echo get_theme_mod( 'footer_scripts' );
 }
 add_action( 'wp_footer', 'emma_footer_scripts' );
+
+/**
+ * Disables automatic updates if option is selected
+ */
+function emma_disabled_automatic_updates() {
+	if( get_theme_mod( 'disable_automatic_updates' ) ) {
+		return true;
+	}
+	return false;
+}
+add_filter( 'automatic_updater_disabled', 'emma_disabled_automatic_updates' );
