@@ -4,7 +4,7 @@ Theme URI: https://github.com/pressden/emma
 Author: D.S. Webster | Eric Michel
 Author URI: https://github.com/pressden
 Description: Emma is a highly customizable parent theme powered by blocks.
-Version: 2.1
+Version: 2.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: emma
@@ -62,7 +62,7 @@ learned with others.
 /* Full Height Calculations */
 
 body {
-	--full-height: calc( 100vh - var( --admin-bar-height ) );
+	--full-height: calc( 100svh - var( --admin-bar-height ) );
 }
 
 body.admin-bar {
@@ -74,10 +74,10 @@ body.admin-bar {
 }
 
 .block-editor {
-	--full-height: calc( 100vh - 139px );
+	--full-height: calc( 100svh - 139px );
 
 	@media screen and ( min-width: 782px ) {
-		--full-height: calc( 100vh - 81px );
+		--full-height: calc( 100svh - 81px );
 	}
 }
 
