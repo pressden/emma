@@ -108,7 +108,7 @@ add_shortcode ('flyout_menu', 'emma_flyout_menu_shortcode');
 
 function emma_menu_output( $menu_array, $parent_menu_name ) {
   foreach( $menu_array as $menu_item ) {
-    if ( str_starts_with( $menu_item['blockName'], 'core/navigation' ) ) { ?>
+    if ( $menu_item['blockName'] && str_starts_with( $menu_item['blockName'], 'core/navigation' ) ) { ?>
     <li>
       <?php if ( $menu_item['innerBlocks'] ) {?>
       <details>
