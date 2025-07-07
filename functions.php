@@ -21,7 +21,7 @@ function emma_enqueue_frontend() {
   wp_enqueue_style( 'emma', $stylesheet, null, $theme_version );
 
   $flyout_menu_js = get_template_directory_uri() . '/flyout-menu.js';
-  wp_enqueue_script( 'emma-flyout-menu', $flyout_menu_js, null, $theme_version );
+  wp_enqueue_script( 'emma-flyout-menu', $flyout_menu_js, null, $theme_version, true );
 }
 add_action( 'wp_enqueue_scripts', 'emma_enqueue_frontend' );
 
