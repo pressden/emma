@@ -26,6 +26,18 @@ function emma_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting( 'early_homepage_header_scripts' );
+	$wp_customize->add_control(
+		'early_homepage_header_scripts',
+		array(
+			'type'        => 'textarea',
+			'priority'    => 10,
+			'section'     => 'emma_scripts',
+			'label'       => __( 'Early Homepage Header Scripts', 'emma' ),
+			'description' => __( 'This code will output as early as possible after the opening <code>' . esc_html( '<head>' ) . '</code> tag on the homepage. Useful for preloading the homepage LCP image.', 'emma' ),
+		)
+	);
+
 	$wp_customize->add_setting( 'early_header_scripts' );
 	$wp_customize->add_control(
 		'early_header_scripts',
@@ -34,7 +46,7 @@ function emma_customize_register( $wp_customize ) {
 			'priority'    => 10,
 			'section'     => 'emma_scripts',
 			'label'       => __( 'Early Header Scripts', 'emma' ),
-			'description' => __( 'This code will output as early as possible after the opening <code>' . esc_html( '<head>' ) . '</code> tag in the document source.', 'emma' ),
+			'description' => __( 'This code will output as early as possible after the opening <code>' . esc_html( '<head>' ) . '</code> tag on all pages.', 'emma' ),
 		)
 	);
 
@@ -46,7 +58,7 @@ function emma_customize_register( $wp_customize ) {
 			'priority'    => 10,
 			'section'     => 'emma_scripts',
 			'label'       => __( 'Late Header Scripts', 'emma' ),
-			'description' => __( 'This code will output immediately before the closing <code>' . esc_html( '</head>' ) . '</code> tag in the document source.', 'emma' ),
+			'description' => __( 'This code will output immediately before the closing <code>' . esc_html( '</head>' ) . '</code> tag on all pages.', 'emma' ),
 		)
 	);
 
@@ -58,7 +70,7 @@ function emma_customize_register( $wp_customize ) {
 			'priority'    => 10,
 			'section'     => 'emma_scripts',
 			'label'       => __( 'Footer Scripts', 'emma' ),
-			'description' => __( 'This code will output immediately before the closing <code>' . esc_html( '</body>' ) . '</code> tag in the document source.', 'emma' ),
+			'description' => __( 'This code will output immediately before the closing <code>' . esc_html( '</body>' ) . '</code> tag on all pages.', 'emma' ),
 		)
 	);
 
@@ -85,6 +97,16 @@ function emma_customize_register( $wp_customize ) {
 	);
 }
 add_action( 'customize_register', 'emma_customize_register' );
+
+/**
+ * Echo early homepage header scripts into wp_head().
+ */
+function emma_early_homepage_header_scripts() {
+	if ( is_front_page() ) {
+		echo get_theme_mod( 'early_homepage_header_scripts' );
+	}
+}
+add_action( 'wp_head', 'emma_early_homepage_header_scripts', 1 );
 
 /**
  * Echo early header scripts into wp_head().

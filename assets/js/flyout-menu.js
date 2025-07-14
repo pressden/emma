@@ -28,6 +28,8 @@ window.addEventListener("load", (event) => {
 	} );
 
 	function openMenuDrawer() {
+		flyoutMenu.style.display = 'block';
+
 		setTimeout( () => {
 			document.body.classList.add( 'flyout-menu-open' );
 		});
