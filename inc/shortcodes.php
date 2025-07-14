@@ -7,15 +7,20 @@
  * @since 0.1
  */
 
+function emma_add_shortcodes() {
+  add_shortcode( 'year', 'emma_year_shortcode' );
+  add_shortcode( 'site_name', 'emma_site_name_shortcode' );
+  add_shortcode( 'flyout_menu', 'emma_flyout_menu_shortcode' );
+}
+add_action( 'init', 'emma_add_shortcodes' );
+
 function emma_year_shortcode () {
   return date_i18n( 'Y' );
 }
-add_shortcode( 'year', 'emma_year_shortcode' );
 
 function emma_site_name_shortcode () {
   return get_option( 'blogname' );
 }
-add_shortcode( 'site_name', 'emma_site_name_shortcode' );
 
 function emma_flyout_menu_shortcode ( $atts = array() ) {
   $atts = array_change_key_case( (array) $atts, CASE_LOWER );
@@ -56,11 +61,14 @@ function emma_flyout_menu_shortcode ( $atts = array() ) {
     $secondary_query = new WP_Query( $secondary_args );
   }
 
+  wp_enqueue_script( 'emma-flyout-menu' );
   ob_start();
+  wp_print_styles( 'emma-flyout-menu' );
+
   ?>
 
   <div class="flyout-menu__background flyout-menu-closer focus-trap"></div>
-  <div style="transform: translateX( 100% );" id="flyout-menu" class="flyout-menu focus-trap">
+  <div style="transform: translateX( 100% ); display: none;" id="flyout-menu" class="flyout-menu focus-trap">
     <button class="flyout-menu-closer close-icon"><span class="screen-reader-text">Close Menu</span></button>
     <div class="flyout-menu__inner-container">
       <div class="flyout-menu__menus">
@@ -104,7 +112,6 @@ function emma_flyout_menu_shortcode ( $atts = array() ) {
   <?php
   return ob_get_clean();
 }
-add_shortcode ('flyout_menu', 'emma_flyout_menu_shortcode');
 
 function emma_menu_output( $menu_array, $parent_menu_name ) {
   foreach( $menu_array as $menu_item ) {
