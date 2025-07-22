@@ -179,7 +179,8 @@ summary {
 	max-width: 100% !important;
 }
 
-.flyout-menu-opener {
+.flyout-menu-opener,
+.flyout-search-opener {
 	> a {
 		position: relative;
     display: block;
@@ -207,6 +208,15 @@ summary {
 			height: 100%;
 			width: 100%;
 			padding: 0.5rem 0;
+		}
+	}
+}
+
+.flyout-search-opener {
+	& > a {
+		&:before {
+			-webkit-mask-image: url( /wp-content/themes/emma/assets/icons/search.svg );
+			mask-image: url( /wp-content/themes/emma/assets/icons/search.svg );
 		}
 	}
 }

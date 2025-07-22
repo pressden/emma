@@ -1,0 +1,42 @@
+.flyout-search__background {
+	.flyout-search-open & {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+.flyout-search {
+  position: fixed;
+  top: var( --admin-bar-height );
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  visibility: hidden;
+	transition: visibility 0.2s,transform 0.2s ease;
+
+  .flyout-search-open & {
+    transform: translateY( 0 ) !important;
+    visibility: visible;
+		transition: transform 0.2s ease;
+  }
+
+  .wp-block-search {
+    flex-grow: 1;
+  }
+
+  .wp-block-search__input {
+    border-right: 0;
+    border-color: var( --wp--preset--color--primary );
+  }
+
+  .wp-block-search__button {
+    margin-left: 0;
+  }
+}
+
+.flyout-search-closer.close-icon {
+  display: block;
+  border: 0;
+  background-color: white;
+  margin-right: -1rem;
+}

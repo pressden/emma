@@ -17,10 +17,26 @@ require_once get_template_directory() . '/inc/customizer.php';
 function emma_register_flyout_menu() {
 	$theme_version = wp_get_theme( get_template() )->get( 'Version' );
 
+  $flyout_common_stylesheet = get_template_directory_uri() . '/assets/css/flyout-common.css';
+  wp_register_style( 'emma-flyout-common', $flyout_common_stylesheet, null, $theme_version );
 	$flyout_menu_stylesheet = get_template_directory_uri() . '/assets/css/flyout-menu.css';
-	wp_register_style( 'emma-flyout-menu', $flyout_menu_stylesheet, null, $theme_version );
+	wp_register_style( 'emma-flyout-menu', $flyout_menu_stylesheet, array( 'emma-flyout-common' ), $theme_version );
+  $flyout_search_stylesheet = get_template_directory_uri() . '/assets/css/flyout-search.css';
+  wp_register_style( 'emma-flyout-search', $flyout_search_stylesheet, array( 'emma-flyout-common' ), $theme_version );
+
+  wp_register_script('emma-flyout-early', '', array(), $theme_version, false); // Enqueue a dummy script in head that will carry our inline code
+  $js_file = get_template_directory() . '/assets/js/flyout-early.js';
+  if (file_exists($js_file)) {
+    $inline_script = file_get_contents($js_file);
+    wp_add_inline_script('emma-flyout-early', $inline_script); // Add inline script to the head dependency
+  }  
+
+  $flyout_common_js = get_template_directory_uri() . '/assets/js/flyout-common.js';
+  wp_register_script( 'emma-flyout-common', $flyout_common_js, array(), $theme_version, true );
 	$flyout_menu_js = get_template_directory_uri() . '/assets/js/flyout-menu.js';
-	wp_register_script( 'emma-flyout-menu', $flyout_menu_js, null, $theme_version, true );
+	wp_register_script( 'emma-flyout-menu', $flyout_menu_js, array( 'emma-flyout-common', 'emma-flyout-early' ), $theme_version, true );
+  $flyout_search_js = get_template_directory_uri() . '/assets/js/flyout-search.js';
+  wp_register_script( 'emma-flyout-search', $flyout_search_js, array( 'emma-flyout-common', 'emma-flyout-early' ), $theme_version, true );
 }
 add_action( 'init', 'emma_register_flyout_menu' );
 
