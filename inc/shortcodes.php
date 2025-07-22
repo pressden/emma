@@ -10,6 +10,7 @@
 function emma_add_shortcodes() {
   add_shortcode( 'year', 'emma_year_shortcode' );
   add_shortcode( 'site_name', 'emma_site_name_shortcode' );
+  add_shortcode( 'flyout_search', 'emma_search_menu_shortcode' );
   add_shortcode( 'flyout_menu', 'emma_flyout_menu_shortcode' );
 }
 add_action( 'init', 'emma_add_shortcodes' );
@@ -21,6 +22,27 @@ function emma_year_shortcode () {
 function emma_site_name_shortcode () {
   return get_option( 'blogname' );
 }
+
+function emma_search_menu_shortcode ( $atts = array() ) {
+  wp_enqueue_script( 'emma-flyout-search' );
+  ob_start();
+  wp_print_styles( 'emma-flyout-search' );
+  ?>
+
+  <div class="flyout-search__background flyout-search-closer focus-trap"></div>
+  <!-- wp:group {"className":"flyout-search","backgroundColor":"white","layout":{"type":"constrained","contentSize":""}} -->
+  <div id="flyout-search" style="transform: translateY( -100% ); display: none;" class="wp-block-group flyout-search has-white-background-color has-background">
+    <!-- wp:group {"style":{"spacing":{"blockGap":"0"}},"layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"left"}} -->
+    <div class="wp-block-group">
+      <!-- wp:search {"label":"","showLabel":false,"placeholder":"Search","buttonText":"Search","buttonUseIcon":true} /-->
+      <button class="flyout-search-closer close-icon"><span class="screen-reader-text">Close Menu</span></button>
+    </div><!-- /wp:group -->
+  </div><!-- /wp:group -->
+
+  <?php
+  return do_blocks( ob_get_clean() );
+}
+add_shortcode ('flyout_search', 'emma_search_menu_shortcode');
 
 function emma_flyout_menu_shortcode ( $atts = array() ) {
   $atts = array_change_key_case( (array) $atts, CASE_LOWER );

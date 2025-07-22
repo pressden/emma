@@ -1,142 +1,138 @@
-window.addEventListener("load", (event) => {
-	const flyoutMenu = document.querySelector( '#flyout-menu' );
-		if ( ! flyoutMenu ) {
-			return;
-		}
+const FlyoutMenu = (function() {
+  let flyoutMenu, summaryTags, detailsTags, backButtons, openers, closers, inertEls;
+  
+  function open() {
+    if (!flyoutMenu) {
+      console.warn('Flyout menu not initialized');
+      return;
+    }
 
-	const summaryTags = flyoutMenu.querySelectorAll( 'summary' );
-	const detailsTags = flyoutMenu.querySelectorAll( 'details' );
-	const backButtons = flyoutMenu.querySelectorAll( 'details .menu-back' );
-	const openers = document.querySelectorAll( '.flyout-menu-opener a' );
-	const closers = document.querySelectorAll( '.flyout-menu-closer' );
-	const inertEls = getSiblings( flyoutMenu.parentNode );
+    flyoutMenu.style.display = 'block';
 
-	openers.forEach( ( opener ) => {
-		opener.setAttribute( 'aria-controls', 'flyout-menu' );
-		opener.setAttribute( 'aria-expanded', 'false' );
-		opener.addEventListener( 'click', function ( event ) {
-			event.preventDefault();
-			openMenuDrawer();
-		} );
-	} );
+    setTimeout(() => {
+      document.body.classList.add('flyout-menu-open');
+    });
 
-	closers.forEach( ( closer ) => {
-		closer.addEventListener( 'click', function ( event ) {
-			event.preventDefault();
-			closeMenuDrawer();
-		} );
-	} );
+    openers.forEach((opener) => {
+      opener.setAttribute('aria-expanded', 'true');
+    });
 
-	function openMenuDrawer() {
-		flyoutMenu.style.display = 'block';
+    trapFocus(inertEls, document.querySelector('.flyout-menu-closer.menu-back'));
+  }
+  
+  function close() {
+    if (!flyoutMenu) {
+      console.warn('Flyout menu not initialized');
+      return;
+    }
 
-		setTimeout( () => {
-			document.body.classList.add( 'flyout-menu-open' );
-		});
+    detailsTags.forEach((detailsTag) => {
+      detailsTag.classList.remove('submenu-open');
+      setTimeout(() => {
+        detailsTag.removeAttribute('open');
+      }, 50);
+    });
 
-		openers.forEach( ( opener ) => {
-			opener.setAttribute( 'aria-expanded', 'true' );
-		} );
+    releaseFocus(inertEls, openers[0]);
+    document.body.classList.remove('flyout-menu-open');
 
-		trapFocus( inertEls, document.querySelector( '.flyout-menu-closer.menu-back' ) );
-	}
+    flyoutMenu.querySelectorAll('.has-open-submenu').forEach((item) => {
+      item.classList.remove('has-open-submenu');
+    });
 
-	function closeMenuDrawer() {
-		detailsTags.forEach( ( detailsTag ) => {
-			detailsTag.classList.remove( 'submenu-open' );
-			setTimeout( () => {
-				detailsTag.removeAttribute( 'open' );
-			}, 50 );
-		} );
+    openers.forEach((opener) => {
+      opener.setAttribute('aria-expanded', 'false');
+    });
+  }
+    
+  function detailsCloseDelay(detailsElement) {
+    let animationStart;
 
-		releaseFocus( inertEls );
-		document.body.classList.remove( 'flyout-menu-open' );
+    const handleAnimation = (time) => {
+      if (animationStart === undefined) {
+        animationStart = time;
+      }
 
-		flyoutMenu.querySelectorAll( '.has-open-submenu' ).forEach( ( item ) => {
-			item.classList.remove( 'has-open-submenu' );
-		} );
+      const elapsedTime = time - animationStart;
 
-		openers.forEach( ( opener ) => {
-			opener.setAttribute( 'aria-expanded', 'false' );
-		} );
-	}
+      if (elapsedTime < 300) {
+        window.requestAnimationFrame(handleAnimation);
+      } else {
+        detailsElement.removeAttribute('open');
+      }
+    };
 
-	summaryTags.forEach( ( summaryTag ) => {
-		summaryTag.addEventListener('click', () => {
-			let detailsElement = summaryTag.closest( 'details' );
-			let parentMenu = detailsElement.closest( '.menu-container' );
+    window.requestAnimationFrame(handleAnimation);
+  }
+  
+  function init() {
+    flyoutMenu = document.querySelector('#flyout-menu');
+    if (!flyoutMenu) {
+      return;
+    }
 
-			setTimeout( () => {
-				detailsElement.classList.add( 'submenu-open' );
-				parentMenu.classList.add( 'has-open-submenu' );
-				focusAfterAnimation( detailsElement.querySelector( '.menu-back' ) );
-			}, 50 );
-		} );
-	} );
+    summaryTags = flyoutMenu.querySelectorAll('summary');
+    detailsTags = flyoutMenu.querySelectorAll('details');
+    backButtons = flyoutMenu.querySelectorAll('details .menu-back');
+    openers = document.querySelectorAll('.flyout-menu-opener a');
+    closers = document.querySelectorAll('.flyout-menu-closer');
+    inertEls = getSiblings(flyoutMenu.parentNode);
 
-	backButtons.forEach( ( backButton ) => {
-		backButton.addEventListener( 'click', () => {
-			let detailsElement = backButton.closest( 'details' );
-			detailsElement.classList.remove( 'submenu-open' );
+    openers.forEach((opener) => {
+      opener.setAttribute('aria-controls', 'flyout-menu');
+      opener.setAttribute('aria-expanded', 'false');
+      opener.addEventListener('click', function(event) {
+        event.preventDefault();
+        open();
+      });
+    });
 
-			let parentMenu = detailsElement.closest( '.menu-container' );
-			parentMenu.classList.remove( 'has-open-submenu' );
+    closers.forEach((closer) => {
+      closer.addEventListener('click', function(event) {
+        event.preventDefault();
+        close();
+      });
+    });
 
-			detailsCloseDelay( detailsElement );
-			focusAfterAnimation( detailsElement.querySelector( 'summary' ) );
-		} );
-	} );
+    summaryTags.forEach((summaryTag) => {
+      summaryTag.addEventListener('click', () => {
+        let detailsElement = summaryTag.closest('details');
+        let parentMenu = detailsElement.closest('.menu-container');
 
-	function detailsCloseDelay( detailsElement ) {
-		let animationStart;
+        setTimeout(() => {
+          detailsElement.classList.add('submenu-open');
+          parentMenu.classList.add('has-open-submenu');
+          focusAfterAnimation(flyoutMenu, detailsElement.querySelector('.menu-back'));
+        }, 50);
+      });
+    });
 
-		const handleAnimation = ( time ) => {
-			if ( animationStart === undefined ) {
-				animationStart = time;
-			}
+    backButtons.forEach((backButton) => {
+      backButton.addEventListener('click', () => {
+        let detailsElement = backButton.closest('details');
+        detailsElement.classList.remove('submenu-open');
 
-			const elapsedTime = time - animationStart;
+        let parentMenu = detailsElement.closest('.menu-container');
+        parentMenu.classList.remove('has-open-submenu');
 
-			if ( elapsedTime < 300 ) {
-				window.requestAnimationFrame( handleAnimation );
-			} else {
-				detailsElement.removeAttribute( 'open' );
-			}
-		};
+        detailsCloseDelay(detailsElement);
+        focusAfterAnimation(flyoutMenu, detailsElement.querySelector('summary'));
+      });
+    });
 
-		window.requestAnimationFrame( handleAnimation );
-	}
+    if( flyoutMenuState == 'preopen' ) {
+      open();
+    }
+    flyoutMenuState = 'initialized';
+  }
+  
+  return {
+    open,
+    close,
+    init
+  };
+})();
 
-	function focusAfterAnimation ( elToFocus ) {
-		flyoutMenu.addEventListener( 'transitionend', function faa() {
-			elToFocus.focus();
-			this.removeEventListener( 'transitionend', faa );
-		} );
-	}
-
-	function trapFocus( inertEls, elToFocus = false ) {
-		inertEls.forEach( ( el ) => {
-			el.inert = true;
-		} );
-
-		if ( elToFocus ) {
-			focusAfterAnimation( elToFocus );
-		}
-	}
-
-	function releaseFocus( inertEls, elToFocus = false ) {
-		inertEls.forEach( ( el ) => {
-			el.inert = false;
-		} );
-
-		if ( elToFocus ) {
-			elToFocus.focus();
-		}
-	}
+window.addEventListener('load', (event) => {
+  FlyoutMenu.init();
 });
-
-function getSiblings( el ) {
-	return Array.prototype.filter.call(el.parentNode.children, function (sibling) {
-		return sibling !== el;
-	} );
-};
