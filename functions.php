@@ -10,6 +10,7 @@
 require_once get_template_directory() . '/inc/enqueues.php';
 require_once get_template_directory() . '/inc/shortcodes.php';
 require_once get_template_directory() . '/inc/customizer.php';
+require_once get_template_directory() . '/inc/block-css-lazy-loading.php';
 
 /**
  * Prevents posts set to noindex via Yoast SEO plugin from appearing in site search
