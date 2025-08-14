@@ -17,41 +17,10 @@ function emma_enqueue_frontend() {
   wp_enqueue_style( 'emma', $stylesheet, null, $theme_version );
 
   if( is_front_page() ) {
-    $stylesheet_inline_file = get_template_directory() . '/style.css';
-    if (file_exists($stylesheet_inline_file)) {
-      $stylesheet_inline = file_get_contents($stylesheet_inline_file);
-      wp_add_inline_style('emma', $stylesheet_inline);
-    }
+    emma_lazy_load_and_inline_stylesheet( 'emma' );
   }
 }
 add_action( 'wp_enqueue_scripts', 'emma_enqueue_frontend' );
-
-/**
- * Lazy load homepage emma CSS for caching
- */
-function emma_lazy_load_homepage_css($html, $handle, $href, $media) {
-	// Only modify the theme CSS when it's already being loaded
-	if( is_front_page() && $handle === 'emma' ) {
-		// Replace the media attribute and add onload for lazy loading
-		$html = str_replace(
-			"media='all'",
-			"media='print' onload=\"this.media='all'; this.onload=null;\"",
-			$html
-		);
-			
-		// Fallback if media attribute is different or missing
-		if (strpos($html, "onload=") === false) {
-			$html = str_replace(
-				' />',
-				" media='print' onload=\"this.media='all'; this.onload=null;\" />",
-				$html
-			);
-		}
-	}
-	
-	return $html;
-}
-add_filter('style_loader_tag', 'emma_lazy_load_homepage_css', 10, 4);
 
 /**
  * Enqueue backend scripts for stuff that should always get loaded
