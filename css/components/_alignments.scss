@@ -1,0 +1,18 @@
+.alignleft,
+.alignright {
+	max-width: calc( 50% - var( --layout-spacer-x ) );
+
+	@media screen and ( max-width: 479px ) {
+		float: none !important;
+		max-width: 100%;
+		margin-left: auto !important;
+		margin-right: auto !important;
+	}
+}
+
+.alignfull {
+	margin-left: 0;
+	margin-right: 0;
+	width: 100% !important;
+	max-width: 100% !important;
+}

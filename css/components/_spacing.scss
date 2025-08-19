@@ -1,0 +1,46 @@
+.wp-site-blocks {
+	display: flex;
+	flex-direction: column;
+	min-height: var( --full-height );
+
+	> * {
+    margin-block-start: 0;
+	}
+
+	& main {
+		flex-grow: 1;
+	}
+
+	.entry-content {
+		/* adds default spacing between header and regular page content by adding top margin to the first block on the page - can be overridden on a page-by-page basis by setting the top margin of the last block to 0. */
+		> :first-child {
+			margin-block-start: var( --wp--style--block-gap );
+		}
+
+		/* adds default spacing between footer and regular page content by adding bottom margin to the last block on the page - can be overridden on a page-by-page basis by setting the bottom margin of the last block to 0. */
+		> :last-child {
+			margin-block-end: var( --wp--style--block-gap );
+		}
+	}
+}
+
+.entry-content,
+.wp-block-group.has-background,
+.wp-block-group.has-border-color,
+.wp-block-group:where( .alignfull:not( .is-layout-grid ) ),
+.wp-block-cover__inner-container,
+.emma-container.has-background, /* .emma-container used in various custom blocks as a replication of .wp-block-group */
+.emma-container.has-border-color {
+	> * {
+		width: calc( 100% - var( --layout-spacer-x ) * 2 );
+	}
+}
+
+.wp-block-group.has-background,
+.wp-block-group.has-border-color,
+.emma-container.has-background,
+.emma-container.has-border-color,
+.wp-block-cover {
+	padding-top: var( --wp--style--block-gap );
+	padding-bottom: var( --wp--style--block-gap );
+}

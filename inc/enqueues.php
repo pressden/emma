@@ -13,7 +13,7 @@
 function emma_enqueue_frontend() {
   $theme_version = wp_get_theme( get_template() )->get( 'Version' );
 
-  $stylesheet = get_template_directory_uri() . '/style.css';
+  $stylesheet = get_template_directory_uri() . '/css/theme.css';
   wp_enqueue_style( 'emma', $stylesheet, null, $theme_version );
 
   if( is_front_page() ) {
@@ -27,7 +27,7 @@ add_action( 'wp_enqueue_scripts', 'emma_enqueue_frontend' );
  */
 function emma_enqueue_editor() {
   $theme_version       = wp_get_theme( get_template() )->get( 'Version' );
-  $frontend_stylesheet = get_template_directory_uri() . '/style.css';
+  $frontend_stylesheet = get_template_directory_uri() . '/css/theme.css';
 
   wp_enqueue_style( 'emma', $frontend_stylesheet, null, $theme_version );
 }

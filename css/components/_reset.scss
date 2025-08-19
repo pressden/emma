@@ -1,0 +1,26 @@
+@layer reset {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+	}
+
+	p:empty {
+		display: none;
+	}
+
+	input,
+	button,
+	select,
+	optgroup,
+	textarea {
+		margin: 0;
+		font-family: inherit;
+		font-size: inherit;
+		line-height: inherit;
+	}
+
+	button {
+		cursor: pointer;
+	}
+}
