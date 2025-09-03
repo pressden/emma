@@ -1,0 +1,19 @@
+body {
+	--full-height: calc( 100svh - var( --admin-bar-height ) );
+}
+
+body.admin-bar {
+	--admin-bar-height: 46px;
+
+	@media screen and ( min-width: 782px ) {
+		--admin-bar-height: 32px;
+	}
+}
+
+.block-editor {
+	--full-height: calc( 100svh - 139px );
+
+	@media screen and ( min-width: 782px ) {
+		--full-height: calc( 100svh - 81px );
+	}
+}
