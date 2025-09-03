@@ -8,47 +8,16 @@
  */
 
 /**
- * Prevent WordPress from inlining CSS for specified block handles
- * by removing the 'path' from the style's extra data.
- * This forces WordPress to always load them as separate stylesheets.
- */
-function emma_prevent_block_css_inlining() {
-  $block_handles = apply_filters( 'emma_lazy_load_block_handles', array() );
-  
-  // Early return if no handles are specified
-  if ( empty( $block_handles ) ) {
-    return;
-  }
-  
-  foreach ( $block_handles as $handle ) {
-    // Get the registered style object
-    $style = wp_styles()->query( $handle, 'registered' );
-    if ( ! $style ) {
-      continue;
-    }
-    
-    // Remove the 'path' property to prevent inlining
-    // WordPress checks for this path to determine if it should inline the CSS
-    unset( $style->extra['path'] );
-    
-    // The CSS will now always be loaded as a <link> tag regardless of size
-    // and regardless of your styles_inline_size_limit setting
-  }
-}
-add_action( 'wp_enqueue_scripts', 'emma_prevent_block_css_inlining', PHP_INT_MAX );
-
-/**
  * Lazy load CSS for configured block handles
  */
-function emma_lazy_load_block_css( $html, $handle, $href, $media ) {
+function emma_lazy_load_stylesheets( $html, $handle, $href, $media ) {
   $lazy_handles = apply_filters( 'emma_lazy_load_css_handles', array() );
-  $block_handles = apply_filters( 'emma_lazy_load_block_handles', array() );
   
   // Merge both arrays to get all handles that should be lazy loaded
-  $all_lazy_handles = array_merge( $lazy_handles, $block_handles );
+  $all_lazy_handles = array_merge( $lazy_handles );
   
   // Early return if no handles are specified or current handle isn't in the list
-  if ( empty( $all_lazy_handles ) || ! in_array( $handle, $all_lazy_handles, true ) ) {
+  if ( empty( $lazy_handles ) || ! in_array( $handle, $lazy_handles, true ) ) {
     return $html;
   }
   
@@ -70,7 +39,37 @@ function emma_lazy_load_block_css( $html, $handle, $href, $media ) {
   
   return $html;
 }
-add_filter( 'style_loader_tag', 'emma_lazy_load_block_css', 10, 4 );
+add_filter( 'style_loader_tag', 'emma_lazy_load_stylesheets', 10, 4 );
+
+/**
+ * Prevent WordPress from inlining CSS for specified block handles by removing the 'path' from the style's extra data.
+ * This forces WordPress to always load them as separate stylesheets.
+ * Useful if you want to lazy load the block stylesheet because it is below the fold.
+ */
+function emma_prevent_block_css_inlining() {
+  $lazy_handles = apply_filters( 'emma_lazy_load_css_handles', array() );
+  
+  // Early return if no handles are specified
+  if ( empty( $lazy_handles ) ) {
+    return;
+  }
+  
+  foreach ( $lazy_handles as $handle ) {
+    // Get the registered style object
+    $style = wp_styles()->query( $handle, 'registered' );
+    if ( ! $style ) {
+      continue;
+    }
+    
+    // Remove the 'path' property to prevent inlining
+    // WordPress checks for this path to determine if it should inline the CSS
+    unset( $style->extra['path'] );
+    
+    // The CSS will now always be loaded as a <link> tag regardless of size
+    // and regardless of your styles_inline_size_limit setting
+  }
+}
+add_action( 'wp_enqueue_scripts', 'emma_prevent_block_css_inlining', PHP_INT_MAX );
 
 /**
  * Get the contents of an enqueued stylesheet
