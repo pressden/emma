@@ -1,14 +1,12 @@
 <?php
 /**
- * Filter the array of block handles that should be lazy loaded and prevented from inlining. Useful for blocks that will always be below-the-fold (e.g. the Social Icons block when only ever located in the footer).
+ * CSS Lazy Loading
  *
  * @since 2.5
- * 
- * @param array $handles Array of block CSS handles to lazy load
  */
 
 /**
- * Lazy load CSS for configured block handles
+ * Lazy load CSS for configured stylesheet handles
  */
 function emma_lazy_load_stylesheets( $html, $handle, $href, $media ) {
   $lazy_handles = apply_filters( 'emma_lazy_load_css_handles', array() );
