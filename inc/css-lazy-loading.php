@@ -7,12 +7,14 @@
 
 /**
  * Lazy load CSS for configured stylesheet handles
+ *
+ * @param string $html  The link tag HTML for the stylesheet
+ * @param string $handle The stylesheet handle
+ * @param string $href   The stylesheet URL
+ * @param string $media  The media attribute value
  */
 function emma_lazy_load_stylesheets( $html, $handle, $href, $media ) {
   $lazy_handles = apply_filters( 'emma_lazy_load_css_handles', array() );
-  
-  // Merge both arrays to get all handles that should be lazy loaded
-  $all_lazy_handles = array_merge( $lazy_handles );
   
   // Early return if no handles are specified or current handle isn't in the list
   if ( empty( $lazy_handles ) || ! in_array( $handle, $lazy_handles, true ) ) {
@@ -80,7 +82,7 @@ function emma_get_enqueued_stylesheet_contents( $handle ) {
   
   // Check if the style is registered
   if ( !isset($wp_styles->registered[$handle] ) ) {
-      return false;
+    return false;
   }
   
   $style = $wp_styles->registered[$handle];
@@ -91,7 +93,7 @@ function emma_get_enqueued_stylesheet_contents( $handle ) {
     $relative_path = str_replace( home_url(), '', $src );
     $file_path = ABSPATH . ltrim( $relative_path, '/' );
     
-    if ( file_exists( $file_path ) ) {
+    if ( file_exists( $file_path ) && is_readable( $file_path ) ) {
       return file_get_contents( $file_path );
     }
   }
@@ -112,6 +114,7 @@ function emma_lazy_load_stylesheet( $handle ) {
 
 /**
  * Lazy load and inline a stylesheet
+ * Useful if you want to prevent render blocking, but cache the stylesheet for other pages that will load it normally
  *
  * @param string $handle The handle of the stylesheet to lazy load and inline
  */
