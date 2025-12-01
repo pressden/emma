@@ -1,13 +1,5 @@
 body {
-	--full-height: calc( 100svh - var( --admin-bar-height ) );
-}
-
-body.admin-bar {
-	--admin-bar-height: 46px;
-
-	@media screen and ( min-width: 782px ) {
-		--admin-bar-height: 32px;
-	}
+	--full-height: calc( 100svh - var( --wp-admin--admin-bar--height, 0px ) );
 }
 
 .block-editor {
