@@ -153,7 +153,7 @@ function emma_menu_output( $menu_array, $parent_menu_name ) {
         </div>
       </details>
       <?php } elseif ( ! str_contains( $menu_item['attrs']['className'] ?? '', 'flyout-menu-opener' ) ) { ?>
-      <a href="<?= $menu_item['attrs']['url'] ?>"><?= $menu_item['attrs']['label']; ?></a>
+        <a href="<?= $menu_item['attrs']['url'] ?>" <?= ($menu_item['attrs']['opensInNewTab'] ?? false) ? 'target="_blank"' : '' ?>><?= $menu_item['attrs']['label']; ?></a>
       <?php } ?>
     </li>
     <?php }
