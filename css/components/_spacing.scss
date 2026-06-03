@@ -31,8 +31,23 @@
 .wp-block-cover__inner-container,
 .emma-container.has-background, /* .emma-container used in various custom blocks as a replication of .wp-block-group */
 .emma-container.has-border-color {
+	container-type: inline-size;
+
 	> * {
+		--layout-spacer-x: var( --layout-spacer-x-small );
 		width: calc( 100% - var( --layout-spacer-x ) * 2 );
+	}
+	
+	@container ( min-width: 480px ) {
+		> * {
+			--layout-spacer-x: var( --layout-spacer-x-medium );
+		}
+	}
+	
+	@container ( min-width: 1000px ) {
+		> * {
+			--layout-spacer-x: var( --layout-spacer-x-large );
+		}
 	}
 }
 
