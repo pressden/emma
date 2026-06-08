@@ -13,6 +13,6 @@
 .alignfull {
 	margin-left: 0;
 	margin-right: 0;
-	width: 100% !important;
+	grid-column: 1 / -1 !important;
 	max-width: 100% !important;
 }

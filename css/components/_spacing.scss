@@ -31,8 +31,13 @@
 .wp-block-cover__inner-container,
 .emma-container.has-background, /* .emma-container used in various custom blocks as a replication of .wp-block-group */
 .emma-container.has-border-color {
+	display: grid;
+	grid-template-columns: clamp( 1rem, 5%, 4rem ) minmax(0, 1fr) clamp( 1rem, 5%, 4rem );
+	justify-content: center;
+
 	> * {
-		width: calc( 100% - var( --layout-spacer-x ) * 2 );
+		width: 100%;
+		grid-column: 2;
 	}
 }
 
