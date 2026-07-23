@@ -34,6 +34,7 @@
 	display: grid;
 	grid-template-columns: clamp( 1rem, 5%, 4rem ) minmax(0, 1fr) clamp( 1rem, 5%, 4rem );
 	justify-content: center;
+	align-content: start;
 
 	> * {
 		width: 100%;
