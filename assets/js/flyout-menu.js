@@ -1,12 +1,13 @@
 const FlyoutMenu = (function() {
-  let flyoutMenu, summaryTags, detailsTags, backButtons, openers, closers, inertEls;
+  let flyoutMenu, summaryTags, detailsTags, backButtons, openers, closers, inertEls, activeOpener;
   
-  function open() {
+  function open( triggerOpener ) {
     if (!flyoutMenu) {
       console.warn('Flyout menu not initialized');
       return;
     }
 
+    activeOpener = triggerOpener || openers[0];
     flyoutMenu.style.display = 'block';
 
     setTimeout(() => {
@@ -33,7 +34,8 @@ const FlyoutMenu = (function() {
       }, 50);
     });
 
-    releaseFocus(inertEls, openers[0]);
+    releaseFocus(inertEls, activeOpener);
+    activeOpener = null;
     document.body.classList.remove('flyout-menu-open');
 
     flyoutMenu.querySelectorAll('.has-open-submenu').forEach((item) => {
@@ -83,7 +85,7 @@ const FlyoutMenu = (function() {
       opener.setAttribute('aria-expanded', 'false');
       opener.addEventListener('click', function(event) {
         event.preventDefault();
-        open();
+        open( opener );
       });
     });
 

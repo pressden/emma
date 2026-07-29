@@ -1,13 +1,14 @@
 const FlyoutSearch = (function() {
-  let flyoutSearch, openers, closers, inertEls;
+  let flyoutSearch, openers, closers, inertEls, activeOpener;
 
-  function open() {
+  function open( triggerOpener ) {
     if (!flyoutSearch) {
       console.warn('Flyout search not initialized');
       return;
     }
 
-    flyoutSearch.style.display = 'block';
+    activeOpener = triggerOpener || openers[0];
+    flyoutSearch.style.display = 'grid';
 
     setTimeout(() => {
       document.body.classList.add('flyout-search-open');
@@ -26,7 +27,8 @@ const FlyoutSearch = (function() {
       return;
     }
 
-    releaseFocus(inertEls);
+    releaseFocus(inertEls, activeOpener);
+    activeOpener = null;
     document.body.classList.remove('flyout-search-open');
 
     openers.forEach((opener) => {
@@ -49,7 +51,7 @@ const FlyoutSearch = (function() {
       opener.setAttribute('aria-expanded', 'false');
       opener.addEventListener('click', function(event) {
         event.preventDefault();
-        open();
+        open( opener );
       });
     });
 

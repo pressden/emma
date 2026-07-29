@@ -137,8 +137,8 @@ function emma_flyout_menu_shortcode ( $atts = array() ) {
 
 function emma_menu_output( $menu_array, $parent_menu_name ) {
   foreach( $menu_array as $menu_item ) {
-    if ( $menu_item['blockName'] && str_starts_with( $menu_item['blockName'], 'core/navigation' ) ) { ?>
-    <li>
+    if ( $menu_item['blockName'] && str_starts_with( $menu_item['blockName'], 'core/navigation' ) && ! str_contains( $menu_item['attrs']['className'] ?? '', 'flyout-menu-opener' ) ) { ?>
+    <li <?= isset( $menu_item['attrs']['className'] ) ? 'class="' . $menu_item['attrs']['className'] . '"' : '' ?>>
       <?php if ( $menu_item['innerBlocks'] ) {?>
       <details>
         <summary><?= $menu_item['attrs']['label']; ?></summary>
@@ -152,7 +152,7 @@ function emma_menu_output( $menu_array, $parent_menu_name ) {
         </div>
         </div>
       </details>
-      <?php } elseif ( ! str_contains( $menu_item['attrs']['className'] ?? '', 'flyout-menu-opener' ) ) { ?>
+      <?php } else { ?>
         <a href="<?= $menu_item['attrs']['url'] ?>" <?= ($menu_item['attrs']['opensInNewTab'] ?? false) ? 'target="_blank"' : '' ?>><?= $menu_item['attrs']['label']; ?></a>
       <?php } ?>
     </li>

@@ -30,9 +30,3 @@ function focusAfterAnimation( animatedEl, elToFocus ) {
     this.removeEventListener( 'transitionend', faa );
   } );
 }
-
-function getSiblings( el ) {
-	return Array.prototype.filter.call(el.parentNode.children, function (sibling) {
-		return sibling !== el;
-	} );
-};
