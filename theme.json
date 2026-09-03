@@ -1,5 +1,5 @@
 {
-	"version": 2,
+	"version": 3,
 	"settings": {
 		"appearanceTools": true,
 		"custom": {
@@ -72,9 +72,10 @@
 		},
 		"layout": {
 			"contentSize": "782px",
-			"wideSize": "1200px"
+			"wideSize": "1500px"
 		},
 		"typography": {
+			"defaultFontSizes": false,
 			"letterSpacing": false,
 			"fontWeight": false,
 			"fontStyle": false,
@@ -151,13 +152,49 @@
 				"%"
 			],
 			"customSpacingSize": false,
-			"spacingScale": {
-				"operator": "*",
-				"increment": 2,
-				"steps": 6,
-				"mediumStep": 1,
-				"unit": "rem"
-			}
+			"defaultSpacingSizes": false,
+			"spacingSizes": [
+				{
+					"name": "0",
+					"slug": "0",
+					"size": "0"
+				},
+				{
+					"name": "0.25rem",
+					"slug": "10",
+					"size": "0.25rem"
+				},
+				{
+					"name": "0.5rem",
+					"slug": "20",
+					"size": "0.5rem"
+				},
+				{
+					"name": "1rem",
+					"slug": "30",
+					"size": "1rem"
+				},
+				{
+					"name": "2rem",
+					"slug": "40",
+					"size": "2rem"
+				},
+				{
+					"name": "4rem",
+					"slug": "50",
+					"size": "4rem"
+				},
+				{
+					"name": "6rem",
+					"slug": "60",
+					"size": "6rem"
+				},
+				{
+					"name": "8rem",
+					"slug": "70",
+					"size": "8rem"
+				}
+			]
 		},
 		"blocks": {
 			"emma/faq": {
