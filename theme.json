@@ -161,37 +161,37 @@
 				},
 				{
 					"name": "0.25rem",
-					"slug": "10",
+					"slug": "30",
 					"size": "0.25rem"
 				},
 				{
 					"name": "0.5rem",
-					"slug": "20",
+					"slug": "40",
 					"size": "0.5rem"
 				},
 				{
 					"name": "1rem",
-					"slug": "30",
+					"slug": "50",
 					"size": "1rem"
 				},
 				{
 					"name": "2rem",
-					"slug": "40",
+					"slug": "60",
 					"size": "2rem"
 				},
 				{
 					"name": "4rem",
-					"slug": "50",
+					"slug": "70",
 					"size": "4rem"
 				},
 				{
 					"name": "6rem",
-					"slug": "60",
+					"slug": "75",
 					"size": "6rem"
 				},
 				{
 					"name": "8rem",
-					"slug": "70",
+					"slug": "80",
 					"size": "8rem"
 				}
 			]
