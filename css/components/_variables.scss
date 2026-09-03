@@ -1,7 +1,3 @@
 :root {
-	--layout-spacer-x: 1rem; /* TODO: swap to WP custom prop */
-
-	@media screen and ( min-width: 480px ) {
-		--layout-spacer-x: 2rem;
-	}
+	--layout-spacer-x: clamp(1rem, calc(8.333vw - 1.5rem), 2rem);
 }
